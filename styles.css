@@ -1,5 +1,7 @@
 html { 
-  scroll-behavior: smooth; 
+  background-color: #000000;
+  overflow-y: hidden;
+  overflow-x: hidden;
 } 
 .block {
   height: auto;
@@ -17,7 +19,7 @@ html {
     clear: both;
 }
 white {
-color: white; font-family: Monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+color: #FFFFFF; font-family: Monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
 }
 pink {
 color: #F97EEE; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
@@ -53,7 +55,5 @@ red {
 color: #FF0000; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;
 }
 body {
-background-color: black;
-overflow-y: hidden; /* Hide vertical scrollbar */
-overflow-x: hidden; /* Hide horizontal scrollbar */
+background-color: #000000;
 }
