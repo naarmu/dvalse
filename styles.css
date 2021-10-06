@@ -1,0 +1,12 @@
+.inner {
+  height: auto;
+  width: auto;
+}
+img {
+  height: auto;
+  width: 980px;
+  display: none
+}
+.inner:hover img {
+  display: block;
+}
