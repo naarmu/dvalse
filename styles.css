@@ -78,7 +78,7 @@ color: #800080; font-family: monaco,Consolas,Lucida Console,monospace; font-size
 }
 
 blue {
-color: #006ee6; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+color: #006ee6; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;
 }
 
 green {
