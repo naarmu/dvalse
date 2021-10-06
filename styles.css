@@ -1,12 +1,50 @@
-.inner {
+.block {
   height: auto;
   width: auto;
+}
+.block:active img{
+  display: inline-block;
 }
 img {
   height: auto;
   width: 980px;
   display: none
 }
-.inner:hover img {
-  display: block;
+
+
+h1 {
+color: white; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 24px; font-style: bold; line-height: 26.4px;
+}
+white {
+color: white; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+}
+pink {
+color: #F97EEE; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+}
+pinker {
+color: #FA00A3; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+}
+blue {
+color: #006CFF; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+}
+purple {
+color: #8B00FB; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+}
+green {
+color: #00FF04; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;
+}
+coral {
+color: #FF585C; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+}
+neon {
+color: #AAFD00; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+}
+orange {
+color: #FD8D00; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+}
+red {
+color: #FF0000; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;
+}
+body {
+background-color: #0c343d;
 }
