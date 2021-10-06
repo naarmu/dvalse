@@ -103,4 +103,6 @@ color: #FF0000; font-family: monaco,Consolas,Lucida Console,monospace; font-size
 
 body {
 background-color: black;
+overflow-y: hidden; /* Hide vertical scrollbar */
+overflow-x: hidden; /* Hide horizontal scrollbar */
 }
