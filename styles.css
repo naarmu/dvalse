@@ -6,11 +6,7 @@
   display: inline-block;
 }
 
-img {
-  height: auto;
-  width: 980px;
-  display: none;
-}
+
 
 html { 
   scroll-behavior: smooth; 
