@@ -28,7 +28,7 @@ html {
 
 
 white {
-color: white; font-family: Monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
+color: #FFFFFF; font-family: Monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;
 }
 
 pink {
@@ -68,6 +68,6 @@ color: #FF0000; font-family: monaco,Consolas,Lucida Console,monospace; font-size
 }
 
 body {
-background-color: black;
+background-color: #000000;
 }
 
