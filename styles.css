@@ -2,6 +2,7 @@
 .block:active img{display: inline-block;}
 
 img {height: auto; width: 980px; display: block;}
+logo {height: auto; width: 25%vw; display: block;}
 html {scroll-behavior: auto;} 
 
 input {position: fixed; left: -9999px;}
