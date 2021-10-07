@@ -3,7 +3,7 @@
 .block:active logo{display: inline-block;}
 
 img {height: auto; width: 980px; display: block;}
-#logo {position: fixed; width: 200px; height: 80px; right: 10px;}
+#logo {position: fixed; width: 200px; height: 80px; right: 20px;}
 
 html {scroll-behavior: auto;} 
 
