@@ -11,7 +11,7 @@ label {color: #blue;}
 .clear {clear: both;}
 
 white {color: #000000; font-family: Monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-pink {color: #F97EEE; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+pink {color: #FD8D00; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 n {color: #607d8b; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 quote {color: #858b97; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 purple {color: #8B00FB; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
@@ -20,7 +20,7 @@ blue {color: #006ee6; font-family: monaco,Consolas,Lucida Console,monospace; fon
 green {color: #00FF04; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;}
 coral {color: #FF585C; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 neon {color: #AAFD00; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-orange {color: #FD8D00; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+orange {color: #F97EEE; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 red {color: #FF0000; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
 body {background-color: #000000;}
 
