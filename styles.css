@@ -29,13 +29,13 @@ red {color: #FF0000; font-family: "monaco",Consolas,Lucida Console,monospace; fo
 body {background-color: #000000;}
 
 .photo1 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn1:checked ~ .photo1 img{width: 50%; height: 50%;}
+#toggleBtn1:checked ~ .photo1 img{width: 30%; height: 30%;}
 
 .photo2 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn2:checked ~ .photo2 img{width: 50%; height: 50%;}
+#toggleBtn2:checked ~ .photo2 img{width: 30%; height: 30%;}
 
 .photo3 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn3:checked ~ .photo3 img{width: 50%; height: 50%;}
+#toggleBtn3:checked ~ .photo3 img{width: 30%; height: 30%;}
 
 .photo4 img{width: 0px; height: 0px; transition: all 0.3s;}
 #toggleBtn4:checked ~ .photo4 img{width: 50%; height: 50%;}
