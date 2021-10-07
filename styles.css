@@ -2,7 +2,7 @@
 .block:active img{display: inline-block;}
 
 img {height: auto; width: 980px; display: block;}
-html {scroll-behavior: smooth;} 
+html {scroll-behavior: auto;} 
 
 input {position: fixed; left: -9999px;}
 label {color: #blue;}
@@ -10,8 +10,8 @@ label {color: #blue;}
 .area {float: left; margin-right: 20px; frameborder: 0;}
 .clear {clear: both;}
 
-white {color: #000000; font-family: Monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-pink {color: #FD8D00; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+white {color: #000000; font-family: monaco,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+pink {color: #FD8D00; font-family: monaco,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 n {color: #607d8b; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 quote {color: #858b97; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 purple {color: #8B00FB; font-family: monaco,Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
