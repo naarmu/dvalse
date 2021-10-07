@@ -28,6 +28,65 @@ orange {color: #F97EEE; font-family: "monaco",Consolas,Lucida Console,monospace;
 red {color: #FF0000; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
 body {background-color: #000000;}
 
+
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 12px;
+  color: #AAFD00;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+
+
 .photo1 img{width: 0px; height: 0px; transition: all 0.3s;}
 #toggleBtn1:checked ~ .photo1 img{width: 25%; height: 25%;}
 
