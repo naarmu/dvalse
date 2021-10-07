@@ -1,5 +1,6 @@
 .block {height: auto; width: auto;}
 .block:active img{display: inline-block;}
+.block:active logo{display: inline-block;}
 
 img {height: auto; width: 980px; display: block;}
 logo {height: auto; width: 25%vw; display: block;}
