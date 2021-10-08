@@ -204,7 +204,7 @@ body {
   .el:nth-child(1) {
     transform: translate3d(0%, 0, 0);
     transform-origin: 50% 50%; }
-    .cont .s--el-active .el:nth-child(1):not(.s--active) {
+    .cont.s--active .el:nth-child(1):not(.s--active) {
       transform: scale(0.5) translate3d(0%, 0, 0);
       opacity: 0;
       transition: transform 0.95s, opacity 0.95s; }
