@@ -232,7 +232,7 @@ body {
   .el:nth-child(3) {
     transform: translate3d(210.4166666667%, 0, 0);
     transform-origin: 260.4166666667% 50%; }
-    .cont.s--el:active .el:nth-child(3):not(.s--active) {
+    .cont.s.el--active .el:nth-child(3):not(.s--active) {
       transform: scale(0.5) translate3d(210.4166666667%, 0, 0);
       opacity: 0;
       transition: transform 0.95s, opacity 0.95s; }
