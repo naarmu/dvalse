@@ -1,0 +1,152 @@
+.block {height: auto; width: auto;}
+.block:active img{display: inline-block;}
+.block:active logo{display: inline-block;}
+
+img {height: auto; width: auto; display: block;}
+
+#logo {position: fixed; width: 200px; height: 80px; right: 20px;}
+
+html {scroll-behavior: auto;} 
+
+input {position: fixed; left: -9999px;}
+label {color: #blue;}
+
+.area {float: top; frameborder: 0;}
+.clear {clear: both;}
+
+
+#top {border: 1px solid #000000; height: 3000px;}
+#bottom {border: 1px solid #FF0000;}
+
+white {color: #FFFFFF; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+pink {color: #FD8D00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+n {color: #607d8b; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+quote {color: #858b97; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+purple {color: #8B00FB; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+violet {color: #800080; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+blue {color: #006ee6; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+green {color: #00FF04; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;}
+coral {color: #FF585C; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+neon {color: #AAFD00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+orange {color: #F97EEE; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+red {color: #FF0000; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
+body {background-color: #000000;}
+
+
+.blinking-cursor {
+  font-weight: 200;
+  font-size: 16px;
+  color: #AAFD00;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+
+
+.photo1 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn1:checked ~ .photo1 img{width: 25%; height: 25%;}
+
+.photo2 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn2:checked ~ .photo2 img{width: 25%; height: 25%;}
+
+.photo3 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn3:checked ~ .photo3 img{width: 25%; height: 25%;}
+
+.photo4 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn4:checked ~ .photo4 img{width: 25%; height: 25%;}
+
+.photo5 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn5:checked ~ .photo5 img{width: 25%; height: 25%;}
+
+.photo6 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn6:checked ~ .photo6 img{width: 25%; height: 25%;}
+
+.photo7 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn7:checked ~ .photo7 img{width: 25%; height: 25%;}
+
+.photo8 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn8:checked ~ .photo8 img{width: 25%; height: 25%;}
+
+.photo9 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn9:checked ~ .photo9 img{width: 25%; height: 25%;}
+
+.photo10 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn10:checked ~ .photo10 img{width: 25%; height: 25%;}
+
+.photo11 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn11:checked ~ .photo11 img{width: 25%; height: 25%;}
+
+.photo12 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn12:checked ~ .photo12 img{width: 25%; height: 25%;}
+
+.photo13 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn13:checked ~ .photo13 img{width: 25%; height: 25%;}
+
+.photo14 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn14:checked ~ .photo14 img{width: 25%; height: 25%;}
+
+.photo15 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn15:checked ~ .photo15 img{width: 25%; height: 25%;}
+
+.photo16 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn16:checked ~ .photo16 img{width: 25%; height: 25%;}
+
+.photo17 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn17:checked ~ .photo17 img{width: 25%; height: 25%;}
+
+.photo18 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn18:checked ~ .photo18 img{width: 25%; height: 25%;}
+
+.photo19 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn19:checked ~ .photo19 img{width: 25%; height: 25%;}
+
+.photo20 img{width: 0px; height: 0px; transition: all 0.3s;}
+#toggleBtn20:checked ~ .photo20 img{width: 25%; height: 25%;}
