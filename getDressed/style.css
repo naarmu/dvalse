@@ -3,10 +3,12 @@
   margin: 0;
   padding: 0;
 }
+
 body {
   background: #1f1f1f;
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
+
 .cont {
   position: relative;
   overflow: hidden;
@@ -20,6 +22,7 @@ body {
 .cont__inner:hover .el__bg:after {
   opacity: 1;
 }
+
 .el {
   position: absolute;
   left: 0;
@@ -357,6 +360,7 @@ body {
   transition-delay: 0.6s;
   transform: scale(1.1);
 }
+
 .icon-link {
   position: absolute;
   left: 5px;
