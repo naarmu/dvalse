@@ -10,7 +10,7 @@ body {
 .cont {
   position: relative;
   overflow: hidden;
-  height: 1080px;
+  height: 960px;
   padding: 80px 70px; }
   .cont__inner {
     position: relative;
