@@ -9,6 +9,11 @@ body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
+
+h2 {
+  background: #1f1f1f;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+
 .cont {
   position: relative;
   overflow: hidden;
