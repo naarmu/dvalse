@@ -82,7 +82,7 @@
 /*크롭뒷그림 그림*/
  .el:nth-child(1) .el__bg:before {
 	 transition-delay: 0s;
-	 background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/142996/onepgscr-3.jpg");
+	 background-image: url("images\001-02c.jpg");
 }
 
 
