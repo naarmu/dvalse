@@ -220,7 +220,7 @@ body {
       transform: translate3d(0%, 0, 0); }
       .el:nth-child(1) .el__bg:before {
         transition-delay: 0s;
-        background-image: url("../images/001-01c.jpg"); }
+                    background-image: url("http://naarmu.co/images/001-01.jpg"); }
   .el:nth-child(2) {
     transform: translate3d(105.2083333333%, 0, 0);
     transform-origin: 155.2083333333% 50%; }
@@ -234,7 +234,7 @@ body {
       transform: translate3d(-19.2%, 0, 0); }
       .el:nth-child(2) .el__bg:before {
         transition-delay: 0.1s;
-        background-image: url("../../images/001-02.jpg"); }
+                    background-image: url("http://naarmu.co/images/001-02.jpg"); }
   .el:nth-child(3) {
     transform: translate3d(210.4166666667%, 0, 0);
     transform-origin: 260.4166666667% 50%; }
@@ -248,7 +248,7 @@ body {
       transform: translate3d(-38.4%, 0, 0); }
       .el:nth-child(3) .el__bg:before {
         transition-delay: 0.2s;
-        background-image: url("http://naarmu.co/images/001-03.jpg"); }
+                    background-image: url("http://naarmu.co/images/001-03.jpg"); }
   .el:nth-child(4) {
     transform: translate3d(315.625%, 0, 0);
     transform-origin: 365.625% 50%; }
@@ -262,7 +262,7 @@ body {
       transform: translate3d(-57.6%, 0, 0); }
       .el:nth-child(4) .el__bg:before {
         transition-delay: 0.3s;
-        background-image: url("../../images/nm-01.jpg"); }
+                    background-image: url("http://naarmu.co/images/nm-01.jpg"); }
   .el:nth-child(5) {
     transform: translate3d(420.8333333333%, 0, 0);
     transform-origin: 470.8333333333% 50%; }
@@ -276,7 +276,7 @@ body {
       transform: translate3d(-76.8%, 0, 0); }
       .el:nth-child(5) .el__bg:before {
         transition-delay: 0.4s;
-        background-image: url("../../images/nm-02.jpg"); }
+                    background-image: url("http://naarmu.co/images/nm-02.jpg"); }
   .el:hover .el__bg:after {
     opacity: 0; }
   .el.s--active {
