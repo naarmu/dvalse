@@ -260,7 +260,7 @@ body {
   .el:nth-child(5) {
     transform: translate3d(420.8333333333%, 0, 0);
     transform-origin: 470.8333333333% 50%; }
-    .cont.s--el--active .el:nth-child(5):not(.s--active) {
+    .cont.s:active .el:nth-child(5) {
       transform: scale(0.5) translate3d(420.8333333333%, 0, 0);
       opacity: 0;
       transition: transform 0.95s, opacity 0.95s; }
