@@ -262,7 +262,7 @@ body {
       transform: translate3d(-57.6%, 0, 0); }
       .el:nth-child(4) .el__bg:before {
         transition-delay: 0.3s;
-                    background-image: url("http://naarmu.co/images/nm-01.jpg"); }
+                    background-image: url("http://naarmu.co/images/nm-1.jpg"); }
   .el:nth-child(5) {
     transform: translate3d(420.8333333333%, 0, 0);
     transform-origin: 470.8333333333% 50%; }
@@ -276,7 +276,7 @@ body {
       transform: translate3d(-76.8%, 0, 0); }
       .el:nth-child(5) .el__bg:before {
         transition-delay: 0.4s;
-                    background-image: url("http://naarmu.co/images/nm-02.jpg"); }
+                    background-image: url("http://naarmu.co/images/nm-2.jpg"); }
   .el:hover .el__bg:after {
     opacity: 0; }
   .el.s--active {
@@ -290,17 +290,3 @@ body {
       .el.s--active .el__bg:before {
         transition-delay: 0.6s;
         transform: scale(1.1); }
-
-.icon-link {
-  position: absolute;
-  left: 5px;
-  bottom: 5px;
-  width: 32px; }
-  .icon-link img {
-    width: 100%;
-    vertical-align: top; }
-  .icon-link--twitter {
-    left: auto;
-    right: 5px; }
-
-/*# sourceMappingURL=getDressed.css.map */
