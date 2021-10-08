@@ -1,3 +1,6 @@
+@import "copy.scss";
+
+
 *, *:before, *:after {
   box-sizing: border-box;
   margin: 0;
