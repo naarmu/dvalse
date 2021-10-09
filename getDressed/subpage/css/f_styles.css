@@ -18,18 +18,18 @@ label {color: #blue;}
 #top {border: 1px solid #000000; height: 3000px;}
 #bottom {border: 1px solid #FF0000;}
 
-white {color: #FFFFFF; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-pink {color: #FD8D00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-n {color: #607d8b; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-quote {color: #858b97; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-purple {color: #8B00FB; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-violet {color: #800080; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-blue {color: #006ee6; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-green {color: #00FF04; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;}
-coral {color: #FF585C; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-neon {color: #AAFD00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-orange {color: #F97EEE; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
-red {color: #FF0000; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
+white {color: #FFFFFF; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+pink {color: #FD8D00; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+n {color: #607d8b; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+quote {color: #858b97; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+purple {color: #8B00FB; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+violet {color: #800080; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+blue {color: #006ee6; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+green {color: #00FF04; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;}
+coral {color: #FF585C; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+neon {color: #AAFD00; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+orange {color: #F97EEE; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
+red {color: #FF0000; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo',  'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif,  'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
 body {background-color: #000000;}
 
 
