@@ -23,7 +23,7 @@ body {
   left: 0;
   top: 0;
   width: 19.2%;
-  height: 50vh;
+  height: 640px;
   background: #252525;
   transition: transform 0.3s 0.35s, width 0.35s, opacity 0.3s 0.35s, z-index 0s 0.65s;
   will-change: transform, width, opacity; }
