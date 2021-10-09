@@ -7,7 +7,7 @@ img {height: auto; width: auto; display: block;}
     #logo {position: fixed; right: 20px;}
 	#descr {position: fixed;}
 
-.area {float: left; height: 75vh; width: 100vw; frameborder: 0;}
+.area {float: left; frameborder: 0;}
 .clear {clear: both;}
 .description {float: right; height: 80vh; width: 400px; frameborder: 0;}
 
@@ -17,13 +17,9 @@ html {scroll-behavior: auto;}
 input {position: fixed; left: -9999px;}
 label {color: #blue;}
 
-.header {float: top; height: 150px; frameborder: 0;}
 
-
-
-
-iframe {    border: none; width: 100vw; height: 1080px; align: left;}
-iframe2 {    border: none; width: 40vw; height: 1080px; align: right;}
+iframe {    border: none; width: 100vw; height: 820px; align: center;}
+iframe2 {    border: none; width: 40vw; height: 900; align: right;}
 
 
 white {color: #FFFFFF; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
