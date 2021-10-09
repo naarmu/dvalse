@@ -41,7 +41,7 @@ orange {color: #F97EEE; font-family: Interop, sans-serif; font-size: 12px; font-
 red {color: #FF0000; font-family: Interop, sans-serif; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
 
 
-body {background-color: #152238;  font-family: Interop, sans-serif; Arial, sans-serif; overflow: hidden;
+body {background-color: #152238;  font-family: Interop, sans-serif; Arial, sans-serif;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
     scrollbar-width: none; /* for Firefox */
     overflow-y: scroll; 
