@@ -191,7 +191,7 @@ body {
     .el__index-back {
       color: #152238;
       opacity: 0;
-      transition: opacity 0.25s 0.25s; }
+      transition: opacity 0.25s 0.3s; }
       .el:hover .el__index-back {
         transition: opacity 0.25s;
         opacity: 1; }
