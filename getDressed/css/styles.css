@@ -14,6 +14,11 @@ img {height: auto; width: auto; display: block;}
 
 html {scroll-behavior: auto;} 
 
+
+
+
+
+
 input {position: fixed; left: -9999px;}
 label {color: #blue;}
 
@@ -34,7 +39,20 @@ coral {color: #FF585C; font-family: Interop, sans-serif; font-size: 12px; font-s
 neon {color: #AAFD00; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
 orange {color: #F97EEE; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
 red {color: #FF0000; font-family: Interop, sans-serif; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
-body {background-color: #152238;  font-family: Interop, sans-serif; Arial, sans-serif; overflow: hidden;}
+
+
+body {background-color: #152238;  font-family: Interop, sans-serif; Arial, sans-serif; overflow: hidden;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+
+
 
 
 .blinking-cursor {
