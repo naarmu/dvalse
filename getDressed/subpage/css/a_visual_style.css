@@ -119,6 +119,9 @@ body {
   .el__text {
     text-transform: uppercase;
     font-size: 40px;
+	  	font-family: "segoe";
+	font-weight: 200;
+	text-shadow: 1px 1px #152238;
     color: #fff; }
   .el__close-btn {
     z-index: -1;
@@ -169,6 +172,9 @@ body {
     min-height: 250px;
     text-align: center;
     font-size: 14vw;
+	  	font-family: "segoe";
+	font-weight: 500;
+	text-shadow: 1px 1px #152238;
     line-height: 0.85;
     font-weight: bold;
     transition: transform 0.5s, opacity 0.3s 1.4s;
