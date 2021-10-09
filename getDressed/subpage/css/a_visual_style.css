@@ -117,7 +117,7 @@ body {
       pointer-events: auto;
       transition: all 0.25s 0.7s; }
   .el__text {
-    text-transform: uppercase;
+    text-transform: capitalize;
     font-size: 40px;
 	  	font-family:'-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
 	font-weight: 200;
