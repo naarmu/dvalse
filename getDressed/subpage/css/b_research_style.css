@@ -5,7 +5,7 @@
 
 body {
   background: #192841;
-  font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: lighter;	margin: 20px;}
+  font-family: monaco, "Helvetica", Arial, sans-serif; font-size: 12px; font-style: lighter;	margin: 20px;}
 
 .cont {
   position: relative;
@@ -97,7 +97,7 @@ body {
     color: #fff;
     text-transform: capitalize;
     font-size: 16px; 
-	font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	font-family: "segoe";
 	font-weight: 200;
 	text-shadow: 1px 1px #152238;}
   .el__content {
@@ -117,11 +117,9 @@ body {
       pointer-events: auto;
       transition: all 0.25s 0.7s; }
   .el__text {
-    text-transform: capitalize;
-    font-size: 30px;
-	  	font-family:'-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-	font-weight: 200;
-	text-shadow: 1px 1px #152238;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: Interop, sans-serif;
     color: #fff; }
   .el__close-btn {
     z-index: -1;
@@ -172,8 +170,6 @@ body {
     min-height: 250px;
     text-align: center;
     font-size: 14vw;
-    font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-    text-shadow: 1px 1px #152238;
     line-height: 0.85;
     font-weight: bold;
     transition: transform 0.5s, opacity 0.3s 1.4s;
@@ -228,7 +224,7 @@ body {
       transform: translate3d(0%, 0, 0); }
       .el:nth-child(1) .el__bg:before {
         transition-delay: 0s;
-                    background-image: url("http://naarmu.co/images/001-01.jpg"); }
+                    background-image: url("http://naarmu.co/getDressed/contents/exp_tdc-01.jpg"); }
   .el:nth-child(2) {
     transform: translate3d(105.2083333333%, 0, 0);
     transform-origin: 155.2083333333% 50%; }
@@ -242,7 +238,7 @@ body {
       transform: translate3d(-19.2%, 0, 0); }
       .el:nth-child(2) .el__bg:before {
         transition-delay: 0.1s;
-                    background-image: url("http://naarmu.co/images/001-02.jpg"); }
+                    background-image: url("http://naarmu.co/getDressed/contents/exp_tdc-02.jpg"); }
   .el:nth-child(3) {
     transform: translate3d(210.4166666667%, 0, 0);
     transform-origin: 260.4166666667% 50%; }
@@ -256,7 +252,7 @@ body {
       transform: translate3d(-38.4%, 0, 0); }
       .el:nth-child(3) .el__bg:before {
         transition-delay: 0.2s;
-                    background-image: url("http://naarmu.co/images/001-03.jpg"); }
+                    background-image: url("http://naarmu.co/getDressed/contents/exp_tdc-03.jpg"); }
   .el:nth-child(4) {
     transform: translate3d(315.625%, 0, 0);
     transform-origin: 365.625% 50%; }
@@ -270,7 +266,7 @@ body {
       transform: translate3d(-57.6%, 0, 0); }
       .el:nth-child(4) .el__bg:before {
         transition-delay: 0.3s;
-                    background-image: url("http://naarmu.co/images/nm-1.jpg"); }
+                    background-image: url("http://naarmu.co/getDressed/contents/exp_tdc-04.jpg"); }
 
   .el:nth-child(5) {
     transform: translate3d(420.8333333333%, 0, 0);
@@ -285,7 +281,7 @@ body {
       transform: translate3d(-76.8%, 0, 0); }
       .el:nth-child(5) .el__bg:before {
         transition-delay: 0.3s;
-                    background-image: url("http://naarmu.co/images/nm-1.jpg"); }
+                    background-image: url("http://naarmu.co/getDressed/contents/exp_tdc-05.jpg"); }
  
   .el:hover .el__bg:after {
     opacity: 0; }
@@ -307,18 +303,18 @@ body {
 		
 		
 		
-white {color: #FFFFFF; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
-pink {color: #FD8D00; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
-n {color: #607d8b; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
-quote {color: #858b97; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
-purple {color: #8B00FB; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
-violet {color: #800080; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-style: normal; line-height: 18.4px;}
-blue {color: #006ee6; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
-green {color: #00FF04; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;}
-coral {color: #FF585C; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
-neon {color: #AAFD00; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px; align: right;}
-orange {color: #F97EEE; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-style: normal; line-height: 18.4px;}
-red {color: #FF0000; font-family: '-apple-system', 'BlinkMacSystemFont', 'Apple SD Gothic Neo', 'Inter', 'Spoqa Han Sans', 'Segoe UI', Sans-Serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
+white {color: #FFFFFF; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+pink {color: #FD8D00; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+n {color: #607d8b; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+quote {color: #858b97; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+purple {color: #8B00FB; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+violet {color: #800080; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+blue {color: #006ee6; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+green {color: #00FF04; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;}
+coral {color: #FF585C; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+neon {color: #AAFD00; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px; align: right;}
+orange {color: #F97EEE; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+red {color: #FF0000; font-family: Interop, sans-serif; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
 
 
 
