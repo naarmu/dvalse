@@ -34,7 +34,7 @@ coral {color: #FF585C; font-family: Interop, sans-serif; font-size: 12px; font-s
 neon {color: #AAFD00; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
 orange {color: #F97EEE; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
 red {color: #FF0000; font-family: Interop, sans-serif; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
-body {background-color: #152238;  font-family: Interop, sans-serif; Arial, sans-serif;}
+body {background-color: #152238;  font-family: Interop, sans-serif; Arial, sans-serif; overflow: hidden;}
 
 
 .blinking-cursor {
