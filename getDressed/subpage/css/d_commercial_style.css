@@ -295,7 +295,7 @@ body {
       transition: transform 0.3s; }
       .el.s--active .el__bg:before {
         transition-delay: 0.15s;
-        transform: scale(1.1); }
+        transform: scale(0.75); }
 		
 		
 		
