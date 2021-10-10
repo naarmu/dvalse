@@ -1,0 +1,131 @@
+.block {height: auto; width: auto;}
+.block:active img{display: inline-block;}
+.block:active logo{display: inline-block;}
+
+.img {height: auto; width: auto; display: block;}
+img {height: auto; width: auto; display: block;}
+    #logo {position: fixed; right: 20px;}
+	#menu {position: fixed; left: 20px;}
+	#descr {position: fixed;}
+
+.area {float: left; frameborder: 0;}
+.clear {clear: both;}
+.description {float: right; height: 80vh; width: 400px; frameborder: 0;}
+
+
+html {scroll-behavior: auto;} 
+
+
+
+
+
+
+input {position: fixed; left: -9999px;}
+label {color: #blue;}
+
+
+iframe {    border: none; width: 100vw; height: 820px; align: center;}
+iframe2 {    border: none; width: 40vw; height: 900; align: right;}
+
+
+white {color: #FFFFFF; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+pink {color: #FD8D00; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+n {color: #607d8b; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+quote {color: #858b97; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+purple {color: #8B00FB; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+violet {color: #800080; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+blue {color: #006ee6; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+green {color: #00FF04; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;}
+coral {color: #FF585C; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+neon {color: #AAFD00; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+orange {color: #F97EEE; font-family: Interop, sans-serif; font-size: 12px; font-style: normal; line-height: 18.4px;}
+red {color: #FF0000; font-family: Interop, sans-serif; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
+
+
+body {background-color: #152238;  font-family: Interop, sans-serif; Arial, sans-serif;
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+}
+
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+
+
+
+
+.blinking-cursor {
+  font-weight: 200;
+  font-size: 16px;
+  color: #AAFD00;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: #AAFD00;
+  }
+}
+
+
+
+.grid-image {
+	position: fixed;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:flex-start;
+    left:28px;
+}
+.grid-image img {
+    margin:0 20px 20px 0;
+}
+.grid-image img:nth-of-type(3n),
+.grid-image img:last-child {
+    margin-right: 20px;
+}
+
