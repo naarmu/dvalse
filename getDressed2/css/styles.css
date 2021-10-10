@@ -3,7 +3,6 @@
 .block:active logo{display: inline-block;}
 
 .img {height: auto; width: auto; display: block;}
-img {height: auto; width: auto; display: block;}
     #logo {position: fixed; right: 20px;}
 	#menu {position: fixed; left: 20px;}
 	#descr {position: fixed;}
@@ -113,19 +112,23 @@ body::-webkit-scrollbar {
 }
 
 
+hr {
+	position: fixed;
+	width: 100vw;
+}
 
-.grid-image {
+.grid {
 	position: fixed;
     display:flex;
     flex-wrap:wrap;
     align-items:flex-start;
     left:28px;
+	right:200px;
 }
-.grid-image img {
-    margin:0 20px 20px 0;
+.grid img {
+	height: 35px;
+	width: auto;
+    margin:0 20px 0 0;
 }
-.grid-image img:nth-of-type(3n),
-.grid-image img:last-child {
-    margin-right: 20px;
-}
+
 
