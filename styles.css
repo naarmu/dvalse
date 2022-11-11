@@ -6,7 +6,7 @@ img {height: auto; width: auto; display: block;}
 #logo {position: fixed; left: 20px;}
 #toc {position:fixed; right: 20px;}
 
-html {scroll-behavior: auto;} 
+html {scroll-behavior: smooth;} 
 
 input {position: fixed; left: -9999px;}
 label {color: #blue;}
@@ -30,6 +30,7 @@ coral {color: #FF585C; font-family: "monaco",Consolas,Lucida Console,monospace; 
 neon {color: #AAFD00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 orange {color: #F97EEE; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 red {color: #FF0000; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
+remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: normal; line-height: 18.4px;}
 body {background-color: #000000;}
 
 
