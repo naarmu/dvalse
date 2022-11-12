@@ -45,51 +45,12 @@ body {background-color: #000000;}
   animation: 1s blink step-end infinite;
 }
 
-@keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: #AAFD00;
-  }
-}
+@keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
 
-@-moz-keyframes blink {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: #AAFD00;
-  }
-}
-
-@-webkit-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: #AAFD00;
-  }
-}
-
-@-ms-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: #AAFD00;
-  }
-}
-
-@-o-keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: #AAFD00;
-  }
-}
-
+@-moz-keyframes blink {from, to {color: transparent;} 50% {Color: #AAFD00;}}
+@-webkit-keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
+@-ms-keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
+@-o-keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
 
 
 .photo1 img{width: 0px; height: 0px; transition: all 0.3s;}
@@ -161,8 +122,8 @@ body {background-color: #000000;}
 
 
 .wrapper {
-  --color: #1F242D;
-  --color-invert: #ffffff;
+  --color: #FFFFFF;
+  --color-invert: #000000;
   --clip-path: circle(15px at left);
   --clip-path-hover: circle(70px at left);
   --clip-path-clicked: circle(100vw at left);
