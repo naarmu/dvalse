@@ -93,13 +93,13 @@ body {background-color: #000000;}
 
 
 .photo1 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn1:checked ~ .photo1 img{width: 25%; height: 25%;}
+#toggleBtn1:checked ~ .photo1 img{vertical-align: bottom; width: 25%; height: 25%;}
 
 .photo2 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn2:checked ~ .photo2 img{width: 25%; height: 25%;}
+#toggleBtn2:checked ~ .photo2 img{vertical-align: bottom;width: 25%; height: 25%;}
 
 .photo3 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn3:checked ~ .photo3 img{width: 25%; height: 25%;}
+#toggleBtn3:checked ~ .photo3 img{vertical-align: bottom;width: 25%; height: 25%;}
 
 .photo4 img{width: 0px; height: 0px; transition: all 0.3s;}
 #toggleBtn4:checked ~ .photo4 img{width: 25%; height: 25%;}
