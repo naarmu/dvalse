@@ -1,22 +1,21 @@
-.block {height: auto; width: auto;}
-.block:active img{display: inline-block;}
-.block:active logo{display: inline-block;}
+html {scroll-behavior: smooth;} 
+body {background-color: #191919;}
 
 img {height: auto; width: auto; display: block;}
 #logo {position: fixed; left: 20px;}
 #toc {position:fixed; right: 20px;}
 
-html {scroll-behavior: smooth;} 
-
 input {position: fixed; left: -9999px;}
 label {color: #blue;}
 
-.area {float: left; margin-right: 20px; frameborder: 0;}
-.clear {clear: both;}
-
-
 #top {border: 1px solid #000000; height: 3000px;}
 #bottom {border: 1px solid #FF0000;}
+
+.block {height: auto; width: auto;}
+.block:active img{display: inline-block;}
+.block:active logo{display: inline-block;}
+.area {float: left; margin-right: 20px; frameborder: 0;}
+.clear {clear: both;}
 
 white {color: #FFFFFF; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 pink {color: #FD8D00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
@@ -31,8 +30,6 @@ neon {color: #AAFD00; font-family: "monaco",Consolas,Lucida Console,monospace; f
 orange {color: #F97EEE; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 red {color: #FF0000; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
 remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: normal; line-height: 18.4px;}
-body {background-color: #000000;}
-
 
 .blinking-cursor {
   font-weight: 200;
