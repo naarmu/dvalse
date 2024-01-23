@@ -2,7 +2,7 @@
 .block:active img{display: inline-block;}
 .block:active logo{display: inline-block;}
 
-img {height: auto; width: 10vw; display: block;}
+img {height: auto; width: auto; display: block;}
 #logo {position: fixed; left: 20px;}
 #toc {position:fixed; right: 20px;}
 
