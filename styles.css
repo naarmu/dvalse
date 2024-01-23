@@ -166,8 +166,8 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
   --timing-function: ease;
   position: relative;
   display: flex;
-  justify-content: top;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   
   .video {
