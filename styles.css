@@ -121,10 +121,10 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
 .wrapper {
   --color: #FFFFFF;
   --color-invert: #000000;
-  --clip-path: circle(10px at left);
-  --clip-path-hover: circle(50px at left);
+  --clip-path: circle(5px at left);
+  --clip-path-hover: circle(20px at left);
   --clip-path-clicked: circle(100vw at left);
-  --duration: .4s;
+  --duration: .2s;
   --timing-function: ease;
   position: relative;
   display: flex;
@@ -142,7 +142,7 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
     transition: clip-path var(--duration) var(--timing-function);
     video {
       position: fixed;
-      background: #c4cbde;
+      background: #AAFD00;
       top: 50%;
       left: 50%;
       min-width: 100%;
