@@ -121,8 +121,8 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
 .wrapper {
   --color: #FFFFFF;
   --color-invert: #000000;
-  --clip-path: circle(15px at left);
-  --clip-path-hover: circle(70px at left);
+  --clip-path: circle(10px at left);
+  --clip-path-hover: circle(50px at left);
   --clip-path-clicked: circle(100vw at left);
   --duration: .4s;
   --timing-function: ease;
