@@ -154,7 +154,6 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
   }
   .text {
     position: relative; 
-    text-transform: uppercase;
     font-weight: 600;
     letter-spacing: .2px;
     opacity: var(--opacity, 1);
@@ -251,5 +250,8 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
         }
       }
     }
+
+<! text-transform uppercase; >
+
   }
 }
