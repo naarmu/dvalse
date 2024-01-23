@@ -5,6 +5,8 @@ img {height: auto; width: auto; display: block;}
 #logo {position: fixed; left: 20px;}
 #toc {position:fixed; right: 20px;}
 
+img2 {height: auto; height: 320px; display: block; align:center;}
+
 input {position: fixed; left: -9999px;}
 label {color: #blue;}
 
@@ -17,6 +19,50 @@ label {color: #blue;}
 .area {float: left; margin-right: 20px; frameborder: 0;}
 .clear {clear: both;}
 
+.box-wrap {
+  display:flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+		
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+}
+
+.button {
+  border: none;
+  color: #161616;
+width: 180px;
+height: 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 5px;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.button1 { background-color: #000000; color: #161616; border: 1px solid #AAFD00;}
+.button1:hover { background-color: #AAFD00; color: #FFFFFF;}
+
+.button2 { background-color: #000000; color: #FFFFFF; border: 1px solid #3f0000;}
+.button2:hover { background-color: #3f0000; color: #FFFFFF;}
+
+h1 {color: #FFFFFF; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 24px; font-style: bold; line-height: 26.4px;}
 white {color: #FFFFFF; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 pink {color: #FD8D00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
 n {color: #607d8b; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
@@ -110,14 +156,6 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
 .photo20 img{width: 0px; height: 0px; transition: all 0.3s;}
 #toggleBtn20:checked ~ .photo20 img{width: 25%; height: 25%;}
 
-
-
-
-
-
-
-
-
 .wrapper {
   --color: #FFFFFF;
   --color-invert: #000000;
@@ -131,6 +169,7 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
   justify-content: top;
   align-items: left;
   width: 100%;
+  
   .video {
     height: 100vh;
     overflow: hidden;
@@ -250,8 +289,5 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
         }
       }
     }
-
-<! text-transform uppercase; >
-
   }
 }
