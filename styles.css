@@ -84,7 +84,7 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
 }
 
 [id^="toggleBtn"]:checked ~ .photo img {
-    vertical-align: bottom;
+    vertical-align: top; position: fixed; top: 300px;
     width: 50vw;
     height: auto;
 }
