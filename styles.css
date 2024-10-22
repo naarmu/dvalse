@@ -78,7 +78,7 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
 @-o-keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
 
 .photo img {    width: 0px;    height: 0px;    transition: all 0.3s ease;}
-[id^="toggleBtn"]:checked ~ .photo img {vertical-align: top;	position: fixed;	top: 300px;    width: 50vw;    height: auto;}
+[id^="toggleBtn"]:checked ~ .photo img {vertical-align: top; horizontal-align: right;	position: fixed;	top: 300px;    width: 50vw;    height: auto;}
 
 
 .wrapper {
