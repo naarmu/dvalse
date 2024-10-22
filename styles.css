@@ -77,8 +77,20 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
 @-ms-keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
 @-o-keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
 
-.photo img {    width: 0px;    height: 0px;    transition: all 0.3s ease;}
-[id^="toggleBtn"]:checked ~ .photo img {vertical-align: top; horizontal-align: right;	position: fixed;	top: 200px;    width: auto;    height: 50vh;}
+.photo img {
+    width: 0px;
+    height: 0px;
+    transition: width 0.3s ease, height 0.3s ease; /* 특정 속성에 대해 전환 */
+}
+
+[id^="toggleBtn"]:checked ~ .photo img {
+    position: fixed; 
+    top: 200px; 
+    width: auto; 
+    height: 50vh;
+    float: right; /* 오른쪽 정렬 */
+}
+
 
 
 .wrapper {
