@@ -1,6 +1,6 @@
 html {scroll-behavior: smooth;} 
 body {background-color: #191919;}
-
+html,body{height : 90%;}
 img {height: auto; height: 320px; display: block; align:center;}
 #logo {position: fixed; left: 20px;}
 #toc {position:fixed; right: 20px;}
