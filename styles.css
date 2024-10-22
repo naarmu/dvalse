@@ -177,7 +177,7 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
     --color-invert: #000000;
     --clip-path: circle(4px at center);
     --clip-path-hover: circle(8px at center);
-    --clip-path-clicked: circle(100vw at center);
+    --clip-path-clicked: circle(20px at center);
     --duration: .2s;
     --timing-function: ease;
     position: relative;
@@ -198,7 +198,8 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
     transition: clip-path var(--duration) var(--timing-function);
     video {
     position: fixed;
-    background: #AAFD00;
+    background: #0091ff;
+    opacity: 0.8;
     top: 50%;
     left: 50%;
     min-width: 100%;
