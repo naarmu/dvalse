@@ -167,7 +167,7 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
 [id^="toggleBtn"]:checked ~ .photo img {
     position: fixed;
     top: 200px;
-    left: 50vw;
+    right: 100px;
     width: 50vh;
     float: right;
 }
