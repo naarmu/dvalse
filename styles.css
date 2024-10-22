@@ -10,6 +10,22 @@ body {
     overflow-x: hidden;
 }
 
+h1 {color: #FFFFFF; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 24px; font-style: bold; line-height: 26.4px;}
+
+white {color: #FFFFFF; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+pink {color: #FD8D00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+n {color: #607d8b; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+quote {color: #858b97; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+purple {color: #8B00FB; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+violet {color: #800080; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+blue {color: #006ee6; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+green {color: #00FF04; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; text-decoration: underline; line-height: 18.4px;}
+coral {color: #FF585C; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+neon {color: #AAFD00; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+orange {color: #F97EEE; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-style: normal; line-height: 18.4px;}
+red {color: #FF0000; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: italic; line-height: 18.4px;}
+remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace; font-size: 12px; font-weight: bold; font-style: normal; line-height: 18.4px;}
+
 img {
     display: block;
     margin: 0 auto; /* 중앙 정렬 */
@@ -128,28 +144,6 @@ label {
     background-color: #3f0000;
     color: #FFFFFF;
 }
-
-h1 {
-    color: #FFFFFF;
-    font-family: "monaco", Consolas, Lucida Console, monospace;
-    font-size: 24px;
-    font-weight: bold; /* 수정된 부분 */
-    line-height: 26.4px;
-}
-
-.white { color: #FFFFFF; }
-.pink { color: #FD8D00; }
-.n { color: #607d8b; }
-.quote { color: #858b97; }
-.purple { color: #8B00FB; }
-.violet { color: #800080; }
-.blue { color: #006ee6; }
-.green { color: #00FF04; text-decoration: underline; }
-.coral { color: #FF585C; }
-.neon { color: #AAFD00; }
-.orange { color: #F97EEE; }
-.red { color: #FF0000; font-weight: bold; font-style: italic; }
-.remarks { color: #555555; font-weight: bold; }
 
 .blinking-cursor {
     font-weight: 200;
