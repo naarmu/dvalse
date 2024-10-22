@@ -170,7 +170,8 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
   width: 100%;
   
   .video {
-    height: 100vh;
+    height: 80vh;
+    width: 80vw;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -186,8 +187,8 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
       left: 50%;
       min-width: 100%;
       min-height: 100%;
-      width: auto;
-      height: auto;
+      width: 90vw;
+      height: 90vh;
       transform: translate(-50%, -50%);
     }
   }
