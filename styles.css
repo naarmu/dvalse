@@ -175,7 +175,6 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
 .wrapper {
     --color: #FFFFFF;
     --color-invert: #000000;
-    --opacity: 0.8;
     --clip-path: circle(4px at center);
     --clip-path-hover: circle(8px at center);
     --clip-path-clicked: circle(200vw at center);
@@ -200,18 +199,18 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
     video {
     position: fixed;
     background: #0091ff;
-
     top: 50%;
     left: 50%;
     min-width: 100%;
     min-height: 100%;
     width: 90vw;
     height: 90vh;
-    transform: translate(-50%, -50%);}
+    transform: translate(-50%, -50%);
+    opacity: 0.5;}
   }
   
   input {
-    width: 220px;
+    width: 40px;
     height: 40px;
     margin: auto;
     position: absolute;
