@@ -149,7 +149,7 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto; height: auto;
+  width: auto; height: 10vh;
   
   .video {
     height: 80vh;
