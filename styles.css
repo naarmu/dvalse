@@ -176,6 +176,7 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
     justify-content: center;
     align-items: center;
     margin-left: 15px;
+    margin-right: 15px;
     clip-path: var(--clip-path);
     transition: clip-path var(--duration) var(--timing-function);
     video {
