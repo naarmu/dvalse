@@ -140,8 +140,8 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
 .wrapper {
   --color: #FFFFFF;
   --color-invert: #000000;
-  --clip-path: circle(5px at center);
-  --clip-path-hover: circle(15px at center);
+  --clip-path: circle(4px at center);
+  --clip-path-hover: circle(8px at center);
   --clip-path-clicked: circle(100vw at center);
   --duration: .2s;
   --timing-function: ease;
