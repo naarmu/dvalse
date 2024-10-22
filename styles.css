@@ -22,6 +22,7 @@ label {color: #blue;}
 		
 .flex {  display: flex;  flex-direction: column;  justify-content: center;  align-items: center;}
 .flex-item {  display: flex;  flex-direction: column;  justify-content: left;  align-items: left;}
+.flex-logo {  position: fixed; left: 20px; display: flex;  flex-direction: column;}
 
 .button {
   border: none;
