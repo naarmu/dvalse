@@ -77,82 +77,8 @@ remarks {color: #555555; font-family: "monaco",Consolas,Lucida Console,monospace
 @-ms-keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
 @-o-keyframes "blink" {from, to {color: transparent;} 50% {color: #AAFD00;}}
 
-.photo img {
-    width: 0px;
-    height: 0px;
-    transition: all 0.3s ease;
-}
-
-[id^="toggleBtn"]:checked ~ .photo img {
-    vertical-align: top; position: fixed; top: 300px;
-    width: 50vw;
-    height: auto;
-}
-
-
-/*
-
-.photo1 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn1:checked ~ .photo1 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo2 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn2:checked ~ .photo2 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo3 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn3:checked ~ .photo3 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo4 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn4:checked ~ .photo4 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo5 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn5:checked ~ .photo5 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo6 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn6:checked ~ .photo6 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo7 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn7:checked ~ .photo7 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo8 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn8:checked ~ .photo8 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo9 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn9:checked ~ .photo9 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo10 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn10:checked ~ .photo10 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo11 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn11:checked ~ .photo11 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo12 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn12:checked ~ .photo12 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo13 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn13:checked ~ .photo13 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo14 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn14:checked ~ .photo14 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo15 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn15:checked ~ .photo15 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo16 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn16:checked ~ .photo16 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo17 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn17:checked ~ .photo17 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo18 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn18:checked ~ .photo18 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo19 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn19:checked ~ .photo19 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-.photo20 img{width: 0px; height: 0px; transition: all 0.3s;}
-#toggleBtn20:checked ~ .photo20 img{vertical-align: bottom; width: 100vw; height: auto;}
-
-*/
+.photo img {    width: 0px;    height: 0px;    transition: all 0.3s ease;}
+[id^="toggleBtn"]:checked ~ .photo img {vertical-align: top;	position: fixed;	top: 300px;    width: 50vw;    height: auto;}
 
 
 .wrapper {
