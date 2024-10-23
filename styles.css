@@ -208,7 +208,8 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
     width: 90vw;
     height: 90vh;
     transform: translate(-50%, -50%);
-    opacity: 0.5;}
+    opacity: 0.5;
+    mix-blend-mode: lighten;}
   }
   
   input {
