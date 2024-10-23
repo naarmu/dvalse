@@ -6,6 +6,23 @@
 	<title>dvalse:home</title>	
 	<link rel="stylesheet" href="styles.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <style>
+        /* 공통 스타일 */
+        .photo img {
+            position: fixed;
+            top: 200px;
+            width: 0vw;
+            height: 0vh;
+            transition: width 0.3s ease, height 0.3s ease;
+            float: right;
+        }
+
+        /* id와 nth-child를 이용한 스타일링 */
+        input[type="checkbox"]:nth-of-type(n):checked ~ .photo:nth-of-type(n) img {
+            width: 50vw;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body oncontextmenu="return false" ondragstart="return false" onselectstart="return false">
@@ -115,8 +132,8 @@
 		<white>{	<br>
 		
 		<! –– IMAGE#1 ––>	&emsp;&emsp;&emsp;&emsp;
-		<quote>"</quote><violet>image1</violet><quote>"</quote><white>:</white><quote> "</quote><input type="checkbox" id="toggleBtn1"><label for="toggleBtn1" class="toggleBtn1"><white>.../v01-1.png</white><quote>",</quote></label><div class="photo1 photo"><img src="\images\001-01.jpg" align="right"></div>
-			
+		<quote>"</quote><violet>image1</violet><quote>"</quote><white>:</white><quote> "</quote><input type="checkbox" id="toggleBtn1"><label for="toggleBtn1" class="toggleBtn1"><white>.../v01-1.png</white><quote>",</quote></label><div class="photo"><img src="\images\001-01.jpg" align="right"></div>
+		
 		<! –– IMAGE#2 ––>	&emsp;&emsp;&emsp;&emsp;
 		<quote>"</quote><violet>image2</violet><quote>"</quote><white>:</white><quote> "</quote><input type="checkbox" id="toggleBtn2"><label for="toggleBtn2" class="toggleBtn2"><white>.../v01-2.png</white><quote>",</quote></label><div class="photo2 photo"><img src="\images\001-02.jpg" align="right"></div>
 
