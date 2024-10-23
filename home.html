@@ -27,13 +27,9 @@
         /* :target 사용하여 이미지 표시 */
         #image1:target {
             opacity: 1;
+	 animation: fadeOut 3s forwards;
         }
-
-        /* 클릭 후 3초 뒤에 사라지게 하기 */
-        #image1:target {
-            animation: fadeOut 3s forwards;
-        }
-
+		    
         @keyframes fadeOut {
             0% {
                 opacity: 1;
