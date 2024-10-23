@@ -167,12 +167,11 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
     float: right;
 }
 
-[id^="toggleBtn"]:checked ~ .photo img {
-    position: fixed;
-    top: 200px;
+[id^="toggleBtn"]:checked ~ .photo:nth-of-type(n) img {
     width: 50vw;
-    float: right;
+    height: auto;
 }
+
 
 .wrapper {
     --color: #FFFFFF;
