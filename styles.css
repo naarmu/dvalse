@@ -222,3 +222,8 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
 
 .custom-cursor {
     cursor: url('/images/favicon_blue.png'), auto;}
+
+.hover {opacity: 0;}
+    &:hover,
+    &:focus,
+    &:active .hover {opacity: 1;}
