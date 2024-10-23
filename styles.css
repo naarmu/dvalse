@@ -1,6 +1,5 @@
 html {
     scroll-behavior: smooth;
-    cursor: default;
 }
 
 body {
@@ -244,4 +243,9 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
       }
     }
   }
+}
+
+
+.custom-cursor {
+    cursor: url('path-to-your-cursor-image.png'), auto; /* 사용자 정의 커서 */
 }
