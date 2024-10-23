@@ -20,6 +20,27 @@
             width: 50vw;
             height: auto;
         }
+		       /* 텍스트 스타일 */
+        .hover-text {
+            display: inline-block;
+            position: relative;
+            cursor: pointer;
+        }
+
+        /* 이미지 스타일 */
+        .hover-text img {
+            position: fixed;
+            top: 200px;
+            transform: translateX(-50%);
+            display: none; /* 기본적으로 이미지를 숨김 */
+            width: 50vw; /* 원하는 크기로 이미지 조정 */
+            height: auto;
+        }
+
+        /* 텍스트에 마우스를 올리면 이미지 표시 */
+        .hover-text:hover img {
+            display: block;
+        }
     </style>
 </head>
 
@@ -131,7 +152,8 @@
 		<! –– IMAGE#1 ––>	&emsp;&emsp;&emsp;&emsp;
 		<quote>"<violet>image1</violet>"<white>:</white> "</quote>
 			<input type="checkbox" id="toggleBtn1"><label for="toggleBtn1"><white>v01-01.png</white><quote>",</quote></label><div class="photo"><img src="/images/001-01.jpg"></div>
-
+			<span class="hover-text"><white>v01-01.png</white><quote>",</quote><img src="/images/001-01.jpg"></span>
+			
 		<! –– IMAGE#2 ––>	&emsp;&emsp;&emsp;&emsp;
 		<quote>"<violet>image2</violet>"<white>:</white> "</quote>
 			<input type="checkbox" id="toggleBtn2"><label for="toggleBtn2"><white>v01-2.png</white><quote>",</quote></label><div class="photo2 photo"><img src="/images/001-02.jpg"></div>
