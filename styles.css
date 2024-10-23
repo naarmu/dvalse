@@ -8,7 +8,6 @@ body {
     overflow-wrap: break-word;
     overflow-x: hidden;}
 
-
 img {
     display: block;
     margin: 0 auto; /* 중앙 정렬 */}
@@ -29,7 +28,7 @@ input {
     left: -9999px;}
 
 label {
-    color: blue; /* 수정된 부분 */}
+    color: blue;}
 
 #top {
     border: 1px solid #000000;
