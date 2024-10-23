@@ -158,6 +158,7 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
     50% { color: #AAFD00; }
 }
 
+/*
 .photo img {
     position: fixed;
     top: 200px;
@@ -171,7 +172,7 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
     width: 50vw;
     height: auto;
 }
-
+*/
 
 .wrapper {
     --color: #FFFFFF;
