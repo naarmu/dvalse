@@ -159,16 +159,18 @@ remarks {color: #555555; font-family: "monaco", Consolas, Lucida Console, monosp
 }
 
 .photo img {
+    position: fixed;
+    top: 200px;
     width: 0vw;
     height: 0vh;
     transition: width 0.3s ease, height 0.3s ease;
+    float: right;
 }
 
 [id^="toggleBtn"]:checked ~ .photo img {
     position: fixed;
     top: 200px;
     width: 50vw;
-    height: 50vh;
     float: right;
 }
 
