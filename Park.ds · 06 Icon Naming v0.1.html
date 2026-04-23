@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<!-- saved from url=(0312)https://4e879dba-c492-4b59-88e5-2cca9100ac28.claudeusercontent.com/v1/design/projects/4e879dba-c492-4b59-88e5-2cca9100ac28/serve/Park.ds/06%20Icon%20Naming.html?t=e5663800d5af000c4bbb2b4a3ef8034ddf0797874a58a118839159322e56c714.d3e46410-4fc8-4d5f-98bf-e64e38affb38.1ef2a04f-778e-47c7-b0c0-eef5872debb4.1776931027 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style data-omelette-injected="">html,body{background:transparent}</style><script data-omelette-injected="">(()=>{var $=["https://claude.ai","https://preview.claude.ai","https://eap-omelette.claude.ai"];var F=30000;var A=3000;document.addEventListener("DOMContentLoaded",()=>{const Q="transform-react-jsx-source";document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((J,V)=>{const X=J.getAttribute("data-plugins")||"";if(X.indexOf(Q)<0){J.setAttribute("data-plugins",X?`${X},${Q}`:Q)}if(!J.hasAttribute("data-filename")){J.setAttribute("data-filename",J.getAttribute("src")||`inline-${V}`)}})});var W=window.parent;if(W&&W!==window){const Q=(z,k)=>{try{W.postMessage({__omelette_log:true,type:z,data:k},"*")}catch{}};["log","warn","error"].forEach((z)=>{const k=console[z];console[z]=(...C)=>{const D=C.map((w)=>{try{return typeof w==="object"?JSON.stringify(w):String(w)}catch{try{return String(w)}catch{return"[unstringifiable]"}}}).join(" ");Q(z,D);k.apply(console,C)}});window.addEventListener("error",(z)=>{const k=z.target;if(k&&k!==window&&k.tagName){const C=k.src||k.href||"";Q("resource_error",`${k.tagName} failed to load: ${C}`)}else{Q("error",`${z.message||"Unknown error"} at ${z.filename||"?"}:${z.lineno||0}:${z.colno||0}`)}},true);window.addEventListener("unhandledrejection",(z)=>{const k=z.reason;const C=k instanceof Error?`${k.message} ${k.stack}`:String(k);Q("error",`Unhandled rejection: ${C}`)});const J=()=>{try{W.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")J();else window.addEventListener("load",J);if(window.ResizeObserver)new ResizeObserver(J).observe(document.documentElement);const V={};let X=0;window.claude={complete(z){return new Promise((k,C)=>{if(!$.length){C(new Error("claude.complete: no parent origin"));return}const D=`c${++X}`;const w=()=>setTimeout(()=>{delete V[D];C(new Error(`claude.complete: no data for ${F/1000}s`))},F);const K=w();V[D]={resolve:k,reject:C,text:"",t:K,arm:w};try{for(const Z of $){W.postMessage({__om_api:true,id:D,body:z},Z)}}catch(Z){clearTimeout(K);delete V[D];C(Z)}})}};const Y={};let h=0;window.omelette={writeFile:(z,k)=>new Promise((C,D)=>{if(!$.length){C();return}const w=`f${++h}`;const K=setTimeout(()=>{delete Y[w];C()},A);Y[w]={resolve:C,reject:D,t:K};try{for(const Z of $){W.postMessage({__om_file:true,id:w,op:"write",path:z,content:k},Z)}}catch{clearTimeout(K);delete Y[w];C()}})};const b=(z)=>{try{return JSON.stringify(z)}catch{return JSON.stringify(String(z))}};window.addEventListener("message",(z)=>{if($.indexOf(z.origin)<0)return;if(z.source!==W)return;const k=z.data;if(!k)return;if(k.__om_file_r){const w=Y[k.id];if(!w)return;clearTimeout(w.t);delete Y[k.id];if(k.ok)w.resolve();else w.reject(new Error(k.error||"write failed"));return}if(k.__om_api_r){const w=V[k.id];if(!w)return;if(k.error!=null){clearTimeout(w.t);delete V[k.id];w.reject(new Error(k.error));return}if(k.chunk!=null){clearTimeout(w.t);w.t=w.arm();w.text+=k.chunk;return}if(k.done){clearTimeout(w.t);delete V[k.id];w.resolve(k.text!=null?k.text:w.text);return}return}if(!k.__om_eval)return;const C=k;const D=(w)=>{z.source.postMessage({...w,__om_eval_r:1,id:C.id},z.origin)};try{const w=(0,eval)(C.code);if(w&&typeof w.then==="function"){w.then((K)=>D({ok:1,v:b(K)}),(K)=>D({ok:0,e:String(K)}))}else{D({ok:1,v:b(w)})}}catch(w){D({ok:0,e:String(w)})}})}})();
+</script>
+
+
+<title>Park.ds · 06 Icon Naming v0.1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link rel="stylesheet" href="./Park.ds · 06 Icon Naming v0.1_files/pretendardvariable.min.css">
+<link href="./Park.ds · 06 Icon Naming v0.1_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1D21; --ink-soft:#5A6370; --ink-faint:#8A94A3;
+    --bg:#F6F7F9; --panel:#FFFFFF;
+    --rule:#E3E6EB; --rule-soft:#EDF0F4;
+    --accent:#30A1D2; --accent-soft:#E4F1F8;
+    --good:#1B7A4E; --good-soft:#E4F2EB;
+    --warn:#8A6A00; --warn-soft:#FBF1D6;
+    --bad:#B23C3C; --bad-soft:#F7E4E4;
+    --sans:"Pretendard Variable","Pretendard","Segoe UI",system-ui,sans-serif;
+    --mono:"JetBrains Mono","Consolas",ui-monospace,monospace;
+    font-feature-settings:"tnum" 1,"ss01" 1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:13.5px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .page{max-width:1360px;margin:0 auto;padding:56px 48px 96px}
+
+  /* masthead */
+  .mast{display:grid;grid-template-columns:1fr auto;align-items:end;
+    border-bottom:1px solid var(--ink);padding-bottom:18px;margin-bottom:40px}
+  .mast h1{font-size:30px;font-weight:600;margin:0 0 6px;letter-spacing:-0.01em}
+  .mast .sub{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:0.02em}
+  .mast .meta{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);line-height:1.7}
+  .mast .meta b{color:var(--ink);font-weight:600}
+
+  /* sections */
+  section{margin:56px 0 0}
+  .sec-head{display:grid;grid-template-columns:80px 1fr;gap:24px;
+    padding-bottom:10px;margin-bottom:24px;
+    border-bottom:1px solid var(--rule);align-items:baseline}
+  .sec-num{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.08em}
+  .sec-title{font-size:18px;font-weight:600;letter-spacing:-0.005em;margin:0}
+  .sec-title small{font-weight:400;color:var(--ink-soft);font-size:13px;margin-left:8px}
+  .sec-body{display:grid;grid-template-columns:80px 1fr;gap:24px}
+  .sec-body > .content{max-width:1120px}
+  p{margin:0 0 12px}
+  p.lede{font-size:15px;line-height:1.6;color:var(--ink);text-wrap:pretty}
+  p.muted{color:var(--ink-soft)}
+  code{font-family:var(--mono);font-size:0.92em;background:var(--rule-soft);padding:1px 5px;border-radius:3px}
+  h4{margin:22px 0 8px;font-size:13px;font-weight:600;letter-spacing:-0.005em}
+  h4 small{font-weight:400;color:var(--ink-soft);font-size:12px;margin-left:8px}
+
+  /* TL;DR card */
+  .tldr{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:18px 22px;margin:0 0 8px}
+  .tldr h3{margin:0 0 10px;font-size:13px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-soft)}
+  .tldr .grammar{display:grid;grid-template-columns:auto 1fr;gap:12px 18px;align-items:baseline}
+  .tldr .grammar dt{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.05em}
+  .tldr .grammar dd{margin:0;font-family:var(--mono);font-size:13.5px;color:var(--ink)}
+  .tldr .grammar dd b{color:var(--accent)}
+  .tldr .grammar dd em{font-style:normal;color:var(--good);font-weight:500}
+
+  /* rules table */
+  .rules{width:100%;border-collapse:collapse;font-size:12.5px;border:1px solid var(--rule);background:#fff;border-radius:6px;overflow:hidden;margin:10px 0}
+  .rules th,.rules td{padding:10px 14px;border-bottom:1px solid var(--rule-soft);text-align:left;vertical-align:top}
+  .rules th{background:#fafbfc;font-size:11px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-soft)}
+  .rules tr:last-child td{border-bottom:0}
+  .rules td.mono{font-family:var(--mono);font-size:11.5px}
+  .rules .yes{color:var(--good);font-weight:600}
+  .rules .no{color:var(--bad);font-weight:500;text-decoration:line-through}
+
+  /* grammar diagram */
+  .gdiag{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:22px 26px;margin:14px 0}
+  .gdiag .row{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center;padding:12px 0;border-top:1px solid var(--rule-soft)}
+  .gdiag .row:first-of-type{border-top:0}
+  .gdiag .row .label{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:0.08em;text-transform:uppercase}
+  .gdiag .row .val{font-family:var(--mono);font-size:14px}
+  .gdiag .tok-ns{color:#8A6A00;background:var(--warn-soft);padding:2px 8px;border-radius:3px}
+  .gdiag .tok-obj{color:#155a8a;background:#E1F0FA;padding:2px 8px;border-radius:3px}
+  .gdiag .tok-mod{color:var(--good);background:var(--good-soft);padding:2px 8px;border-radius:3px}
+  .gdiag .dot{color:var(--ink-faint);margin:0 2px}
+
+  /* tier swatches */
+  .tiers{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:14px 0 0}
+  .tier{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:14px 14px 16px;position:relative;overflow:hidden}
+  .tier::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+  .tier.t-common::before{background:#1A1D21}
+  .tier.t-direction::before{background:#5A6370}
+  .tier.t-specific::before{background:#8A6A00}
+  .tier.t-duotone::before{background:#30A1D2}
+  .tier.t-genuine::before{background:#B23C3C}
+  .tier h5{margin:2px 0 4px;font-size:13px;font-weight:600}
+  .tier .prefix{font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);letter-spacing:0.04em;margin-bottom:10px}
+  .tier .prefix b{color:var(--ink);font-weight:600}
+  .tier p{font-size:11.5px;color:var(--ink-soft);line-height:1.5;margin:0 0 8px}
+  .tier .ex{font-family:var(--mono);font-size:11px;background:var(--rule-soft);padding:6px 8px;border-radius:3px;color:var(--ink);line-height:1.6}
+  .tier .ex b{color:var(--accent)}
+
+  /* examples grid (good vs bad) */
+  .gvb{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0 0}
+  .gvb .side{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:14px 16px}
+  .gvb .side.bad{border-color:#EFD0D0;background:#FEF8F8}
+  .gvb .side.good{border-color:#CCE4D6;background:#F6FBF8}
+  .gvb .side h5{margin:0 0 8px;font-size:11.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase}
+  .gvb .side.bad h5{color:var(--bad)}
+  .gvb .side.good h5{color:var(--good)}
+  .gvb .side ul{margin:0;padding:0;list-style:none}
+  .gvb .side li{display:grid;grid-template-columns:18px 1fr;gap:8px 10px;padding:4px 0;font-family:var(--mono);font-size:12px;align-items:baseline}
+  .gvb .side li::before{grid-column:1;font-family:var(--sans);font-size:11px;font-weight:600}
+  .gvb .side.bad li::before{content:"✕";color:var(--bad)}
+  .gvb .side.good li::before{content:"✓";color:var(--good)}
+  .gvb .side li .k{grid-column:2;min-width:0;font-family:var(--mono);font-size:12px;color:var(--ink);font-weight:500;line-height:1.5;word-break:break-word}
+  .gvb .side li .cmt{grid-column:2;font-family:var(--sans);font-size:11px;color:var(--ink-soft);font-weight:400;line-height:1.5;min-width:0}
+
+  /* modifier table */
+  .mods{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:10px 0 0}
+  .mod{background:#fff;border:1px solid var(--rule);border-radius:6px;padding:12px 14px}
+  .mod .hdr{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;padding-bottom:8px;border-bottom:1px solid var(--rule-soft)}
+  .mod .hdr h5{margin:0;font-size:12px;font-weight:600}
+  .mod .hdr .cnt{font-family:var(--mono);font-size:10px;color:var(--ink-faint);letter-spacing:0.06em;text-transform:uppercase}
+  .mod table{width:100%;border-collapse:collapse;font-size:11.5px}
+  .mod td{padding:3px 0;vertical-align:top}
+  .mod td.k{font-family:var(--mono);color:var(--accent);width:50%;font-size:11px}
+  .mod td.v{color:var(--ink-soft);font-size:11px}
+
+  /* inventory diff strip */
+  .diff{background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden;margin:12px 0 0}
+  .diff .row{display:grid;grid-template-columns:30% 30% 1fr;gap:0;border-top:1px solid var(--rule-soft)}
+  .diff .row.head{background:#fafbfc;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);letter-spacing:0.06em;text-transform:uppercase;border-top:0}
+  .diff .row > div{padding:10px 14px;border-right:1px solid var(--rule-soft)}
+  .diff .row > div:last-child{border-right:0}
+  .diff .cur{font-family:var(--mono);font-size:12px;color:var(--bad);text-decoration:line-through;text-decoration-color:rgba(178,60,60,0.4)}
+  .diff .prop{font-family:var(--mono);font-size:12px;color:var(--good);font-weight:500}
+  .diff .why{font-size:11.5px;color:var(--ink-soft);line-height:1.5}
+
+  /* blockquote/note */
+  .note{background:#fff;border-left:3px solid var(--accent);border-radius:3px;padding:12px 16px;margin:12px 0;font-size:12.5px;color:var(--ink-soft);line-height:1.6}
+  .note b{color:var(--ink);font-weight:600}
+
+  /* small footnote */
+  .fn{font-size:11.5px;color:var(--ink-soft);line-height:1.6;margin-top:6px}
+
+  /* open questions */
+  .oq{background:#fff;border:1px dashed var(--warn);border-radius:6px;padding:14px 18px;margin:12px 0 0}
+  .oq h5{margin:0 0 8px;font-size:12px;font-weight:600;color:var(--warn);letter-spacing:0.04em;text-transform:uppercase}
+  .oq ol{margin:0;padding-left:20px}
+  .oq li{font-size:12.5px;color:var(--ink);line-height:1.6;margin:4px 0}
+  .oq li em{color:var(--ink-soft);font-style:normal}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- MASTHEAD -->
+  <header class="mast">
+    <div>
+      <h1>Icon Naming Convention</h1>
+      <div class="sub">Park.ds · 06 · Key-first · Draft v0.1 · 2026-04</div>
+    </div>
+    <div class="meta">
+      <b>DRAFT</b><br>
+      Scope · DesignLib (≈85 keys)<br>
+      Depends on · Color · Tiers
+    </div>
+  </header>
+
+  <!-- §0 TL;DR -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 0</span>
+      <h2 class="sec-title">TL;DR <small>이 문서의 규칙 한 페이지</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">의도</span>
+      <div class="content">
+        <p class="lede">
+          아이콘 시스템에서 <b>키(key)가 계약</b>이다. 그림은 나중에 바뀌어도 키는 바뀌지 않는다.
+          이 문서는 Park.ds 아이콘 키의 철자·순서·구조를 정한다.
+          적용 대상은 DesignLib의 85개 아이콘 + 앞으로 추가될 모든 아이콘이다.
+        </p>
+
+        <div class="tldr">
+          <h3>문법 한 줄 요약</h3>
+          <dl class="grammar">
+            <dt>형식</dt>
+            <dd><b>[Namespace.]</b>Object<em>[Modifier]</em></dd>
+            <dt>예</dt>
+            <dd><b>Check</b>  ·  <b>CheckCircle</b>  ·  <b>WLI.Flatten</b>  ·  <b>Brand.ParkLogo</b></dd>
+            <dt>규칙</dt>
+            <dd>PascalCase · 명사 먼저 · 숫자 접미사 금지 · 풀이름</dd>
+          </dl>
+        </div>
+
+        <table class="rules" style="margin-top:18px">
+          <thead><tr><th>Rule</th><th>결정</th><th>근거</th></tr></thead>
+          <tbody>
+            <tr><td>R1 · 대소문자</td><td><code>PascalCase</code></td><td>WPF/XAML·C# 관례와 일치. 개발진 마찰 최소.</td></tr>
+            <tr><td>R2 · 어순</td><td>명사(Object) 먼저, 수식어(Modifier) 뒤</td><td>IntelliSense에서 같은 대상끼리 묶임. Lucide/Phosphor 업계 표준.</td></tr>
+            <tr><td>R3 · 수식어</td><td>풀이름 사용. <code>Cir</code>/<code>Sq</code> 같은 약어 금지</td><td>자기설명적. 문서·협업·검색 유리.</td></tr>
+            <tr><td>R4 · 숫자 접미사</td><td><span class="no">Equipment2</span> 금지</td><td>의미 없음. "같은 이름인데 다른 것"의 원인 추적 불가.</td></tr>
+            <tr><td>R5 · 네임스페이스</td><td>하이브리드 — common/direction은 flat, specific/duotone/genuine은 prefix</td><td>자주 쓰는 것은 짧게, 특수한 것은 명시적으로.</td></tr>
+            <tr><td>R6 · specific 분기</td><td>제품 prefix(<code>WLI.</code>, <code>RMS.</code>, <code>Rep.</code>)</td><td>제품 간 충돌 방지, 확장 용이.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §1 GRAMMAR -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 1</span>
+      <h2 class="sec-title">Grammar <small>키의 세 부분</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">구조</span>
+      <div class="content">
+        <p class="lede">
+          Park.ds 아이콘 키는 최대 3부분으로 이루어진다.
+          <b>네임스페이스</b>는 선택, <b>대상(Object)</b>은 필수, <b>수식어(Modifier)</b>는 선택이다.
+        </p>
+
+        <div class="gdiag">
+          <div class="row">
+            <div class="label">General form</div>
+            <div class="val">
+              <span class="tok-ns">Namespace</span><span class="dot">.</span><span class="tok-obj">Object</span><span class="tok-mod">Modifier</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="label">common · flat</div>
+            <div class="val"><span class="tok-obj">Home</span> &nbsp;·&nbsp; <span class="tok-obj">Check</span> &nbsp;·&nbsp; <span class="tok-obj">Check</span><span class="tok-mod">Circle</span></div>
+          </div>
+          <div class="row">
+            <div class="label">direction · flat</div>
+            <div class="val"><span class="tok-obj">Arrow</span><span class="tok-mod">Right</span> &nbsp;·&nbsp; <span class="tok-obj">Chevron</span><span class="tok-mod">Down</span></div>
+          </div>
+          <div class="row">
+            <div class="label">specific · product ns</div>
+            <div class="val"><span class="tok-ns">WLI</span><span class="dot">.</span><span class="tok-obj">Flatten</span> &nbsp;·&nbsp; <span class="tok-ns">RMS</span><span class="dot">.</span><span class="tok-obj">StationMap</span></div>
+          </div>
+          <div class="row">
+            <div class="label">duotone · Duo ns</div>
+            <div class="val"><span class="tok-ns">Duo</span><span class="dot">.</span><span class="tok-obj">Vertex</span><span class="tok-mod">Add</span> &nbsp;·&nbsp; <span class="tok-ns">Duo</span><span class="dot">.</span><span class="tok-obj">Crosshair</span></div>
+          </div>
+          <div class="row">
+            <div class="label">genuine · Brand ns</div>
+            <div class="val"><span class="tok-ns">Brand</span><span class="dot">.</span><span class="tok-obj">ParkLogo</span> &nbsp;·&nbsp; <span class="tok-ns">Brand</span><span class="dot">.</span><span class="tok-obj">ModeContact</span></div>
+          </div>
+        </div>
+
+        <h4>R2 · 어순이 왜 중요한가</h4>
+        <div class="gvb">
+          <div class="side bad">
+            <h5>어순 혼재 (현재)</h5>
+            <ul>
+              <li><span class="k">DashboardRMS</span><span class="cmt">"RMS 대시보드"? 수식어가 앞</span></li>
+              <li><span class="k">DashboardRecipe</span><span class="cmt">같은 패턴</span></li>
+              <li><span class="k">CrossCircle</span><span class="cmt">Cross의 Circle 변형. 명사 앞</span></li>
+            </ul>
+            <p class="fn">→ 정렬해도 같은 대상끼리 모이지 않음. <code>Dashboard*</code> 군과 <code>*Circle</code> 군이 섞임.</p>
+          </div>
+          <div class="side good">
+            <h5>명사 먼저 (규칙)</h5>
+            <ul>
+              <li><span class="k">EquipmentDashboard</span><span class="cmt">Equipment 대시보드</span></li>
+              <li><span class="k">RecipeDashboard</span><span class="cmt">Recipe 대시보드</span></li>
+              <li><span class="k">CrossCircle</span><span class="cmt">Cross의 Circle 변형 (유지)</span></li>
+            </ul>
+            <p class="fn">→ 정렬 시 <code>Check / CheckCircle / CheckDouble</code>, <code>Cross / CrossCircle</code> 처럼 관련 변형이 뭉침.</p>
+          </div>
+        </div>
+
+        <div class="note">
+          <b>예외 1:</b> direction 티어에서 <code>ArrowRight</code> 같은 이름은 "Right이라는 Arrow 변형"이 아니라 <b>방향이 본질</b>이므로
+          명사(Arrow) + 방향(Right) 형태가 자연스럽다. R2의 <i>Object-first</i>가 그대로 적용되는 사례.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §2 TIER NAMESPACES -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 2</span>
+      <h2 class="sec-title">Tier Namespaces <small>5티어 × 네임스페이스 매핑</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">R5 · R6</span>
+      <div class="content">
+        <p class="lede">
+          5개 티어 중 <b>사용 빈도가 높은 2개(common · direction)는 flat</b>으로 짧게 쓰고,
+          <b>특수한 3개(specific · duotone · genuine)는 prefix</b>로 명시한다.
+          "특수한 것은 특수해 보이게" — 개발자가 실수로 common처럼 색칠할 수 없도록 키 자체가 신호를 준다.
+        </p>
+
+        <div class="tiers">
+          <div class="tier t-common">
+            <h5>common</h5>
+            <div class="prefix">prefix · <b>없음</b></div>
+            <p>범용 UI 아이콘. 단색 filled. 대부분의 제품에서 공통으로 쓴다.</p>
+            <div class="ex"><b>Home</b><br><b>Check</b><br><b>CheckCircle</b><br><b>Settings</b></div>
+          </div>
+          <div class="tier t-direction">
+            <h5>direction</h5>
+            <div class="prefix">prefix · <b>없음</b></div>
+            <p>방향·이동·전환. 단색 filled. common과 같은 색 바인딩.</p>
+            <div class="ex"><b>ArrowRight</b><br><b>ChevronDown</b><br><b>CaretUp</b><br><b>Refresh</b></div>
+          </div>
+          <div class="tier t-specific">
+            <h5>specific</h5>
+            <div class="prefix">prefix · <b>WLI. RMS. Rep.</b></div>
+            <p>특정 제품 전용. 도메인 고유 개념(계측·분석).</p>
+            <div class="ex"><b>WLI.Flatten</b><br><b>WLI.Threshold</b><br><b>RMS.StationMap</b><br><b>Rep.Jitter</b></div>
+          </div>
+          <div class="tier t-duotone">
+            <h5>duotone</h5>
+            <div class="prefix">prefix · <b>Duo.</b></div>
+            <p>기본 ink + accent 1색. Vertex/핸들 조작처럼 의미가 둘인 아이콘.</p>
+            <div class="ex"><b>Duo.VertexAdd</b><br><b>Duo.VertexRemove</b><br><b>Duo.Crosshair</b><br><b>Duo.PatternDither</b></div>
+          </div>
+          <div class="tier t-genuine">
+            <h5>genuine</h5>
+            <div class="prefix">prefix · <b>Brand.</b></div>
+            <p>브랜드·로고·고정색. 테마·모드에 무관하게 색이 불변.</p>
+            <div class="ex"><b>Brand.ParkLogo</b><br><b>Brand.ParkWordmark</b><br><b>Brand.ModeContact</b></div>
+          </div>
+        </div>
+
+        <h4>네임스페이스가 곧 색 바인딩 규칙 <small>실수 방지</small></h4>
+        <table class="rules">
+          <thead><tr><th>Namespace</th><th>허용 색 변경</th><th>런타임에 색 파라미터</th><th>테마 반응</th></tr></thead>
+          <tbody>
+            <tr>
+              <td class="mono">(flat) common·direction</td>
+              <td><span class="yes">가능</span> — 1색 교체</td>
+              <td><code>color</code> 1개</td>
+              <td>Light/Dark에 반응</td>
+            </tr>
+            <tr>
+              <td class="mono">WLI. / RMS. / Rep.</td>
+              <td><span class="yes">가능</span> — 1색 교체</td>
+              <td><code>color</code> 1개</td>
+              <td>Light/Dark에 반응</td>
+            </tr>
+            <tr>
+              <td class="mono">Duo.</td>
+              <td><span class="yes">가능</span> — 2색 교체</td>
+              <td><code>color</code> + <code>accent</code></td>
+              <td>Light/Dark에 반응 (accent는 동일 계열 유지)</td>
+            </tr>
+            <tr>
+              <td class="mono">Brand.</td>
+              <td><span class="no">불가</span> — 고정색</td>
+              <td>없음</td>
+              <td>테마 무관 · 항상 CI 팔레트</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <b>왜 duotone에 <code>Duo.</code> prefix를 붙이나?</b>
+          런타임 API가 달라서다. common은 <code>&lt;Icon name="Home" color="ink"/&gt;</code>이지만
+          duotone은 <code>&lt;Icon name="Duo.VertexAdd" color="ink" accent="blue"/&gt;</code>처럼 파라미터가 하나 더 필요하다.
+          키에 이 차이가 드러나야 개발자가 올바른 API를 쓴다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §3 MODIFIERS — 정식 어휘집 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 3</span>
+      <h2 class="sec-title">Modifier Vocabulary <small>수식어 공식 사전</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">R3</span>
+      <div class="content">
+        <p class="lede">
+          수식어는 <b>이 사전에 있는 것만 사용</b>한다. 새 수식어가 필요하면 이 문서에 먼저 추가하고 쓴다.
+          풀이름(full word) 원칙 — <code>Cir</code>, <code>Sq</code>, <code>Dbl</code> 같은 약어는 금지.
+        </p>
+
+        <div class="mods">
+          <div class="mod">
+            <div class="hdr"><h5>Shape (포함 형태)</h5><span class="cnt">5</span></div>
+            <table>
+              <tbody><tr><td class="k">Circle</td><td class="v">원 안에 · CheckCircle</td></tr>
+              <tr><td class="k">Square</td><td class="v">사각 안에 · CheckSquare</td></tr>
+              <tr><td class="k">Triangle</td><td class="v">삼각 안에 · AlertTriangle</td></tr>
+              <tr><td class="k">Shield</td><td class="v">방패 안에 · CheckShield</td></tr>
+              <tr><td class="k">Badge</td><td class="v">원형 뱃지 · NotificationBadge</td></tr>
+            </tbody></table>
+          </div>
+          <div class="mod">
+            <div class="hdr"><h5>Direction (방향)</h5><span class="cnt">8</span></div>
+            <table>
+              <tbody><tr><td class="k">Up / Down</td><td class="v">ChevronUp · ArrowDown</td></tr>
+              <tr><td class="k">Left / Right</td><td class="v">ArrowLeft · ChevronRight</td></tr>
+              <tr><td class="k">UpLeft / UpRight</td><td class="v">대각선 상</td></tr>
+              <tr><td class="k">DownLeft / DownRight</td><td class="v">대각선 하</td></tr>
+            </tbody></table>
+          </div>
+          <div class="mod">
+            <div class="hdr"><h5>Multiplicity (수량)</h5><span class="cnt">3</span></div>
+            <table>
+              <tbody><tr><td class="k">Double</td><td class="v">2회 반복 · CheckDouble</td></tr>
+              <tr><td class="k">Triple</td><td class="v">3회 반복 · 드물게</td></tr>
+              <tr><td class="k">Stack</td><td class="v">겹침 · LayerStack (비관련 겹침과 구분)</td></tr>
+            </tbody></table>
+          </div>
+          <div class="mod">
+            <div class="hdr"><h5>State (상태)</h5><span class="cnt">5</span></div>
+            <table>
+              <tbody><tr><td class="k">Off / On</td><td class="v">EyeOff · PowerOn</td></tr>
+              <tr><td class="k">Open / Closed</td><td class="v">LockOpen · LockClosed</td></tr>
+              <tr><td class="k">Active</td><td class="v">PlayActive (런타임 상태 아님, 의미상 활성형)</td></tr>
+            </tbody></table>
+          </div>
+          <div class="mod">
+            <div class="hdr"><h5>Action (동작)</h5><span class="cnt">6</span></div>
+            <table>
+              <tbody><tr><td class="k">Add / Remove</td><td class="v">FolderAdd · LayerRemove</td></tr>
+              <tr><td class="k">Edit</td><td class="v">RecipeEdit</td></tr>
+              <tr><td class="k">Delete</td><td class="v">MessageDelete · Trash 본체는 그냥 Trash</td></tr>
+              <tr><td class="k">Search / Filter</td><td class="v">접미사로는 거의 안 씀</td></tr>
+              <tr><td class="k">Check / Cross</td><td class="v">MessageCheck (읽음) · MessageCross (실패)</td></tr>
+            </tbody></table>
+          </div>
+          <div class="mod">
+            <div class="hdr"><h5>Composition (결합)</h5><span class="cnt">4</span></div>
+            <table>
+              <tbody><tr><td class="k">Dashed</td><td class="v">점선 변형 · BorderDashed</td></tr>
+              <tr><td class="k">Dotted</td><td class="v">점 변형 · LineDotted</td></tr>
+              <tr><td class="k">Outline</td><td class="v">테두리만 (예외적 · <b>§4 참조</b>)</td></tr>
+              <tr><td class="k">Fill</td><td class="v">꽉 찬 변형 (예외적 · <b>§4 참조</b>)</td></tr>
+            </tbody></table>
+          </div>
+        </div>
+
+        <div class="note">
+          <b>수식어는 복수로 붙이지 않는다.</b>
+          <code>CheckCircleDouble</code>(원에 든 체크 두 번)은 허용하지만,
+          <code>CheckCircleSquareDouble</code>처럼 3단계 이상 쌓지 않는다.
+          그런 경우는 새 이름(예: <code>Verified</code>)을 만든다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §4 FILL vs OUTLINE 정책 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 4</span>
+      <h2 class="sec-title">Filled vs Outline <small>Park.ds는 filled 기본</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">정책</span>
+      <div class="content">
+        <p class="lede">
+          Park.ds는 <b>filled(단색 솔리드)가 기본</b>이다. 따라서 이름에 <code>Filled</code>를 붙이지 않는다.
+          outline 변형이 필요한 경우에만 예외로 <code>Outline</code>을 붙인다.
+        </p>
+
+        <table class="rules">
+          <thead><tr><th>케이스</th><th>키 표기</th><th>예</th></tr></thead>
+          <tbody>
+            <tr><td>filled 기본</td><td class="mono">(접미사 없음)</td><td><code>Home</code> · <code>Settings</code> · <code>Heart</code></td></tr>
+            <tr><td>outline 변형이 쌍으로 존재</td><td class="mono">...Outline</td><td><code>Heart</code> + <code>HeartOutline</code></td></tr>
+            <tr><td>outline만 있는 아이콘</td><td class="mono">(접미사 없음)</td><td><code>Frame</code> — 애초에 outline 밖에 없음</td></tr>
+            <tr><td class="no">filled임을 강조</td><td class="no mono">...Filled</td><td class="no">HeartFilled ← 금지</td></tr>
+          </tbody>
+        </table>
+
+        <div class="note">
+          <b>이유 —</b> Material은 <code>favorite</code>(filled) / <code>favorite_border</code>(outline)로 두 쌍을 유지한다.
+          우리는 3개 제품 규모에서 2배 작업이 부담스럽고, filled 한 가지로 방향이 정해져 있으므로
+          outline은 "꼭 필요한 때만 추가"하는 정책을 쓴다.
+          (예: 좋아요/별표처럼 on/off 시각 차이가 중요한 경우)
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §5 금지·회피 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 5</span>
+      <h2 class="sec-title">금지 · 회피 <small>하지 말 것</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">R4 외</span>
+      <div class="content">
+
+        <div class="gvb">
+          <div class="side bad">
+            <h5>금지 패턴</h5>
+            <ul>
+              <li><span class="k">Equipment2</span><span class="cmt">숫자 접미사 — 의미 없음</span></li>
+              <li><span class="k">HomeV2</span><span class="cmt">버저닝을 이름에 넣지 말 것</span></li>
+              <li><span class="k">CheckCir</span><span class="cmt">약어 금지</span></li>
+              <li><span class="k">ic_home</span><span class="cmt">prefix로 타입 표시 불필요 (이미 Icon 네임스페이스)</span></li>
+              <li><span class="k">HomeIcon</span><span class="cmt">suffix로 타입 표시 불필요</span></li>
+              <li><span class="k">DashboardRMS</span><span class="cmt">수식어가 앞에 옴 (R2 위반)</span></li>
+              <li><span class="k">DashboardEqiupment</span><span class="cmt">오타</span></li>
+              <li><span class="k">arrow-right</span><span class="cmt">kebab-case 금지 (R1)</span></li>
+            </ul>
+          </div>
+          <div class="side good">
+            <h5>교정 패턴</h5>
+            <ul>
+              <li><span class="k">Equipment / EquipmentAlt</span><span class="cmt">의미상 무엇인지 이름에 담기</span></li>
+              <li><span class="k">(같은 키 덮어쓰기)</span><span class="cmt">변형은 파일·그림만 바꾸고 키 유지</span></li>
+              <li><span class="k">CheckCircle</span><span class="cmt">풀이름</span></li>
+              <li><span class="k">Home</span><span class="cmt">짧게</span></li>
+              <li><span class="k">Home</span><span class="cmt">짧게</span></li>
+              <li><span class="k">RMSDashboard</span><span class="cmt">명사가 앞</span></li>
+              <li><span class="k">EquipmentDashboard</span><span class="cmt">오타 수정</span></li>
+              <li><span class="k">ArrowRight</span><span class="cmt">PascalCase</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <h4>그 외 회피</h4>
+        <ul style="font-size:12.5px;color:var(--ink);line-height:1.65;padding-left:20px">
+          <li><b>한국어 키 금지.</b> <code>차트막대</code> 같은 것은 개발 스택(C#/XAML)과 호환되지 않는다. 영문 키만 사용.</li>
+          <li><b>의성어·이모지 금지.</b> <code>Smiley</code> 대신 <code>FaceHappy</code> 같이 서술적으로.</li>
+          <li><b>색을 키에 넣지 말 것.</b> <code>RedAlert</code> 금지. 색은 런타임에 바꿀 수 있어야 한다. (단 <code>Brand.</code>는 예외)</li>
+          <li><b>사이즈를 키에 넣지 말 것.</b> <code>Home16</code> 금지. 사이즈는 토큰(<code>size.sm</code>)으로 관리.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §6 CURRENT vs PROPOSED — 대표 사례 10건 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 6</span>
+      <h2 class="sec-title">현재 → 제안 <small>규칙이 적용된 샘플 10건</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">예시</span>
+      <div class="content">
+        <p class="lede">
+          전수 리네이밍표는 <b>07 Icon Inventory</b>에서 85개 전부 다룬다.
+          여기서는 규칙이 어떻게 적용되는지 맛보기 10건만.
+        </p>
+
+        <div class="diff">
+          <div class="row head">
+            <div>현재 키 (DesignLib)</div>
+            <div>제안</div>
+            <div>적용 규칙</div>
+          </div>
+          <div class="row">
+            <div class="cur">DashboardEqiupment</div>
+            <div class="prop">EquipmentDashboard</div>
+            <div class="why">R2 어순 + 오타 수정 (Eqiupment → Equipment)</div>
+          </div>
+          <div class="row">
+            <div class="cur">DashboardRMS</div>
+            <div class="prop">RMSDashboard</div>
+            <div class="why">R2 어순. common 티어 유지 (대시보드 자체는 RMS 전용 아님)</div>
+          </div>
+          <div class="row">
+            <div class="cur">DashboardRecipe</div>
+            <div class="prop">RecipeDashboard</div>
+            <div class="why">R2 어순</div>
+          </div>
+          <div class="row">
+            <div class="cur">Equipment2</div>
+            <div class="prop">(키 유지 · 그림만 병합) <b>또는</b> EquipmentAlt</div>
+            <div class="why">R4 숫자 접미사 금지. 같은 것이면 하나로 병합, 의미가 다르면 서술어로 구분</div>
+          </div>
+          <div class="row">
+            <div class="cur">CheckCircle</div>
+            <div class="prop">CheckCircle <span style="color:var(--good-soft);color:var(--good)">✓ 변경 없음</span></div>
+            <div class="why">이미 규칙에 부합</div>
+          </div>
+          <div class="row">
+            <div class="cur">CrossCircle</div>
+            <div class="prop">CrossCircle <span style="color:var(--good)">✓</span></div>
+            <div class="why">이미 규칙에 부합</div>
+          </div>
+          <div class="row">
+            <div class="cur">ArrowDownEnd</div>
+            <div class="prop">ArrowDownToLine <i>또는</i> ArrowToBottom</div>
+            <div class="why">§3 수식어 사전에 없음. "End"가 뭘 뜻하는지 모호 — 규범 어휘로 교체 필요</div>
+          </div>
+          <div class="row">
+            <div class="cur">(duotone) VertexAdd</div>
+            <div class="prop">Duo.VertexAdd</div>
+            <div class="why">R5 · R6. duotone은 <code>Duo.</code> 네임스페이스로 명시</div>
+          </div>
+          <div class="row">
+            <div class="cur">(specific) Flatten</div>
+            <div class="prop">WLI.Flatten</div>
+            <div class="why">R5 · R6. WLI 전용 도메인 아이콘임을 키에 표기</div>
+          </div>
+          <div class="row">
+            <div class="cur">(genuine) ParkLogo</div>
+            <div class="prop">Brand.ParkLogo</div>
+            <div class="why">R5 · R6. 테마 무관 고정색임을 키에 표기</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §7 MIGRATION — 개발진과의 호환 -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 7</span>
+      <h2 class="sec-title">Migration <small>개발진이 이미 쓰고 있는 키와의 호환</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">방법</span>
+      <div class="content">
+        <p class="lede">
+          이미 코드에 퍼진 키를 한 번에 바꾸는 것은 위험하다. 두 단계로 간다.
+        </p>
+
+        <h4>Phase A · Alias 유지 <small>이름만 정리, 코드는 그대로</small></h4>
+        <ul style="font-size:12.5px;line-height:1.65;padding-left:20px">
+          <li>현재 키를 그대로 두고, <b>새 이름을 정식</b>으로 추가한다.</li>
+          <li>구 이름은 "deprecated alias"로 표시 (문서·리소스 파일에 주석).</li>
+          <li>Figma에서는 새 이름으로 정리, XAML 리소스는 두 키 모두 제공.</li>
+          <li>예: <code>DashboardEqiupment</code>(deprecated) + <code>EquipmentDashboard</code>(new) 모두 동일 리소스를 가리킴.</li>
+        </ul>
+
+        <h4>Phase B · Deprecation sweep <small>v1 publish 시점</small></h4>
+        <ul style="font-size:12.5px;line-height:1.65;padding-left:20px">
+          <li>모든 코드베이스가 새 이름을 쓰도록 점진 교체 (개발진 협조).</li>
+          <li>v1 publish 시점에 구 alias 제거 — 이 시점이 <b>v1의 의미</b>.</li>
+          <li>이후로는 키 삭제·이름 변경을 "breaking change"로 취급. major 버전에서만 허용.</li>
+        </ul>
+
+        <div class="note">
+          <b>1인 작업 현실 —</b> Phase A만 해도 대부분의 혼란이 해소된다.
+          Phase B는 개발진과의 커뮤니케이션 비용이 있으니, 서두르지 말고 v1 시점에 한꺼번에.
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §8 OPEN QUESTIONS -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 8</span>
+      <h2 class="sec-title">Open Questions <small>박사님 결정이 남은 것</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">?</span>
+      <div class="content">
+        <div class="oq">
+          <h5>아직 확정 못 한 항목</h5>
+          <ol>
+            <li><b>네임스페이스 구분자 —</b> <code>WLI.Flatten</code> (점) vs <code>WLI_Flatten</code> (언더스코어) vs <code>WLIFlatten</code> (단일 PascalCase).
+              <em>제안: 점. XAML 리소스 키로 직접 쓰이지 않고 Figma/문서 표기용이라면 점이 가장 읽기 쉽다. 단 C# enum이라면 단일 PascalCase 또는 네스티드 클래스가 현실적 — 결정 필요.</em></li>
+            <li><b>Repeatability 제품 prefix —</b> <code>Rep.</code> vs <code>Repeat.</code> vs <code>RT.</code>(Repeatability Tool).
+              <em>제안: Rep. — 짧고 의미 추정 용이.</em></li>
+            <li><b>공용에서 점점 특수로 이동하는 아이콘 처리 —</b> 처음엔 common이었다가 실제로 WLI에서만 쓰이는 것으로 판명된 경우 키를 바꿀까, 유지할까?
+              <em>제안: 유지. Phase A에서만 이동. 잦은 이동은 Alias 늘리기만 함.</em></li>
+            <li><b>common 내에서 "의미 겹치는 아이콘" 처리 —</b>
+              Copy / Duplicate / Clone 같이 비슷한 개념을 여러 키로 둘지, 하나만 둘지.
+              <em>제안: 하나만 (<code>Duplicate</code>). 개발진이 어느 걸 써야 할지 헷갈리지 않게.</em></li>
+            <li><b>Brand 안의 "Mode 색 칩"(genuine의 AFM 측정 모드 4색)</b>이 진짜 "아이콘"인지, "컬러 토큰"으로 옮겨야 하는지 —
+              <em>제안: 아이콘이 아니라 <code>mode.contact</code>·<code>mode.noncontact</code> 같은 색 토큰으로 이동.
+              Brand 네임스페이스에는 로고와 워드마크만 남긴다.</em></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- §9 NEXT -->
+  <section>
+    <div class="sec-head">
+      <span class="sec-num">§ 9</span>
+      <h2 class="sec-title">다음 문서 <small>07 Icon Inventory</small></h2>
+    </div>
+    <div class="sec-body">
+      <span class="sec-num muted">다음</span>
+      <div class="content">
+        <p class="lede">
+          이 규칙이 박사님 검토를 통과하면, 다음 문서에서 <b>85개 전체 아이콘을 이 규칙에 비추어 재정리</b>한다.
+          산출물은 3열 표 — <code>현재 키</code> · <code>제안 키</code> · <code>비고/이슈</code> —
+          그리고 티어별 그리드 뷰에서 어떻게 재배치되는지 시각적으로 보여준다.
+        </p>
+        <p class="muted" style="font-size:12.5px">
+          그 작업을 시작하려면 박사님이 §8의 Open Questions 중 최소 <b>1·2·5</b>번에는 답을 주셔야 해요.
+          3·4는 제안대로 가도 큰 차이 없어서 합의된 걸로 간주해도 됩니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+
+</body></html>

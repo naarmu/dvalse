@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<!-- saved from url=(0317)https://4e879dba-c492-4b59-88e5-2cca9100ac28.claudeusercontent.com/v1/design/projects/4e879dba-c492-4b59-88e5-2cca9100ac28/serve/Park.ds/01%20Color%20Foundation.html?t=e5663800d5af000c4bbb2b4a3ef8034ddf0797874a58a118839159322e56c714.d3e46410-4fc8-4d5f-98bf-e64e38affb38.1ef2a04f-778e-47c7-b0c0-eef5872debb4.1776931027 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style data-omelette-injected="">html,body{background:transparent}</style><script data-omelette-injected="">(()=>{var $=["https://claude.ai","https://preview.claude.ai","https://eap-omelette.claude.ai"];var F=30000;var A=3000;document.addEventListener("DOMContentLoaded",()=>{const Q="transform-react-jsx-source";document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((J,V)=>{const X=J.getAttribute("data-plugins")||"";if(X.indexOf(Q)<0){J.setAttribute("data-plugins",X?`${X},${Q}`:Q)}if(!J.hasAttribute("data-filename")){J.setAttribute("data-filename",J.getAttribute("src")||`inline-${V}`)}})});var W=window.parent;if(W&&W!==window){const Q=(z,k)=>{try{W.postMessage({__omelette_log:true,type:z,data:k},"*")}catch{}};["log","warn","error"].forEach((z)=>{const k=console[z];console[z]=(...C)=>{const D=C.map((w)=>{try{return typeof w==="object"?JSON.stringify(w):String(w)}catch{try{return String(w)}catch{return"[unstringifiable]"}}}).join(" ");Q(z,D);k.apply(console,C)}});window.addEventListener("error",(z)=>{const k=z.target;if(k&&k!==window&&k.tagName){const C=k.src||k.href||"";Q("resource_error",`${k.tagName} failed to load: ${C}`)}else{Q("error",`${z.message||"Unknown error"} at ${z.filename||"?"}:${z.lineno||0}:${z.colno||0}`)}},true);window.addEventListener("unhandledrejection",(z)=>{const k=z.reason;const C=k instanceof Error?`${k.message} ${k.stack}`:String(k);Q("error",`Unhandled rejection: ${C}`)});const J=()=>{try{W.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")J();else window.addEventListener("load",J);if(window.ResizeObserver)new ResizeObserver(J).observe(document.documentElement);const V={};let X=0;window.claude={complete(z){return new Promise((k,C)=>{if(!$.length){C(new Error("claude.complete: no parent origin"));return}const D=`c${++X}`;const w=()=>setTimeout(()=>{delete V[D];C(new Error(`claude.complete: no data for ${F/1000}s`))},F);const K=w();V[D]={resolve:k,reject:C,text:"",t:K,arm:w};try{for(const Z of $){W.postMessage({__om_api:true,id:D,body:z},Z)}}catch(Z){clearTimeout(K);delete V[D];C(Z)}})}};const Y={};let h=0;window.omelette={writeFile:(z,k)=>new Promise((C,D)=>{if(!$.length){C();return}const w=`f${++h}`;const K=setTimeout(()=>{delete Y[w];C()},A);Y[w]={resolve:C,reject:D,t:K};try{for(const Z of $){W.postMessage({__om_file:true,id:w,op:"write",path:z,content:k},Z)}}catch{clearTimeout(K);delete Y[w];C()}})};const b=(z)=>{try{return JSON.stringify(z)}catch{return JSON.stringify(String(z))}};window.addEventListener("message",(z)=>{if($.indexOf(z.origin)<0)return;if(z.source!==W)return;const k=z.data;if(!k)return;if(k.__om_file_r){const w=Y[k.id];if(!w)return;clearTimeout(w.t);delete Y[k.id];if(k.ok)w.resolve();else w.reject(new Error(k.error||"write failed"));return}if(k.__om_api_r){const w=V[k.id];if(!w)return;if(k.error!=null){clearTimeout(w.t);delete V[k.id];w.reject(new Error(k.error));return}if(k.chunk!=null){clearTimeout(w.t);w.t=w.arm();w.text+=k.chunk;return}if(k.done){clearTimeout(w.t);delete V[k.id];w.resolve(k.text!=null?k.text:w.text);return}return}if(!k.__om_eval)return;const C=k;const D=(w)=>{z.source.postMessage({...w,__om_eval_r:1,id:C.id},z.origin)};try{const w=(0,eval)(C.code);if(w&&typeof w.then==="function"){w.then((K)=>D({ok:1,v:b(K)}),(K)=>D({ok:0,e:String(K)}))}else{D({ok:1,v:b(w)})}}catch(w){D({ok:0,e:String(w)})}})}})();
+</script>
+
+
+<title>Park.ds · Color Foundation v0.1</title>
+<style>
+  :root{
+    --ink: #1A1D21;
+    --ink-soft: #5A6370;
+    --ink-faint: #8A94A3;
+    --bg: #F6F7F9;
+    --panel: #FFFFFF;
+    --rule: #E3E6EB;
+    --rule-soft: #EDF0F4;
+    --accent: #30A1D2;
+    --mono: "Berkeley Mono","JetBrains Mono","IBM Plex Mono",ui-monospace,Menlo,monospace;
+    --sans: "Inter","Pretendard","Apple SD Gothic Neo",system-ui,-apple-system,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:13.5px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .page{max-width:1280px;margin:0 auto;padding:56px 48px 96px}
+
+  /* ── masthead ───────────────── */
+  .mast{
+    display:grid;grid-template-columns:1fr auto;align-items:end;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:18px;margin-bottom:40px;
+  }
+  .mast h1{
+    font-size:30px;font-weight:600;margin:0 0 6px;letter-spacing:-0.01em;
+  }
+  .mast .sub{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:0.02em}
+  .mast .meta{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);line-height:1.7}
+  .mast .meta b{color:var(--ink);font-weight:600}
+
+  /* ── sections ───────────────── */
+  section{margin:56px 0 0}
+  .sec-head{
+    display:grid;grid-template-columns:80px 1fr;gap:24px;
+    padding-bottom:10px;margin-bottom:24px;
+    border-bottom:1px solid var(--rule);
+    align-items:baseline;
+  }
+  .sec-num{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.08em}
+  .sec-title{font-size:18px;font-weight:600;letter-spacing:-0.005em;margin:0}
+  .sec-title small{font-weight:400;color:var(--ink-soft);font-size:13px;margin-left:8px}
+  .sec-body{display:grid;grid-template-columns:80px 1fr;gap:24px}
+  .sec-body > .spacer{}
+  .sec-body > .content{max-width:1000px}
+  p{margin:0 0 12px}
+  p.lede{font-size:15px;line-height:1.6;color:var(--ink)}
+  .muted{color:var(--ink-soft)}
+  code{font-family:var(--mono);font-size:0.92em;background:var(--rule-soft);padding:1px 5px;border-radius:3px}
+  kbd{font-family:var(--mono);font-size:0.88em;background:#fff;border:1px solid var(--rule);padding:1px 5px;border-radius:3px}
+
+  /* ── ramp ───────────────── */
+  .ramp{
+    display:grid;grid-template-columns:140px repeat(11,1fr);
+    border:1px solid var(--rule);background:#fff;border-radius:6px;overflow:hidden;
+    margin:14px 0 8px;
+  }
+  .ramp .lbl{
+    padding:10px 12px;display:flex;flex-direction:column;justify-content:center;
+    border-right:1px solid var(--rule);background:#fafbfc;
+  }
+  .ramp .lbl b{font-size:13px}
+  .ramp .lbl span{font-family:var(--mono);font-size:10px;color:var(--ink-soft);margin-top:2px}
+  .swatch{
+    position:relative;aspect-ratio:1/1.2;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:6px 7px;font-family:var(--mono);font-size:9.5px;line-height:1.2;
+  }
+  .swatch .step{position:absolute;top:6px;left:7px;font-weight:600;font-size:10px;opacity:0.85}
+  .swatch .hex{letter-spacing:0.01em}
+  .ramp-note{font-size:11.5px;color:var(--ink-soft);font-family:var(--mono);margin:6px 0 0}
+
+  /* ── token table ───────────────── */
+  .tok{
+    width:100%;border-collapse:collapse;font-size:12px;
+    border:1px solid var(--rule);background:#fff;border-radius:6px;overflow:hidden;
+  }
+  .tok th, .tok td{
+    text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule-soft);
+    vertical-align:middle;
+  }
+  .tok th{background:#fafbfc;font-weight:600;font-size:11px;letter-spacing:0.03em;text-transform:uppercase;color:var(--ink-soft)}
+  .tok tr:last-child td{border-bottom:none}
+  .tok code{font-size:11.5px}
+  .tok .chip{
+    display:inline-block;width:28px;height:16px;border-radius:3px;border:1px solid rgba(0,0,0,0.08);
+    vertical-align:middle;margin-right:8px;
+  }
+  .tok td.mono{font-family:var(--mono);font-size:11px}
+  .tok .pair{display:inline-flex;gap:4px;align-items:center}
+  .tok .pair .chip{margin-right:0}
+
+  /* ── side-by-side L/D ───────────────── */
+  .pair-wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:14px 0}
+  .pair-wrap .card{border:1px solid var(--rule);border-radius:8px;overflow:hidden;background:#fff}
+  .pair-wrap .card h4{
+    margin:0;padding:10px 14px;font-size:11px;font-weight:600;
+    letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-soft);
+    border-bottom:1px solid var(--rule);background:#fafbfc;font-family:var(--mono);
+  }
+  .mini-ui{padding:0}
+
+  /* mockup — light */
+  .mini-ui.light{background:#F4F6F8}
+  .mini-ui.light .titlebar{background:#fff;border-bottom:1px solid #E3E6EB;color:#1A1D21}
+  .mini-ui.light .sidebar{background:#FAFBFC;border-right:1px solid #E3E6EB;color:#5A6370}
+  .mini-ui.light .canvas{background:#fff;color:#1A1D21}
+  .mini-ui.light .ghost{background:#F0F3F6;border:1px solid #E3E6EB;color:#5A6370}
+  .mini-ui.light .btn-primary{background:#30A1D2;color:#fff}
+  .mini-ui.light .btn-default{background:#fff;border:1px solid #D4D8DE;color:#1A1D21}
+  .mini-ui.light .running{color:#1B7A4E;background:#E6F5EC}
+  .mini-ui.light .error{color:#B23C3C;background:#FBE9E9}
+
+  /* mockup — dark */
+  .mini-ui.dark{background:#14171B;color:#E5E8EC}
+  .mini-ui.dark .titlebar{background:#1C2026;border-bottom:1px solid #2B313A;color:#E5E8EC}
+  .mini-ui.dark .sidebar{background:#181C22;border-right:1px solid #2B313A;color:#A0A8B4}
+  .mini-ui.dark .canvas{background:#1C2026;color:#E5E8EC}
+  .mini-ui.dark .ghost{background:#22272E;border:1px solid #2B313A;color:#A0A8B4}
+  .mini-ui.dark .btn-primary{background:#45B4E2;color:#0C1013}
+  .mini-ui.dark .btn-default{background:#22272E;border:1px solid #343B45;color:#E5E8EC}
+  .mini-ui.dark .running{color:#5CD699;background:#16372A}
+  .mini-ui.dark .error{color:#F08A8A;background:#3A1E1E}
+
+  .mini-ui{display:grid;grid-template-rows:28px 1fr;font-family:var(--sans);font-size:11px}
+  .mini-ui .titlebar{display:flex;align-items:center;padding:0 12px;font-size:11px;font-weight:500}
+  .mini-ui .body{display:grid;grid-template-columns:80px 1fr;min-height:220px}
+  .mini-ui .sidebar{padding:10px 12px;font-size:10px;line-height:1.9}
+  .mini-ui .canvas{padding:14px;display:flex;flex-direction:column;gap:10px}
+  .mini-ui .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+  .mini-ui button,.mini-ui .btn-primary,.mini-ui .btn-default{
+    font:inherit;padding:4px 10px;border-radius:3px;cursor:default;border:none;font-size:10.5px
+  }
+  .mini-ui .pill{padding:2px 8px;border-radius:10px;font-size:10px;font-weight:500;font-family:var(--mono)}
+  .mini-ui .ghost{padding:8px 10px;border-radius:4px;font-size:10px}
+
+  /* ── equip states ───────────────── */
+  .equip{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0;
+  }
+  .equip .card{
+    background:#fff;border:1px solid var(--rule);border-radius:6px;padding:14px;
+    display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center;
+  }
+  .equip .dot{
+    width:12px;height:12px;border-radius:50%;position:relative;
+  }
+  .equip .dot.pulse::after{
+    content:"";position:absolute;inset:-6px;border-radius:50%;
+    border:2px solid currentColor;opacity:0.3;animation:pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{transform:scale(0.6);opacity:0.5}
+    100%{transform:scale(1.4);opacity:0}
+  }
+  .equip .name{font-size:12.5px;font-weight:600}
+  .equip .tok{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);margin-top:2px;border:0;background:none;padding:0}
+
+  /* ── mapping box ───────────────── */
+  .map{
+    background:#fff;border:1px solid var(--rule);border-radius:6px;padding:0;
+    font-size:12px;
+  }
+  .map table{width:100%;border-collapse:collapse}
+  .map th,.map td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+  .map th{background:#fafbfc;font-size:11px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:var(--ink-soft)}
+  .map code{font-size:11.5px}
+  .map tr:last-child td{border-bottom:0}
+
+  /* ── open questions ───────────────── */
+  .questions{background:#FFFBEE;border:1px solid #E8D99A;border-radius:6px;padding:18px 22px}
+  .questions h3{margin:0 0 10px;font-size:13px;letter-spacing:0.03em;text-transform:uppercase;color:#8A6A00}
+  .questions ol{margin:0;padding-left:20px;font-size:13px;line-height:1.7}
+  .questions b{color:#1A1D21}
+
+  .footer{
+    margin-top:64px;padding-top:18px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);
+    display:flex;justify-content:space-between;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="mast">
+    <div>
+      <h1>Park.ds · Color Foundation</h1>
+      <div class="sub">PARK.DS / FOUNDATION / 01 · COLOR</div>
+    </div>
+    <div class="meta">
+      <div>VERSION · <b>0.1 draft</b></div>
+      <div>DATE · 2026-04-22</div>
+      <div>AUTHOR · solo</div>
+      <div>STACK · WPF / DevExpress</div>
+    </div>
+  </header>
+
+  <!-- 0. 설계 의도 -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§0</div>
+      <h2 class="sec-title">설계 의도 <small>세 문장으로 요약</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="spacer"></div>
+      <div class="content">
+        <p class="lede">
+          Park.ds의 색은 <b>산업용·일관·명료</b>라는 세 원칙에 복무한다.
+          화면의 90% 이상은 저채도 중립색이 차지하며, 채도는 <b>강조(Accent)</b>·<b>상태(Status)</b>·<b>장비(Equipment)</b>의 세 자리에서만 허용된다.
+          팔레트는 <code>#30A1D2</code>를 축(L 0.67 / C 0.12 / h 232°)으로 OKLCH 공간에서 수학적으로 확장되어, Light와 Dark가 동일한 <b>Semantic Slot</b>을 공유한다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. Core Ramps -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§1</div>
+      <h2 class="sec-title">Core Palette <small>내부 참조용 · Literal 레이어</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="spacer"></div>
+      <div class="content">
+
+        <p>디자이너가 보는 원시 팔레트. 개발 코드에서 <b>직접 사용되지 않으며</b>, 아래 §2 Semantic Token에만 매핑된다. 스텝은 <code>50·100·200·…·900</code>의 11단계로, Lightness를 OKLCH에서 균등 분포시켜 어느 구간에서도 대비 간격이 일관되도록 설계했다.</p>
+
+        <!-- BLUE -->
+        <div class="ramp" id="ramp-blue"><div class="lbl"><b>park.blue</b><span>h 232° · 11 steps</span></div><div class="swatch" style="background: rgb(241, 252, 255); color: rgb(17, 21, 26);"><span class="step">50</span><span class="hex">#F1FCFF</span></div><div class="swatch" style="background: rgb(221, 244, 255); color: rgb(17, 21, 26);"><span class="step">100</span><span class="hex">#DDF4FF</span></div><div class="swatch" style="background: rgb(188, 231, 254); color: rgb(17, 21, 26);"><span class="step">200</span><span class="hex">#BCE7FE</span></div><div class="swatch" style="background: rgb(147, 211, 244); color: rgb(17, 21, 26);"><span class="step">300</span><span class="hex">#93D3F4</span></div><div class="swatch" style="background: rgb(104, 187, 228); color: rgb(255, 255, 255);"><span class="step">400</span><span class="hex">#68BBE4</span></div><div class="swatch" style="background: rgb(0, 163, 220); color: rgb(255, 255, 255);"><span class="step">500</span><span class="hex">#00A3DC</span></div><div class="swatch" style="background: rgb(0, 133, 186); color: rgb(255, 255, 255);"><span class="step">600</span><span class="hex">#0085BA</span></div><div class="swatch" style="background: rgb(0, 102, 148); color: rgb(255, 255, 255);"><span class="step">700</span><span class="hex">#006694</span></div><div class="swatch" style="background: rgb(0, 72, 107); color: rgb(255, 255, 255);"><span class="step">800</span><span class="hex">#00486B</span></div><div class="swatch" style="background: rgb(0, 45, 69); color: rgb(255, 255, 255);"><span class="step">900</span><span class="hex">#002D45</span></div><div class="swatch" style="background: rgb(0, 24, 40); color: rgb(255, 255, 255);"><span class="step">950</span><span class="hex">#001828</span></div></div>
+        <div class="ramp-note">park.blue · h 232° · Primary 축. 500 = <code>#30A1D2</code></div>
+
+        <!-- GRAY -->
+        <div class="ramp" id="ramp-gray" style="margin-top:22px"><div class="lbl"><b>park.gray</b><span>h 232° · 11 steps</span></div><div class="swatch" style="background: rgb(246, 251, 253); color: rgb(17, 21, 26);"><span class="step">50</span><span class="hex">#F6FBFD</span></div><div class="swatch" style="background: rgb(236, 241, 243); color: rgb(17, 21, 26);"><span class="step">100</span><span class="hex">#ECF1F3</span></div><div class="swatch" style="background: rgb(220, 224, 227); color: rgb(17, 21, 26);"><span class="step">200</span><span class="hex">#DCE0E3</span></div><div class="swatch" style="background: rgb(197, 202, 204); color: rgb(17, 21, 26);"><span class="step">300</span><span class="hex">#C5CACC</span></div><div class="swatch" style="background: rgb(172, 176, 179); color: rgb(255, 255, 255);"><span class="step">400</span><span class="hex">#ACB0B3</span></div><div class="swatch" style="background: rgb(146, 150, 152); color: rgb(255, 255, 255);"><span class="step">500</span><span class="hex">#929698</span></div><div class="swatch" style="background: rgb(117, 121, 124); color: rgb(255, 255, 255);"><span class="step">600</span><span class="hex">#75797C</span></div><div class="swatch" style="background: rgb(89, 93, 95); color: rgb(255, 255, 255);"><span class="step">700</span><span class="hex">#595D5F</span></div><div class="swatch" style="background: rgb(62, 66, 68); color: rgb(255, 255, 255);"><span class="step">800</span><span class="hex">#3E4244</span></div><div class="swatch" style="background: rgb(37, 40, 42); color: rgb(255, 255, 255);"><span class="step">900</span><span class="hex">#25282A</span></div><div class="swatch" style="background: rgb(18, 21, 23); color: rgb(255, 255, 255);"><span class="step">950</span><span class="hex">#121517</span></div></div>
+        <div class="ramp-note">park.gray · h 232° · C 0.005 · 중립색. Accent와 미세하게 같은 쪽으로 치우쳐 조화(cool-neutral)</div>
+
+        <!-- STATUS -->
+        <div class="ramp" id="ramp-red" style="margin-top:22px"><div class="lbl"><b>park.red</b><span>h 27° · 11 steps</span></div><div class="swatch" style="background: rgb(255, 247, 245); color: rgb(17, 21, 26);"><span class="step">50</span><span class="hex">#FFF7F5</span></div><div class="swatch" style="background: rgb(255, 233, 229); color: rgb(17, 21, 26);"><span class="step">100</span><span class="hex">#FFE9E5</span></div><div class="swatch" style="background: rgb(255, 211, 204); color: rgb(17, 21, 26);"><span class="step">200</span><span class="hex">#FFD3CC</span></div><div class="swatch" style="background: rgb(249, 181, 173); color: rgb(17, 21, 26);"><span class="step">300</span><span class="hex">#F9B5AD</span></div><div class="swatch" style="background: rgb(232, 151, 141); color: rgb(255, 255, 255);"><span class="step">400</span><span class="hex">#E8978D</span></div><div class="swatch" style="background: rgb(244, 90, 81); color: rgb(255, 255, 255);"><span class="step">500</span><span class="hex">#F45A51</span></div><div class="swatch" style="background: rgb(207, 62, 56); color: rgb(255, 255, 255);"><span class="step">600</span><span class="hex">#CF3E38</span></div><div class="swatch" style="background: rgb(164, 38, 35); color: rgb(255, 255, 255);"><span class="step">700</span><span class="hex">#A42623</span></div><div class="swatch" style="background: rgb(120, 22, 21); color: rgb(255, 255, 255);"><span class="step">800</span><span class="hex">#781615</span></div><div class="swatch" style="background: rgb(77, 9, 9); color: rgb(255, 255, 255);"><span class="step">900</span><span class="hex">#4D0909</span></div><div class="swatch" style="background: rgb(46, 3, 3); color: rgb(255, 255, 255);"><span class="step">950</span><span class="hex">#2E0303</span></div></div>
+        <div class="ramp-note">park.red · h 27° · Error / Critical</div>
+        <div class="ramp" id="ramp-amber" style="margin-top:14px"><div class="lbl"><b>park.amber</b><span>h 75° · 11 steps</span></div><div class="swatch" style="background: rgb(255, 249, 239); color: rgb(17, 21, 26);"><span class="step">50</span><span class="hex">#FFF9EF</span></div><div class="swatch" style="background: rgb(252, 238, 219); color: rgb(17, 21, 26);"><span class="step">100</span><span class="hex">#FCEEDB</span></div><div class="swatch" style="background: rgb(246, 219, 184); color: rgb(17, 21, 26);"><span class="step">200</span><span class="hex">#F6DBB8</span></div><div class="swatch" style="background: rgb(232, 194, 142); color: rgb(17, 21, 26);"><span class="step">300</span><span class="hex">#E8C28E</span></div><div class="swatch" style="background: rgb(213, 166, 100); color: rgb(255, 255, 255);"><span class="step">400</span><span class="hex">#D5A664</span></div><div class="swatch" style="background: rgb(202, 133, 0); color: rgb(255, 255, 255);"><span class="step">500</span><span class="hex">#CA8500</span></div><div class="swatch" style="background: rgb(169, 105, 0); color: rgb(255, 255, 255);"><span class="step">600</span><span class="hex">#A96900</span></div><div class="swatch" style="background: rgb(133, 78, 0); color: rgb(255, 255, 255);"><span class="step">700</span><span class="hex">#854E00</span></div><div class="swatch" style="background: rgb(96, 54, 0); color: rgb(255, 255, 255);"><span class="step">800</span><span class="hex">#603600</span></div><div class="swatch" style="background: rgb(61, 32, 0); color: rgb(255, 255, 255);"><span class="step">900</span><span class="hex">#3D2000</span></div><div class="swatch" style="background: rgb(35, 16, 0); color: rgb(255, 255, 255);"><span class="step">950</span><span class="hex">#231000</span></div></div>
+        <div class="ramp-note">park.amber · h 75° · Warning / Caution</div>
+        <div class="ramp" id="ramp-green" style="margin-top:14px"><div class="lbl"><b>park.green</b><span>h 150° · 11 steps</span></div><div class="swatch" style="background: rgb(243, 253, 245); color: rgb(17, 21, 26);"><span class="step">50</span><span class="hex">#F3FDF5</span></div><div class="swatch" style="background: rgb(227, 246, 230); color: rgb(17, 21, 26);"><span class="step">100</span><span class="hex">#E3F6E6</span></div><div class="swatch" style="background: rgb(199, 235, 205); color: rgb(17, 21, 26);"><span class="step">200</span><span class="hex">#C7EBCD</span></div><div class="swatch" style="background: rgb(164, 216, 174); color: rgb(17, 21, 26);"><span class="step">300</span><span class="hex">#A4D8AE</span></div><div class="swatch" style="background: rgb(128, 194, 142); color: rgb(255, 255, 255);"><span class="step">400</span><span class="hex">#80C28E</span></div><div class="swatch" style="background: rgb(82, 171, 105); color: rgb(255, 255, 255);"><span class="step">500</span><span class="hex">#52AB69</span></div><div class="swatch" style="background: rgb(55, 141, 79); color: rgb(255, 255, 255);"><span class="step">600</span><span class="hex">#378D4F</span></div><div class="swatch" style="background: rgb(32, 109, 56); color: rgb(255, 255, 255);"><span class="step">700</span><span class="hex">#206D38</span></div><div class="swatch" style="background: rgb(18, 78, 37); color: rgb(255, 255, 255);"><span class="step">800</span><span class="hex">#124E25</span></div><div class="swatch" style="background: rgb(7, 48, 21); color: rgb(255, 255, 255);"><span class="step">900</span><span class="hex">#073015</span></div><div class="swatch" style="background: rgb(2, 27, 8); color: rgb(255, 255, 255);"><span class="step">950</span><span class="hex">#021B08</span></div></div>
+        <div class="ramp-note">park.green · h 150° · Success / Running</div>
+        <div class="ramp" id="ramp-violet" style="margin-top:14px"><div class="lbl"><b>park.violet</b><span>h 295° · 11 steps</span></div><div class="swatch" style="background: rgb(251, 248, 255); color: rgb(17, 21, 26);"><span class="step">50</span><span class="hex">#FBF8FF</span></div><div class="swatch" style="background: rgb(241, 237, 255); color: rgb(17, 21, 26);"><span class="step">100</span><span class="hex">#F1EDFF</span></div><div class="swatch" style="background: rgb(226, 217, 255); color: rgb(17, 21, 26);"><span class="step">200</span><span class="hex">#E2D9FF</span></div><div class="swatch" style="background: rgb(204, 191, 248); color: rgb(17, 21, 26);"><span class="step">300</span><span class="hex">#CCBFF8</span></div><div class="swatch" style="background: rgb(180, 163, 233); color: rgb(255, 255, 255);"><span class="step">400</span><span class="hex">#B4A3E9</span></div><div class="swatch" style="background: rgb(156, 130, 226); color: rgb(255, 255, 255);"><span class="step">500</span><span class="hex">#9C82E2</span></div><div class="swatch" style="background: rgb(127, 102, 191); color: rgb(255, 255, 255);"><span class="step">600</span><span class="hex">#7F66BF</span></div><div class="swatch" style="background: rgb(98, 76, 152); color: rgb(255, 255, 255);"><span class="step">700</span><span class="hex">#624C98</span></div><div class="swatch" style="background: rgb(70, 52, 111); color: rgb(255, 255, 255);"><span class="step">800</span><span class="hex">#46346F</span></div><div class="swatch" style="background: rgb(43, 31, 71); color: rgb(255, 255, 255);"><span class="step">900</span><span class="hex">#2B1F47</span></div><div class="swatch" style="background: rgb(23, 15, 42); color: rgb(255, 255, 255);"><span class="step">950</span><span class="hex">#170F2A</span></div></div>
+        <div class="ramp-note">park.violet · h 295° · Calibrating / Process (장비 전용)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Semantic Tokens -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§2</div>
+      <h2 class="sec-title">Semantic Tokens <small>L1 · 제품 개발자가 참조하는 유일한 레이어</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="spacer"></div>
+      <div class="content">
+        <p>개발자(WPF)는 이 토큰만 바라본다. 토큰 이름은 <b>역할을 기술</b>하며, Light/Dark 각각의 구현값을 가진다. DevExpress Theme Designer의 <i>Palette / Common Color</i> 슬롯에 1:1 매핑된다(§4 참조).</p>
+
+        <table class="tok">
+          <thead><tr>
+            <th style="width:26%">Token</th>
+            <th style="width:27%">Light</th>
+            <th style="width:27%">Dark</th>
+            <th>Usage</th>
+          </tr></thead>
+          <tbody id="tok-body"><tr>
+    <td><code>surface.base</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#F4F6F8"></span>#F4F6F8</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#14171B"></span>#14171B</span></td>
+    <td>가장 뒤 바탕 (윈도우 배경)</td></tr><tr>
+    <td><code>surface.panel</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#FFFFFF"></span>#FFFFFF</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#1C2026"></span>#1C2026</span></td>
+    <td>카드·패널·ContentControl</td></tr><tr>
+    <td><code>surface.elevated</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#FFFFFF"></span>#FFFFFF</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#22272E"></span>#22272E</span></td>
+    <td>팝오버·메뉴·FlyOut (+shadow)</td></tr><tr>
+    <td><code>surface.sunken</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#EDF0F4"></span>#EDF0F4</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#0F1216"></span>#0F1216</span></td>
+    <td>코드블록·입력 필드 인셋</td></tr><tr>
+    <td><code>text.primary</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#1A1D21"></span>#1A1D21</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#E5E8EC"></span>#E5E8EC</span></td>
+    <td>기본 텍스트</td></tr><tr>
+    <td><code>text.secondary</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#5A6370"></span>#5A6370</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#A0A8B4"></span>#A0A8B4</span></td>
+    <td>서브 라벨·캡션</td></tr><tr>
+    <td><code>text.disabled</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#B4BAC3"></span>#B4BAC3</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#565D68"></span>#565D68</span></td>
+    <td>비활성 텍스트</td></tr><tr>
+    <td><code>text.on-accent</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#FFFFFF"></span>#FFFFFF</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#0C1013"></span>#0C1013</span></td>
+    <td>Accent 배경 위의 텍스트</td></tr><tr>
+    <td><code>border.default</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#E3E6EB"></span>#E3E6EB</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#2B313A"></span>#2B313A</span></td>
+    <td>1px 구분선</td></tr><tr>
+    <td><code>border.strong</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#C3C9D2"></span>#C3C9D2</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#3A414C"></span>#3A414C</span></td>
+    <td>입력 필드 기본</td></tr><tr>
+    <td><code>border.focus</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#30A1D2"></span>#30A1D2</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#45B4E2"></span>#45B4E2</span></td>
+    <td>포커스 링 (2px)</td></tr><tr>
+    <td><code>accent.default</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#30A1D2"></span>#30A1D2</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#45B4E2"></span>#45B4E2</span></td>
+    <td>주요 액션 / 선택</td></tr><tr>
+    <td><code>accent.hover</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#2594C5"></span>#2594C5</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#5BC1EA"></span>#5BC1EA</span></td>
+    <td>hover 상태</td></tr><tr>
+    <td><code>accent.pressed</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#1D7FAA"></span>#1D7FAA</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#79CEEE"></span>#79CEEE</span></td>
+    <td>active / pressed</td></tr><tr>
+    <td><code>accent.subtle</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#E5F2F9"></span>#E5F2F9</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#1A2E3A"></span>#1A2E3A</span></td>
+    <td>accent 10% 배경 (selection 등)</td></tr><tr>
+    <td><code>status.error</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#C23A3A"></span>#C23A3A</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#F08A8A"></span>#F08A8A</span></td>
+    <td>Validation / Critical</td></tr><tr>
+    <td><code>status.warning</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#C58A1A"></span>#C58A1A</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#E8B04B"></span>#E8B04B</span></td>
+    <td>Warning / Caution</td></tr><tr>
+    <td><code>status.success</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#2E8B57"></span>#2E8B57</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#5CD699"></span>#5CD699</span></td>
+    <td>Success (UI 피드백용)</td></tr><tr>
+    <td><code>status.info</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#4A8AAD"></span>#4A8AAD</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:#79B8D8"></span>#79B8D8</span></td>
+    <td>중립 정보</td></tr><tr>
+    <td><code>state.hover</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:rgba(48,161,210,0.10)"></span>rgba(48,161,210,0.10)</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:rgba(69,180,226,0.14)"></span>rgba(69,180,226,0.14)</span></td>
+    <td>accent 기반 hover overlay</td></tr><tr>
+    <td><code>state.selected</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:rgba(48,161,210,0.18)"></span>rgba(48,161,210,0.18)</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:rgba(69,180,226,0.22)"></span>rgba(69,180,226,0.22)</span></td>
+    <td>selected overlay</td></tr><tr>
+    <td><code>state.focus-ring</code></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:rgba(48,161,210,0.35)"></span>rgba(48,161,210,0.35)</span></td>
+    <td class="mono"><span class="pair"><span class="chip" style="background:rgba(69,180,226,0.45)"></span>rgba(69,180,226,0.45)</span></td>
+    <td>포커스 외곽 2px</td></tr></tbody>
+        </table>
+
+        <p class="muted" style="margin-top:16px;font-size:11.5px">
+          * <code>surface.base</code>는 "가장 뒤 바탕", <code>surface.panel</code>은 "카드·패널·윈도우 본체", <code>surface.elevated</code>는 "그 위에 뜨는 팝오버·메뉴". 세 레이어 이상은 시각적 혼란만 유발하므로 <b>금지</b>.
+        </p>
+
+        <!-- side-by-side preview -->
+        <div class="pair-wrap">
+          <div class="card">
+            <h4>Light · FHD-24" 장비실 주조명</h4>
+            <div class="mini-ui light">
+              <div class="titlebar">Park Systems · WLI — Recipe Editor</div>
+              <div class="body">
+                <div class="sidebar">
+                  Files<br>Recipes<br>History<br>Logs
+                </div>
+                <div class="canvas">
+                  <div class="row">
+                    <button class="btn-primary">Run Measurement</button>
+                    <button class="btn-default">Abort</button>
+                    <span class="pill running">● RUNNING</span>
+                  </div>
+                  <div class="ghost">Sample · Si wafer 300mm · Slot 04</div>
+                  <div class="row">
+                    <span class="pill error">! TILT OUT OF RANGE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h4>Dark · 야간 운용 / 저조도</h4>
+            <div class="mini-ui dark">
+              <div class="titlebar">Park Systems · WLI — Recipe Editor</div>
+              <div class="body">
+                <div class="sidebar">
+                  Files<br>Recipes<br>History<br>Logs
+                </div>
+                <div class="canvas">
+                  <div class="row">
+                    <button class="btn-primary">Run Measurement</button>
+                    <button class="btn-default">Abort</button>
+                    <span class="pill running">● RUNNING</span>
+                  </div>
+                  <div class="ghost">Sample · Si wafer 300mm · Slot 04</div>
+                  <div class="row">
+                    <span class="pill error">! TILT OUT OF RANGE</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Equipment State -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§3</div>
+      <h2 class="sec-title">Equipment State Colors <small>L2 · 장비 상태 전용 확장 토큰</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="spacer"></div>
+      <div class="content">
+        <p>장비 상태 표시는 일반 Status와 <b>의도적으로 분리</b>한다. 이유:</p>
+        <ul style="margin:0 0 14px;padding-left:20px;font-size:13px">
+          <li>장비 상태는 <b>수 시간 이상 화면에 노출</b>되므로 과한 고채도는 피로도 유발</li>
+          <li>Success/Error 같은 일반 UI 상태와 의미 충돌 방지 (Running ≠ Success)</li>
+          <li>도트·라벨·배경 3가지 표현이 일관되게 쓰임</li>
+        </ul>
+
+        <div class="equip" id="equip"><div class="card">
+    <div class="dot pulse" style="background:#2E8B57;color:#2E8B57"></div>
+    <div>
+      <div class="name">Running</div>
+      <div class="tok"><code>equip.running</code> · #2E8B57</div>
+    </div></div><div class="card">
+    <div class="dot " style="background:#8A94A3;color:#8A94A3"></div>
+    <div>
+      <div class="name">Idle</div>
+      <div class="tok"><code>equip.idle</code> · #8A94A3</div>
+    </div></div><div class="card">
+    <div class="dot " style="background:#C58A1A;color:#C58A1A"></div>
+    <div>
+      <div class="name">Paused</div>
+      <div class="tok"><code>equip.paused</code> · #C58A1A</div>
+    </div></div><div class="card">
+    <div class="dot " style="background:#7E5BC4;color:#7E5BC4"></div>
+    <div>
+      <div class="name">Calibrating</div>
+      <div class="tok"><code>equip.calibrating</code> · #7E5BC4</div>
+    </div></div><div class="card">
+    <div class="dot " style="background:#C23A3A;color:#C23A3A"></div>
+    <div>
+      <div class="name">Error</div>
+      <div class="tok"><code>equip.error</code> · #C23A3A</div>
+    </div></div><div class="card">
+    <div class="dot " style="background:#5A6370;color:#5A6370"></div>
+    <div>
+      <div class="name">Offline</div>
+      <div class="tok"><code>equip.offline</code> · #5A6370</div>
+    </div></div></div>
+
+        <p class="muted" style="font-size:11.5px;margin-top:8px">
+          * <b>Running 도트만 pulse 애니메이션</b> 허용 (1.6s ease-out). 나머지는 정적. 가독성과 과도한 시각 자극 억제.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. DevExpress Mapping -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§4</div>
+      <h2 class="sec-title">DevExpress Theme Designer 매핑 <small>실제 구현 레이어</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="spacer"></div>
+      <div class="content">
+        <p>DevExpress의 Palette Color / Common Color 슬롯은 의미 기반으로 이미 정의되어 있다. Park.ds는 이 슬롯을 <b>권위로 인정</b>하고, §2 Semantic Token을 그 위에 매핑한다. 아래 매핑은 DevExpress Theme Designer의 "My Theme" 편집 화면에서 그대로 입력 가능한 형태다.</p>
+
+        <div class="map"><table>
+          <thead><tr>
+            <th style="width:32%">DevExpress Slot</th>
+            <th style="width:34%">Park.ds Semantic Token</th>
+            <th>비고</th>
+          </tr></thead>
+          <tbody>
+            <tr>
+              <td><code>Palette.Accent</code></td>
+              <td><code>accent.default</code></td>
+              <td>Button primary, Selection highlight 등 제품 전반 Accent</td>
+            </tr>
+            <tr>
+              <td><code>Palette.Background</code></td>
+              <td><code>surface.base</code></td>
+              <td>DocumentGroup, MainWindow 바탕</td>
+            </tr>
+            <tr>
+              <td><code>Palette.SecondaryBackground</code></td>
+              <td><code>surface.panel</code></td>
+              <td>Panel, CardView, NavigationBar 등</td>
+            </tr>
+            <tr>
+              <td><code>Palette.Foreground</code></td>
+              <td><code>text.primary</code></td>
+              <td>기본 텍스트</td>
+            </tr>
+            <tr>
+              <td><code>Palette.SecondaryForeground</code></td>
+              <td><code>text.secondary</code></td>
+              <td>서브 라벨, 캡션</td>
+            </tr>
+            <tr>
+              <td><code>Palette.HoverBackground</code></td>
+              <td><code>state.hover</code></td>
+              <td>Accent 10% 반투명 권장</td>
+            </tr>
+            <tr>
+              <td><code>Palette.SelectedBackground</code></td>
+              <td><code>state.selected</code></td>
+              <td>Accent 18% 반투명 권장</td>
+            </tr>
+            <tr>
+              <td><code>Palette.Border</code></td>
+              <td><code>border.default</code></td>
+              <td>모든 1px 구분선</td>
+            </tr>
+            <tr>
+              <td><code>Common.Error</code></td>
+              <td><code>status.error</code></td>
+              <td>Validation, Critical alarm</td>
+            </tr>
+            <tr>
+              <td><code>Common.Warning</code></td>
+              <td><code>status.warning</code></td>
+              <td>주의 레벨 알림</td>
+            </tr>
+            <tr>
+              <td><code>Common.Success</code></td>
+              <td><code>status.success</code></td>
+              <td>작업 완료 피드백 (장비 Running과 구분)</td>
+            </tr>
+            <tr>
+              <td><code>Common.Information</code></td>
+              <td><code>status.info</code></td>
+              <td>중립적 정보 배너</td>
+            </tr>
+          </tbody>
+        </table></div>
+
+        <p class="muted" style="font-size:11.5px;margin-top:12px">
+          * Equipment State 계열(§3)은 DevExpress 기본 슬롯에 대응이 없으므로 <b>커스텀 Brush Resource</b>로 따로 정의한다: <code>ParkEquip.RunningBrush</code>, <code>ParkEquip.IdleBrush</code> 등.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Open Questions -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§5</div>
+      <h2 class="sec-title">피드백 요청 <small>이 초안에서 결정이 필요한 지점</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="spacer"></div>
+      <div class="content">
+        <div class="questions">
+          <h3>Figma 팔레트와 대조하며 확인 부탁</h3>
+          <ol>
+            <li><b>Gray의 온도</b> — h 232° 방향으로 살짝 cool한 neutral로 설계했다. Figma 것과 비교해 더 중립(h 0° pure gray)으로 가는 게 나을지, 유지할지.</li>
+            <li><b>Blue Ramp의 50/900 끝단</b> — 50은 거의 흰색에 근접, 900은 잉크에 근접. 실제 사용 케이스(배너 배경, 헤더 강조 등)를 생각했을 때 스텝이 부족/과한지.</li>
+            <li><b>Amber vs Orange</b> — Warning을 h 75°(Amber, 녹황)으로 뒀는데, 산업 관행상 h 55°(Orange 계열)이 더 관습적이다. 선호 방향?</li>
+            <li><b>Dark mode의 Accent</b> — Light의 <code>#30A1D2</code>를 그대로 쓰면 채도가 너무 강해 눈이 피로해, Dark에선 L 0.76 / C 0.10 으로 완화(<code>#45B4E2</code>)했다. 이 톤이 맞는지.</li>
+            <li><b>Equipment State 슬롯 추가</b> — 현재 6종(Running / Idle / Paused / Error / Calibrating / Offline)이다. 제품에 실재하는 상태 중 <b>빠진 것</b>이 있는지. (예: Warming-up, Homing, Aborting, Maintenance 등)</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>PARK.DS · FOUNDATION · COLOR · 0.1</div>
+    <div>NEXT → 02 TYPOGRAPHY</div>
+  </footer>
+
+</div>
+
+<script>
+/* =========================================================
+   OKLCH → sRGB (clamped), hex 생성 유틸
+   ========================================================= */
+function oklchToRgb(L, C, hDeg){
+  const h = hDeg * Math.PI / 180;
+  const a = C * Math.cos(h), b = C * Math.sin(h);
+  const l_ = L + 0.3963377774*a + 0.2158037573*b;
+  const m_ = L - 0.1055613458*a - 0.0638541728*b;
+  const s_ = L - 0.0894841775*a - 1.2914855480*b;
+  const l = l_*l_*l_, m = m_*m_*m_, s = s_*s_*s_;
+  let r =  4.0767416621*l - 3.3077115913*m + 0.2309699292*s;
+  let g = -1.2684380046*l + 2.6097574011*m - 0.3413193965*s;
+  let bb = -0.0041960863*l - 0.7034186147*m + 1.7076147010*s;
+  const toSrgb = v => v <= 0.0031308 ? 12.92*v : 1.055*Math.pow(v, 1/2.4) - 0.055;
+  r = toSrgb(r); g = toSrgb(g); bb = toSrgb(bb);
+  return [r,g,bb].map(v => Math.max(0, Math.min(1, v)));
+}
+function rgbToHex([r,g,b]){
+  const h = n => Math.round(n*255).toString(16).padStart(2,'0');
+  return ('#'+h(r)+h(g)+h(b)).toUpperCase();
+}
+function contrastTextFor([r,g,b]){
+  const lin = v => v<=0.03928 ? v/12.92 : Math.pow((v+0.055)/1.055, 2.4);
+  const Y = 0.2126*lin(r)+0.7152*lin(g)+0.0722*lin(b);
+  return Y > 0.5 ? '#11151A' : '#FFFFFF';
+}
+
+/* =========================================================
+   Ramp 생성: 50,100,200,...,900 (11단계)
+   L은 각 ramp마다 동일한 곡선, C는 중간(500)이 가장 높도록 감쇠
+   ========================================================= */
+const STEPS = [50,100,200,300,400,500,600,700,800,900,950];
+// L은 공통: 밝은쪽→어두운쪽
+const L_CURVE = [0.985, 0.955, 0.905, 0.835, 0.755, 0.67, 0.575, 0.475, 0.375, 0.275, 0.195];
+// C는 중앙 최대, 양끝 감쇠 — chroma profile
+function cProfile(peak){
+  return [0.015, 0.03, 0.055, 0.08, 0.10, peak, peak*0.96, peak*0.86, peak*0.70, peak*0.52, 0.38*peak];
+}
+
+const ramps = {
+  blue:   {h:232, peak:0.14, el:'ramp-blue',   name:'park.blue'},
+  gray:   {h:232, peak:0.006,el:'ramp-gray',   name:'park.gray',  flatC:true},
+  red:    {h: 27, peak:0.19, el:'ramp-red',    name:'park.red'},
+  amber:  {h: 75, peak:0.15, el:'ramp-amber',  name:'park.amber'},
+  green:  {h:150, peak:0.13, el:'ramp-green',  name:'park.green'},
+  violet: {h:295, peak:0.14, el:'ramp-violet', name:'park.violet'},
+};
+
+function renderRamp({h, peak, el, name, flatC}){
+  const root = document.getElementById(el);
+  if(!root) return;
+  const C = flatC ? Array(11).fill(0.006) : cProfile(peak);
+  // 회색은 50에선 약간 따뜻, 900에선 약간 cool; 하지만 간단히 flat
+  root.innerHTML = '';
+  const lbl = document.createElement('div');
+  lbl.className = 'lbl';
+  lbl.innerHTML = `<b>${name}</b><span>h ${h}° · 11 steps</span>`;
+  root.appendChild(lbl);
+  STEPS.forEach((step, i) => {
+    const rgb = oklchToRgb(L_CURVE[i], C[i], h);
+    const hex = rgbToHex(rgb);
+    const text = contrastTextFor(rgb);
+    const d = document.createElement('div');
+    d.className = 'swatch';
+    d.style.background = hex;
+    d.style.color = text;
+    d.innerHTML = `<span class="step">${step}</span><span class="hex">${hex}</span>`;
+    root.appendChild(d);
+    // 후속 토큰 생성용 저장
+    name && (window.__ramp ||= {}, window.__ramp[name] ||= {}, window.__ramp[name][step] = hex);
+  });
+}
+Object.values(ramps).forEach(renderRamp);
+
+/* =========================================================
+   Semantic Token 테이블 (hard-coded values chosen from ramps)
+   실제 토큰은 위 ramp 결과를 기반으로 고르되, 가독성 위해 확정치 기재
+   ========================================================= */
+const TOK = [
+  // group: surface
+  ['surface.base',      '#F4F6F8', '#14171B', '가장 뒤 바탕 (윈도우 배경)'],
+  ['surface.panel',     '#FFFFFF', '#1C2026', '카드·패널·ContentControl'],
+  ['surface.elevated',  '#FFFFFF', '#22272E', '팝오버·메뉴·FlyOut (+shadow)'],
+  ['surface.sunken',    '#EDF0F4', '#0F1216', '코드블록·입력 필드 인셋'],
+
+  // group: text
+  ['text.primary',      '#1A1D21', '#E5E8EC', '기본 텍스트'],
+  ['text.secondary',    '#5A6370', '#A0A8B4', '서브 라벨·캡션'],
+  ['text.disabled',     '#B4BAC3', '#565D68', '비활성 텍스트'],
+  ['text.on-accent',    '#FFFFFF', '#0C1013', 'Accent 배경 위의 텍스트'],
+
+  // group: border
+  ['border.default',    '#E3E6EB', '#2B313A', '1px 구분선'],
+  ['border.strong',     '#C3C9D2', '#3A414C', '입력 필드 기본'],
+  ['border.focus',      '#30A1D2', '#45B4E2', '포커스 링 (2px)'],
+
+  // group: accent
+  ['accent.default',    '#30A1D2', '#45B4E2', '주요 액션 / 선택'],
+  ['accent.hover',      '#2594C5', '#5BC1EA', 'hover 상태'],
+  ['accent.pressed',    '#1D7FAA', '#79CEEE', 'active / pressed'],
+  ['accent.subtle',     '#E5F2F9', '#1A2E3A', 'accent 10% 배경 (selection 등)'],
+
+  // group: status
+  ['status.error',      '#C23A3A', '#F08A8A', 'Validation / Critical'],
+  ['status.warning',    '#C58A1A', '#E8B04B', 'Warning / Caution'],
+  ['status.success',    '#2E8B57', '#5CD699', 'Success (UI 피드백용)'],
+  ['status.info',       '#4A8AAD', '#79B8D8', '중립 정보'],
+
+  // group: interactive state
+  ['state.hover',       'rgba(48,161,210,0.10)', 'rgba(69,180,226,0.14)', 'accent 기반 hover overlay'],
+  ['state.selected',    'rgba(48,161,210,0.18)', 'rgba(69,180,226,0.22)', 'selected overlay'],
+  ['state.focus-ring',  'rgba(48,161,210,0.35)', 'rgba(69,180,226,0.45)', '포커스 외곽 2px'],
+];
+const tbody = document.getElementById('tok-body');
+TOK.forEach(([tok, L, D, use])=>{
+  const isAlpha = L.startsWith('rgba');
+  const chipL = `<span class="chip" style="background:${L}"></span>`;
+  const chipD = `<span class="chip" style="background:${D}"></span>`;
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td><code>${tok}</code></td>
+    <td class="mono"><span class="pair">${chipL}${L}</span></td>
+    <td class="mono"><span class="pair">${chipD}${D}</span></td>
+    <td>${use}</td>`;
+  tbody.appendChild(tr);
+});
+
+/* =========================================================
+   Equipment States
+   ========================================================= */
+const EQUIP = [
+  ['Running',     '#2E8B57', 'equip.running',     true],
+  ['Idle',        '#8A94A3', 'equip.idle',        false],
+  ['Paused',      '#C58A1A', 'equip.paused',      false],
+  ['Calibrating', '#7E5BC4', 'equip.calibrating', false],
+  ['Error',       '#C23A3A', 'equip.error',       false],
+  ['Offline',     '#5A6370', 'equip.offline',     false],
+];
+const equipRoot = document.getElementById('equip');
+EQUIP.forEach(([name,hex,tok,pulse])=>{
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="dot ${pulse?'pulse':''}" style="background:${hex};color:${hex}"></div>
+    <div>
+      <div class="name">${name}</div>
+      <div class="tok"><code>${tok}</code> · ${hex}</div>
+    </div>`;
+  equipRoot.appendChild(card);
+});
+</script>
+
+
+</body></html>

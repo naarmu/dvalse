@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<!-- saved from url=(0334)https://4e879dba-c492-4b59-88e5-2cca9100ac28.claudeusercontent.com/v1/design/projects/4e879dba-c492-4b59-88e5-2cca9100ac28/serve/Park.ds/03%20Spacing%20%26%20Layout%20Foundation.html?t=e5663800d5af000c4bbb2b4a3ef8034ddf0797874a58a118839159322e56c714.d3e46410-4fc8-4d5f-98bf-e64e38affb38.1ef2a04f-778e-47c7-b0c0-eef5872debb4.1776931027 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style data-omelette-injected="">html,body{background:transparent}</style><script data-omelette-injected="">(()=>{var $=["https://claude.ai","https://preview.claude.ai","https://eap-omelette.claude.ai"];var F=30000;var A=3000;document.addEventListener("DOMContentLoaded",()=>{const Q="transform-react-jsx-source";document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((J,V)=>{const X=J.getAttribute("data-plugins")||"";if(X.indexOf(Q)<0){J.setAttribute("data-plugins",X?`${X},${Q}`:Q)}if(!J.hasAttribute("data-filename")){J.setAttribute("data-filename",J.getAttribute("src")||`inline-${V}`)}})});var W=window.parent;if(W&&W!==window){const Q=(z,k)=>{try{W.postMessage({__omelette_log:true,type:z,data:k},"*")}catch{}};["log","warn","error"].forEach((z)=>{const k=console[z];console[z]=(...C)=>{const D=C.map((w)=>{try{return typeof w==="object"?JSON.stringify(w):String(w)}catch{try{return String(w)}catch{return"[unstringifiable]"}}}).join(" ");Q(z,D);k.apply(console,C)}});window.addEventListener("error",(z)=>{const k=z.target;if(k&&k!==window&&k.tagName){const C=k.src||k.href||"";Q("resource_error",`${k.tagName} failed to load: ${C}`)}else{Q("error",`${z.message||"Unknown error"} at ${z.filename||"?"}:${z.lineno||0}:${z.colno||0}`)}},true);window.addEventListener("unhandledrejection",(z)=>{const k=z.reason;const C=k instanceof Error?`${k.message} ${k.stack}`:String(k);Q("error",`Unhandled rejection: ${C}`)});const J=()=>{try{W.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")J();else window.addEventListener("load",J);if(window.ResizeObserver)new ResizeObserver(J).observe(document.documentElement);const V={};let X=0;window.claude={complete(z){return new Promise((k,C)=>{if(!$.length){C(new Error("claude.complete: no parent origin"));return}const D=`c${++X}`;const w=()=>setTimeout(()=>{delete V[D];C(new Error(`claude.complete: no data for ${F/1000}s`))},F);const K=w();V[D]={resolve:k,reject:C,text:"",t:K,arm:w};try{for(const Z of $){W.postMessage({__om_api:true,id:D,body:z},Z)}}catch(Z){clearTimeout(K);delete V[D];C(Z)}})}};const Y={};let h=0;window.omelette={writeFile:(z,k)=>new Promise((C,D)=>{if(!$.length){C();return}const w=`f${++h}`;const K=setTimeout(()=>{delete Y[w];C()},A);Y[w]={resolve:C,reject:D,t:K};try{for(const Z of $){W.postMessage({__om_file:true,id:w,op:"write",path:z,content:k},Z)}}catch{clearTimeout(K);delete Y[w];C()}})};const b=(z)=>{try{return JSON.stringify(z)}catch{return JSON.stringify(String(z))}};window.addEventListener("message",(z)=>{if($.indexOf(z.origin)<0)return;if(z.source!==W)return;const k=z.data;if(!k)return;if(k.__om_file_r){const w=Y[k.id];if(!w)return;clearTimeout(w.t);delete Y[k.id];if(k.ok)w.resolve();else w.reject(new Error(k.error||"write failed"));return}if(k.__om_api_r){const w=V[k.id];if(!w)return;if(k.error!=null){clearTimeout(w.t);delete V[k.id];w.reject(new Error(k.error));return}if(k.chunk!=null){clearTimeout(w.t);w.t=w.arm();w.text+=k.chunk;return}if(k.done){clearTimeout(w.t);delete V[k.id];w.resolve(k.text!=null?k.text:w.text);return}return}if(!k.__om_eval)return;const C=k;const D=(w)=>{z.source.postMessage({...w,__om_eval_r:1,id:C.id},z.origin)};try{const w=(0,eval)(C.code);if(w&&typeof w.then==="function"){w.then((K)=>D({ok:1,v:b(K)}),(K)=>D({ok:0,e:String(K)}))}else{D({ok:1,v:b(w)})}}catch(w){D({ok:0,e:String(w)})}})}})();
+</script>
+
+
+<title>Park.ds · Spacing &amp; Layout Foundation v0.1</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link rel="stylesheet" href="./Park.ds · Spacing &amp; Layout Foundation v0.1_files/pretendardvariable.min.css">
+<link href="./Park.ds · Spacing &amp; Layout Foundation v0.1_files/css2" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1A1D21; --ink-soft:#5A6370; --ink-faint:#8A94A3;
+    --bg:#F6F7F9; --panel:#FFFFFF;
+    --rule:#E3E6EB; --rule-soft:#EDF0F4;
+    --accent:#30A1D2;
+    --grid:rgba(48,161,210,0.18);
+    --grid-strong:rgba(48,161,210,0.55);
+    --sans:"Pretendard Variable","Pretendard","Segoe UI","Apple SD Gothic Neo",system-ui,sans-serif;
+    --mono:"JetBrains Mono","Consolas",ui-monospace,Menlo,monospace;
+    font-feature-settings:"tnum" 1,"ss01" 1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:13.5px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .page{max-width:1280px;margin:0 auto;padding:56px 48px 96px}
+
+  /* masthead */
+  .mast{
+    display:grid;grid-template-columns:1fr auto;align-items:end;
+    border-bottom:1px solid var(--ink);padding-bottom:18px;margin-bottom:40px;
+  }
+  .mast h1{font-size:30px;font-weight:600;margin:0 0 6px;letter-spacing:-0.01em}
+  .mast .sub{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:0.02em}
+  .mast .meta{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);line-height:1.7}
+  .mast .meta b{color:var(--ink);font-weight:600}
+
+  section{margin:56px 0 0}
+  .sec-head{
+    display:grid;grid-template-columns:80px 1fr;gap:24px;
+    padding-bottom:10px;margin-bottom:24px;
+    border-bottom:1px solid var(--rule);align-items:baseline;
+  }
+  .sec-num{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.08em}
+  .sec-title{font-size:18px;font-weight:600;letter-spacing:-0.005em;margin:0}
+  .sec-title small{font-weight:400;color:var(--ink-soft);font-size:13px;margin-left:8px}
+  .sec-body{display:grid;grid-template-columns:80px 1fr;gap:24px}
+  .sec-body > .content{max-width:1100px}
+  p{margin:0 0 12px}
+  p.lede{font-size:15px;line-height:1.6}
+  .muted{color:var(--ink-soft)}
+  code{font-family:var(--mono);font-size:0.92em;background:var(--rule-soft);padding:1px 5px;border-radius:3px}
+  b{color:var(--ink);font-weight:600}
+
+  /* ── spacing scale table ───────────────── */
+  .scale{
+    width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);
+    border-radius:6px;overflow:hidden;font-size:12px;
+  }
+  .scale th,.scale td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:middle}
+  .scale th{background:#fafbfc;font-size:11px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:var(--ink-soft)}
+  .scale tr:last-child td{border-bottom:none}
+  .scale td.mono{font-family:var(--mono);font-size:11px}
+  .scale td.tok code{font-size:11px}
+  .scale .bar{background:#fff}
+  .scale .bar > i{display:inline-block;height:14px;background:var(--accent);opacity:0.85;vertical-align:middle;border-radius:2px}
+  .scale .note{font-size:11.5px;color:var(--ink-soft)}
+  .scale .kind{
+    display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:0.04em;
+    padding:1px 6px;border-radius:3px;background:var(--rule-soft);color:var(--ink-soft);
+  }
+  .scale .kind.core{background:#E7F3FA;color:#1E6E94}
+  .scale .kind.ext{background:#F4EEFA;color:#6B4499}
+
+  /* ── grid overlay demo ───────────────── */
+  .grid-demo{
+    background:#fff;border:1px solid var(--rule);border-radius:8px;padding:24px;
+    margin:14px 0;
+  }
+  .grid-box{
+    position:relative;width:100%;height:160px;
+    background:
+      linear-gradient(to right, var(--grid) 1px, transparent 1px) 0 0 / 4px 100%,
+      linear-gradient(to right, var(--grid-strong) 1px, transparent 1px) 0 0 / 8px 100%,
+      #fafbfc;
+    border:1px solid var(--rule);border-radius:4px;
+    display:flex;align-items:center;padding:0 24px;gap:8px;
+  }
+  .grid-box .chip{
+    display:inline-flex;align-items:center;justify-content:center;
+    background:#fff;border:1px solid var(--accent);color:var(--accent);
+    font-family:var(--mono);font-size:11px;font-weight:600;
+    height:28px;padding:0 12px;border-radius:4px;
+    box-shadow:0 0 0 1px #fff;
+  }
+  .grid-box .legend{
+    position:absolute;top:8px;right:10px;
+    font-family:var(--mono);font-size:10px;color:var(--ink-soft);
+  }
+
+  /* ── density comparison ───────────────── */
+  .density{
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0;
+  }
+  .den-card{
+    background:#fff;border:1px solid var(--rule);border-radius:8px;overflow:hidden;
+  }
+  .den-card .head{
+    padding:12px 16px;border-bottom:1px solid var(--rule);background:#fafbfc;
+    display:flex;align-items:baseline;gap:10px;justify-content:space-between;
+  }
+  .den-card .head .name{font-size:14px;font-weight:600}
+  .den-card .head .tag{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft)}
+  .den-card .body{padding:16px 18px}
+
+  /* form rows */
+  .frow{display:grid;gap:2px;margin-bottom:10px}
+  .frow label{font-size:12px;color:var(--ink-soft)}
+  .frow input{
+    font-family:var(--sans);font-size:13px;border:1px solid var(--rule);
+    background:#fff;color:var(--ink);border-radius:3px;outline:none;
+  }
+  .compact .frow{margin-bottom:6px}
+  .compact .frow input{height:24px;padding:0 8px}
+  .compact .frow label{font-size:11.5px;margin-bottom:1px}
+  .comfy .frow{margin-bottom:12px}
+  .comfy .frow input{height:32px;padding:0 10px}
+  .comfy .frow label{font-size:12.5px;margin-bottom:3px}
+
+  /* toolbar + table demos */
+  .demo-tb{
+    display:flex;align-items:center;gap:6px;padding:6px 8px;
+    background:#fafbfc;border:1px solid var(--rule);border-radius:4px;margin-bottom:10px;
+  }
+  .demo-tb button{
+    font-family:var(--sans);font-size:12px;border:1px solid var(--rule);
+    background:#fff;color:var(--ink);border-radius:3px;cursor:pointer;
+  }
+  .compact .demo-tb{padding:4px 6px;gap:4px}
+  .compact .demo-tb button{height:24px;padding:0 10px;font-size:11.5px}
+  .comfy .demo-tb{padding:8px 10px;gap:8px}
+  .comfy .demo-tb button{height:30px;padding:0 14px}
+
+  .demo-table{width:100%;border-collapse:collapse;font-size:12px;background:#fff}
+  .demo-table th,.demo-table td{
+    text-align:left;border-bottom:1px solid var(--rule-soft);
+    font-family:var(--mono);
+  }
+  .demo-table th{background:#fafbfc;color:var(--ink-soft);font-weight:500;font-size:10.5px;letter-spacing:0.05em;text-transform:uppercase}
+  .compact .demo-table th,.compact .demo-table td{padding:4px 10px}
+  .compact .demo-table th{font-size:10px}
+  .comfy .demo-table th,.comfy .demo-table td{padding:8px 14px}
+  .comfy .demo-table{font-size:13px}
+
+  /* ── role cards (padding vs margin) ───────────────── */
+  .roles{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  .role{
+    background:#fff;border:1px solid var(--rule);border-radius:8px;padding:20px 22px;
+  }
+  .role .label{font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px}
+  .role h4{margin:0 0 8px;font-size:14px;font-weight:600}
+
+  /* ── container table ───────────────── */
+  .cont{
+    width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);
+    border-radius:6px;overflow:hidden;font-size:12px;
+  }
+  .cont th,.cont td{padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+  .cont th{background:#fafbfc;font-size:11px;font-weight:600;letter-spacing:0.03em;text-transform:uppercase;color:var(--ink-soft)}
+  .cont tr:last-child td{border-bottom:none}
+  .cont td.mono{font-family:var(--mono);font-size:11px}
+
+  /* ── viewport map ───────────────── */
+  .vp-wrap{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:20px;margin:14px 0}
+  .vp-map{position:relative;background:#0F1216;border-radius:4px;padding:20px;overflow:hidden}
+  .vp-map svg{display:block;width:100%;height:auto}
+  .vp-map text{font-family:var(--mono);font-size:10px;fill:#8A94A3}
+  .vp-map text.lbl{fill:#D0D6DE;font-size:11px;font-weight:600}
+  .vp-map text.val{fill:#30A1D2}
+  .vp-map rect.frame{fill:none;stroke:#5A6370;stroke-width:1}
+  .vp-map rect.target{fill:#30A1D2;fill-opacity:0.1;stroke:#30A1D2;stroke-width:1.5;stroke-dasharray:0}
+  .vp-map rect.min{fill:none;stroke:#C38E4A;stroke-width:1;stroke-dasharray:4 3}
+  .vp-map rect.max{fill:none;stroke:#5A6370;stroke-width:1;stroke-dasharray:4 3}
+
+  /* ── panel layout ───────────────── */
+  .layout-demo{
+    background:#0F1216;border:1px solid #2A2F36;border-radius:6px;overflow:hidden;
+    margin:12px 0;height:320px;display:grid;
+  }
+  .ld-header{
+    background:#181C21;border-bottom:1px solid #2A2F36;padding:0 16px;
+    display:flex;align-items:center;gap:16px;color:#D0D6DE;font-size:12px;height:36px;
+  }
+  .ld-header .brand{color:var(--accent);font-weight:600;font-family:var(--mono);letter-spacing:0.04em}
+  .ld-main{display:grid;min-height:0}
+  .ld-side{background:#181C21;border-right:1px solid #2A2F36;padding:12px;font-size:11.5px;color:#A8B0BB;font-family:var(--mono);overflow:hidden}
+  .ld-side .item{padding:4px 8px;border-radius:3px;margin-bottom:2px}
+  .ld-side .item.active{background:#22303B;color:#30A1D2}
+  .ld-canvas{background:#0F1216;padding:20px;color:#D0D6DE;overflow:hidden;font-family:var(--mono);font-size:11px;display:grid;place-items:center}
+  .ld-insp{background:#181C21;border-left:1px solid #2A2F36;padding:12px;font-size:11px;color:#A8B0BB;font-family:var(--mono);overflow:hidden}
+  .ld-insp .k{color:#8A94A3}.ld-insp .v{color:#D0D6DE}
+  .ld-footer{background:#181C21;border-top:1px solid #2A2F36;padding:0 16px;display:flex;align-items:center;justify-content:space-between;color:#8A94A3;font-size:11px;font-family:var(--mono);height:28px}
+  .ld-footer .pill{color:#5CD699}
+
+  .layout-demo.md{grid-template-rows:36px 1fr 28px}
+  .layout-demo.md .ld-main{grid-template-columns:160px 1fr 220px}
+
+  .layout-caption{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:10px}
+  .layout-caption div{padding:10px 12px;border:1px solid var(--rule);border-radius:4px;background:#fff}
+  .layout-caption b{font-size:12px;display:block;margin-bottom:2px}
+  .layout-caption span{font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+
+  /* ── do/dont ───────────────── */
+  .dodont{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  .dd{background:#fff;border:1px solid var(--rule);border-radius:8px;padding:16px 18px}
+  .dd .flag{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:8px}
+  .dd.do .flag{color:#2E8B57}
+  .dd.dont .flag{color:#C23A3A}
+  .dd h5{margin:0 0 6px;font-size:13px;font-weight:600}
+  .dd .ex{
+    background:#fafbfc;border:1px solid var(--rule);border-radius:4px;padding:10px 12px;
+    font-family:var(--mono);font-size:11px;color:var(--ink-soft);line-height:1.5;margin:6px 0;
+  }
+
+  .questions{background:#FFFBEE;border:1px solid #E8D99A;border-radius:6px;padding:18px 22px}
+  .questions h3{margin:0 0 10px;font-size:13px;letter-spacing:0.03em;text-transform:uppercase;color:#8A6A00}
+  .questions ol{margin:0;padding-left:20px;font-size:13px;line-height:1.7}
+  .questions b{color:var(--ink)}
+
+  .footer{
+    margin-top:64px;padding-top:18px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);
+    display:flex;justify-content:space-between;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="mast">
+    <div>
+      <h1>03 · Spacing &amp; Layout Foundation</h1>
+      <div class="sub">Park.ds · v0.1 draft · 4px hybrid scale</div>
+    </div>
+    <div class="meta">
+      <div>VERSION · <b>0.1 draft</b></div>
+      <div>DATE · 2026-04-22</div>
+      <div>BASE · <b>4px scale · 2px 허용 · Compact 기본</b></div>
+      <div>VIEWPORT · FHD 24" · min 1366×768</div>
+    </div>
+  </header>
+
+  <!-- 0. Philosophy ─────────────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§ 0</div>
+      <h2 class="sec-title">Philosophy <small>— 왜 공간을 이렇게 설계했는가</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="sec-num muted">notes</div>
+      <div class="content">
+        <p class="lede">
+          측정·분석·관리 SW의 화면은 <b>정보 밀도가 높다</b>. 한 화면에 수십 개의 값, 설정, 상태가
+          동시에 놓이며, 엔지니어는 이 화면을 <b>8시간 이상</b> 응시한다. 따라서 Park.ds의 공간
+          철학은 "넓게 쉬어주는 화면"이 아니라, <b>밀도를 해치지 않으면서 구조를 읽히게 하는 공간</b>을
+          만드는 것이다.
+        </p>
+
+        <p class="muted">
+          · <b>공간은 장식이 아니라 구조</b>이다. 여백은 요소를 "예쁘게 띄우는" 도구가 아니라
+          <b>그룹을 정의하고 위계를 만드는 신호</b>다.<br>
+          · <b>4px 기반의 예측 가능한 격자</b>를 쓴다. 모든 여백은 4의 배수 또는 허용된 2px 단계로
+          정렬되며, "대충 6px, 대충 10px"은 존재하지 않는다.<br>
+          · <b>밀도를 두려워하지 않는다</b>. Compact가 기본이다. 장비 앞 작업자를 위해
+          Comfortable 레벨을 <u>옵션으로만</u> 제공한다.
+        </p>
+
+        <p class="muted">
+          참고 — Typography가 <code>13px body.sm</code>을 기본으로 삼았으므로, 이 문서의 모든
+          높이·padding 값은 <b>13px 본문 기준</b>으로 맞춰져 있다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. Base unit & scale ─────────────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§ 1</div>
+      <h2 class="sec-title">Base Unit &amp; Scale <small>— 4px 주축 + 2px 허용 hybrid</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="sec-num muted">§1</div>
+      <div class="content">
+        <p>
+          기본 격자는 <b>4px</b>, 보조 격자는 <b>2px</b>이다. 4px은 모든 컴포넌트의
+          외곽 배치(margin, gap, container padding)에 쓰이고, 2px는 <b>컴포넌트 내부</b>(아이콘↔라벨,
+          버튼 내부 등 시각적 접합부)에서만 허용한다.
+        </p>
+
+        <div class="grid-demo">
+          <div class="grid-box">
+            <span class="chip">4px</span>
+            <span class="chip">8px</span>
+            <span class="chip">12px</span>
+            <span class="chip">16px</span>
+            <span class="chip">20px</span>
+            <span class="chip">24px</span>
+            <span class="chip">32px</span>
+            <span class="chip">40px</span>
+            <div class="legend">4px grid · strong = 8px</div>
+          </div>
+        </div>
+
+        <p class="muted" style="font-size:11.5px">
+          * 위 격자는 <b>4px 단위</b>이며, 진한 세로선은 <b>8px</b> 단위다. 모든 UI 요소는
+          시작 x좌표와 끝 x좌표가 진한 선(8px) 위에 놓이는 것을 원칙으로 하고, 내부 디테일에서만
+          연한 선(4px·예외 2px)을 허용한다.
+        </p>
+
+        <table class="scale">
+          <thead><tr>
+            <th style="width:18%">Token</th>
+            <th style="width:8%">Value</th>
+            <th style="width:8%">Type</th>
+            <th>Scale</th>
+            <th style="width:38%">Usage</th>
+          </tr></thead>
+          <tbody id="scale-body"><tr>
+    <td class="tok"><code>space.0</code></td>
+    <td class="mono">0 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:2px"></i></td>
+    <td class="note">여백 없음 명시 (reset)</td></tr><tr>
+    <td class="tok"><code>space.2</code></td>
+    <td class="mono">2 px</td>
+    <td><span class="kind ext">ext</span></td>
+    <td class="bar"><i style="width:4px"></i></td>
+    <td class="note">아이콘↔라벨 · 인라인 뱃지 · 버튼 내부 수직 보정</td></tr><tr>
+    <td class="tok"><code>space.4</code></td>
+    <td class="mono">4 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:8px"></i></td>
+    <td class="note">인접 버튼 gap · 표 셀 수직 padding · 칩 내부</td></tr><tr>
+    <td class="tok"><code>space.6</code></td>
+    <td class="mono">6 px</td>
+    <td><span class="kind ext">ext</span></td>
+    <td class="bar"><i style="width:12px"></i></td>
+    <td class="note">인풋 내부 수직 padding(13px 본문 기준 · Compact)</td></tr><tr>
+    <td class="tok"><code>space.8</code></td>
+    <td class="mono">8 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:16px"></i></td>
+    <td class="note">폼 필드 사이 · 툴바 내부 · 인라인 카드 gap</td></tr><tr>
+    <td class="tok"><code>space.10</code></td>
+    <td class="mono">10 px</td>
+    <td><span class="kind ext">ext</span></td>
+    <td class="bar"><i style="width:20px"></i></td>
+    <td class="note">표 셀 수평 padding · 버튼 내부 수평(sm)</td></tr><tr>
+    <td class="tok"><code>space.12</code></td>
+    <td class="mono">12 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:24px"></i></td>
+    <td class="note">카드 내부 수직 · 작은 섹션 gap · 다이얼로그 버튼 간격</td></tr><tr>
+    <td class="tok"><code>space.16</code></td>
+    <td class="mono">16 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:32px"></i></td>
+    <td class="note">패널/카드 기본 padding · 그룹 사이</td></tr><tr>
+    <td class="tok"><code>space.20</code></td>
+    <td class="mono">20 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:40px"></i></td>
+    <td class="note">카드 수평 padding · 다이얼로그 수평 · 섹션 헤더</td></tr><tr>
+    <td class="tok"><code>space.24</code></td>
+    <td class="mono">24 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:48px"></i></td>
+    <td class="note">다이얼로그 padding · 섹션 gap(Compact)</td></tr><tr>
+    <td class="tok"><code>space.32</code></td>
+    <td class="mono">32 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:64px"></i></td>
+    <td class="note">섹션 gap(Comfortable) · 페이지 좌우 여백</td></tr><tr>
+    <td class="tok"><code>space.40</code></td>
+    <td class="mono">40 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:80px"></i></td>
+    <td class="note">대형 섹션 사이 · 히어로 영역</td></tr><tr>
+    <td class="tok"><code>space.56</code></td>
+    <td class="mono">56 px</td>
+    <td><span class="kind core">core</span></td>
+    <td class="bar"><i style="width:112px"></i></td>
+    <td class="note">페이지 상단 여백 · 장/파트 구분</td></tr></tbody>
+        </table>
+
+        <p class="muted" style="font-size:11.5px;margin-top:12px">
+          * <code>space.0</code>은 토큰이지만 실제로는 <b>여백 없음</b>을 명시적으로 선언할 때만 쓴다.<br>
+          * <code>space.2px</code>, <code>space.6px</code>는 <b>Extended</b> 스케일로, 컴포넌트
+          내부에서만 허용. 레이아웃(카드 간격, 섹션 gap 등)에는 절대 쓰지 않는다.<br>
+          * 56px 이상은 토큰을 만들지 않고 <b>multiple of 8</b> (64, 80, 96, …)을 쓴다 — 대형 여백은
+          의도된 예외이기 때문에 토큰으로 정당화하지 않는다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Density ─────────────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§ 2</div>
+      <h2 class="sec-title">Density <small>— Compact 기본 · Comfortable 옵션</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="sec-num muted">§2</div>
+      <div class="content">
+        <p>
+          Park.ds는 <b>2-level density</b>를 채택한다. 일반 사용자(오피스·엔지니어 PC)는
+          <b>Compact</b>가 기본이고, 장비 앞 작업자(장갑·거리 응시)는 설정 또는 제품 수준에서
+          <b>Comfortable</b>을 선택할 수 있다.
+        </p>
+
+        <div class="density">
+          <div class="den-card compact">
+            <div class="head">
+              <span class="name">Compact <span style="color:var(--accent);font-family:var(--mono);font-size:11px">· default</span></span>
+              <span class="tag">row 24px · gap 6px</span>
+            </div>
+            <div class="body">
+              <div class="demo-tb">
+                <button>Run</button><button>Stop</button><button>Export</button>
+              </div>
+              <div class="frow"><label>Recipe ID</label><input value="WLI-2024-A17-rev3"></div>
+              <div class="frow"><label>Operator</label><input value="J. Park"></div>
+              <table class="demo-table">
+                <thead><tr><th>Ch</th><th>Value</th><th>Unit</th></tr></thead>
+                <tbody>
+                  <tr><td>01</td><td>-12.847</td><td>µm</td></tr>
+                  <tr><td>02</td><td>+04.213</td><td>µm</td></tr>
+                  <tr><td>03</td><td>-00.092</td><td>µm</td></tr>
+                  <tr><td>04</td><td>+01.775</td><td>µm</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="den-card comfy">
+            <div class="head">
+              <span class="name">Comfortable <span class="muted" style="font-family:var(--mono);font-size:11px">· optional</span></span>
+              <span class="tag">row 32px · gap 10px</span>
+            </div>
+            <div class="body">
+              <div class="demo-tb">
+                <button>Run</button><button>Stop</button><button>Export</button>
+              </div>
+              <div class="frow"><label>Recipe ID</label><input value="WLI-2024-A17-rev3"></div>
+              <div class="frow"><label>Operator</label><input value="J. Park"></div>
+              <table class="demo-table">
+                <thead><tr><th>Ch</th><th>Value</th><th>Unit</th></tr></thead>
+                <tbody>
+                  <tr><td>01</td><td>-12.847</td><td>µm</td></tr>
+                  <tr><td>02</td><td>+04.213</td><td>µm</td></tr>
+                  <tr><td>03</td><td>-00.092</td><td>µm</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <table class="scale" style="margin-top:14px">
+          <thead><tr>
+            <th style="width:22%">Property</th>
+            <th>Compact <span class="muted" style="font-weight:400">(default)</span></th>
+            <th>Comfortable</th>
+            <th style="width:28%">Rationale</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="tok"><code>row.height</code></td><td class="mono">24 px</td><td class="mono">32 px</td><td class="note">표/리스트 한 행 · 터치 최소 32px 확보</td></tr>
+            <tr><td class="tok"><code>input.height</code></td><td class="mono">24 px</td><td class="mono">32 px</td><td class="note">13px body + padding 5/6</td></tr>
+            <tr><td class="tok"><code>button.height</code></td><td class="mono">24 / 28 px</td><td class="mono">32 / 36 px</td><td class="note">Sm / Md. Lg(40px)는 density 무관</td></tr>
+            <tr><td class="tok"><code>toolbar.height</code></td><td class="mono">32 px</td><td class="mono">40 px</td><td class="note">윈도우 상단 액션 바</td></tr>
+            <tr><td class="tok"><code>form.gap</code></td><td class="mono">8 px</td><td class="mono">12 px</td><td class="note">폼 필드 사이 수직 간격</td></tr>
+            <tr><td class="tok"><code>toolbar.gap</code></td><td class="mono">4 px</td><td class="mono">8 px</td><td class="note">인접 버튼 사이</td></tr>
+            <tr><td class="tok"><code>cell.padY</code></td><td class="mono">4 px</td><td class="mono">8 px</td><td class="note">표 셀 수직 padding</td></tr>
+            <tr><td class="tok"><code>cell.padX</code></td><td class="mono">10 px</td><td class="mono">14 px</td><td class="note">표 셀 수평 padding</td></tr>
+          </tbody>
+        </table>
+
+        <p class="muted" style="font-size:11.5px;margin-top:12px">
+          * Density는 <b>테마 속성</b>으로 다룬다. XAML에서는
+          <code>DensityToken.Compact / Comfortable</code> 리소스 딕셔너리로 분리.<br>
+          * 같은 화면 안에서 density를 섞지 않는다. 제품/윈도우 단위로만 전환.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Padding vs Margin policy ───────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§ 3</div>
+      <h2 class="sec-title">Inside vs Outside <small>— padding과 margin을 섞지 않는다</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="sec-num muted">§3</div>
+      <div class="content">
+        <p>
+          공간은 두 개의 서로 다른 책임으로 나뉜다. <b>Inside(padding)</b>는 컴포넌트 스스로가
+          소유하고, <b>Outside(gap/margin)</b>는 부모 레이아웃이 결정한다. 이 둘을 섞으면
+          동일한 컴포넌트가 위치에 따라 다른 여백을 갖는 사고가 발생한다.
+        </p>
+
+        <div class="roles">
+          <div class="role">
+            <div class="label">§3.1 · Inside (padding)</div>
+            <h4>컴포넌트가 스스로 가진다</h4>
+            <p class="muted" style="font-size:12.5px;margin:4px 0 10px">
+              버튼 내부 padding, 카드 내부 padding, 인풋 내부 padding 등. 컴포넌트 자체의
+              "기본 형태"에 포함되므로 외부에서 override하지 않는다.
+            </p>
+            <div style="font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);line-height:1.7">
+              Button.padX · Card.pad · Input.padX · Dialog.pad · Panel.pad
+            </div>
+          </div>
+          <div class="role">
+            <div class="label">§3.2 · Outside (gap / margin)</div>
+            <h4>부모 레이아웃이 결정한다</h4>
+            <p class="muted" style="font-size:12.5px;margin:4px 0 10px">
+              컴포넌트 간 간격은 <b>부모의 gap</b>으로만 준다. 자식이 스스로 margin을 갖지
+              않는다(= <code>margin: 0</code>이 기본). 레이아웃은 재배치에 자유로워야 한다.
+            </p>
+            <div style="font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);line-height:1.7">
+              Form.gap · Toolbar.gap · Stack.gap · Grid.gap
+            </div>
+          </div>
+        </div>
+
+        <div class="dodont">
+          <div class="dd do">
+            <div class="flag">✓ DO — 부모가 gap, 자식은 padding만</div>
+            <div class="ex">&lt;StackPanel Spacing="8"&gt;<br>&nbsp;&nbsp;&lt;Button Padding="12,0" /&gt;<br>&nbsp;&nbsp;&lt;Button Padding="12,0" /&gt;<br>&lt;/StackPanel&gt;</div>
+          </div>
+          <div class="dd dont">
+            <div class="flag">✗ DON'T — 자식이 margin</div>
+            <div class="ex">&lt;StackPanel&gt;<br>&nbsp;&nbsp;&lt;Button Margin="0,0,8,0" /&gt;<br>&nbsp;&nbsp;&lt;Button Margin="0,0,8,0" /&gt;<br>&lt;/StackPanel&gt;</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Container sizes ─────────────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§ 4</div>
+      <h2 class="sec-title">Standard Container Sizes <small>— Dialog · Window · Panel</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="sec-num muted">§4</div>
+      <div class="content">
+        <p>
+          임의 크기의 다이얼로그·윈도우는 만들지 않는다. 아래 <b>표준 규격 중 가장 작은 것</b>을
+          먼저 선택하고, 콘텐츠가 명백히 초과할 때만 다음 크기로 올린다.
+        </p>
+
+        <table class="cont">
+          <thead><tr>
+            <th style="width:18%">Token</th>
+            <th style="width:14%">Size (W × H)</th>
+            <th style="width:14%">Padding</th>
+            <th>Use Case</th>
+          </tr></thead>
+          <tbody>
+            <tr><td class="tok"><code>dialog.sm</code></td><td class="mono">400 × auto</td><td class="mono">20 / 16</td><td>Confirm · Prompt · 단일 입력</td></tr>
+            <tr><td class="tok"><code>dialog.md</code></td><td class="mono">560 × auto</td><td class="mono">24 / 20</td><td>Form · Settings · 다중 입력</td></tr>
+            <tr><td class="tok"><code>dialog.lg</code></td><td class="mono">800 × 560</td><td class="mono">24 / 20</td><td>Recipe · 파라미터 상세 편집</td></tr>
+            <tr><td class="tok"><code>dialog.xl</code></td><td class="mono">1120 × 720</td><td class="mono">28 / 24</td><td>Review · Compare · Data</td></tr>
+            <tr><td class="tok"><code>window.min</code></td><td class="mono">1280 × 720</td><td class="mono">—</td><td>제품 메인 윈도우 최소값</td></tr>
+            <tr><td class="tok"><code>window.std</code></td><td class="mono">1600 × 900</td><td class="mono">—</td><td>제품 메인 윈도우 권장</td></tr>
+            <tr><td class="tok"><code>panel.pad</code></td><td class="mono">—</td><td class="mono">16 / 16</td><td>사이드·인스펙터 패널 내부</td></tr>
+            <tr><td class="tok"><code>panel.pad.sm</code></td><td class="mono">—</td><td class="mono">12 / 12</td><td>좁은 패널(≤ 240px)</td></tr>
+            <tr><td class="tok"><code>card.pad</code></td><td class="mono">—</td><td class="mono">16 / 20</td><td>카드 컴포넌트 내부(Y/X)</td></tr>
+            <tr><td class="tok"><code>section.gap</code></td><td class="mono">—</td><td class="mono">24 / 32</td><td>패널 내부 섹션 사이(Comp / Comfy)</td></tr>
+          </tbody>
+        </table>
+
+        <p class="muted" style="font-size:11.5px;margin-top:12px">
+          * Padding 표기는 <b>vertical / horizontal</b> 순.<br>
+          * Dialog의 <b>actions footer</b>는 항상 <code>16px(세로) · 20~24px(가로)</code> padding, 버튼 gap은 <code>8px</code>.
+        </p>
+
+        <!-- viewport map -->
+        <div class="vp-wrap">
+          <div class="vp-map">
+            <svg viewBox="0 0 860 260">
+              <!-- 4K -->
+              <rect class="max" x="20" y="20" width="820" height="215"></rect>
+              <text x="820" y="15" text-anchor="end" class="val">3840 × 2160 · 4K</text>
+              <!-- FHD -->
+              <rect class="target" x="140" y="70" width="410" height="115"></rect>
+              <text class="lbl" x="145" y="85">window.std</text>
+              <text class="val" x="145" y="100">1600 × 900 · recommended</text>
+              <!-- min window -->
+              <rect class="min" x="140" y="70" width="328" height="92"></rect>
+              <text x="472" y="165">1280 × 720 · min</text>
+              <!-- 1366 -->
+              <text x="150" y="220">1366 × 768 · laptop min</text>
+              <text x="20" y="250">viewport map · scale relative to 3840 · 4px grid aligned</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Panel layout ─────────────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§ 5</div>
+      <h2 class="sec-title">Panel Layout <small>— 3-column (측정·관리 SW 공통)</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="sec-num muted">§5</div>
+      <div class="content">
+        <p>
+          측정·관리 SW의 메인 윈도우는 대부분 <b>Header · Navigation · Canvas · Inspector · StatusBar</b>
+          5구역으로 분해된다. Park.ds는 이 패턴을 표준 레이아웃으로 승격한다.
+        </p>
+
+        <div class="layout-demo md">
+          <div class="ld-header">
+            <span class="brand">PARK · WLI</span>
+            <span>File</span><span>View</span><span>Measure</span><span>Analyze</span>
+            <span style="margin-left:auto">admin@park</span>
+          </div>
+          <div class="ld-main">
+            <aside class="ld-side">
+              <div class="item">Dashboard</div>
+              <div class="item active">Measurement</div>
+              <div class="item">Recipe</div>
+              <div class="item">History</div>
+              <div class="item">Calibration</div>
+              <div class="item">Settings</div>
+            </aside>
+            <div class="ld-canvas">· canvas 3D viewport ·</div>
+            <aside class="ld-insp">
+              <div><span class="k">status</span>&nbsp;&nbsp;<span class="v" style="color:#5CD699">READY</span></div>
+              <div><span class="k">recipe</span>&nbsp;&nbsp;<span class="v">A17-rev3</span></div>
+              <div><span class="k">Δz</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="v">-12.847 µm</span></div>
+              <div><span class="k">Δx</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="v">+04.213 µm</span></div>
+              <div><span class="k">Δy</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="v">-00.092 µm</span></div>
+              <div style="margin-top:10px;color:#8A94A3">— history —</div>
+              <div><span class="v">14:22 OK</span></div>
+              <div><span class="v">14:18 OK</span></div>
+              <div><span class="v">14:14 <span style="color:#F0A55F">WARN</span></span></div>
+            </aside>
+          </div>
+          <div class="ld-footer">
+            <span>READY · connected to stage#03</span>
+            <span class="pill">● 24.3 fps</span>
+          </div>
+        </div>
+
+        <div class="layout-caption">
+          <div><b>Header</b><span>36–40px · 제품 식별 · 글로벌 액션</span></div>
+          <div><b>Navigation (left)</b><span>160 / 200 / 240px · icon+label</span></div>
+          <div><b>Canvas (center)</b><span>flex · 최소 640px 보장</span></div>
+          <div><b>Inspector (right)</b><span>220 / 280 / 360px · 우측 고정 · 접기 가능</span></div>
+          <div><b>StatusBar</b><span>24–28px · 장비 연결·fps·경고</span></div>
+          <div><b>Gap</b><span>내부 panel.pad 16px · 섹션 gap 24/32</span></div>
+        </div>
+
+        <p class="muted" style="font-size:11.5px;margin-top:14px">
+          * Navigation·Inspector의 너비는 <b>8px 스냅</b>(160/168/176/…). 드래그 리사이즈 가능 제품에서도
+          릴리스 시 자동으로 8px에 스냅된다.<br>
+          * Canvas가 최소 너비(640px)를 확보하지 못할 경우, <b>Inspector를 먼저 접는다</b>(우 → 좌 순).<br>
+          * 분석 SW에서는 Canvas 자리에 <b>DataGrid</b>가 오고, Inspector에 <b>Filter / Column chooser</b>가 들어간다.<br>
+          * 관리 SW(RMS)에서는 Navigation이 <b>상단 가로</b> 배치로 변형 가능 — 이 경우에도
+          Inspector와 StatusBar 규칙은 동일.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Do / Don't ─────────────────────────────── -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§ 6</div>
+      <h2 class="sec-title">Do / Don't <small>— 공간 설계 체크리스트</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="sec-num muted">§6</div>
+      <div class="content">
+        <div class="dodont">
+          <div class="dd do">
+            <div class="flag">✓ DO · 4의 배수</div>
+            <h5>모든 여백은 토큰에서 고른다</h5>
+            <p class="muted" style="font-size:12px;margin:0">
+              margin: 8px; gap: 12px; padding: 16px 20px; — 토큰 스케일에 있는 값만 쓴다.
+            </p>
+          </div>
+          <div class="dd dont">
+            <div class="flag">✗ DON'T · 임의값</div>
+            <h5>"대충 10, 15, 18" 금지</h5>
+            <p class="muted" style="font-size:12px;margin:0">
+              margin: 10px; padding: 15px 18px; — 토큰에 없는 값은 리뷰에서 반려한다.
+            </p>
+          </div>
+          <div class="dd do">
+            <div class="flag">✓ DO · 부모가 gap</div>
+            <h5>자식은 margin 0</h5>
+            <p class="muted" style="font-size:12px;margin:0">
+              StackPanel.Spacing · Grid gap · Flex gap 으로만 간격을 준다.
+            </p>
+          </div>
+          <div class="dd dont">
+            <div class="flag">✗ DON'T · 자식이 margin</div>
+            <h5>"마지막만 0" 패턴 금지</h5>
+            <p class="muted" style="font-size:12px;margin:0">
+              :last-child margin-right:0 같은 hack은 레이아웃 재배치 시 버그를 낳는다.
+            </p>
+          </div>
+          <div class="dd do">
+            <div class="flag">✓ DO · 비대칭 허용</div>
+            <h5>수직 &lt; 수평</h5>
+            <p class="muted" style="font-size:12px;margin:0">
+              Card padding 16/20, Dialog 20/24 — 읽는 축(수평)에 더 큰 여백을 준다.
+            </p>
+          </div>
+          <div class="dd dont">
+            <div class="flag">✗ DON'T · 무분별한 대형 여백</div>
+            <h5>64px 이상 금지</h5>
+            <p class="muted" style="font-size:12px;margin:0">
+              측정 SW 화면에서 40px를 넘는 빈 공간은 "정보 낭비"다. 필요하면 근거를 문서화.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Open questions -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§ 7</div>
+      <h2 class="sec-title">Open Questions <small>— 개발진 협의 필요</small></h2>
+    </div>
+    <div class="sec-body">
+      <div class="sec-num muted">§7</div>
+      <div class="content">
+        <div class="questions">
+          <h3>확정 필요</h3>
+          <ol>
+            <li><b>Density 전환 방식</b> — 리소스 딕셔너리 교체(재시작 필요) vs DynamicResource(실시간). DevExpress Theme와 호환되는 방식으로.</li>
+            <li><b>DevExpress GridControl 기본 RowHeight</b> — 현재 여러 값이 혼재. <code>RowAutoHeight=false · RowHeight=24</code>로 통일?</li>
+            <li><b>Inspector 접힘 동작</b> — 완전 숨김 vs 32px 아이콘 레일 유지 중 어느 쪽을 기본으로?</li>
+            <li><b>MDI / Dockable 윈도우</b> — DockLayoutManager 사용 제품에서 Panel padding이 기본 3px로 들어가는데, 이를 재정의할지 DevExpress 규칙을 따를지.</li>
+            <li><b>Comfortable의 실제 수요</b> — 현업에서 장갑 상태 입력이 있는 제품이 어느 것인지 재확인 (WLI에 해당?).</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Park.ds · 03 Spacing &amp; Layout Foundation</span>
+    <span>v0.1 · 2026-04-22 · draft</span>
+  </footer>
+</div>
+
+<script>
+/* ── spacing scale definition ─────────────────
+   Core  : 4px 배수, 레이아웃 전반에서 사용
+   Ext   : 2px 단위, 컴포넌트 내부 한정
+*/
+const SCALE = [
+  // token,        px,    type,   usage
+  ['space.0',      0,    'core', '여백 없음 명시 (reset)'],
+  ['space.2',      2,    'ext',  '아이콘↔라벨 · 인라인 뱃지 · 버튼 내부 수직 보정'],
+  ['space.4',      4,    'core', '인접 버튼 gap · 표 셀 수직 padding · 칩 내부'],
+  ['space.6',      6,    'ext',  '인풋 내부 수직 padding(13px 본문 기준 · Compact)'],
+  ['space.8',      8,    'core', '폼 필드 사이 · 툴바 내부 · 인라인 카드 gap'],
+  ['space.10',    10,    'ext',  '표 셀 수평 padding · 버튼 내부 수평(sm)'],
+  ['space.12',    12,    'core', '카드 내부 수직 · 작은 섹션 gap · 다이얼로그 버튼 간격'],
+  ['space.16',    16,    'core', '패널/카드 기본 padding · 그룹 사이'],
+  ['space.20',    20,    'core', '카드 수평 padding · 다이얼로그 수평 · 섹션 헤더'],
+  ['space.24',    24,    'core', '다이얼로그 padding · 섹션 gap(Compact)'],
+  ['space.32',    32,    'core', '섹션 gap(Comfortable) · 페이지 좌우 여백'],
+  ['space.40',    40,    'core', '대형 섹션 사이 · 히어로 영역'],
+  ['space.56',    56,    'core', '페이지 상단 여백 · 장/파트 구분'],
+];
+const tbody = document.getElementById('scale-body');
+SCALE.forEach(([tok, px, type, usage])=>{
+  const tr = document.createElement('tr');
+  const barW = Math.max(1, px) * 2; // visual, 1:2
+  tr.innerHTML = `
+    <td class="tok"><code>${tok}</code></td>
+    <td class="mono">${px} px</td>
+    <td><span class="kind ${type}">${type}</span></td>
+    <td class="bar"><i style="width:${barW}px"></i></td>
+    <td class="note">${usage}</td>`;
+  tbody.appendChild(tr);
+});
+</script>
+
+
+</body></html>
