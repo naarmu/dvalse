@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_XML_004 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-topnav">
+  <div class="app-brand">
+    <span class="app-brand__logo">Park</span>
+    <span class="app-brand__sub">SYSTEMS · QA</span>
+  </div>
+  <div class="topnav-items">
+    <div class="topnav-item active">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+      <span>Test Cases</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+      <span>Execution</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <span>History</span>
+    </div>
+  </div>
+  <div class="topnav-meta">
+    <span>RMS Phase 1 + 2</span>
+    <span class="topnav-meta__sep"></span>
+    <span>v0.2 · Draft</span>
+  </div>
+</nav>
+
+<div class="app-subnav">
+  <div class="subnav-item">
+    <a href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
+      <span>Index</span>
+    </a>
+  </div>
+  <div class="subnav-item active">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    <span>TC_RCP_XML_004</span>
+  </div>
+  <div class="subnav-spacer"></div>
+</div>
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Deploy Custom XML</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">XML → PSR 변환</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">6 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Deploy Custom XML
+        <span class="sep">/</span> TC_RCP_XML_004
+      </div>
+      <div class="tc-detail-id">TC_RCP_XML_004</div>
+      <h1 class="tc-detail-title">배포된 XML이 장비에서 .psr로 자동 변환</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Custom XML이 EQ_001로 방금 배포 완료됨</li>
+        <li>EQ_001의 RMS Agent가 정상 동작 중</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>배포 직후 EQ_001 장비 PC에서 Recipe 저장 경로 확인</li>
+        <li>XML 파일이 .psr로 변환되어 저장되었는지 확인</li>
+        <li>RMS Agent가 변환된 .psr을 서버로 수집하는지 확인</li>
+        <li>Recipe Manager에서 새로 등록된 Recipe 조회 (TC_RCP_XML_005 연계)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Deployed XML: custom_recipe.xml
+Expected PSR: custom_recipe.psr (장비 내 Recipe 폴더)</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>XML 수신 후 Agent가 자동으로 .psr로 변환</li>
+        <li>변환된 .psr 파일이 장비의 정상 Recipe 경로에 저장</li>
+        <li>변환 성공 이력이 Server Log 또는 Equipment History에 기록</li>
+        <li>변환된 .psr은 기존 Recipe와 동일하게 장비에서 사용 가능</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>핵심 기능:</strong> Waferless Recipe Creation의 최종 목적지. 변환 로직의 정확성이 매우 중요.</p>
+        <p><strong>변환 주체:</strong> Agent가 변환하는지, 장비의 XEA Service가 변환하는지 아키텍처 확인.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">데이터 무결성</span> XML → PSR 변환은 <strong>원자적(atomic)</strong>이어야 합니다. 변환 중 실패 시 중간 상태 파일이 남지 않도록 temp 파일 → rename 패턴 필수.</p>
+        <p><span class="proposal-tag">기획 검토</span> 변환 실패 시 <strong>기존 동일명 Recipe를 덮어쓸지 여부</strong>에 대한 정책이 필요합니다. 권장: 변환 실패 시 기존 Recipe 보존 + 관리자에게 알림.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_XML_003.html">← 이전: TC_RCP_XML_003</a>
+        <a href="TC_RCP_XML_005.html">다음: TC_RCP_XML_005 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
