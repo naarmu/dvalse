@@ -201,7 +201,7 @@
 <div class="page">
 
   <div class="crumbs">
-    <a href="index.html">Park.ds</a>
+    <a data-doc="home" style="cursor:pointer">Park.ds</a>
     <span class="sep">/</span>
     <span>Overview</span>
     <span class="sep">/</span>
@@ -718,8 +718,23 @@
 
   <footer class="footer">
     <span>Park.ds · Information Architecture · v0.1 draft</span>
-    <span><a href="index.html">← Home</a></span>
+    <span><a data-doc="home" style="cursor:pointer">← Home</a></span>
   </footer>
+
+  <script>
+    /* iframe 모드: 부모 shell에 navigate 요청. 단독 모드: index.html로 이동 */
+    document.querySelectorAll("[data-doc]").forEach(el => {
+      el.addEventListener("click", (e) => {
+        e.preventDefault();
+        const key = el.dataset.doc;
+        if(window.parent && window.parent !== window){
+          window.parent.postMessage({type:"parkds:navigate", doc:key}, "*");
+        } else {
+          location.href = "index.html#" + key;
+        }
+      });
+    });
+  </script>
 
 </div>
 </body>
