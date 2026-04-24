@@ -119,7 +119,7 @@
     }
 
     tbody.innerHTML = list.map((tc) => {
-      const href = tc.hasDetail ? `tc/${tc.id}.html` : "#";
+      const href = tc.hasDetail ? `${tc.id}.html` : "#";
       const linkClass = tc.hasDetail ? "tc-id-link" : "tc-id-link tc-id-link--pending";
       const onclick = tc.hasDetail ? "" : `onclick="event.preventDefault(); alert('${tc.id}: 아직 상세 페이지가 작성되지 않았습니다.');"`;
       return `
