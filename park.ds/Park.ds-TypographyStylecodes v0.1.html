@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!-- saved from url=(0326)https://4e879dba-c492-4b59-88e5-2cca9100ac28.claudeusercontent.com/v1/design/projects/4e879dba-c492-4b59-88e5-2cca9100ac28/serve/Park.ds/02a%20Typography%20XAML%20Update.html?t=e5663800d5af000c4bbb2b4a3ef8034ddf0797874a58a118839159322e56c714.d3e46410-4fc8-4d5f-98bf-e64e38affb38.1ef2a04f-778e-47c7-b0c0-eef5872debb4.1776931027 -->
+<html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style data-omelette-injected="">html,body{background:transparent}</style><script data-omelette-injected="">(()=>{var $=["https://claude.ai","https://preview.claude.ai","https://eap-omelette.claude.ai"];var F=30000;var A=3000;document.addEventListener("DOMContentLoaded",()=>{const Q="transform-react-jsx-source";document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((J,V)=>{const X=J.getAttribute("data-plugins")||"";if(X.indexOf(Q)<0){J.setAttribute("data-plugins",X?`${X},${Q}`:Q)}if(!J.hasAttribute("data-filename")){J.setAttribute("data-filename",J.getAttribute("src")||`inline-${V}`)}})});var W=window.parent;if(W&&W!==window){const Q=(z,k)=>{try{W.postMessage({__omelette_log:true,type:z,data:k},"*")}catch{}};["log","warn","error"].forEach((z)=>{const k=console[z];console[z]=(...C)=>{const D=C.map((w)=>{try{return typeof w==="object"?JSON.stringify(w):String(w)}catch{try{return String(w)}catch{return"[unstringifiable]"}}}).join(" ");Q(z,D);k.apply(console,C)}});window.addEventListener("error",(z)=>{const k=z.target;if(k&&k!==window&&k.tagName){const C=k.src||k.href||"";Q("resource_error",`${k.tagName} failed to load: ${C}`)}else{Q("error",`${z.message||"Unknown error"} at ${z.filename||"?"}:${z.lineno||0}:${z.colno||0}`)}},true);window.addEventListener("unhandledrejection",(z)=>{const k=z.reason;const C=k instanceof Error?`${k.message} ${k.stack}`:String(k);Q("error",`Unhandled rejection: ${C}`)});const J=()=>{try{W.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")J();else window.addEventListener("load",J);if(window.ResizeObserver)new ResizeObserver(J).observe(document.documentElement);const V={};let X=0;window.claude={complete(z){return new Promise((k,C)=>{if(!$.length){C(new Error("claude.complete: no parent origin"));return}const D=`c${++X}`;const w=()=>setTimeout(()=>{delete V[D];C(new Error(`claude.complete: no data for ${F/1000}s`))},F);const K=w();V[D]={resolve:k,reject:C,text:"",t:K,arm:w};try{for(const Z of $){W.postMessage({__om_api:true,id:D,body:z},Z)}}catch(Z){clearTimeout(K);delete V[D];C(Z)}})}};const Y={};let h=0;window.omelette={writeFile:(z,k)=>new Promise((C,D)=>{if(!$.length){C();return}const w=`f${++h}`;const K=setTimeout(()=>{delete Y[w];C()},A);Y[w]={resolve:C,reject:D,t:K};try{for(const Z of $){W.postMessage({__om_file:true,id:w,op:"write",path:z,content:k},Z)}}catch{clearTimeout(K);delete Y[w];C()}})};const b=(z)=>{try{return JSON.stringify(z)}catch{return JSON.stringify(String(z))}};window.addEventListener("message",(z)=>{if($.indexOf(z.origin)<0)return;if(z.source!==W)return;const k=z.data;if(!k)return;if(k.__om_file_r){const w=Y[k.id];if(!w)return;clearTimeout(w.t);delete Y[k.id];if(k.ok)w.resolve();else w.reject(new Error(k.error||"write failed"));return}if(k.__om_api_r){const w=V[k.id];if(!w)return;if(k.error!=null){clearTimeout(w.t);delete V[k.id];w.reject(new Error(k.error));return}if(k.chunk!=null){clearTimeout(w.t);w.t=w.arm();w.text+=k.chunk;return}if(k.done){clearTimeout(w.t);delete V[k.id];w.resolve(k.text!=null?k.text:w.text);return}return}if(!k.__om_eval)return;const C=k;const D=(w)=>{z.source.postMessage({...w,__om_eval_r:1,id:C.id},z.origin)};try{const w=(0,eval)(C.code);if(w&&typeof w.then==="function"){w.then((K)=>D({ok:1,v:b(K)}),(K)=>D({ok:0,e:String(K)}))}else{D({ok:1,v:b(w)})}}catch(w){D({ok:0,e:String(w)})}})}})();
+</script>
+
+
+<title>Park.ds · Typography XAML Update Request</title>
+<link rel="stylesheet" href="./Park.ds · Typography XAML Update Request_files/pretendardvariable.min.css">
+<link href="./Park.ds · Typography XAML Update Request_files/css2" rel="stylesheet">
+<style>
+  @font-face{
+    font-family:"DSEG14 Classic";
+    src:url("https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG14-Classic/DSEG14Classic-Regular.woff2") format("woff2");
+    font-weight:400;font-display:swap;
+  }
+  @font-face{
+    font-family:"DSEG14 Classic";
+    src:url("https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG14-Classic/DSEG14Classic-Bold.woff2") format("woff2");
+    font-weight:700;font-display:swap;
+  }
+  :root{
+    --ink:#1A1D21;--ink-soft:#5A6370;--ink-faint:#8A94A3;
+    --bg:#F6F7F9;--panel:#fff;--rule:#E3E6EB;--rule-soft:#EDF0F4;
+    --accent:#30A1D2;--remove:#C23A3A;--add:#2E8B57;
+    --sans:"Pretendard Variable","Pretendard","Segoe UI",system-ui,sans-serif;
+    --mono:"JetBrains Mono","Consolas",ui-monospace,monospace;
+    --dseg:"DSEG14 Classic","JetBrains Mono",monospace;
+    font-feature-settings:"tnum" 1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:13.5px;line-height:1.5;-webkit-font-smoothing:antialiased}
+  .page{max-width:1280px;margin:0 auto;padding:56px 48px 96px}
+
+  .mast{display:grid;grid-template-columns:1fr auto;align-items:end;border-bottom:1px solid var(--ink);padding-bottom:18px;margin-bottom:40px}
+  .mast h1{font-size:28px;font-weight:600;margin:0 0 6px;letter-spacing:-0.01em}
+  .mast .sub{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:0.02em}
+  .mast .meta{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);line-height:1.7}
+  .mast .meta b{color:var(--ink);font-weight:600}
+
+  section{margin:48px 0 0}
+  .sec-head{display:grid;grid-template-columns:80px 1fr;gap:24px;padding-bottom:10px;margin-bottom:22px;border-bottom:1px solid var(--rule);align-items:baseline}
+  .sec-num{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.08em}
+  .sec-title{font-size:17px;font-weight:600;letter-spacing:-0.005em;margin:0}
+  .sec-title small{font-weight:400;color:var(--ink-soft);font-size:12.5px;margin-left:8px}
+  .sec-body{display:grid;grid-template-columns:80px 1fr;gap:24px}
+  .sec-body > .content{max-width:1040px}
+  p{margin:0 0 12px}
+  p.lede{font-size:14.5px;line-height:1.6}
+  .muted{color:var(--ink-soft)}
+  code{font-family:var(--mono);font-size:0.92em;background:var(--rule-soft);padding:1px 5px;border-radius:3px}
+
+  /* ── ask card ───────────────── */
+  .ask{
+    background:#fff;border:1px solid var(--rule);border-radius:8px;overflow:hidden;
+  }
+  .ask-head{
+    padding:14px 18px;background:#FAFBFC;border-bottom:1px solid var(--rule);
+    display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;
+  }
+  .ask-head .tag{
+    font-family:var(--mono);font-size:10px;letter-spacing:0.08em;
+    padding:3px 8px;border-radius:3px;background:var(--accent);color:#fff;font-weight:600;
+  }
+  .ask-head .msg{font-size:13.5px}
+  .ask-body{padding:18px 22px;font-size:13px;line-height:1.65}
+  .ask-body ol{margin:0;padding-left:20px}
+  .ask-body b{color:var(--ink)}
+
+  /* ── diff summary table ───────── */
+  .summary{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden;font-size:12px}
+  .summary th,.summary td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+  .summary th{background:#fafbfc;font-size:10.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-soft)}
+  .summary tr:last-child td{border-bottom:none}
+  .summary .chg{color:#C58A1A;font-weight:600;font-family:var(--mono);font-size:11px}
+  .summary .ok{color:var(--add);font-weight:600;font-family:var(--mono);font-size:11px}
+  .summary .rm{color:var(--remove);font-weight:600;font-family:var(--mono);font-size:11px}
+  .summary .mono{font-family:var(--mono);font-size:11px}
+
+  /* ── xaml diff ───────────────── */
+  .xaml{
+    background:#0F1216;color:#D0D6DE;font-family:var(--mono);font-size:12px;line-height:1.55;
+    padding:18px 22px;border-radius:6px;overflow-x:auto;white-space:pre;
+    tab-size:2;
+  }
+  .xaml .grp{color:#8A94A3;display:block;padding:6px 0 2px;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase}
+  .xaml .tag{color:#79C1E4}
+  .xaml .attr{color:#C9B587}
+  .xaml .str{color:#A6D688}
+  .xaml .cmt{color:#6A7280;font-style:italic}
+  .xaml .rm{color:#F08A8A;text-decoration:line-through;opacity:0.5}
+  .xaml .add{color:#5CD699;font-weight:600}
+  .xaml .unch{color:#D0D6DE}
+
+  /* ── token preview table ───────── */
+  .prev{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);border-radius:6px;overflow:hidden;font-size:12px}
+  .prev th,.prev td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:middle}
+  .prev th{background:#fafbfc;font-size:10.5px;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-soft)}
+  .prev tr:last-child td{border-bottom:none}
+  .prev .mono{font-family:var(--mono);font-size:11px;color:var(--ink-soft)}
+  .prev .preview{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:420px}
+  .prev .key{font-family:var(--mono);font-size:11px}
+  .prev .rm-val{color:var(--remove);text-decoration:line-through;font-family:var(--mono);font-size:11px}
+  .prev .add-val{color:var(--add);font-weight:600;font-family:var(--mono);font-size:11px}
+
+  /* ── notes ───────────────── */
+  .notes{background:#FFFBEE;border:1px solid #E8D99A;border-radius:6px;padding:16px 20px;font-size:12.5px;line-height:1.7}
+  .notes h4{margin:0 0 8px;font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:#8A6A00}
+  .notes ul{margin:0;padding-left:20px}
+  .notes b{color:var(--ink)}
+
+  .footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--rule);font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);display:flex;justify-content:space-between}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="mast">
+    <div>
+      <h1>Park.ds · Typography Stylecodes</h1>
+      <div class="sub">PARK.DS / HANDOFF / TYPOGRAPHY STYLECODES</div>
+    </div>
+    <div class="meta">
+      <div>VERSION · <b>v0.2</b></div>
+      <div>DATE · 2026-04-22</div>
+      <div>TARGET · App.xaml (TextBlock Styles)</div>
+      <div>STACK · WPF / DevExpress</div>
+    </div>
+  </header>
+
+
+  <!-- 1. 시각 미리보기 -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§1</div>
+      <h2 class="sec-title">시각 미리보기 <small>각 Style이 렌더링되는 모습</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+        <table class="prev">
+          <thead><tr>
+            <th style="width:26%">Style Key</th>
+            <th style="width:12%">Size / Weight</th>
+            <th>Preview</th>
+          </tr></thead>
+          <tbody id="prev-body"><tr>
+    <td class="key" style="color:var(--ink)">PancrasDisplayLargeTextBlock</td>
+    <td class="mono">48px · Regular</td>
+    <td class="preview" style="font-family:var(--dseg);font-size:48px;font-weight:400;color:var(--accent);line-height:1.2">-12.847</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasDisplayMediumTextBlock</td>
+    <td class="mono">40px · Regular</td>
+    <td class="preview" style="font-family:var(--dseg);font-size:40px;font-weight:400;color:var(--accent);line-height:1.2">-12.847</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasDisplaySmallTextBlock</td>
+    <td class="mono">32px · Regular</td>
+    <td class="preview" style="font-family:var(--dseg);font-size:32px;font-weight:400;color:var(--accent);line-height:1.2">-12.847</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasHeadlineLargeTextBlock</td>
+    <td class="mono">28px · SemiBold</td>
+    <td class="preview" style="font-family:var(--sans);font-size:28px;font-weight:600;color:var(--ink);line-height:1.2">Recipe Editor · 레시피 편집</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasHeadlineMediumTextBlock</td>
+    <td class="mono">24px · SemiBold</td>
+    <td class="preview" style="font-family:var(--sans);font-size:24px;font-weight:600;color:var(--ink);line-height:1.2">Recipe Editor · 레시피 편집</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasHeadlineSmallTextBlock</td>
+    <td class="mono">20px · SemiBold</td>
+    <td class="preview" style="font-family:var(--sans);font-size:20px;font-weight:600;color:var(--ink);line-height:1.2">Recipe Editor · 레시피 편집</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasTitleExtraTextBlock</td>
+    <td class="mono">19px · SemiBold</td>
+    <td class="preview" style="font-family:var(--sans);font-size:19px;font-weight:600;color:var(--ink);line-height:1.2">Card Title · 카드 제목</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasTitleLargeTextBlock</td>
+    <td class="mono">17px · SemiBold</td>
+    <td class="preview" style="font-family:var(--sans);font-size:17px;font-weight:600;color:var(--ink);line-height:1.2">Card Title · 카드 제목</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasTitleMediumTextBlock</td>
+    <td class="mono">15px · SemiBold</td>
+    <td class="preview" style="font-family:var(--sans);font-size:15px;font-weight:600;color:var(--ink);line-height:1.2">Card Title · 카드 제목</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasTitleSmallTextBlock</td>
+    <td class="mono">14px · SemiBold</td>
+    <td class="preview" style="font-family:var(--sans);font-size:14px;font-weight:600;color:var(--ink);line-height:1.2">Card Title · 카드 제목</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasTitleTinyTextBlock</td>
+    <td class="mono">12px · SemiBold</td>
+    <td class="preview" style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--ink);line-height:1.2">Card Title · 카드 제목</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasBodyExtraTextBlock</td>
+    <td class="mono">18px · Regular</td>
+    <td class="preview" style="font-family:var(--sans);font-size:18px;font-weight:400;color:var(--ink);line-height:1.2">The quick brown fox. 한글 병기 가능</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasBodyLargeTextBlock</td>
+    <td class="mono">16px · Regular</td>
+    <td class="preview" style="font-family:var(--sans);font-size:16px;font-weight:400;color:var(--ink);line-height:1.2">The quick brown fox. 한글 병기 가능</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasBodyMediumTextBlock</td>
+    <td class="mono">14px · Regular</td>
+    <td class="preview" style="font-family:var(--sans);font-size:14px;font-weight:400;color:var(--ink);line-height:1.2">The quick brown fox. 한글 병기 가능</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasBodySmallTextBlock</td>
+    <td class="mono">13px · Regular</td>
+    <td class="preview" style="font-family:var(--sans);font-size:13px;font-weight:400;color:var(--ink);line-height:1.2">The quick brown fox. 한글 병기 가능</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasBodyTinyTextBlock</td>
+    <td class="mono">11px · Regular</td>
+    <td class="preview" style="font-family:var(--sans);font-size:11px;font-weight:400;color:var(--ink);line-height:1.2">The quick brown fox. 한글 병기 가능</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasLabelLargeTextBlock</td>
+    <td class="mono">16px · Medium</td>
+    <td class="preview" style="font-family:var(--sans);font-size:16px;font-weight:500;color:var(--ink);line-height:1.2">Form Label · 라벨</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasLabelMediumTextBlock</td>
+    <td class="mono">13px · Medium</td>
+    <td class="preview" style="font-family:var(--sans);font-size:13px;font-weight:500;color:var(--ink);line-height:1.2">Form Label · 라벨</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasLabelSmallTextBlock</td>
+    <td class="mono">12px · Medium</td>
+    <td class="preview" style="font-family:var(--sans);font-size:12px;font-weight:500;color:var(--ink);line-height:1.2">Form Label · 라벨</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasAnnotationLargeTextBlock</td>
+    <td class="mono">12px · Regular</td>
+    <td class="preview" style="font-family:var(--sans);font-size:12px;font-weight:400;color:var(--ink);line-height:1.2">보조 설명 · annotation</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasAnnotationMediumTextBlock</td>
+    <td class="mono">10px · Regular</td>
+    <td class="preview" style="font-family:var(--sans);font-size:10px;font-weight:400;color:var(--ink);line-height:1.2">보조 설명 · annotation</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasAnnotationSmallTextBlock</td>
+    <td class="mono">9px · Medium</td>
+    <td class="preview" style="font-family:var(--sans);font-size:9px;font-weight:500;color:var(--ink);line-height:1.2">보조 설명 · annotation</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasDigitalLargeTextBlock</td>
+    <td class="mono">15px · Bold</td>
+    <td class="preview" style="font-family:var(--dseg);font-size:15px;font-weight:700;color:var(--accent);line-height:1.2">-12.847</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasDigitalMediumTextBlock</td>
+    <td class="mono">13px · Bold</td>
+    <td class="preview" style="font-family:var(--dseg);font-size:13px;font-weight:700;color:var(--accent);line-height:1.2">-12.847</td></tr><tr>
+    <td class="key" style="color:var(--ink)">PancrasDigitalSmallTextBlock</td>
+    <td class="mono">11px · Bold</td>
+    <td class="preview" style="font-family:var(--dseg);font-size:11px;font-weight:700;color:var(--accent);line-height:1.2">-12.847</td></tr></tbody>
+        </table>
+        <p class="muted" style="font-size:11.5px;margin-top:10px">
+          * Preview는 Pretendard Variable · JetBrains Mono · DSEG14 Classic을 웹폰트로 로드하여 렌더링. WPF 환경에서는 기존처럼 앱 리소스 폰트로 바인딩.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Style 정의 -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§2</div>
+      <h2 class="sec-title">Style 정의 <small>App.xaml의 TextBlock Style 선언</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+<div class="xaml"><span class="cmt">&lt;!--  Park.ds · Typography Stylecodes · v0.2  --&gt;
+&lt;!--  Pancras*TextBlock definitions for App.xaml.  --&gt;
+&lt;!--  Weight is restricted to Regular(400) / Medium(500) / SemiBold(600) / Bold(700).  --&gt;</span>
+
+<span class="grp">── Display (장비 실시간 대형 수치 — DSEG14 전용 영역) ──</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasDisplayLargeTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"48"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"56"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasDisplayMediumTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"40"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"48"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasDisplaySmallTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"32"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"40"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+
+<span class="grp">── Headline (섹션/페이지 제목) ──</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasHeadlineLargeTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"28"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"SemiBold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"36"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasHeadlineMediumTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"24"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"SemiBold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"30"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasHeadlineSmallTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"20"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"SemiBold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"26"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+
+<span class="grp">── Title (카드/섹션 제목, 변경 없음) ──</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasTitleExtraTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"19"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"SemiBold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"22"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasTitleLargeTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"17"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"SemiBold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"20"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasTitleMediumTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"15"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"SemiBold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"18"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasTitleSmallTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"14"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"SemiBold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"17"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasTitleTinyTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"12"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"SemiBold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"15"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+
+<span class="grp">── Body (본문, 변경 없음) ──</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasBodyExtraTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"18"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"22"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasBodyLargeTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"16"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"20"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasBodyMediumTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"14"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"18"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasBodySmallTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"13"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"17"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasBodyTinyTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"11"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"15"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+
+<span class="grp">── Label (폼 라벨·버튼 ― Uppercase 세터 제거, Weight는 Medium로 완화) ──</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasLabelLargeTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"16"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Medium"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"20"</span> <span class="tag">/&gt;</span>
+  <span class="cmt">&lt;!-- removed: TextBlockAssist.CharacterCasing="Upper" --&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasLabelMediumTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"13"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Medium"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"17"</span> <span class="tag">/&gt;</span>
+  <span class="cmt">&lt;!-- removed: TextBlockAssist.CharacterCasing="Upper" --&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasLabelSmallTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"12"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Medium"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"16"</span> <span class="tag">/&gt;</span>
+  <span class="cmt">&lt;!-- removed: TextBlockAssist.CharacterCasing="Upper" --&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+
+<span class="grp">── Annotation (주석·각주·캡션) ──</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasAnnotationLargeTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"12"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"16"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasAnnotationMediumTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"10"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Regular"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"14"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasAnnotationSmallTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"9"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Medium"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"11"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+
+<span class="grp">── Digital (장비 고유 수치 판독 · DSEG14 Classic으로 교체) ──</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasDigitalLargeTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"15"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Bold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"20"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontFamily"</span>  <span class="attr">Value</span>=<span class="str">"{font:DSEG14ClassicFont}"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasDigitalMediumTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"13"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Bold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"18"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontFamily"</span>  <span class="attr">Value</span>=<span class="str">"{font:DSEG14ClassicFont}"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span>
+<span class="tag">&lt;Style</span> <span class="attr">x:Key</span>=<span class="str">"PancrasDigitalSmallTextBlock"</span> <span class="attr">TargetType</span>=<span class="str">"{x:Type TextBlock}"</span><span class="tag">&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontSize"</span>    <span class="attr">Value</span>=<span class="str">"11"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontWeight"</span>  <span class="attr">Value</span>=<span class="str">"Bold"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"LineHeight"</span>  <span class="attr">Value</span>=<span class="str">"14"</span> <span class="tag">/&gt;</span>
+  <span class="tag">&lt;Setter</span> <span class="attr">Property</span>=<span class="str">"FontFamily"</span>  <span class="attr">Value</span>=<span class="str">"{font:DSEG14ClassicFont}"</span> <span class="tag">/&gt;</span>
+<span class="tag">&lt;/Style&gt;</span></div>
+
+        <div class="notes" style="margin-top:16px">
+          <h4>구현 전제</h4>
+          <ul>
+            <li><b>DSEG14ClassicFont MarkupExtension 등록</b> — Digital 3종 Style은 <code>{font:DSEG14ClassicFont}</code>를 참조한다. 폰트 파일(OFL)은 <code>/Resources/Fonts/</code>에 포함, App.xaml의 FontFamily MarkupExtension에 등록한다.</li>
+            <li><b>Label은 Uppercase 금지</b> — 3개 Label Style(<code>Large·Medium·Small</code>)에 <code>TextBlockAssist.CharacterCasing</code> Setter를 두지 않는다. 대문자 강제는 한/영 혼용 UI에서 가독성을 해친다.</li>
+            <li><b>Pretendard Variable 기본 FontFamily 상속</b> — 모든 Style은 <code>PancrasBaseTextBlock</code>(별도 정의)으로부터 <code>FontFamily="Pretendard Variable"</code>을 상속한다. 각 Style에서 FontFamily를 반복 선언하지 않는다. Digital 3종만 예외적으로 DSEG14를 명시한다.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>PARK.DS · HANDOFF · TYPOGRAPHY STYLECODES · v0.2</div>
+    <div>PAIRS WITH → 02 TYPOGRAPHY FOUNDATION</div>
+  </footer>
+
+</div>
+
+<script>
+/* ───── Preview 테이블 ───── */
+const weightMap = {Regular:400, Medium:500, SemiBold:600, Bold:700};
+const PREV = [
+  // key, size, weight, family, sample
+  ['PancrasDisplayLargeTextBlock',  48, 'Regular', 'dseg', '-12.847'],
+  ['PancrasDisplayMediumTextBlock', 40, 'Regular', 'dseg', '-12.847'],
+  ['PancrasDisplaySmallTextBlock',  32, 'Regular', 'dseg', '-12.847'],
+  ['PancrasHeadlineLargeTextBlock', 28, 'SemiBold','sans', 'Recipe Editor · 레시피 편집'],
+  ['PancrasHeadlineMediumTextBlock',24, 'SemiBold','sans', 'Recipe Editor · 레시피 편집'],
+  ['PancrasHeadlineSmallTextBlock', 20, 'SemiBold','sans', 'Recipe Editor · 레시피 편집'],
+  ['PancrasTitleExtraTextBlock',    19, 'SemiBold','sans', 'Card Title · 카드 제목'],
+  ['PancrasTitleLargeTextBlock',    17, 'SemiBold','sans', 'Card Title · 카드 제목'],
+  ['PancrasTitleMediumTextBlock',   15, 'SemiBold','sans', 'Card Title · 카드 제목'],
+  ['PancrasTitleSmallTextBlock',    14, 'SemiBold','sans', 'Card Title · 카드 제목'],
+  ['PancrasTitleTinyTextBlock',     12, 'SemiBold','sans', 'Card Title · 카드 제목'],
+  ['PancrasBodyExtraTextBlock',     18, 'Regular', 'sans', 'The quick brown fox. 한글 병기 가능'],
+  ['PancrasBodyLargeTextBlock',     16, 'Regular', 'sans', 'The quick brown fox. 한글 병기 가능'],
+  ['PancrasBodyMediumTextBlock',    14, 'Regular', 'sans', 'The quick brown fox. 한글 병기 가능'],
+  ['PancrasBodySmallTextBlock',     13, 'Regular', 'sans', 'The quick brown fox. 한글 병기 가능'],
+  ['PancrasBodyTinyTextBlock',      11, 'Regular', 'sans', 'The quick brown fox. 한글 병기 가능'],
+  ['PancrasLabelLargeTextBlock',    16, 'Medium',  'sans', 'Form Label · 라벨'],
+  ['PancrasLabelMediumTextBlock',   13, 'Medium',  'sans', 'Form Label · 라벨'],
+  ['PancrasLabelSmallTextBlock',    12, 'Medium',  'sans', 'Form Label · 라벨'],
+  ['PancrasAnnotationLargeTextBlock',12,'Regular', 'sans', '보조 설명 · annotation'],
+  ['PancrasAnnotationMediumTextBlock',10,'Regular','sans', '보조 설명 · annotation'],
+  ['PancrasAnnotationSmallTextBlock', 9,'Medium',  'sans', '보조 설명 · annotation'],
+  ['PancrasDigitalLargeTextBlock',  15, 'Bold',    'dseg', '-12.847'],
+  ['PancrasDigitalMediumTextBlock', 13, 'Bold',    'dseg', '-12.847'],
+  ['PancrasDigitalSmallTextBlock',  11, 'Bold',    'dseg', '-12.847'],
+];
+const pb = document.getElementById('prev-body');
+PREV.forEach(([k, sz, wt, fam, sample])=>{
+  const family = fam==='dseg' ? 'var(--dseg)' : 'var(--sans)';
+  const color = fam==='dseg' ? 'var(--accent)' : 'var(--ink)';
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td class="key" style="color:var(--ink)">${k}</td>
+    <td class="mono">${sz}px · ${wt}</td>
+    <td class="preview" style="font-family:${family};font-size:${sz}px;font-weight:${weightMap[wt]};color:${color};line-height:1.2">${sample}</td>`;
+  pb.appendChild(tr);
+});
+</script>
+
+
+</body></html>
