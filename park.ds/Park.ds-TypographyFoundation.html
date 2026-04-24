@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0322)https://4e879dba-c492-4b59-88e5-2cca9100ac28.claudeusercontent.com/v1/design/projects/4e879dba-c492-4b59-88e5-2cca9100ac28/serve/Park.ds/02%20Typography%20Foundation.html?t=e5663800d5af000c4bbb2b4a3ef8034ddf0797874a58a118839159322e56c714.d3e46410-4fc8-4d5f-98bf-e64e38affb38.1ef2a04f-778e-47c7-b0c0-eef5872debb4.1776931027 -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style data-omelette-injected="">html,body{background:transparent}</style><script data-omelette-injected="">(()=>{var $=["https://claude.ai","https://preview.claude.ai","https://eap-omelette.claude.ai"];var F=30000;var A=3000;document.addEventListener("DOMContentLoaded",()=>{const Q="transform-react-jsx-source";document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((J,V)=>{const X=J.getAttribute("data-plugins")||"";if(X.indexOf(Q)<0){J.setAttribute("data-plugins",X?`${X},${Q}`:Q)}if(!J.hasAttribute("data-filename")){J.setAttribute("data-filename",J.getAttribute("src")||`inline-${V}`)}})});var W=window.parent;if(W&&W!==window){const Q=(z,k)=>{try{W.postMessage({__omelette_log:true,type:z,data:k},"*")}catch{}};["log","warn","error"].forEach((z)=>{const k=console[z];console[z]=(...C)=>{const D=C.map((w)=>{try{return typeof w==="object"?JSON.stringify(w):String(w)}catch{try{return String(w)}catch{return"[unstringifiable]"}}}).join(" ");Q(z,D);k.apply(console,C)}});window.addEventListener("error",(z)=>{const k=z.target;if(k&&k!==window&&k.tagName){const C=k.src||k.href||"";Q("resource_error",`${k.tagName} failed to load: ${C}`)}else{Q("error",`${z.message||"Unknown error"} at ${z.filename||"?"}:${z.lineno||0}:${z.colno||0}`)}},true);window.addEventListener("unhandledrejection",(z)=>{const k=z.reason;const C=k instanceof Error?`${k.message} ${k.stack}`:String(k);Q("error",`Unhandled rejection: ${C}`)});const J=()=>{try{W.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")J();else window.addEventListener("load",J);if(window.ResizeObserver)new ResizeObserver(J).observe(document.documentElement);const V={};let X=0;window.claude={complete(z){return new Promise((k,C)=>{if(!$.length){C(new Error("claude.complete: no parent origin"));return}const D=`c${++X}`;const w=()=>setTimeout(()=>{delete V[D];C(new Error(`claude.complete: no data for ${F/1000}s`))},F);const K=w();V[D]={resolve:k,reject:C,text:"",t:K,arm:w};try{for(const Z of $){W.postMessage({__om_api:true,id:D,body:z},Z)}}catch(Z){clearTimeout(K);delete V[D];C(Z)}})}};const Y={};let h=0;window.omelette={writeFile:(z,k)=>new Promise((C,D)=>{if(!$.length){C();return}const w=`f${++h}`;const K=setTimeout(()=>{delete Y[w];C()},A);Y[w]={resolve:C,reject:D,t:K};try{for(const Z of $){W.postMessage({__om_file:true,id:w,op:"write",path:z,content:k},Z)}}catch{clearTimeout(K);delete Y[w];C()}})};const b=(z)=>{try{return JSON.stringify(z)}catch{return JSON.stringify(String(z))}};window.addEventListener("message",(z)=>{if($.indexOf(z.origin)<0)return;if(z.source!==W)return;const k=z.data;if(!k)return;if(k.__om_file_r){const w=Y[k.id];if(!w)return;clearTimeout(w.t);delete Y[k.id];if(k.ok)w.resolve();else w.reject(new Error(k.error||"write failed"));return}if(k.__om_api_r){const w=V[k.id];if(!w)return;if(k.error!=null){clearTimeout(w.t);delete V[k.id];w.reject(new Error(k.error));return}if(k.chunk!=null){clearTimeout(w.t);w.t=w.arm();w.text+=k.chunk;return}if(k.done){clearTimeout(w.t);delete V[k.id];w.resolve(k.text!=null?k.text:w.text);return}return}if(!k.__om_eval)return;const C=k;const D=(w)=>{z.source.postMessage({...w,__om_eval_r:1,id:C.id},z.origin)};try{const w=(0,eval)(C.code);if(w&&typeof w.then==="function"){w.then((K)=>D({ok:1,v:b(K)}),(K)=>D({ok:0,e:String(K)}))}else{D({ok:1,v:b(w)})}}catch(w){D({ok:0,e:String(w)})}})}})();
-</script>
 
-
-<title>Park.ds · Typography Foundation v0.1</title>
+<title>Park.ds · Typography Foundation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
@@ -699,67 +695,5 @@
   </footer>
 
 </div>
-
-<script>
-/* ── Type Scale 생성 ───────────────────────
-   base 13px · ratio 1.2 (1.2^n)
-   ────────────────────────────────────────── */
-const BASE = 13;
-const R = 1.2;
-const round = v => Math.round(v*2)/2; // .5 단위 반올림
-
-/* Park.ds 7-layer · Pancras*TextBlock 키와 1:1 매핑.
-   SIZE/LINE은 XAML Update v0.2와 완전 동기화 (반올림 금지, 실제 WPF 픽셀 값). */
-const SCALE = [
-  // token,                              px,  lh, weight, family, usage
-  ['display.lg  · DisplayLarge',          48, 56, 400, 'dseg', 'Display — 장비 판독 최대형 수치 (DSEG14)'],
-  ['display.md  · DisplayMedium',         40, 48, 400, 'dseg', 'Display — 보조 대형 수치 (DSEG14)'],
-  ['display.sm  · DisplaySmall',          32, 40, 400, 'dseg', 'Display — 소형 판독 수치 (DSEG14)'],
-  ['headline.lg · HeadlineLarge',         28, 36, 600, 'sans', 'Headline — 페이지 제목'],
-  ['headline.md · HeadlineMedium',        24, 30, 600, 'sans', 'Headline — 섹션 제목'],
-  ['headline.sm · HeadlineSmall',         20, 26, 600, 'sans', 'Headline — 서브섹션 제목'],
-  ['title.xl    · TitleExtra',            19, 22, 600, 'sans', 'Title — 윈도우·다이얼로그 타이틀'],
-  ['title.lg    · TitleLarge',            17, 20, 600, 'sans', 'Title — 카드 타이틀'],
-  ['title.md    · TitleMedium',           15, 18, 600, 'sans', 'Title — 그룹 헤더'],
-  ['title.sm    · TitleSmall',            14, 17, 600, 'sans', 'Title — 소형 타이틀'],
-  ['title.xs    · TitleTiny',             12, 15, 600, 'sans', 'Title — 최소 타이틀'],
-  ['body.xl     · BodyExtra',             18, 22, 400, 'sans', 'Body — 대형 본문'],
-  ['body.lg     · BodyLarge',             16, 20, 400, 'sans', 'Body — 확장 본문'],
-  ['body.md     · BodyMedium',            14, 18, 400, 'sans', 'Body — 표준 본문'],
-  ['body.sm     · BodySmall',             13, 17, 400, 'sans', 'Body — 기본 본문 (base)'],
-  ['body.xs     · BodyTiny',              11, 15, 400, 'sans', 'Body — 축약 본문'],
-  ['label.lg    · LabelLarge',            16, 20, 500, 'sans', 'Label — 대형 라벨 (Uppercase 금지)'],
-  ['label.md    · LabelMedium',           13, 17, 500, 'sans', 'Label — 폼 라벨 · 버튼'],
-  ['label.sm    · LabelSmall',            12, 16, 500, 'sans', 'Label — 소형 라벨'],
-  ['annotation.lg · AnnotationLarge',     12, 16, 400, 'sans', 'Annotation — 캡션'],
-  ['annotation.md · AnnotationMedium',    10, 14, 400, 'sans', 'Annotation — 각주'],
-  ['annotation.sm · AnnotationSmall',      9, 11, 500, 'sans', 'Annotation — 최소 주석'],
-  ['digital.lg  · DigitalLarge',          15, 20, 700, 'dseg', 'Digital — 인라인 수치 판독 (DSEG14)'],
-  ['digital.md  · DigitalMedium',         13, 18, 700, 'dseg', 'Digital — 인라인 수치 판독 (DSEG14)'],
-  ['digital.sm  · DigitalSmall',          11, 14, 700, 'dseg', 'Digital — 인라인 수치 판독 (DSEG14)'],
-];
-const tbody = document.getElementById('scale-body');
-SCALE.forEach(([tok, sz, line, w, fam, usage])=>{
-  const tr = document.createElement('tr');
-  const family = fam==='dseg' ? 'var(--dseg)' : 'var(--sans)';
-  const preview = fam==='dseg'
-    ? '-12.847'
-    : tok.startsWith('headline') || tok.startsWith('title') ? 'Recipe Editor · 레시피 편집'
-    : tok.startsWith('label') ? 'Form Label · 라벨'
-    : tok.startsWith('annotation') ? '보조 설명 · annotation'
-    : 'The quick brown fox. 한글 병기';
-  const style = `font-family:${family};font-size:${sz}px;font-weight:${w};line-height:${line/sz};` +
-                (fam==='dseg' ? 'color:var(--accent);' : '');
-  tr.innerHTML = `
-    <td><code>${tok}</code></td>
-    <td class="mono">${sz}</td>
-    <td class="mono">${line}</td>
-    <td class="mono">${w}</td>
-    <td class="preview" style="${style}">${preview}</td>
-    <td style="font-size:11.5px;color:var(--ink-soft)">${usage}</td>`;
-  tbody.appendChild(tr);
-});
-</script>
-
 
 </body></html>

@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<!-- saved from url=(0334)https://4e879dba-c492-4b59-88e5-2cca9100ac28.claudeusercontent.com/v1/design/projects/4e879dba-c492-4b59-88e5-2cca9100ac28/serve/Park.ds/03%20Spacing%20%26%20Layout%20Foundation.html?t=e5663800d5af000c4bbb2b4a3ef8034ddf0797874a58a118839159322e56c714.d3e46410-4fc8-4d5f-98bf-e64e38affb38.1ef2a04f-778e-47c7-b0c0-eef5872debb4.1776931027 -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<style data-omelette-injected="">html,body{background:transparent}</style><script data-omelette-injected="">(()=>{var $=["https://claude.ai","https://preview.claude.ai","https://eap-omelette.claude.ai"];var F=30000;var A=3000;document.addEventListener("DOMContentLoaded",()=>{const Q="transform-react-jsx-source";document.querySelectorAll('script[type="text/babel"],script[type="text/jsx"]').forEach((J,V)=>{const X=J.getAttribute("data-plugins")||"";if(X.indexOf(Q)<0){J.setAttribute("data-plugins",X?`${X},${Q}`:Q)}if(!J.hasAttribute("data-filename")){J.setAttribute("data-filename",J.getAttribute("src")||`inline-${V}`)}})});var W=window.parent;if(W&&W!==window){const Q=(z,k)=>{try{W.postMessage({__omelette_log:true,type:z,data:k},"*")}catch{}};["log","warn","error"].forEach((z)=>{const k=console[z];console[z]=(...C)=>{const D=C.map((w)=>{try{return typeof w==="object"?JSON.stringify(w):String(w)}catch{try{return String(w)}catch{return"[unstringifiable]"}}}).join(" ");Q(z,D);k.apply(console,C)}});window.addEventListener("error",(z)=>{const k=z.target;if(k&&k!==window&&k.tagName){const C=k.src||k.href||"";Q("resource_error",`${k.tagName} failed to load: ${C}`)}else{Q("error",`${z.message||"Unknown error"} at ${z.filename||"?"}:${z.lineno||0}:${z.colno||0}`)}},true);window.addEventListener("unhandledrejection",(z)=>{const k=z.reason;const C=k instanceof Error?`${k.message} ${k.stack}`:String(k);Q("error",`Unhandled rejection: ${C}`)});const J=()=>{try{W.postMessage({type:"omelette:height",height:document.documentElement.scrollHeight},"*")}catch{}};if(document.readyState==="complete")J();else window.addEventListener("load",J);if(window.ResizeObserver)new ResizeObserver(J).observe(document.documentElement);const V={};let X=0;window.claude={complete(z){return new Promise((k,C)=>{if(!$.length){C(new Error("claude.complete: no parent origin"));return}const D=`c${++X}`;const w=()=>setTimeout(()=>{delete V[D];C(new Error(`claude.complete: no data for ${F/1000}s`))},F);const K=w();V[D]={resolve:k,reject:C,text:"",t:K,arm:w};try{for(const Z of $){W.postMessage({__om_api:true,id:D,body:z},Z)}}catch(Z){clearTimeout(K);delete V[D];C(Z)}})}};const Y={};let h=0;window.omelette={writeFile:(z,k)=>new Promise((C,D)=>{if(!$.length){C();return}const w=`f${++h}`;const K=setTimeout(()=>{delete Y[w];C()},A);Y[w]={resolve:C,reject:D,t:K};try{for(const Z of $){W.postMessage({__om_file:true,id:w,op:"write",path:z,content:k},Z)}}catch{clearTimeout(K);delete Y[w];C()}})};const b=(z)=>{try{return JSON.stringify(z)}catch{return JSON.stringify(String(z))}};window.addEventListener("message",(z)=>{if($.indexOf(z.origin)<0)return;if(z.source!==W)return;const k=z.data;if(!k)return;if(k.__om_file_r){const w=Y[k.id];if(!w)return;clearTimeout(w.t);delete Y[k.id];if(k.ok)w.resolve();else w.reject(new Error(k.error||"write failed"));return}if(k.__om_api_r){const w=V[k.id];if(!w)return;if(k.error!=null){clearTimeout(w.t);delete V[k.id];w.reject(new Error(k.error));return}if(k.chunk!=null){clearTimeout(w.t);w.t=w.arm();w.text+=k.chunk;return}if(k.done){clearTimeout(w.t);delete V[k.id];w.resolve(k.text!=null?k.text:w.text);return}return}if(!k.__om_eval)return;const C=k;const D=(w)=>{z.source.postMessage({...w,__om_eval_r:1,id:C.id},z.origin)};try{const w=(0,eval)(C.code);if(w&&typeof w.then==="function"){w.then((K)=>D({ok:1,v:b(K)}),(K)=>D({ok:0,e:String(K)}))}else{D({ok:1,v:b(w)})}}catch(w){D({ok:0,e:String(w)})}})}})();
-</script>
 
-
-<title>Park.ds · Spacing &amp; Layout Foundation v0.1</title>
+<title>Park.ds · Spacing &amp; Layout Foundation</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
@@ -192,7 +188,7 @@
   /* ── panel layout ───────────────── */
   .layout-demo{
     background:#0F1216;border:1px solid #2A2F36;border-radius:6px;overflow:hidden;
-    margin:12px 0;height:320px;display:grid;
+    margin:12px 0;aspect-ratio:16/9;display:grid;
   }
   .ld-header{
     background:#181C21;border-bottom:1px solid #2A2F36;padding:0 16px;
@@ -598,20 +594,24 @@
         <!-- viewport map -->
         <div class="vp-wrap">
           <div class="vp-map">
-            <svg viewBox="0 0 860 260">
-              <!-- 4K -->
-              <rect class="max" x="20" y="20" width="820" height="215"></rect>
-              <text x="820" y="15" text-anchor="end" class="val">3840 × 2160 · 4K</text>
-              <!-- FHD -->
-              <rect class="target" x="140" y="70" width="410" height="115"></rect>
-              <text class="lbl" x="145" y="85">window.std</text>
-              <text class="val" x="145" y="100">1600 × 900 · recommended</text>
-              <!-- min window -->
-              <rect class="min" x="140" y="70" width="328" height="92"></rect>
-              <text x="472" y="165">1280 × 720 · min</text>
-              <!-- 1366 -->
-              <text x="150" y="220">1366 × 768 · laptop min</text>
-              <text x="20" y="250">viewport map · scale relative to 3840 · 4px grid aligned</text>
+            <svg viewBox="0 0 860 580">
+              <!-- 4K · 3840 × 2160 · 실제 스케일 factor 0.214 -->
+              <rect class="max" x="20" y="40" width="820" height="461"></rect>
+              <text x="820" y="30" text-anchor="end" class="val">3840 × 2160 · 4K</text>
+
+              <!-- FHD · 1600 × 900 · recommended -->
+              <rect class="target" x="140" y="120" width="342" height="192"></rect>
+              <text class="lbl" x="148" y="138">window.std</text>
+              <text class="val" x="148" y="154">1600 × 900 · recommended</text>
+
+              <!-- min window · 1280 × 720 -->
+              <rect class="min" x="140" y="120" width="274" height="154"></rect>
+              <text x="422" y="280">1280 × 720 · min</text>
+
+              <!-- 1366 × 768 · laptop min -->
+              <text x="150" y="340">1366 × 768 · laptop min</text>
+
+              <text x="20" y="555">viewport map · scale relative to 3840 · 4px grid aligned</text>
             </svg>
           </div>
         </div>
@@ -773,41 +773,5 @@
     <span>v0.1 · 2026-04-22 · draft</span>
   </footer>
 </div>
-
-<script>
-/* ── spacing scale definition ─────────────────
-   Core  : 4px 배수, 레이아웃 전반에서 사용
-   Ext   : 2px 단위, 컴포넌트 내부 한정
-*/
-const SCALE = [
-  // token,        px,    type,   usage
-  ['space.0',      0,    'core', '여백 없음 명시 (reset)'],
-  ['space.2',      2,    'ext',  '아이콘↔라벨 · 인라인 뱃지 · 버튼 내부 수직 보정'],
-  ['space.4',      4,    'core', '인접 버튼 gap · 표 셀 수직 padding · 칩 내부'],
-  ['space.6',      6,    'ext',  '인풋 내부 수직 padding(13px 본문 기준 · Compact)'],
-  ['space.8',      8,    'core', '폼 필드 사이 · 툴바 내부 · 인라인 카드 gap'],
-  ['space.10',    10,    'ext',  '표 셀 수평 padding · 버튼 내부 수평(sm)'],
-  ['space.12',    12,    'core', '카드 내부 수직 · 작은 섹션 gap · 다이얼로그 버튼 간격'],
-  ['space.16',    16,    'core', '패널/카드 기본 padding · 그룹 사이'],
-  ['space.20',    20,    'core', '카드 수평 padding · 다이얼로그 수평 · 섹션 헤더'],
-  ['space.24',    24,    'core', '다이얼로그 padding · 섹션 gap(Compact)'],
-  ['space.32',    32,    'core', '섹션 gap(Comfortable) · 페이지 좌우 여백'],
-  ['space.40',    40,    'core', '대형 섹션 사이 · 히어로 영역'],
-  ['space.56',    56,    'core', '페이지 상단 여백 · 장/파트 구분'],
-];
-const tbody = document.getElementById('scale-body');
-SCALE.forEach(([tok, px, type, usage])=>{
-  const tr = document.createElement('tr');
-  const barW = Math.max(1, px) * 2; // visual, 1:2
-  tr.innerHTML = `
-    <td class="tok"><code>${tok}</code></td>
-    <td class="mono">${px} px</td>
-    <td><span class="kind ${type}">${type}</span></td>
-    <td class="bar"><i style="width:${barW}px"></i></td>
-    <td class="note">${usage}</td>`;
-  tbody.appendChild(tr);
-});
-</script>
-
 
 </body></html>

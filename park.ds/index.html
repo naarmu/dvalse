@@ -135,7 +135,7 @@
         <li><a data-doc="color">01 · Color<span class="badge draft">v0.1</span></a></li>
         <li><a data-doc="typography">02 · Typography<span class="badge draft">v0.1</span></a></li>
         <li><a data-doc="spacing">03 · Spacing &amp; Layout<span class="badge draft">v0.1</span></a></li>
-        <li><a class="disabled">04 · Elevation<span class="badge todo">TODO</span></a></li>
+        <li><a data-doc="elevation">04 · Elevation &amp; Border<span class="badge draft">v0.1</span></a></li>
         <li><a class="disabled">05 · Motion<span class="badge todo">TODO</span></a></li>
       </ul>
     </div>
@@ -187,14 +187,15 @@
 <script>
 /* ───────── 라우팅 테이블 ───────── */
 const DOCS = {
-  "home":            { file: "home.html",                                     title: "Home" },
-  "ia":              { file: "Park.ds-InformationArchitecture v0.1.html",     title: "Information Architecture" },
-  "color":           { file: "Park.ds-ColorFoundation v0.1.html",             title: "01 · Color" },
-  "typography":      { file: "Park.ds-TypographyFoundation v0.1.html",        title: "02 · Typography" },
-  "spacing":         { file: "Park.ds-Spacing&LayoutFoundation v0.1.html",    title: "03 · Spacing & Layout" },
-  "icon-naming":     { file: "Park.ds-IconNaming v0.1.html",                  title: "06 · Icon Naming" },
-  "icon-library":    { file: "Park.ds-IconLibrary v0.1.html",                 title: "08 · Icon Library" },
-  "typography-xaml": { file: "Park.ds-TypographyStylecodes v0.1.html",       title: "02a · Typography Stylecodes" },
+  "home":            { file: "home.html",                                    title: "Home" },
+  "ia":              { file: "Park.ds-InformationArchitecture.html",         title: "Information Architecture" },
+  "color":           { file: "Park.ds-ColorFoundation.html",                 title: "01 · Color" },
+  "typography":      { file: "Park.ds-TypographyFoundation.html",            title: "02 · Typography" },
+  "spacing":         { file: "Park.ds-SpacingLayoutFoundation.html",         title: "03 · Spacing & Layout" },
+  "elevation":       { file: "Park.ds-Elevation&BorderFoundation.html",      title: "04 · Elevation & Border" },
+  "icon-naming":     { file: "Park.ds-IconNaming.html",                      title: "06 · Icon Naming" },
+  "icon-library":    { file: "Park.ds-IconLibrary.html",                     title: "08 · Icon Library" },
+  "typography-xaml": { file: "Park.ds-TypographyStylecodes.html",            title: "02a · Typography Stylecodes" },
 };
 
 const viewer = document.getElementById("viewer");

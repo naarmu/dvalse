@@ -294,7 +294,7 @@
 <span class="leaf">01 Color <span class="status draft">DRAFT</span></span>
 <span class="leaf">02 Typography <span class="status draft">DRAFT</span></span>
 <span class="leaf">03 Spacing &amp; Layout <span class="status draft">DRAFT</span></span>
-<span class="leaf">04 Elevation <span class="status todo">TODO</span></span>
+<span class="leaf">04 Elevation &amp; Border <span class="status draft">DRAFT</span></span>
 <span class="leaf last">05 Motion <span class="status todo">TODO</span></span>
 
 <span class="sec">├── Iconography <span class="note" style="font-weight:400">— 235 icons · 5 tiers</span></span>
@@ -349,44 +349,43 @@
     <div class="sec-body">
       <div></div>
       <div class="content">
-        <p>현재 프로젝트에 있는 7개 문서는 거의 그대로 새 IA에 수용된다. 파일명·내용 변경은 최소.</p>
+        <p>현재 저장소의 문서는 새 IA 구조에 다음과 같이 배치된다. 모든 파일은 평면 배치 상태이며,
+          섹션 구분은 <code>index.html</code>의 네비게이션에서 구현한다.</p>
 
         <div class="map-row">
-          <div class="old"><b>Park.ds-ColorFoundation v0.1.html</b></div>
+          <div class="old"><b>Park.ds-ColorFoundation.html</b></div>
           <div class="arrow">→</div>
           <div class="new">Foundations / <b>01 Color</b></div>
         </div>
         <div class="map-row">
-          <div class="old"><b>Park.ds-TypographyFoundation v0.1.html</b></div>
+          <div class="old"><b>Park.ds-TypographyFoundation.html</b></div>
           <div class="arrow">→</div>
           <div class="new">Foundations / <b>02 Typography</b></div>
         </div>
         <div class="map-row">
-          <div class="old"><b>Park.ds-Spacing&amp;LayoutFoundation v0.1.html</b></div>
+          <div class="old"><b>Park.ds-SpacingLayoutFoundation.html</b></div>
           <div class="arrow">→</div>
           <div class="new">Foundations / <b>03 Spacing &amp; Layout</b></div>
         </div>
         <div class="map-row">
-          <div class="old"><b>Park.ds-IconNaming v0.1.html</b></div>
+          <div class="old"><b>Park.ds-Elevation&amp;BorderFoundation.html</b></div>
+          <div class="arrow">→</div>
+          <div class="new">Foundations / <b>04 Elevation &amp; Border</b></div>
+        </div>
+        <div class="map-row">
+          <div class="old"><b>Park.ds-IconNaming.html</b></div>
           <div class="arrow">→</div>
           <div class="new">Iconography / <b>06 Naming</b></div>
         </div>
         <div class="map-row">
-          <div class="old"><b>Park.ds-IconLibrary v0.1.html</b></div>
+          <div class="old"><b>Park.ds-IconLibrary.html</b></div>
           <div class="arrow">→</div>
           <div class="new">Iconography / <b>08 Library</b></div>
         </div>
         <div class="map-row">
-          <div class="old"><b>Park.ds-TypographyXAMLUpdateRequest v0.1.html</b></div>
+          <div class="old"><b>Park.ds-TypographyStylecodes.html</b></div>
           <div class="arrow">→</div>
-          <div class="new">Handoff / WPF / <b>02a Typography XAML</b></div>
-        </div>
-        <div class="map-row note">
-          <div>
-            <b>물리적 파일 이동은 선택.</b> 이번 v0.1에서는 <b>파일 위치를 바꾸지 않고</b>
-            <code>index.html</code>의 네비게이션만으로 새 IA를 구현한다. 물리 폴더 재구조화
-            (<code>foundations/</code>, <code>iconography/</code> 폴더 분리)는 v0.2 이후 논의.
-          </div>
+          <div class="new">Handoff &amp; References / WPF / <b>02a Typography Stylecodes</b></div>
         </div>
 
         <h4>문서 상태 현황 <small>IA 관점 정리</small></h4>
@@ -404,7 +403,7 @@
             <tr><td class="mono">Foundations / 01 Color</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>멀티플랫폼 확장 전략 반영 시 v0.2</td></tr>
             <tr><td class="mono">Foundations / 02 Typography</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>Open Q 5개 해소 후 v0.2</td></tr>
             <tr><td class="mono">Foundations / 03 Spacing</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>Open Q 5개 해소 후 v0.2</td></tr>
-            <tr><td class="mono">Foundations / 04 Elevation</td><td><span class="status-pill todo">TODO</span></td><td>초안 작성 (산업용 절제된 shadow)</td></tr>
+            <tr><td class="mono">Foundations / 04 Elevation &amp; Border</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>flat-first 원칙 · shadow는 overlay 전용</td></tr>
             <tr><td class="mono">Foundations / 05 Motion</td><td><span class="status-pill todo">TODO</span></td><td>초안 작성 (equipment pulse 우선)</td></tr>
             <tr><td class="mono">Iconography / 06 Naming</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>규모 85 → 235로 갱신</td></tr>
             <tr><td class="mono">Iconography / 08 Library</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>Tier×Group 이중 축 문서화 필요</td></tr>
@@ -636,8 +635,8 @@
               <td class="mono"><b>v0.2</b></td>
               <td>TBD</td>
               <td>
-                (1) 기존 3 Foundation의 Open Questions 해소 및 확정 <br>
-                (2) Foundation 04 Elevation · 05 Motion 초안 <br>
+                (1) 기존 Foundation의 Open Questions 해소 및 확정 <br>
+                (2) Foundation 05 Motion 초안 <br>
                 (3) Icon Inventory 9개 → 235개 확장 · Naming 규모 갱신 <br>
                 (4) Components 범위 결정 · Button·Input·Table 3개 착수 <br>
                 (5) <b>Equipment Control 30·31·32 초안</b> (Pancras 장비 제어 SW) <br>
