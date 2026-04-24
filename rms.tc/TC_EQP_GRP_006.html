@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_EQP_GRP_006 · RMS Test Cases</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <h1 class="site-header__title">
+      <span class="program">RMS · QA</span>
+      <span>Recipe Management System Test Cases</span>
+    </h1>
+    <div class="site-header__meta">v0.1 · Draft · 2026.04.24</div>
+  </div>
+</header>
+
+<main class="page-tc">
+
+  <nav class="tc-breadcrumb">
+    <a href="../index.html">Index</a>
+    <span class="sep">/</span>
+    Equipment
+    <span class="sep">/</span>
+    Edit Equipment Groups
+    <span class="sep">/</span>
+    <span style="color: var(--c-ink-70);">TC_EQP_GRP_006</span>
+  </nav>
+
+  <div class="tc-nav">
+    <a href="../index.html">← Index</a>
+    <div style="display: flex; gap: 8px;">
+      <a href="TC_EQP_REG_002.html">← 이전 TC (TC_EQP_REG_002)</a>
+      <a class="disabled">다음 TC</a>
+    </div>
+  </div>
+
+  <header class="tc-header">
+    <div class="tc-header__id">TC_EQP_GRP_006</div>
+    <h2 class="tc-header__title">장비가 속한 그룹 삭제 시 경고 및 처리</h2>
+    <div class="tc-header__meta">
+      <span class="badge badge--negative">Negative</span>
+      <span class="badge badge--high">High</span>
+    </div>
+  </header>
+
+  <div class="tc-body">
+
+    <aside class="tc-meta">
+      <h3 class="tc-meta__title">Metadata</h3>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Area</span>
+        <span class="meta-row__value">EQP · Equipment</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-row__label">Screen</span>
+        <span class="meta-row__value">Edit Equipment Groups</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-row__label">Sub-category</span>
+        <span class="meta-row__value">소속 장비 있는 그룹 삭제</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-row__label">Test Type</span>
+        <span class="meta-row__value">Negative</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-row__label">Priority</span>
+        <span class="meta-row__value" style="color: var(--c-high); font-weight: 600;">High</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-row__label">Applicable Roles</span>
+        <span class="meta-row__value">Vendor, Admin</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-row__label">Estimated Time</span>
+        <span class="meta-row__value">4 min</span>
+      </div>
+      <div class="meta-row">
+        <span class="meta-row__label">Last Updated</span>
+        <span class="meta-row__value mono">2026.04.24</span>
+      </div>
+    </aside>
+
+    <div class="tc-content">
+
+      <section class="section">
+        <h3 class="section__title"><span class="num">01</span>Precondition</h3>
+        <ol>
+          <li>Vendor 또는 Admin 계정으로 로그인됨</li>
+          <li>장비가 2대 이상 속한 그룹 <code>GROUP_A</code>가 존재함</li>
+          <li>소속 장비: <code>EQ_001</code>, <code>EQ_002</code></li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h3 class="section__title"><span class="num">02</span>Test Steps</h3>
+        <ol>
+          <li>Edit Equipment Groups 화면 진입</li>
+          <li>그룹 목록에서 <code>GROUP_A</code> 선택</li>
+          <li><code>Delete Group</code> 버튼 클릭</li>
+          <li>표시되는 확인 팝업 내용 확인</li>
+          <li>팝업에서 <code>확인</code> 선택</li>
+          <li>완료 후 장비 목록에서 <code>EQ_001</code>, <code>EQ_002</code>의 그룹 속성 확인</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h3 class="section__title"><span class="num">03</span>Test Data</h3>
+        <div class="test-data">Group: GROUP_A
+Member Equipments: EQ_001, EQ_002
+Login: admin_test (Admin Role)</div>
+      </section>
+
+      <section class="section">
+        <h3 class="section__title"><span class="num">04</span>Expected Result</h3>
+        <ol>
+          <li>삭제 버튼 클릭 시 <strong>경고 팝업</strong>이 표시되고, 소속된 장비가 있음이 명시됨<br>
+            (예: <em>"해당 그룹에는 2대의 장비가 속해있습니다. 삭제 시 장비는 그룹 미지정 상태가 됩니다. 계속하시겠습니까?"</em>)</li>
+          <li><code>확인</code> 선택 시:
+            <ul>
+              <li>그룹 <code>GROUP_A</code>가 삭제됨</li>
+              <li><code>EQ_001</code>, <code>EQ_002</code>는 <strong>삭제되지 않고</strong> "그룹 미지정" 상태로 복귀됨</li>
+            </ul>
+          </li>
+          <li><code>취소</code> 선택 시: 그룹과 장비 모두 변경 없이 유지됨</li>
+          <li>그룹 삭제 이력이 Server Log에 기록됨 (삭제 주체 계정, 시각, 소속 장비 수 포함)</li>
+        </ol>
+      </section>
+
+      <section class="section section--remark">
+        <h3 class="section__title"><span class="num">05</span>비고 (QA/개발 메모)</h3>
+        <p>
+          <strong>정책 재확인 필요:</strong> 이 TC는 "장비 자체는 보존, 그룹 소속만 해제"를 가정하고 작성되었음. 실제 구현이 "삭제 차단(소속 장비가 있으면 삭제 불가)" 정책이라면 기대 결과를 수정해야 함.
+        </p>
+        <p>
+          <strong>DevExpress 관련:</strong> 확인 팝업은 DXMessageBox 또는 자체 Dialog일 수 있음. 팝업 닫기(X 버튼)와 배경 클릭 시 동작이 "취소"와 동일해야 함.
+        </p>
+      </section>
+
+      <section class="section section--proposal">
+        <h3 class="section__title"><span class="num">06</span>제안 사항</h3>
+        <p>
+          <span class="proposal-label">정책 확정</span>
+          "소속 장비가 있는 그룹 삭제"에 대한 정책을 <strong>명시적으로 확정</strong>해주셔야 합니다. 현재 제가 권장드리는 방향은:
+        </p>
+        <ul>
+          <li><strong>기본: 경고 후 허용</strong> — 장비를 "미지정" 그룹으로 이동시키고 그룹만 삭제</li>
+          <li><strong>대안: 삭제 차단</strong> — 먼저 장비를 다른 그룹으로 옮기거나 그룹에서 빼라고 안내</li>
+        </ul>
+        <p>
+          반도체 공정 환경에서는 <strong>전자(경고 후 허용)가 더 실용적</strong>입니다. "미지정" 장비가 일시적으로 생기더라도 장비 자체는 계속 동작하는 것이 중요하고, 장비를 다른 그룹으로 일일이 옮기는 것은 운영상 번거롭습니다.
+        </p>
+        <p>
+          <span class="proposal-label">UX 개선</span>
+          경고 팝업 안에 소속 장비 목록을 <strong>축약 표시(예: "EQ_001 외 1대")</strong>하여 사용자가 실수로 삭제하는 것을 방지하는 안내가 있으면 좋겠습니다.
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  RMS QA Documentation · Park Systems DRD · TC_EQP_GRP_006
+</footer>
+
+</body>
+</html>

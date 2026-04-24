@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_EQP_MGR_001 · RMS Test Cases</title>
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <h1 class="site-header__title">
+      <span class="program">RMS · QA</span>
+      <span>Recipe Management System Test Cases</span>
+    </h1>
+    <div class="site-header__meta">v0.1 · Draft · 2026.04.24</div>
+  </div>
+</header>
+
+<main class="page-tc">
+
+  <nav class="tc-breadcrumb">
+    <a href="../index.html">Index</a>
+    <span class="sep">/</span>
+    Equipment
+    <span class="sep">/</span>
+    Equipment Manager
+    <span class="sep">/</span>
+    <span style="color: var(--c-ink-70);">TC_EQP_MGR_001</span>
+  </nav>
+
+  <div class="tc-nav">
+    <a href="../index.html">← Index</a>
+    <div style="display: flex; gap: 8px;">
+      <a class="disabled">← 이전 TC</a>
+      <a href="TC_EQP_REG_002.html">다음 TC (TC_EQP_REG_002) →</a>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="tc-header">
+    <div class="tc-header__id">TC_EQP_MGR_001</div>
+    <h2 class="tc-header__title">Equipment Manager 진입 및 장비 목록 로딩</h2>
+    <div class="tc-header__meta">
+      <span class="badge badge--functional">Functional</span>
+      <span class="badge badge--critical">Critical</span>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div class="tc-body">
+
+    <!-- Meta sidebar -->
+    <aside class="tc-meta">
+      <h3 class="tc-meta__title">Metadata</h3>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Area</span>
+        <span class="meta-row__value">EQP · Equipment</span>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Screen</span>
+        <span class="meta-row__value">Equipment Manager</span>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Sub-category</span>
+        <span class="meta-row__value">화면 진입</span>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Test Type</span>
+        <span class="meta-row__value">Functional</span>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Priority</span>
+        <span class="meta-row__value" style="color: var(--c-critical); font-weight: 600;">Critical</span>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Applicable Roles</span>
+        <span class="meta-row__value">Vendor, Admin, Engineer, Operator</span>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Estimated Time</span>
+        <span class="meta-row__value">2 min</span>
+      </div>
+
+      <div class="meta-row">
+        <span class="meta-row__label">Last Updated</span>
+        <span class="meta-row__value mono">2026.04.24</span>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <div class="tc-content">
+
+      <section class="section">
+        <h3 class="section__title"><span class="num">01</span>Precondition</h3>
+        <ol>
+          <li>RMS Client가 설치된 PC에서 정상적으로 프로그램이 실행됨</li>
+          <li>Vendor 또는 Admin 계정으로 로그인되어 있음</li>
+          <li>RMS 서버에 장비가 최소 1대 이상 등록되어 있음</li>
+          <li>등록된 장비 중 1대 이상이 Online 상태(Agent 정상 연결)</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h3 class="section__title"><span class="num">02</span>Test Steps</h3>
+        <ol>
+          <li>좌측 메뉴에서 <code>Equipment</code> 클릭</li>
+          <li><code>Equipment Manager</code> 하위 메뉴 클릭</li>
+          <li>화면이 완전히 로드될 때까지 대기 (최대 5초)</li>
+          <li>좌측 장비 트리, 상단 툴바, 우측 상세 영역이 모두 표시되는지 확인</li>
+          <li>등록된 장비가 트리에 누락 없이 표시되는지 확인</li>
+        </ol>
+      </section>
+
+      <section class="section">
+        <h3 class="section__title"><span class="num">03</span>Test Data</h3>
+        <div class="test-data">Equipment:
+  - EQ_001 (Online, Group: GROUP_A)
+  - EQ_002 (Offline, Group: GROUP_A)
+  - EQ_003 (Online, Group: 미지정)
+Login Account: admin_test / Admin Role</div>
+      </section>
+
+      <section class="section">
+        <h3 class="section__title"><span class="num">04</span>Expected Result</h3>
+        <ol>
+          <li>Equipment Manager 화면이 <strong>5초 이내</strong>에 표시됨</li>
+          <li>좌측 장비 트리에 등록된 모든 장비(EQ_001, EQ_002, EQ_003)가 누락 없이 표시됨</li>
+          <li>각 장비별 연결 상태 아이콘(Online / Offline)이 실제 상태와 일치하게 표시됨</li>
+          <li>상단 툴바/액션 버튼이 현재 Role(Admin) 권한에 맞게 표시됨 (Privilege 설정에 따름)</li>
+          <li>로딩 중 에러 메시지나 빈 화면이 나타나지 않음</li>
+        </ol>
+      </section>
+
+      <section class="section section--remark">
+        <h3 class="section__title"><span class="num">05</span>비고 (QA/개발 메모)</h3>
+        <p>
+          <strong>DevExpress 컴포넌트:</strong> 장비 트리는 TreeListControl, 우측 상세는 GridControl로 구성된 것으로 추정됨. 트리의 펼침/접힘 초기 상태 및 열 너비 기본값을 함께 확인할 것.
+        </p>
+        <p>
+          <strong>재현 주의:</strong> 화면 진입 시 백엔드 API 호출이 2회 이상 발생할 경우 체감 로딩 시간이 늘어날 수 있음 — 네트워크 탭으로 호출 횟수 확인 권장.
+        </p>
+      </section>
+
+      <section class="section section--proposal">
+        <h3 class="section__title"><span class="num">06</span>제안 사항</h3>
+        <p>
+          <span class="proposal-label">UX 개선</span>
+          장비 목록이 많아질 경우(50대 이상) 트리의 기본 펼침 상태가 UX를 저해할 수 있습니다. <strong>기본적으로 그룹 단위까지만 펼쳐두고, 장비는 접힘 상태로 시작</strong>하는 기본값을 제안드립니다.
+        </p>
+        <p>
+          <span class="proposal-label">기획 검토</span>
+          현재 Precondition에서 "Vendor/Admin" 전용으로 가정했지만, Operator가 Equipment Manager에 <em>조회만 가능한</em> 형태로 접근할 수 있어야 하는지 Privilege 기본값 정의가 필요합니다. 정의 후 본 TC의 Applicable Roles를 확정하겠습니다.
+        </p>
+      </section>
+
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  RMS QA Documentation · Park Systems DRD · TC_EQP_MGR_001
+</footer>
+
+</body>
+</html>

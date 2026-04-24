@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMS Test Cases · Index</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="site-header__inner">
+    <h1 class="site-header__title">
+      <span class="program">RMS · QA</span>
+      <span>Recipe Management System Test Cases</span>
+    </h1>
+    <div class="site-header__meta">v0.1 · Draft · 2026.04.24</div>
+  </div>
+</header>
+
+<main class="page-index">
+
+  <div class="index-hero">
+    <div class="index-hero__eyebrow">Test Case Documentation</div>
+    <h2 class="index-hero__title">RMS Phase 1 + Phase 2 기능 검증</h2>
+    <p class="index-hero__subtitle">
+      Park Systems 장비의 Recipe · Method 관리 시스템에 대한 QA 테스트 케이스 정의서입니다.
+      각 TC는 화면/기능 단위로 구성되며, Critical 항목은 배포 차단 기준으로 취급합니다.
+    </p>
+  </div>
+
+  <!-- Stats -->
+  <section class="stats-row">
+    <div class="stat-card stat-card--accent">
+      <div class="stat-card__label">Total Test Cases</div>
+      <div class="stat-card__value" id="stat-total">—</div>
+      <div class="stat-card__sub">전체 영역 / Phase 1 · 2 포함</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">Critical</div>
+      <div class="stat-card__value" id="stat-critical">—</div>
+      <div class="stat-card__sub">배포 차단 기준 TC</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">Functional Areas</div>
+      <div class="stat-card__value" id="stat-areas">—</div>
+      <div class="stat-card__sub">기능 영역 개수</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-card__label">Screens Covered</div>
+      <div class="stat-card__value" id="stat-screens">—</div>
+      <div class="stat-card__sub">화면·기능 단위</div>
+    </div>
+  </section>
+
+  <!-- Layout: filters + table -->
+  <div class="index-layout">
+
+    <!-- Filters -->
+    <aside class="filters">
+      <h3 class="filters__title">Filters</h3>
+
+      <div class="filter-group">
+        <label class="filter-group__label">검색</label>
+        <input type="text" class="search-box" id="search-input" placeholder="TC_ID, 제목, 화면명…">
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-group__label">영역 (Area)</label>
+        <div class="filter-group__options" id="filter-areas"></div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-group__label">우선순위 (Priority)</label>
+        <div class="filter-group__options" id="filter-priorities"></div>
+      </div>
+
+      <div class="filter-group">
+        <label class="filter-group__label">유형 (Type)</label>
+        <div class="filter-group__options" id="filter-types"></div>
+      </div>
+
+      <button type="button" class="btn-reset" id="btn-reset">필터 초기화</button>
+    </aside>
+
+    <!-- Table -->
+    <section class="tc-table-wrap">
+      <div class="tc-table-head">
+        <div class="tc-table-head__count" id="tc-count">—</div>
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-ink-50);">
+          상세 페이지가 있는 TC만 링크 활성화
+        </div>
+      </div>
+      <table class="tc-table">
+        <thead>
+          <tr>
+            <th style="width: 180px;">TC ID</th>
+            <th>제목</th>
+            <th style="width: 110px;">Type</th>
+            <th style="width: 100px;">Priority</th>
+            <th style="width: 220px;">영역 · 화면</th>
+          </tr>
+        </thead>
+        <tbody id="tc-tbody"></tbody>
+      </table>
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  RMS QA Documentation · Park Systems DRD · Generated 2026.04.24
+</footer>
+
+<script src="data/testcases.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>
