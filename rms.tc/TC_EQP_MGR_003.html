@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_EQP_MGR_003 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-topnav">
+  <div class="app-brand">
+    <span class="app-brand__logo">Park</span>
+    <span class="app-brand__sub">SYSTEMS · QA</span>
+  </div>
+  <div class="topnav-items">
+    <div class="topnav-item active">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+      <span>Test Cases</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+      <span>Execution</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <span>History</span>
+    </div>
+  </div>
+  <div class="topnav-meta">
+    <span>RMS Phase 1 + 2</span>
+    <span class="topnav-meta__sep"></span>
+    <span>v0.2 · Draft</span>
+  </div>
+</nav>
+
+<div class="app-subnav">
+  <div class="subnav-item">
+    <a href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
+      <span>Index</span>
+    </a>
+  </div>
+  <div class="subnav-item active">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    <span>TC_EQP_MGR_003</span>
+  </div>
+  <div class="subnav-spacer"></div>
+</div>
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">EQP · Equipment</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Equipment Manager</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">컬럼 정렬</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">UI</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--medium">Medium</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">3 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Equipment
+        <span class="sep">/</span> Equipment Manager
+        <span class="sep">/</span> TC_EQP_MGR_003
+      </div>
+      <div class="tc-detail-id">TC_EQP_MGR_003</div>
+      <h1 class="tc-detail-title">장비 목록 정렬 (컬럼 클릭) 동작</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--ui">UI</span>
+        <span class="badge badge--medium">Medium</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Equipment Manager 화면 진입 완료</li>
+        <li>최소 5대 이상의 장비가 서로 다른 이름/등록일로 존재함</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>장비 목록 영역에서 <code>Equipment Name</code> 컬럼 헤더 클릭</li>
+        <li>오름차순 정렬 여부 확인</li>
+        <li>같은 컬럼 헤더 재클릭 → 내림차순 전환 확인</li>
+        <li><code>Equipment ID</code>, <code>Updated Date</code> 컬럼에 대해서도 동일 수행</li>
+        <li>정렬 상태에서 장비 트리 선택을 변경했을 때 정렬 유지 여부 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Equipments: EQ_001 ~ EQ_005 (각기 다른 Name, Registered Date)</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>헤더 클릭 시 해당 컬럼 기준으로 오름차순 정렬</li>
+        <li>재클릭 시 내림차순 전환, 3번째 클릭 시 정렬 해제(기본 순서 복귀) 또는 오름차순 유지 — 정책에 따름</li>
+        <li>정렬 방향 아이콘(▲/▼)이 헤더에 명확히 표시됨</li>
+        <li>정렬 중에도 선택 상태(Selected Row)는 유지됨</li>
+        <li>장비 트리에서 다른 장비 선택 시 정렬 상태가 초기화되지 않음</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>DevExpress GridControl:</strong> 기본 동작은 <em>오름차순 → 내림차순 → 해제</em> 3단계 토글. 3단계 동작이 정책과 맞는지 확인 필요.</p>
+        <p><strong>Multi-column 정렬:</strong> Shift+클릭으로 다중 컬럼 정렬이 활성화되는지 여부도 같이 확인.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> 정렬 상태가 세션/계정별로 <strong>마지막 상태 기억(persist)</strong>되는지 정의가 필요합니다. RMS처럼 자주 여는 화면은 매번 같은 정렬로 여는 게 UX에 좋습니다.</p>
+        <p><span class="proposal-tag">기획 검토</span> 정렬 해제(3단계) 동작을 없애고 <strong>오름차순 ↔ 내림차순 2단계 토글</strong>로 단순화하는 것도 선택지입니다. 정렬 해제가 필요한 사용자 시나리오가 실제로 있는지 검토 권장.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_EQP_MGR_002.html">← 이전: TC_EQP_MGR_002</a>
+        <a href="TC_EQP_MGR_004.html">다음: TC_EQP_MGR_004 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

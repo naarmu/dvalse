@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_EQP_REG_006 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-topnav">
+  <div class="app-brand">
+    <span class="app-brand__logo">Park</span>
+    <span class="app-brand__sub">SYSTEMS · QA</span>
+  </div>
+  <div class="topnav-items">
+    <div class="topnav-item active">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+      <span>Test Cases</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+      <span>Execution</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <span>History</span>
+    </div>
+  </div>
+  <div class="topnav-meta">
+    <span>RMS Phase 1 + 2</span>
+    <span class="topnav-meta__sep"></span>
+    <span>v0.2 · Draft</span>
+  </div>
+</nav>
+
+<div class="app-subnav">
+  <div class="subnav-item">
+    <a href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
+      <span>Index</span>
+    </a>
+  </div>
+  <div class="subnav-item active">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    <span>TC_EQP_REG_006</span>
+  </div>
+  <div class="subnav-spacer"></div>
+</div>
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">EQP · Equipment</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Register Equipment</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">Agent 자동 연결</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">7 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Equipment
+        <span class="sep">/</span> Register Equipment
+        <span class="sep">/</span> TC_EQP_REG_006
+      </div>
+      <div class="tc-detail-id">TC_EQP_REG_006</div>
+      <h1 class="tc-detail-title">등록 후 Agent 설치 장비의 자동 연결</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Equipment ID <code>EQ_NEW_CONN</code>이 서버에 등록되었음 (Agent 미설치 상태)</li>
+        <li>RMSAgent Installer와 Equipment ID·Server IP가 준비됨</li>
+        <li>장비 PC의 방화벽 및 네트워크가 서버와 통신 가능한 상태</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>등록 직후 Equipment Manager에서 EQ_NEW_CONN의 상태가 Offline임을 확인</li>
+        <li>장비 PC에서 RMSAgent Installer 실행</li>
+        <li>Installer에서 Equipment ID <code>EQ_NEW_CONN</code>, Server IP 정확히 입력</li>
+        <li>설치 완료 및 Agent 자동 실행 확인</li>
+        <li>RMS UI로 돌아와 EQ_NEW_CONN의 상태가 Online으로 전환되는지 확인 (최대 30초 대기)</li>
+        <li>Agent Version, XEA Version 등 정보가 수집되어 표시되는지 확인</li>
+        <li>Recipe 배포 가능한 상태가 되었는지 확인 (Deploy 버튼 활성화 등)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Equipment: EQ_NEW_CONN
+Server IP: 서버 PC의 IP
+Agent Installer: 최신 버전</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Agent 설치·실행 후 30초 이내 RMS UI에서 Online으로 전환</li>
+        <li>Agent Version 정보가 자동 수집되어 우측 상세에 표시됨</li>
+        <li>Dashboard에도 해당 장비가 Online 상태로 동기화됨</li>
+        <li>Recipe 배포 관련 기능(Deploy Recipes)에서 해당 장비가 대상으로 선택 가능</li>
+        <li>연결 성공 이력이 Equipment History에 기록됨</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>Equipment ID 불일치:</strong> Installer에서 서버에 등록되지 않은 ID를 입력한 경우 연결 거부되는지 별도 확인 필요 (보안상 중요).</p>
+        <p><strong>네트워크 포트:</strong> Agent ↔ Server 간 통신에 필요한 포트가 방화벽에서 허용되어야 함. 환경 준비 시 체크리스트 필요.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">보안 강화</span> Installer에서 Equipment ID를 자유롭게 입력할 수 있으면, 다른 장비의 ID로 접속을 위장할 가능성이 있습니다. <strong>서버에서 발급한 등록 토큰</strong>을 Installer에 입력하게 하는 방식이 더 안전합니다.</p>
+        <p><span class="proposal-tag">UX 개선</span> 서버 측에서 장비가 처음 Online으로 전환될 때 <strong>"신규 장비 연결 성공" 알림(Toast)</strong>을 띄워주면 등록자 입장에서 확인이 쉽습니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_EQP_REG_005.html">← 이전: TC_EQP_REG_005</a>
+        <a href="TC_EQP_REG_007.html">다음: TC_EQP_REG_007 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

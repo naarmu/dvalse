@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_EQP_REG_003 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-topnav">
+  <div class="app-brand">
+    <span class="app-brand__logo">Park</span>
+    <span class="app-brand__sub">SYSTEMS · QA</span>
+  </div>
+  <div class="topnav-items">
+    <div class="topnav-item active">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+      <span>Test Cases</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+      <span>Execution</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <span>History</span>
+    </div>
+  </div>
+  <div class="topnav-meta">
+    <span>RMS Phase 1 + 2</span>
+    <span class="topnav-meta__sep"></span>
+    <span>v0.2 · Draft</span>
+  </div>
+</nav>
+
+<div class="app-subnav">
+  <div class="subnav-item">
+    <a href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
+      <span>Index</span>
+    </a>
+  </div>
+  <div class="subnav-item active">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    <span>TC_EQP_REG_003</span>
+  </div>
+  <div class="subnav-spacer"></div>
+</div>
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">EQP · Equipment</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Register Equipment</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">IP 유효성 검증</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Negative</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">3 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Equipment
+        <span class="sep">/</span> Register Equipment
+        <span class="sep">/</span> TC_EQP_REG_003
+      </div>
+      <div class="tc-detail-id">TC_EQP_REG_003</div>
+      <h1 class="tc-detail-title">잘못된 IP 형식 입력 시 검증</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--negative">Negative</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Vendor 또는 Admin 계정으로 로그인됨</li>
+        <li>Register Equipment 화면 진입</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Equipment ID, Name 등 나머지 필드를 유효하게 입력</li>
+        <li>IP Address 필드에 잘못된 형식의 값 입력 (여러 케이스 순차 테스트)</li>
+        <li>각 케이스마다 <code>Save</code> 버튼 클릭 시 반응 확인</li>
+        <li>마지막에 정상 IP 입력하여 등록 성공 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">잘못된 IP 케이스:
+  - "192.168.1"           (옥텟 부족)
+  - "192.168.1.1.1"       (옥텟 초과)
+  - "192.168.1.300"       (범위 초과)
+  - "abc.def.ghi.jkl"     (문자 포함)
+  - "192.168.1.-1"        (음수)
+  - ""                    (빈 값)
+  - "192.168.1.0"         (네트워크 주소 - 정책에 따라 다름)
+정상 IP: "192.168.1.151" </div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>잘못된 형식 입력 시 Save 버튼 클릭하면 등록이 차단됨</li>
+        <li>IP 필드 근처에 명확한 에러 메시지 표시 (예: "유효한 IPv4 주소 형식이 아닙니다")</li>
+        <li>입력한 다른 필드 값은 유지되어 IP만 수정 후 재시도 가능</li>
+        <li>정상 IP 입력 후 Save 시 등록 성공</li>
+        <li>가능하다면 <strong>포커스 아웃(blur) 즉시 검증</strong>하여 실시간 피드백 제공</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>검증 위치:</strong> 클라이언트 측 검증 외에도 서버 측 검증이 병행되어야 함. 클라이언트 우회 시도에 대비.</p>
+        <p><strong>IPv6 지원:</strong> 현재는 IPv4만 가정. IPv6 지원 계획이 있는지 확인.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> IP 필드에 <strong>입력 마스크(예: "___.___.___.___" placeholder)</strong>를 적용하면 사용자가 형식을 직관적으로 인지할 수 있습니다.</p>
+        <p><span class="proposal-tag">기획 검토</span> 네트워크 주소(.0), 브로드캐스트 주소(.255), 예약 범위(127.x.x.x) 등을 <strong>허용할지 말지</strong>에 대한 정책 정의가 필요합니다. 일반적으로 장비용 IP로는 허용하지 않습니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_EQP_REG_002.html">← 이전: TC_EQP_REG_002</a>
+        <a href="TC_EQP_REG_004.html">다음: TC_EQP_REG_004 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

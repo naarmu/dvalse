@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_EQP_GRP_004 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-topnav">
+  <div class="app-brand">
+    <span class="app-brand__logo">Park</span>
+    <span class="app-brand__sub">SYSTEMS · QA</span>
+  </div>
+  <div class="topnav-items">
+    <div class="topnav-item active">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+      <span>Test Cases</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+      <span>Execution</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <span>History</span>
+    </div>
+  </div>
+  <div class="topnav-meta">
+    <span>RMS Phase 1 + 2</span>
+    <span class="topnav-meta__sep"></span>
+    <span>v0.2 · Draft</span>
+  </div>
+</nav>
+
+<div class="app-subnav">
+  <div class="subnav-item">
+    <a href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
+      <span>Index</span>
+    </a>
+  </div>
+  <div class="subnav-item active">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    <span>TC_EQP_GRP_004</span>
+  </div>
+  <div class="subnav-spacer"></div>
+</div>
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">EQP · Equipment</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Edit Equipment Groups</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">소속 장비 편집</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">5 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Equipment
+        <span class="sep">/</span> Edit Equipment Groups
+        <span class="sep">/</span> TC_EQP_GRP_004
+      </div>
+      <div class="tc-detail-id">TC_EQP_GRP_004</div>
+      <h1 class="tc-detail-title">그룹에 장비 추가 · 제거</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>그룹 <code>GROUP_A</code>가 존재함 (현재 소속: EQ_001)</li>
+        <li>다른 그룹 <code>GROUP_B</code>에 EQ_002가 소속됨</li>
+        <li>그룹에 속하지 않은 EQ_003이 존재</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>GROUP_A 선택</li>
+        <li>Select Equipment(multiple) 영역에서 EQ_003 추가 선택</li>
+        <li>Update 클릭 → GROUP_A의 멤버로 EQ_001, EQ_003이 되는지 확인</li>
+        <li>GROUP_A 재선택 후 EQ_001의 선택 해제</li>
+        <li>Update 클릭 → GROUP_A의 멤버에서 EQ_001이 빠지는지 확인</li>
+        <li>EQ_002를 GROUP_A에 추가 → GROUP_B에서 EQ_002가 자동으로 빠지는지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Initial:
+  GROUP_A: [EQ_001]
+  GROUP_B: [EQ_002]
+  미지정: [EQ_003]
+Final (목표):
+  GROUP_A: [EQ_002, EQ_003]
+  GROUP_B: []
+  미지정: [EQ_001]</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>장비 추가·제거가 즉시 반영됨</li>
+        <li>한 장비가 다른 그룹에 새로 배정되면 이전 그룹에서 자동으로 제거됨 (단일 그룹 소속 원칙)</li>
+        <li>그룹에서 제거된 장비는 "미지정" 상태로 복귀 (삭제되지 않음)</li>
+        <li>Equipment Manager 트리 및 Dashboard에 즉시 반영</li>
+        <li>변경 이력이 Server Log에 기록됨</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>단일 vs 다중 소속:</strong> 본 TC는 "한 장비는 한 그룹에만 소속 가능" 정책을 가정. 만약 다중 그룹 소속을 허용한다면 기대 결과를 수정해야 함.</p>
+        <p><strong>RMS UI 확인:</strong> RMS 화면에서 Select Equipment(multiple) 영역과 "Selected - 6" 표시가 있음. 이 카운트가 실시간 갱신되는지 확인.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> 장비를 그룹에 추가할 때 <strong>드래그앤드롭</strong>으로 다른 그룹에서 이동시킬 수 있으면 편합니다. 특히 여러 장비를 재배치할 때 현재의 "각 그룹 진입 → 체크/해제" 방식보다 훨씬 빠릅니다.</p>
+        <p><span class="proposal-tag">기획 검토</span> 단일 그룹 소속 원칙이 맞는지 재확인이 필요합니다. 장비가 "9F"와 "Clean Room"처럼 물리적 위치 + 기능 분류 두 축으로 관리될 가능성도 고려.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_EQP_GRP_003.html">← 이전: TC_EQP_GRP_003</a>
+        <a href="TC_EQP_GRP_005.html">다음: TC_EQP_GRP_005 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
