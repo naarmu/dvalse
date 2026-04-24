@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RMS Docs · Requirement · URS</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-meta="RMS Docs · v0.3">
+
+<main class="index-main">
+
+  <aside class="side-panel">
+    <h3 class="side-panel__title">Filters</h3>
+
+    <div class="side-panel__search">
+      <input type="text" class="search-box" id="search-input" placeholder="URS_ID, 제목, 화면명...">
+    </div>
+
+    <div class="filter-group">
+      <label class="filter-group__label">영역 (Area)</label>
+      <div class="filter-group__options" id="filter-areas"></div>
+    </div>
+
+    <button type="button" class="btn-reset" id="btn-reset">필터 초기화</button>
+  </aside>
+
+  <section class="content-panel">
+
+    <div class="content-panel__header">
+      <h2 class="content-panel__title">Recipe Management System · URS</h2>
+      <div class="content-panel__subtitle">
+        User Requirement Specification — 화면 단위 사용자 요구사항 정의서
+      </div>
+    </div>
+
+    <div class="stat-strip">
+      <div class="stat-cell stat-cell--accent">
+        <div class="stat-cell__label">Total URS</div>
+        <div class="stat-cell__value" id="stat-total">— <span class="unit">건</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell__label">Areas</div>
+        <div class="stat-cell__value" id="stat-areas">— <span class="unit">영역</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell__label">Ready</div>
+        <div class="stat-cell__value" id="stat-ready">— <span class="unit">건</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-cell__label">Draft</div>
+        <div class="stat-cell__value" id="stat-draft">— <span class="unit">건</span></div>
+      </div>
+    </div>
+
+    <div class="tc-table-bar">
+      <div class="tc-table-bar__count" id="urs-count">—</div>
+      <div class="tc-table-bar__hint">상세 페이지가 있는 URS만 링크 활성화</div>
+    </div>
+
+    <div class="tc-table-wrap">
+      <table class="tc-table">
+        <thead>
+          <tr>
+            <th style="width: 170px;">URS ID</th>
+            <th>제목</th>
+            <th style="width: 90px;">상태</th>
+            <th style="width: 280px;">영역 · 화면</th>
+          </tr>
+        </thead>
+        <tbody id="urs-tbody"></tbody>
+      </table>
+    </div>
+
+  </section>
+
+</main>
+
+<script src="urs-data.js"></script>
+<script src="urs-index.js"></script>
+<script src="nav.js"></script>
+</body>
+</html>

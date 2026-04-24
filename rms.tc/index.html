@@ -3,67 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RMS · Test Cases</title>
+<title>RMS Docs · QA · Test Cases</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-top="qa" data-sub="test-cases" data-meta="RMS Docs · v0.3">
 
-<!-- TOP NAV (mimics RMS app) -->
-<nav class="app-topnav">
-  <div class="app-brand">
-    <span class="app-brand__logo">Park</span>
-    <span class="app-brand__sub">SYSTEMS · QA</span>
-  </div>
-  <div class="topnav-items">
-    <div class="topnav-item active">
-      <span class="icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-      </span>
-      <span>Test Cases</span>
-    </div>
-    <div class="topnav-item">
-      <span class="icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
-      </span>
-      <span>Execution</span>
-    </div>
-    <div class="topnav-item">
-      <span class="icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-      </span>
-      <span>History</span>
-    </div>
-  </div>
-  <div class="topnav-meta">
-    <span>RMS Phase 1 + 2</span>
-    <span class="topnav-meta__sep"></span>
-    <span>v0.2 · Draft</span>
-    <span class="topnav-meta__sep"></span>
-    <span>2026.04.24</span>
-  </div>
-</nav>
-
-<!-- SUB NAV -->
-<div class="app-subnav">
-  <div class="subnav-item active">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
-    <span>Index</span>
-  </div>
-  <div class="subnav-item">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
-    <span>Guidelines</span>
-  </div>
-  <div class="subnav-item">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg>
-    <span>Coverage Matrix</span>
-  </div>
-  <div class="subnav-spacer"></div>
-</div>
-
-<!-- MAIN -->
 <main class="index-main">
 
-  <!-- Side panel: filters -->
   <aside class="side-panel">
     <h3 class="side-panel__title">Filters</h3>
 
@@ -89,7 +35,6 @@
     <button type="button" class="btn-reset" id="btn-reset">필터 초기화</button>
   </aside>
 
-  <!-- Content panel -->
   <section class="content-panel">
 
     <div class="content-panel__header">
@@ -144,5 +89,6 @@
 
 <script src="testcases.js"></script>
 <script src="script.js"></script>
+<script src="nav.js"></script>
 </body>
 </html>
