@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_E2E_001 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-topnav">
+  <div class="app-brand">
+    <span class="app-brand__logo">Park</span>
+    <span class="app-brand__sub">SYSTEMS · QA</span>
+  </div>
+  <div class="topnav-items">
+    <div class="topnav-item active">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+      <span>Test Cases</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+      <span>Execution</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <span>History</span>
+    </div>
+  </div>
+  <div class="topnav-meta">
+    <span>RMS Phase 1 + 2</span>
+    <span class="topnav-meta__sep"></span>
+    <span>v0.2 · Draft</span>
+  </div>
+</nav>
+
+<div class="app-subnav">
+  <div class="subnav-item">
+    <a href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
+      <span>Index</span>
+    </a>
+  </div>
+  <div class="subnav-item active">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    <span>TC_E2E_001</span>
+  </div>
+  <div class="subnav-spacer"></div>
+</div>
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">E2E · End-to-End</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Scenario</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">표준 운영 플로우</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">15 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> End-to-End
+        <span class="sep">/</span> Scenario
+        <span class="sep">/</span> TC_E2E_001
+      </div>
+      <div class="tc-detail-id">TC_E2E_001</div>
+      <h1 class="tc-detail-title">장비 등록 → Recipe 자동 수집 → Master 지정 → 다른 장비로 배포 → 이력 확인</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>RMS Server 정상 동작</li>
+        <li>Agent 설치된 장비 PC 2대 이상 준비 (EQ_001, EQ_002)</li>
+        <li>EQ_001에는 기존 Recipe 파일이 존재, EQ_002는 동일 장비 모델이되 Recipe 없음</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Admin 계정 로그인 (TC_SYS_LGN_001 연계)</li>
+        <li>Equipment Registration에서 EQ_001 등록 (TC_EQP_REG_001 연계)</li>
+        <li>EQ_001 등록 직후 Recipe 자동 수집 동작 확인 (TC_CLT_RCP_001 연계)</li>
+        <li>Pending Recipes 팝업에서 수집된 Recipe 서버 등록 (TC_SYS_PND_003 연계)</li>
+        <li>Recipe Manager에서 등록된 Recipe 확인 (TC_RCP_MGR_001, 002 연계)</li>
+        <li>Manage Recipe Versions에서 해당 Recipe의 v1을 Master로 지정 (TC_RCP_VER_002 연계)</li>
+        <li>EQ_002를 Equipment Registration에서 등록</li>
+        <li>Deploy Recipes에서 해당 Recipe Master 버전을 EQ_002로 배포 (TC_RCP_DEP_002 연계)</li>
+        <li>배포 완료 후 Deployment Log 확인 (TC_HST_DEP_001 연계)</li>
+        <li>Recipe History에서 전체 이력(등록 → Master 지정 → 배포) 시계열 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Start Point: 장비 2대 + 서버 빈 DB
+End Point: 두 장비에 동일 Recipe Master 배포 완료 + 이력 완성</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>모든 단계가 순차적으로 정상 완료</li>
+        <li>각 단계의 이력이 전부 기록되어 시계열 추적 가능</li>
+        <li>최종 상태: 두 장비 모두 동일 Recipe 배포, Master 지정 명확</li>
+        <li>단계별 UI 전환이 매끄럽고 데이터 정합성 유지</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>핵심 플로우:</strong> RMS의 가장 전형적인 운영 시나리오. 이 플로우가 매끄럽게 동작해야 제품 가치가 입증됨.</p>
+        <p><strong>소요 시간:</strong> 실제 수행 시 15분 내외. 자동화 테스트 대상 1순위.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">QA 자동화</span> 이 시나리오는 <strong>E2E 자동화 테스트 우선순위 1순위</strong>로 권장드립니다. UI 변경이 있을 때마다 반드시 회귀 검증이 필요한 플로우입니다.</p>
+        <p><span class="proposal-tag">UX 개선</span> 단계별로 다음 단계로의 <strong>"다음 단계로 이동" 버튼</strong>이 있으면 신규 사용자 온보딩에 큰 도움이 됩니다. 예: 장비 등록 완료 화면에서 "Pending Recipes 확인하러 가기" 버튼.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_CLT_MTD_006.html">← 이전: TC_CLT_MTD_006</a>
+        <a href="TC_E2E_002.html">다음: TC_E2E_002 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

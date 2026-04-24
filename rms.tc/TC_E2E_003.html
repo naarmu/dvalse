@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_E2E_003 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-topnav">
+  <div class="app-brand">
+    <span class="app-brand__logo">Park</span>
+    <span class="app-brand__sub">SYSTEMS · QA</span>
+  </div>
+  <div class="topnav-items">
+    <div class="topnav-item active">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+      <span>Test Cases</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+      <span>Execution</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <span>History</span>
+    </div>
+  </div>
+  <div class="topnav-meta">
+    <span>RMS Phase 1 + 2</span>
+    <span class="topnav-meta__sep"></span>
+    <span>v0.2 · Draft</span>
+  </div>
+</nav>
+
+<div class="app-subnav">
+  <div class="subnav-item">
+    <a href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
+      <span>Index</span>
+    </a>
+  </div>
+  <div class="subnav-item active">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    <span>TC_E2E_003</span>
+  </div>
+  <div class="subnav-spacer"></div>
+</div>
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">E2E · End-to-End</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Scenario</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">Waferless Recipe Creation</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">15 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> End-to-End
+        <span class="sep">/</span> Scenario
+        <span class="sep">/</span> TC_E2E_003
+      </div>
+      <div class="tc-detail-id">TC_E2E_003</div>
+      <h1 class="tc-detail-title">Custom XML 업로드 → 장비 배포 → .psr 자동 변환 → Recipe Manager 조회 → 재배포</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>유효한 Custom XML 파일 준비</li>
+        <li>Online 장비 EQ_001, EQ_002</li>
+        <li>Engineer 이상 권한</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Deploy Custom XML 화면에서 XML 업로드 (TC_RCP_XML_001 연계)</li>
+        <li>업로드된 XML을 EQ_001로 배포 (TC_RCP_XML_003 연계)</li>
+        <li>EQ_001에서 XML → .psr 자동 변환 완료 대기 (TC_RCP_XML_004 연계)</li>
+        <li>변환된 .psr이 Agent에 의해 서버로 수집되는지 확인</li>
+        <li>Recipe Manager에서 신규 Recipe로 조회 가능 확인 (TC_RCP_XML_005 연계)</li>
+        <li>해당 Recipe의 파라미터 값이 XML 정의와 일치하는지 검증</li>
+        <li>새로 생성된 Recipe를 EQ_002에도 배포 (일반 Recipe처럼 동작 확인)</li>
+        <li>EQ_002에도 동일한 .psr이 저장되었는지 확인</li>
+        <li>Deployment Log에서 "Custom XML" 배포와 "Recipe" 배포가 구분되어 기록되는지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Custom XML: wafer_recipe.xml (50KB, 20 parameters)
+End Goal: 2대 장비에 동일 Recipe 배포 완료</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>XML → PSR 변환이 Atomic하게 수행 (중간 상태 파일 없음)</li>
+        <li>변환된 Recipe가 일반 Recipe와 동일하게 기능</li>
+        <li>Deployment Log에 Type 구분 기록</li>
+        <li>전체 플로우 총 15분 이내</li>
+        <li>Custom XML 출처 Recipe에 시각적 구분 표시</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>Phase 2 핵심 가치:</strong> Waferless Recipe Creation 기능의 End-to-End 검증. 제품 차별점.</p>
+        <p><strong>변환 시점:</strong> 장비 측 변환 완료 시간(수 초~수십 초 추정)이 UX 체감에 큰 영향.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">QA 자동화</span> Phase 2 신규 기능 중 가장 복잡한 플로우이므로 <strong>자동화 우선순위 1순위</strong>입니다. 회귀 방지 필수.</p>
+        <p><span class="proposal-tag">UX 개선</span> XML 업로드 후 변환 완료까지 <strong>진행 상태를 시각화</strong>하여 사용자가 어느 단계에 있는지 파악 가능하게 해주세요. "① 업로드 → ② 배포 → ③ 변환 중 → ④ 수집 → ⑤ 완료" 단계 표시.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_E2E_002.html">← 이전: TC_E2E_002</a>
+        <a href="TC_E2E_004.html">다음: TC_E2E_004 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>

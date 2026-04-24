@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_E2E_007 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="app-topnav">
+  <div class="app-brand">
+    <span class="app-brand__logo">Park</span>
+    <span class="app-brand__sub">SYSTEMS · QA</span>
+  </div>
+  <div class="topnav-items">
+    <div class="topnav-item active">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>
+      <span>Test Cases</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg></span>
+      <span>Execution</span>
+    </div>
+    <div class="topnav-item">
+      <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+      <span>History</span>
+    </div>
+  </div>
+  <div class="topnav-meta">
+    <span>RMS Phase 1 + 2</span>
+    <span class="topnav-meta__sep"></span>
+    <span>v0.2 · Draft</span>
+  </div>
+</nav>
+
+<div class="app-subnav">
+  <div class="subnav-item">
+    <a href="index.html">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/></svg>
+      <span>Index</span>
+    </a>
+  </div>
+  <div class="subnav-item active">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+    <span>TC_E2E_007</span>
+  </div>
+  <div class="subnav-spacer"></div>
+</div>
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">E2E · End-to-End</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Scenario</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">실패 복구 플로우</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Negative</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">15 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> End-to-End
+        <span class="sep">/</span> Scenario
+        <span class="sep">/</span> TC_E2E_007
+      </div>
+      <div class="tc-detail-id">TC_E2E_007</div>
+      <h1 class="tc-detail-title">배포 중 장비 연결 끊김 발생 → 에러 처리 → 재배포 시 정상 완료 → 이력의 실패/성공 분리 기록</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--negative">Negative</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe X Master 버전 지정 완료</li>
+        <li>Online 장비 4대 (EQ_001 ~ EQ_004)</li>
+        <li>Engineer 이상 권한</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Deploy Recipes에서 Recipe X Master를 EQ_001 ~ EQ_004에 동시 배포 시작</li>
+        <li>배포 진행률이 30~70% 시점에 EQ_003의 네트워크를 강제 단절 (케이블 분리 또는 Agent 종료)</li>
+        <li>배포 진행 UI에서 EQ_003의 실패 표시 확인 (TC_RCP_DEP_005 연계)</li>
+        <li>배포 완료 후 결과 요약 확인: 성공 3, 실패 1 (TC_RCP_DEP_008 연계)</li>
+        <li>Deployment Log에서 4건 각각 기록 확인 (성공 3 + 실패 1)</li>
+        <li>실패 건의 상세 원인 조회 (TC_HST_DEP_003 연계)</li>
+        <li>EQ_003 네트워크 복구 후 온라인 상태 복귀 대기</li>
+        <li>Deployment Log에서 실패 건 재시도 실행 (EQ_003만 대상)</li>
+        <li>재시도 성공 확인</li>
+        <li>Deployment Log에 원 실패 1건 + 재시도 성공 1건이 별도 이력으로 기록되는지 확인 (append-only 검증)</li>
+        <li>EQ_003의 Deployed Recipe가 정상 Recipe X로 표시되는지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">초기 배포: 4대 장비
+중간 단절: EQ_003 (30~70% 시점)
+최종: 3 성공 + 1 실패 기록, 재시도로 EQ_003 복구</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>부분 실패가 전체 배포를 중단시키지 않음 (다른 장비는 성공 완료)</li>
+        <li>실패 장비의 기존 Recipe가 훼손되지 않음 (Atomic Write 확인)</li>
+        <li>Deployment Log에 실패/성공이 분리 기록, 원인 명시</li>
+        <li>재시도로 실패 건을 독립적으로 복구 가능</li>
+        <li>원 실패 이력이 수정/삭제되지 않음 (append-only 원칙)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>운영 핵심:</strong> 반도체 현장에서 네트워크 이슈는 흔한 문제. 이 시나리오가 안정적이어야 제품이 실제 현장에서 쓸 수 있음.</p>
+        <p><strong>Atomic Write:</strong> 장비 측에서 .psr 파일이 부분 기록 상태로 남으면 장비 오작동 위험. temp 파일 → rename 패턴 필수.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">데이터 무결성</span> 이 시나리오는 <strong>제품 품질의 최소 기준선</strong>입니다. Agent의 Atomic Write, 서버의 부분 실패 처리, 이력의 append-only가 모두 검증되어야 합니다.</p>
+        <p><span class="proposal-tag">QA 자동화</span> 네트워크 단절 시뮬레이션이 포함된 시나리오로, <strong>자동화 인프라에 네트워크 Fault Injection 기능이 필요</strong>합니다. 일반 UI 자동화로는 불가능하므로 별도 설계 필요.</p>
+        <p><span class="proposal-tag">UX 개선</span> Deployment Log 재시도 기능은 현장에서 가장 자주 쓰일 복구 도구입니다. <strong>Log 목록에서 원클릭 재시도</strong>가 가능해야 합니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_E2E_006.html">← 이전: TC_E2E_006</a>
+        <a class="disabled">다음 TC →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+</body>
+</html>
