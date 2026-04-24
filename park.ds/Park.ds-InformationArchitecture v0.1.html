@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Park.ds · Information Architecture</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.min.css">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --ink:#1A1D21; --ink-soft:#5A6370; --ink-faint:#8A94A3;
+    --bg:#F6F7F9; --panel:#FFFFFF;
+    --rule:#E3E6EB; --rule-soft:#EDF0F4;
+    --accent:#30A1D2;
+    --accent-soft:#E5F2F9;
+    --good:#2E8B57;
+    --warn:#C58A1A;
+    --bad:#C23A3A;
+    --sans:"Pretendard Variable","Pretendard","Segoe UI","Apple SD Gothic Neo",system-ui,sans-serif;
+    --mono:"JetBrains Mono","Consolas",ui-monospace,Menlo,monospace;
+    font-feature-settings:"tnum" 1,"ss01" 1;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--ink);font-family:var(--sans);
+    font-size:13.5px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  .page{max-width:1280px;margin:0 auto;padding:56px 48px 96px}
+
+  /* breadcrumb */
+  .crumbs{
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);
+    letter-spacing:0.04em;margin-bottom:20px;
+  }
+  .crumbs a{color:var(--ink-soft);text-decoration:none}
+  .crumbs a:hover{color:var(--accent)}
+  .crumbs .sep{margin:0 8px;color:var(--ink-faint)}
+
+  /* masthead */
+  .mast{
+    display:grid;grid-template-columns:1fr auto;align-items:end;
+    border-bottom:1px solid var(--ink);padding-bottom:18px;margin-bottom:40px;
+  }
+  .mast h1{font-size:30px;font-weight:600;margin:0 0 6px;letter-spacing:-0.01em}
+  .mast .sub{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);letter-spacing:0.02em}
+  .mast .meta{text-align:right;font-family:var(--mono);font-size:10.5px;color:var(--ink-soft);line-height:1.7}
+  .mast .meta b{color:var(--ink);font-weight:600}
+
+  /* sections */
+  section{margin:56px 0 0}
+  .sec-head{
+    display:grid;grid-template-columns:80px 1fr;gap:24px;
+    padding-bottom:10px;margin-bottom:24px;
+    border-bottom:1px solid var(--rule);align-items:baseline;
+  }
+  .sec-num{font-family:var(--mono);font-size:11px;color:var(--ink-faint);letter-spacing:0.08em}
+  .sec-title{font-size:18px;font-weight:600;letter-spacing:-0.005em;margin:0}
+  .sec-title small{font-weight:400;color:var(--ink-soft);font-size:13px;margin-left:8px}
+  .sec-body{display:grid;grid-template-columns:80px 1fr;gap:24px}
+  .sec-body > .content{max-width:1100px}
+  p{margin:0 0 12px}
+  p.lede{font-size:15px;line-height:1.6}
+  .muted{color:var(--ink-soft)}
+  code{font-family:var(--mono);font-size:0.92em;background:var(--rule-soft);padding:1px 5px;border-radius:3px}
+  b{color:var(--ink);font-weight:600}
+
+  h4{font-size:14px;font-weight:600;margin:24px 0 10px}
+  h4 small{font-weight:400;font-size:12px;color:var(--ink-soft);margin-left:8px}
+
+  /* principle cards */
+  .principles{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:14px 0 0}
+  .principle{
+    background:#fff;border:1px solid var(--rule);border-radius:6px;padding:18px 20px;
+  }
+  .principle .num{
+    font-family:var(--mono);font-size:10.5px;color:var(--accent);
+    letter-spacing:0.06em;font-weight:600;margin-bottom:8px;
+  }
+  .principle h5{font-size:14px;font-weight:600;margin:0 0 8px;letter-spacing:-0.005em}
+  .principle p{font-size:12.5px;color:var(--ink-soft);margin:0;line-height:1.6}
+
+  /* IA TREE */
+  .tree{
+    background:#fff;border:1px solid var(--rule);border-radius:6px;
+    padding:22px 26px;font-family:var(--mono);font-size:12px;line-height:1.85;
+    color:var(--ink);
+  }
+  .tree .root{font-weight:600;color:var(--accent)}
+  .tree .sec{font-weight:600;color:var(--ink);margin-top:12px;display:block}
+  .tree .sec:first-of-type{margin-top:0}
+  .tree .leaf{color:var(--ink-soft);padding-left:20px;display:block}
+  .tree .leaf::before{content:"├─ ";color:var(--ink-faint)}
+  .tree .leaf.last::before{content:"└─ "}
+  .tree .leaf .status{
+    font-size:9.5px;margin-left:10px;padding:1px 5px;border-radius:2px;
+    letter-spacing:0.04em;font-weight:500;
+  }
+  .tree .leaf .status.ready{background:#E7F5EC;color:var(--good)}
+  .tree .leaf .status.draft{background:#FFF4D1;color:#8A6A00}
+  .tree .leaf .status.test{background:#FDECEC;color:var(--bad)}
+  .tree .leaf .status.todo{background:#F0F2F5;color:var(--ink-faint)}
+  .tree .leaf .note{color:var(--ink-faint);font-size:11px;margin-left:8px}
+
+  /* tables */
+  .tbl{
+    width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);
+    border-radius:6px;overflow:hidden;font-size:12.5px;margin:12px 0;
+  }
+  .tbl th, .tbl td{
+    padding:10px 14px;text-align:left;border-bottom:1px solid var(--rule-soft);
+    vertical-align:top;
+  }
+  .tbl th{
+    background:#fafbfc;font-size:11px;font-weight:600;
+    letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl td.mono{font-family:var(--mono);font-size:11.5px;color:var(--ink)}
+  .tbl .status-pill{
+    display:inline-block;padding:1px 6px;font-family:var(--mono);font-size:10px;
+    letter-spacing:0.04em;border-radius:2px;font-weight:500;
+  }
+  .tbl .status-pill.ready{background:#E7F5EC;color:var(--good)}
+  .tbl .status-pill.draft{background:#FFF4D1;color:#8A6A00}
+  .tbl .status-pill.test{background:#FDECEC;color:var(--bad)}
+  .tbl .status-pill.todo{background:#F0F2F5;color:var(--ink-faint)}
+
+  /* mapping — old → new */
+  .map-row{
+    display:grid;grid-template-columns:1fr auto 1fr;gap:14px;align-items:center;
+    background:#fff;border:1px solid var(--rule);border-radius:6px;
+    padding:12px 18px;margin-bottom:8px;
+  }
+  .map-row .old{font-family:var(--mono);font-size:12px;color:var(--ink-soft)}
+  .map-row .old b{color:var(--ink)}
+  .map-row .arrow{color:var(--accent);font-family:var(--mono);font-weight:600}
+  .map-row .new{font-family:var(--mono);font-size:12px;color:var(--ink)}
+  .map-row .new b{color:var(--accent);font-weight:600}
+  .map-row.note{grid-template-columns:1fr;padding:10px 18px;background:#FFFBEE;border-color:#E8D99A}
+  .map-row.note div{font-size:12px;color:var(--ink);font-family:var(--sans)}
+
+  /* platform matrix */
+  .matrix{
+    width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--rule);
+    border-radius:6px;overflow:hidden;font-size:12px;
+  }
+  .matrix th,.matrix td{
+    padding:10px 14px;border-bottom:1px solid var(--rule-soft);
+    border-right:1px solid var(--rule-soft);vertical-align:top;
+  }
+  .matrix th:last-child,.matrix td:last-child{border-right:0}
+  .matrix thead th{
+    background:#fafbfc;font-size:10.5px;font-weight:600;
+    letter-spacing:0.04em;text-transform:uppercase;color:var(--ink-soft);
+  }
+  .matrix tbody th{
+    background:#fafbfc;font-size:12px;font-weight:600;color:var(--ink);text-align:left;
+  }
+  .matrix td{font-size:11.5px;color:var(--ink-soft)}
+  .matrix td.yes{color:var(--good);font-weight:600}
+  .matrix td.partial{color:var(--warn);font-weight:500}
+  .matrix td.no{color:var(--ink-faint)}
+  .matrix tbody tr:last-child th,.matrix tbody tr:last-child td{border-bottom:0}
+
+  /* notes / questions boxes */
+  .note-box{
+    background:#fff;border-left:3px solid var(--accent);border-radius:3px;
+    padding:12px 16px;margin:14px 0;font-size:12.5px;color:var(--ink-soft);line-height:1.6;
+  }
+  .note-box b{color:var(--ink);font-weight:600}
+
+  .questions{
+    background:#FFFBEE;border:1px solid #E8D99A;border-radius:6px;
+    padding:18px 22px;margin:12px 0;
+  }
+  .questions h3{
+    margin:0 0 10px;font-size:13px;letter-spacing:0.03em;text-transform:uppercase;color:#8A6A00;
+  }
+  .questions ol{margin:0;padding-left:20px;font-size:13px;line-height:1.7}
+  .questions li{margin:6px 0}
+  .questions li b{color:var(--ink)}
+  .questions li em{color:var(--ink-soft);font-style:normal;display:block;margin-top:2px;font-size:12px}
+
+  /* footer */
+  .footer{
+    margin-top:64px;padding-top:18px;border-top:1px solid var(--rule);
+    font-family:var(--mono);font-size:10.5px;color:var(--ink-faint);
+    display:flex;justify-content:space-between;
+  }
+  .footer a{color:var(--ink-soft);text-decoration:none}
+  .footer a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="crumbs">
+    <a href="index.html">Park.ds</a>
+    <span class="sep">/</span>
+    <span>Overview</span>
+    <span class="sep">/</span>
+    <span style="color:var(--ink)">Information Architecture</span>
+  </div>
+
+  <header class="mast">
+    <div>
+      <h1>Information Architecture</h1>
+      <div class="sub">PARK.DS / OVERVIEW / 00 · IA</div>
+    </div>
+    <div class="meta">
+      <div>VERSION · <b>0.1 draft</b></div>
+      <div>DATE · 2026-04-24</div>
+      <div>AUTHOR · solo</div>
+      <div>AUDIENCE · 내부 개발진·디자이너</div>
+    </div>
+  </header>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- §0 — 설계 의도 -->
+  <!-- ════════════════════════════════════════════ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§0</div>
+      <h2 class="sec-title">설계 의도 <small>세 문장으로 요약</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+        <p class="lede">
+          Park.ds는 Park Systems의 <b>전사 소프트웨어·웹·펌웨어 UI</b>를 위한 단일 디자인 언어다.
+          1차 독자는 <b>내부 개발진·디자이너</b>이며, 이 사이트는 마케팅 쇼케이스가 아니라
+          <b>디자이너와 개발자 간의 계약서</b>이자 <b>의사결정 지원 시스템</b>이다.
+          Spectrum의 구조를 참조하되, WPF/DevExpress 현실과 solo 운영 체제에 맞게
+          축소·재조합한다.
+        </p>
+
+        <h4>세 가지 핵심 원칙</h4>
+        <div class="principles">
+          <div class="principle">
+            <div class="num">P1</div>
+            <h5>내부 전용 · 계약 언어</h5>
+            <p>이 사이트는 교육 자료가 아니다. 철학적 서문은 최소화하고,
+              결정된 규칙·그 근거·개발 핸드오프 방법을 우선한다.
+              읽는 사람은 이미 맥락을 안다.</p>
+          </div>
+          <div class="principle">
+            <div class="num">P2</div>
+            <h5>플랫폼 중립 · 구현 명시</h5>
+            <p>Foundation(토큰·규칙)은 플랫폼에 무관하게 선언한다.
+              각 구현 스택(WPF·Web·Firmware)의 handoff는
+              별도 레이어로 분리해 토큰 오염을 막는다.</p>
+          </div>
+          <div class="principle">
+            <div class="num">P3</div>
+            <h5>점진 성장 · 상태 명시</h5>
+            <p>모든 문서는 <code>READY · DRAFT · TEST · TODO</code> 중 한 상태를 명시한다.
+              v0.1은 Foundation 3개와 Icon 3개만 drafted 상태여도 괜찮다 — 진행 중임을 정직하게 드러낸다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- §1 — 사이트 구조도 -->
+  <!-- ════════════════════════════════════════════ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§1</div>
+      <h2 class="sec-title">사이트 구조도 <small>7개 톱레벨 섹션</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+        <p>Park.ds 사이트는 다음 7개 섹션으로 구성된다. 순서는 <b>의존성 순</b>이다 —
+          Foundation이 Iconography를 전제하지 않고, Components는 Foundation+Icon 위에 세워진다.</p>
+
+        <div class="tree">
+<span class="root">Park.ds</span>
+<span class="sec">├── Overview</span>
+<span class="leaf">Home <span class="status ready">READY</span><span class="note">— index.html</span></span>
+<span class="leaf last">Information Architecture <span class="status draft">DRAFT</span><span class="note">— 이 문서</span></span>
+
+<span class="sec">├── Foundations <span class="note" style="font-weight:400">— 디자인의 기본 재료</span></span>
+<span class="leaf">01 Color <span class="status draft">DRAFT</span></span>
+<span class="leaf">02 Typography <span class="status draft">DRAFT</span></span>
+<span class="leaf">03 Spacing &amp; Layout <span class="status draft">DRAFT</span></span>
+<span class="leaf">04 Elevation <span class="status todo">TODO</span></span>
+<span class="leaf last">05 Motion <span class="status todo">TODO</span></span>
+
+<span class="sec">├── Iconography <span class="note" style="font-weight:400">— 235 icons · 5 tiers</span></span>
+<span class="leaf">06 Naming <span class="status draft">DRAFT</span></span>
+<span class="leaf">07 Inventory (test) <span class="status test">TEST</span></span>
+<span class="leaf last">08 Library <span class="status draft">DRAFT</span></span>
+
+<span class="sec">├── Components <span class="note" style="font-weight:400">— DevExpress 위의 Park 레이어</span></span>
+<span class="leaf">10 Button <span class="status todo">TODO</span></span>
+<span class="leaf">11 Input <span class="status todo">TODO</span></span>
+<span class="leaf">12 Table (GridControl) <span class="status todo">TODO</span></span>
+<span class="leaf last">… (IA 결정 후 상세화)</span>
+
+<span class="sec">├── Patterns <span class="note" style="font-weight:400">— 반복되는 화면·흐름</span></span>
+<span class="leaf">20 Measurement View <span class="status todo">TODO</span></span>
+<span class="leaf">21 Recipe Editor <span class="status todo">TODO</span></span>
+<span class="leaf last">22 Equipment Dashboard <span class="status todo">TODO</span></span>
+
+<span class="sec">├── Handoff <span class="note" style="font-weight:400">— 개발진 전달 문서 (스택별)</span></span>
+<span class="leaf">WPF / DevExpress <span class="status draft">1 doc</span><span class="note">— Typography XAML v0.2 기존</span></span>
+<span class="leaf">Web <span class="status todo">TODO</span></span>
+<span class="leaf last">Firmware <span class="status todo">TODO</span></span>
+
+<span class="sec">└── Resources <span class="note" style="font-weight:400">— 부록</span></span>
+<span class="leaf">Changelog <span class="status todo">TODO</span></span>
+<span class="leaf">Open Questions (통합) <span class="status todo">TODO</span></span>
+<span class="leaf last">Contribution Guide <span class="status todo">TODO</span></span>
+        </div>
+
+        <div class="note-box">
+          <b>왜 Patterns 섹션을 두는가?</b>
+          Park.ds의 실제 가치는 "Measurement View가 어떻게 생겨야 하는가" 같은 제품 수준 결정을
+          문서화할 때 나온다. Spectrum의 <i>Patterns</i> 섹션과 동일한 역할 — 여러 Component를
+          조합한 화면 레시피. Components 층이 비어 있어도, Patterns 층에는 "WLI의 표준 측정 뷰"
+          같은 실제 제품 페이지를 먼저 문서화할 수 있다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- §2 — 기존 문서 재배치 매핑 -->
+  <!-- ════════════════════════════════════════════ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§2</div>
+      <h2 class="sec-title">기존 문서의 재배치 매핑 <small>지금 있는 7개 HTML이 어디로 가는가</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+        <p>현재 프로젝트에 있는 7개 문서는 거의 그대로 새 IA에 수용된다. 파일명·내용 변경은 최소.</p>
+
+        <div class="map-row">
+          <div class="old"><b>Park.ds-ColorFoundation v0.1.html</b></div>
+          <div class="arrow">→</div>
+          <div class="new">Foundations / <b>01 Color</b></div>
+        </div>
+        <div class="map-row">
+          <div class="old"><b>Park.ds-TypographyFoundation v0.1.html</b></div>
+          <div class="arrow">→</div>
+          <div class="new">Foundations / <b>02 Typography</b></div>
+        </div>
+        <div class="map-row">
+          <div class="old"><b>Park.ds-Spacing&amp;LayoutFoundation v0.1.html</b></div>
+          <div class="arrow">→</div>
+          <div class="new">Foundations / <b>03 Spacing &amp; Layout</b></div>
+        </div>
+        <div class="map-row">
+          <div class="old"><b>Park.ds-IconNaming v0.1.html</b></div>
+          <div class="arrow">→</div>
+          <div class="new">Iconography / <b>06 Naming</b></div>
+        </div>
+        <div class="map-row">
+          <div class="old"><b>Park.ds-IconInventory(test).html</b></div>
+          <div class="arrow">→</div>
+          <div class="new">Iconography / <b>07 Inventory (test)</b></div>
+        </div>
+        <div class="map-row">
+          <div class="old"><b>Park.ds-IconLibrary v0.1.html</b></div>
+          <div class="arrow">→</div>
+          <div class="new">Iconography / <b>08 Library</b></div>
+        </div>
+        <div class="map-row">
+          <div class="old"><b>Park.ds-TypographyXAMLUpdateRequest v0.1.html</b></div>
+          <div class="arrow">→</div>
+          <div class="new">Handoff / WPF / <b>02a Typography XAML</b></div>
+        </div>
+        <div class="map-row note">
+          <div>
+            <b>물리적 파일 이동은 선택.</b> 이번 v0.1에서는 <b>파일 위치를 바꾸지 않고</b>
+            <code>index.html</code>의 네비게이션만으로 새 IA를 구현한다. 물리 폴더 재구조화
+            (<code>foundations/</code>, <code>iconography/</code> 폴더 분리)는 v0.2 이후 논의.
+          </div>
+        </div>
+
+        <h4>문서 상태 현황 <small>IA 관점 정리</small></h4>
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:30%">섹션 · 번호</th>
+              <th style="width:22%">상태</th>
+              <th>다음 액션</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="mono">Overview / Home</td><td><span class="status-pill ready">READY</span></td><td>이번 세션에서 신규 생성 (index.html)</td></tr>
+            <tr><td class="mono">Overview / IA</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>이번 세션에서 신규 생성 (본 문서)</td></tr>
+            <tr><td class="mono">Foundations / 01 Color</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>멀티플랫폼 확장 전략 반영 시 v0.2</td></tr>
+            <tr><td class="mono">Foundations / 02 Typography</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>Open Q 5개 해소 후 v0.2</td></tr>
+            <tr><td class="mono">Foundations / 03 Spacing</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>Open Q 5개 해소 후 v0.2</td></tr>
+            <tr><td class="mono">Foundations / 04 Elevation</td><td><span class="status-pill todo">TODO</span></td><td>초안 작성 (산업용 절제된 shadow)</td></tr>
+            <tr><td class="mono">Foundations / 05 Motion</td><td><span class="status-pill todo">TODO</span></td><td>초안 작성 (equipment pulse 우선)</td></tr>
+            <tr><td class="mono">Iconography / 06 Naming</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>규모 85 → 235로 갱신</td></tr>
+            <tr><td class="mono">Iconography / 07 Inventory</td><td><span class="status-pill test">TEST</span></td><td>9개 → 235개 확장 (파이프라인 자동화)</td></tr>
+            <tr><td class="mono">Iconography / 08 Library</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>Tier×Group 이중 축 문서화 필요</td></tr>
+            <tr><td class="mono">Components /*</td><td><span class="status-pill todo">TODO</span></td><td>커스텀 범위 결정 후 착수</td></tr>
+            <tr><td class="mono">Patterns /*</td><td><span class="status-pill todo">TODO</span></td><td>WLI 측정 뷰 샘플 1개부터</td></tr>
+            <tr><td class="mono">Handoff / WPF / 02a Typography</td><td><span class="status-pill draft">DRAFT v0.2</span></td><td>개발진 전달됨 — 적용 확인 대기</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- §3 — 멀티플랫폼 확장 전략 -->
+  <!-- ════════════════════════════════════════════ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§3</div>
+      <h2 class="sec-title">멀티플랫폼 확장 전략 <small>WPF · Web · Firmware 삼축 대응</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+        <p class="lede">
+          "전사 SW + 웹 + 펌웨어"라는 제품 범위는 Foundation 문서들의 기본 전제를 흔든다.
+          현재 Foundation은 <b>FHD 24" WPF/DevExpress 데스크톱 환경</b>에 최적화되어 있다.
+          이를 유지하면서 세 스택 모두를 커버하려면 Foundation을 2층으로 분리해야 한다.
+        </p>
+
+        <h4>2-Layer Foundation <small>Platform-Neutral → Platform-Specific</small></h4>
+
+        <table class="matrix">
+          <thead>
+            <tr>
+              <th style="width:22%">Foundation</th>
+              <th>Neutral Layer (권위)</th>
+              <th>WPF / DevExpress</th>
+              <th>Web</th>
+              <th>Firmware</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Color</th>
+              <td>OKLCH 토큰 (22개 Semantic)</td>
+              <td class="yes">ResourceDictionary · Theme Designer 매핑 ✓</td>
+              <td class="partial">CSS Custom Properties (변환 필요)</td>
+              <td class="partial">RGB565/RGB888 테이블 (변환 필요)</td>
+            </tr>
+            <tr>
+              <th>Typography</th>
+              <td>Role-based 4서체 · 7-layer scale</td>
+              <td class="yes"><code>Pancras*TextBlock</code> Style ✓</td>
+              <td class="partial">CSS class + <code>@font-face</code></td>
+              <td class="no">Pretendard 비지원 — 대체 서체 정의 필요</td>
+            </tr>
+            <tr>
+              <th>Spacing</th>
+              <td>4px hybrid scale · Density 2단계</td>
+              <td class="yes">XAML <code>Spacing</code>·<code>Padding</code> 값 ✓</td>
+              <td class="partial">CSS rem 기반 재매핑</td>
+              <td class="partial">픽셀 그리드 (해상도별 재계산)</td>
+            </tr>
+            <tr>
+              <th>Icon</th>
+              <td>SVG 원본 · currentColor</td>
+              <td class="yes">ResourceDictionary + PathGeometry ✓</td>
+              <td class="yes">SVG 그대로 ✓</td>
+              <td class="partial">비트맵 스프라이트 변환 (화면 해상도별)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box" style="margin-top:18px">
+          <b>읽는 법.</b>
+          <span class="yes" style="color:var(--good);font-weight:600">녹색</span>은 현재 문서화되어 있음,
+          <span class="partial" style="color:var(--warn);font-weight:500">주황</span>은 변환 규칙 필요,
+          <span class="no" style="color:var(--ink-faint)">회색</span>은 별도 전략 필요.
+          대부분이 주황이라는 것은 <b>Foundation은 잘 짜였지만 Neutral Layer가 명시되어 있지 않다</b>는 의미다.
+          v0.2 작업의 가장 큰 주제가 여기다.
+        </div>
+
+        <h4>Neutral Layer 도입 제안 <small>Design Tokens as Single Source of Truth</small></h4>
+        <p>
+          각 Foundation 문서의 상단에 <b>JSON 또는 YAML 형식의 토큰 선언</b>을 추가한다.
+          이 토큰이 Neutral Layer이며, 아래 세 스택의 구현은 모두 이 선언에서 파생된다.
+          <b>Style Dictionary</b>(Amazon), <b>Design Tokens W3C Spec</b>, <b>Tokens Studio</b> 등의
+          도구를 써서 자동 변환 파이프라인을 구축한다.
+        </p>
+
+        <div class="tree" style="margin-top:12px">
+<span class="sec">Neutral Token (single source)</span>
+<span class="leaf">tokens/color.json <span class="note">— OKLCH + hex 이중 표기</span></span>
+<span class="leaf">tokens/typography.json <span class="note">— size · weight · family</span></span>
+<span class="leaf">tokens/spacing.json <span class="note">— 4px scale</span></span>
+<span class="leaf last">tokens/icons.json <span class="note">— 235 key → path 매핑</span></span>
+<span class="sec" style="margin-top:16px">                      ↓ 변환</span>
+<span class="sec">Stack-Specific Output</span>
+<span class="leaf">build/wpf/App.xaml <span class="note">— ResourceDictionary</span></span>
+<span class="leaf">build/web/tokens.css <span class="note">— CSS Custom Properties</span></span>
+<span class="leaf last">build/firmware/theme.h <span class="note">— C header with color table</span></span>
+        </div>
+
+        <div class="note-box">
+          <b>이 구조의 큰 장점.</b>
+          테드님이 Foundation 문서에서 하나의 토큰을 바꾸면, 세 스택의 빌드물이
+          자동으로 갱신된다. 지금처럼 "WPF 개발진에게 Typography XAML Update 문서를 따로 보내는" 일이
+          사라지고, 개발진은 최신 빌드를 가져가기만 하면 된다. <b>이게 디자인 시스템과 스타일 가이드의
+          결정적 차이</b>다. <br><br>
+          <b>단점도 명확.</b> 초기 파이프라인 구축 비용이 크다. v0.2에서 바로 도입할지,
+          v0.3 이후 목표로 둘지는 Open Question에 포함한다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- §4 — Spectrum 대비 차이 -->
+  <!-- ════════════════════════════════════════════ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§4</div>
+      <h2 class="sec-title">Spectrum 대비 의도적 차이 <small>무엇을 가져오고, 무엇을 버리는가</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+        <p>Adobe Spectrum은 35명 전담 팀 + 수백 명 컨트리뷰터로 10년+ 운영되어 왔다.
+          Park.ds는 solo 운영이므로 Spectrum의 모든 구조를 따라가면 실패한다.
+          아래는 의식적으로 가져올 것·버릴 것의 정리다.</p>
+
+        <h4>가져올 것 <small>Spectrum의 설계적 승리들</small></h4>
+        <table class="tbl">
+          <thead>
+            <tr><th style="width:30%">Spectrum 개념</th><th>Park.ds 적용</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono">Foundation → Component → Pattern <br>의 계층 구조</td>
+              <td>그대로 차용. IA의 핵심 뼈대가 된다.</td>
+            </tr>
+            <tr>
+              <td class="mono">Semantic Token (alias)의 권위화</td>
+              <td>이미 Color에서 Semantic Token 22개로 구현됨. Typography·Spacing에도 같은 원칙을 강화.</td>
+            </tr>
+            <tr>
+              <td class="mono">컴포넌트별 상태 뱃지 <br>(Released / Contribution / Prototype)</td>
+              <td><code>READY / DRAFT / TEST / TODO</code> 4단계로 단순화. 모든 문서 상단에 명시.</td>
+            </tr>
+            <tr>
+              <td class="mono">Density 축 분리 <br>(Desktop / Mobile × Compact / Regular / Spacious)</td>
+              <td>Compact / Comfortable 2단계는 유지. Desktop / Mobile 축은 멀티플랫폼 확장 시 도입.</td>
+            </tr>
+            <tr>
+              <td class="mono">사이드바 + 카드 그리드의 탐색 구조</td>
+              <td>index.html에 그대로 차용. 산업용 톤으로 어조만 조정.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>버릴 것 <small>Solo 운영 · 내부 전용 맥락에서 부적절한 것</small></h4>
+        <table class="tbl">
+          <thead>
+            <tr><th style="width:30%">Spectrum 개념</th><th>Park.ds가 하지 않는 이유</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono">Getting Started · Tutorial</td>
+              <td>내부 개발진은 맥락을 이미 안다. 입문용 자료는 작성 비용 대비 효용이 낮다.</td>
+            </tr>
+            <tr>
+              <td class="mono">Brand · Voice · Writing Guidelines</td>
+              <td>마케팅·PR 영역. UI 디자인 시스템의 범위를 넘는다. 필요하면 별도 문서로.</td>
+            </tr>
+            <tr>
+              <td class="mono">Illustration · Data Visualization 전용 섹션</td>
+              <td>v0.1~v0.3 범위에선 불필요. 데이터 시각화는 제품별 Patterns로 다룬다.</td>
+            </tr>
+            <tr>
+              <td class="mono">Personalization (Contrast · Density user-facing)</td>
+              <td>사용자 노출 설정은 각 제품이 결정. Park.ds는 디자인 어휘만 제공.</td>
+            </tr>
+            <tr>
+              <td class="mono">Contribution process (GitHub workflow · RFC)</td>
+              <td>solo 운영에선 과잉. 다만 Changelog는 Resources에 둔다.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- §5 — 다음 단계 로드맵 -->
+  <!-- ════════════════════════════════════════════ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§5</div>
+      <h2 class="sec-title">로드맵 <small>v0.1 → v0.2 → v0.3</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+        <table class="tbl">
+          <thead>
+            <tr>
+              <th style="width:14%">Version</th>
+              <th style="width:18%">Target</th>
+              <th>Scope</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="mono"><b>v0.1</b><br>(current)</td>
+              <td>2026-04</td>
+              <td>
+                Foundation 3개 drafted · Icon 3개 drafted · Handoff 1개 ·
+                <b>IA + Home 신규 추가 (이번 세션)</b>.
+              </td>
+            </tr>
+            <tr>
+              <td class="mono"><b>v0.2</b></td>
+              <td>TBD</td>
+              <td>
+                (1) 기존 3 Foundation의 Open Questions 해소 및 확정 <br>
+                (2) Foundation 04 Elevation · 05 Motion 초안 <br>
+                (3) Icon Inventory 9개 → 235개 확장 · Naming 규모 갱신 <br>
+                (4) Components 범위 결정 · Button·Input·Table 3개 착수
+              </td>
+            </tr>
+            <tr>
+              <td class="mono"><b>v0.3</b></td>
+              <td>TBD</td>
+              <td>
+                (1) Neutral Layer 도입 판단 · 토큰 파이프라인 구축 여부 <br>
+                (2) Patterns 첫 문서 — Measurement View (WLI 기준) <br>
+                (3) Web 플랫폼 Handoff 문서 착수 (웹 UI 제품이 있다면)
+              </td>
+            </tr>
+            <tr>
+              <td class="mono"><b>v1.0</b></td>
+              <td>TBD</td>
+              <td>
+                모든 tier-1 섹션 drafted 완료. 주요 제품 팀 1곳 이상에서 Park.ds 기반 구현 착수.
+                사내 공식화.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="note-box">
+          <b>v0.1 → v0.2의 가장 큰 결정.</b>
+          Components를 어떻게 다룰지 — (가) DevExpress 스타일 가이드만, (나) 하이브리드,
+          (다) Park 커스텀 컴포넌트 세트. 이 결정 없이 Components 섹션을 시작할 수 없다.
+          §6 Open Questions의 Q1이 이 결정이다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════ -->
+  <!-- §6 — Open Questions -->
+  <!-- ════════════════════════════════════════════ -->
+  <section>
+    <div class="sec-head">
+      <div class="sec-num">§6</div>
+      <h2 class="sec-title">Open Questions <small>다음 결정이 필요한 지점</small></h2>
+    </div>
+    <div class="sec-body">
+      <div></div>
+      <div class="content">
+        <div class="questions">
+          <h3>IA 수준의 미결정 사항</h3>
+          <ol>
+            <li>
+              <b>Q1 · Components 전략.</b> DevExpress 스타일 가이드만 vs DevExpress + Park 커스텀
+              하이브리드 vs 완전 커스텀 세트. 각 옵션의 엔지니어링 비용·기간 견적이 필요.
+              <em>제안: 하이브리드. 90%는 DevExpress를 Foundation 토큰으로 스타일, 10%는 Park 고유 UX가 필요한 경우(예: Equipment State indicator)만 커스텀. 결정 주체는 개발 리드와 공동.</em>
+            </li>
+            <li>
+              <b>Q2 · 제품 범위의 현실 확인.</b> "전사 SW + 웹 + 펌웨어"가 실제 Park Systems의
+              내부 현황에 비춰 1~2년 내 목표인가, 3~5년 비전인가. v0.2 scope에 영향.
+              <em>제안: 1~2년 내 목표는 "전사 WPF SW"로 좁히고, 웹/펌웨어는 Neutral Layer 도입으로 "준비만" 해두는 방향. 실제 변환 파이프라인은 실제 제품이 생길 때.</em>
+            </li>
+            <li>
+              <b>Q3 · Neutral Layer 도입 시점.</b> v0.2에서 Style Dictionary 기반 토큰 파이프라인을
+              구축할지, v0.3 이후로 미룰지. 구축 비용이 크고 solo 운영에선 큰 투자.
+              <em>제안: v0.3 이후. 현재는 수작업 handoff가 유지 가능한 규모이며, 컴포넌트 수가 늘어나기 시작할 때가 적기.</em>
+            </li>
+            <li>
+              <b>Q4 · 물리 폴더 구조 재편 시점.</b> 현재 <code>park.ds/</code> 폴더에 모든 문서가
+              평면 배치되어 있음. <code>foundations/</code>, <code>iconography/</code>처럼
+              섹션별 폴더로 재편할지, 유지할지.
+              <em>제안: v0.2 작업 시작 시 재편. 새 문서가 추가되기 전에 정리가 쉬움. GitHub 커밋 한 번으로 이동.</em>
+            </li>
+            <li>
+              <b>Q5 · 문서 버전 정책.</b> 파일명에 <code>v0.1</code>을 박을지(현재 방식),
+              파일명은 고정하고 문서 상단 메타에만 버전을 표시할지.
+              <em>제안: 파일명에서 버전 제거. Git이 버전을 관리하게 하고, 파일명은 안정적으로 유지 (링크 깨짐 방지).</em>
+            </li>
+            <li>
+              <b>Q6 · Patterns 섹션 착수 시점.</b> Components 이전에 Patterns부터 써도 되는가?
+              실제 제품 화면을 먼저 문서화하는 bottom-up 방식이 의미가 있을지.
+              <em>제안: 의미 있음. "WLI 측정 뷰 하나"를 먼저 Patterns에 써보면, 어떤 Components가 실제로 필요한지 역으로 드러난다. v0.2에서 Pattern 1개를 시험 삼아 써보는 걸 권장.</em>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>Park.ds · Information Architecture · v0.1 draft</span>
+    <span><a href="index.html">← Home</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
