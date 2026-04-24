@@ -160,14 +160,14 @@
     <div class="kicker">Park Systems · Design System</div>
     <h1>Park.ds</h1>
     <p class="lede">
-      Park Systems의 전사 소프트웨어·웹·펌웨어 UI를 위한 디자인 언어.
-      Adobe Spectrum이 Adobe 제품군에 하는 일을, Park.ds가 WLI·AFM·SmartAnalysis·Repeatability·
-      그리고 앞으로 만들어질 모든 Park 제품에 한다.
+      Park Systems의 SW 플랫폼 <b>Pancras</b>에 대한 디자인 언어.
+      Pancras 기반의 모든 제품 — 장비 제어 SW (WLI · AFM · DHM · ISE) 와
+      스탠드얼론 SW (Repeatability · Smart Analysis) — 에 공통으로 적용된다.
     </p>
     <div class="hero-meta">
       <div>VERSION<b>v0.1 · draft</b></div>
       <div>UPDATED<b>2026-04-24</b></div>
-      <div>STACK<b>WPF / DevExpress · Web · Firmware</b></div>
+      <div>PLATFORM<b>Pancras · WPF / DevExpress</b></div>
       <div>AUDIENCE<b>Park Systems 내부</b></div>
     </div>
   </div>
@@ -259,7 +259,7 @@
   <section>
     <div class="sec-head">
       <h2>Iconography <small>235개 아이콘 · 5 tiers × 12 groups</small></h2>
-      <span class="count">2 drafted · 1 test</span>
+      <span class="count">2 drafted</span>
     </div>
 
     <div class="cards">
@@ -271,17 +271,6 @@
           <span class="status draft">DRAFT</span>
           <span class="sep">·</span>
           <span>v0.1 · 2026-04</span>
-        </div>
-      </a>
-
-      <a class="card" data-doc="icon-inventory" data-status="test">
-        <div class="card-num">07 · ICON</div>
-        <h3>Inventory (test)</h3>
-        <p>9개 샘플 아이콘으로 파이프라인 검증. Figma 원본 → <code style="font-family:var(--mono);font-size:11px">currentColor</code> 변환 → 리네이밍 → SVGO → WPF ResourceDictionary 배포.</p>
-        <div class="meta">
-          <span class="status test">TEST</span>
-          <span class="sep">·</span>
-          <span>v0.1 · 9/235 샘플</span>
         </div>
       </a>
 
@@ -341,10 +330,64 @@
     </div>
   </section>
 
-  <!-- HANDOFF -->
+  <!-- EQUIPMENT CONTROL -->
   <section>
     <div class="sec-head">
-      <h2>Handoff <small>개발진 전달 문서</small></h2>
+      <h2>Equipment Control <small>장비 제어 SW 전용 · WLI · AFM · DHM · ISE</small></h2>
+      <span class="count">0 · v0.2 착수 예정</span>
+    </div>
+
+    <div class="cards">
+      <div class="card empty" data-status="todo">
+        <div class="card-num">30 · EQUIPMENT</div>
+        <h3>Equipment State &amp; Status</h3>
+        <p>SEMI E10 기반 6상태 체계를 Color Foundation의 Equipment State 6색과 연결. 상단 status bar 패턴 (Host · Comm · Link · User · Mode · Equipment · Process).</p>
+        <div class="meta">
+          <span class="status todo">TODO</span>
+          <span class="sep">·</span>
+          <span>SEMI E10 · v0.2</span>
+        </div>
+      </div>
+
+      <div class="card empty" data-status="todo">
+        <div class="card-num">31 · EQUIPMENT</div>
+        <h3>Stage &amp; Motion Control</h3>
+        <p>XY pad · Sliding · Rotation · Focus 슬라이더의 공통 상호작용 모델. Hold-to-move · Servo on/off · Soft limit · Step size · MAX/MIN/CENTER.</p>
+        <div class="meta">
+          <span class="status todo">TODO</span>
+          <span class="sep">·</span>
+          <span>SEMI E95 · v0.2</span>
+        </div>
+      </div>
+
+      <div class="card empty" data-status="todo">
+        <div class="card-num">32 · EQUIPMENT</div>
+        <h3>Live View &amp; Positioning</h3>
+        <p>Camera 영상 canvas · 오버레이 정보 배치, Wafer map + die grid, Sample/Die 좌표계, FOV preview 및 Image Stitching 미리보기.</p>
+        <div class="meta">
+          <span class="status todo">TODO</span>
+          <span class="sep">·</span>
+          <span>v0.2</span>
+        </div>
+      </div>
+
+      <div class="card empty" data-status="todo">
+        <div class="card-num">33 · EQUIPMENT</div>
+        <h3>Recipe &amp; Process Execution</h3>
+        <p>Recipe 저장·불러오기 (.psm), Acquire 버튼 destructive-safe 설계, 진행 중 표시, 중단·재시도 UX, Jobs/History 연계.</p>
+        <div class="meta">
+          <span class="status todo">TODO</span>
+          <span class="sep">·</span>
+          <span>v0.3+</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HANDOFF AND REFERENCES -->
+  <section>
+    <div class="sec-head">
+      <h2>Handoff &amp; References <small>개발진 전달 문서 + 외부 참조</small></h2>
       <span class="count">1 · 지속 업데이트</span>
     </div>
 
@@ -359,6 +402,17 @@
           <span>App.xaml 교체 가이드</span>
         </div>
       </a>
+
+      <div class="card empty" data-status="todo">
+        <div class="card-num">REF · SEMI</div>
+        <h3>SEMI Standards</h3>
+        <p>E10 (장비 상태) · E30 (GEM 통신) · E95 (UI 가이드라인) · S2 (안전 규격) 요약과 <b>제품별 준수 매트릭스</b>. WLI·AFM은 Full 준수, DHM·ISE는 N/A.</p>
+        <div class="meta">
+          <span class="status todo">TODO</span>
+          <span class="sep">·</span>
+          <span>v0.2</span>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -233,7 +233,9 @@
       <div></div>
       <div class="content">
         <p class="lede">
-          Park.ds는 Park Systems의 <b>전사 소프트웨어·웹·펌웨어 UI</b>를 위한 단일 디자인 언어다.
+          Park.ds는 Park Systems의 SW 플랫폼 <b>Pancras</b>에 대한 디자인 언어다.
+          Pancras 기반의 모든 제품 — <b>장비 제어 SW</b>(WLI · AFM · DHM · ISE)와
+          <b>스탠드얼론 SW</b>(Repeatability · Smart Analysis) — 에 공통으로 적용된다.
           1차 독자는 <b>내부 개발진·디자이너</b>이며, 이 사이트는 마케팅 쇼케이스가 아니라
           <b>디자이너와 개발자 간의 계약서</b>이자 <b>의사결정 지원 시스템</b>이다.
           Spectrum의 구조를 참조하되, WPF/DevExpress 현실과 solo 운영 체제에 맞게
@@ -279,7 +281,8 @@
       <div></div>
       <div class="content">
         <p>Park.ds 사이트는 다음 7개 섹션으로 구성된다. 순서는 <b>의존성 순</b>이다 —
-          Foundation이 Iconography를 전제하지 않고, Components는 Foundation+Icon 위에 세워진다.</p>
+          Foundation이 Iconography를 전제하지 않고, Components는 Foundation+Icon 위에 세워진다.
+          Equipment Control은 장비 제어 SW(WLI·AFM·DHM·ISE)에 한해 적용되며, 스탠드얼론 SW에는 해당하지 않는다.</p>
 
         <div class="tree">
 <span class="root">Park.ds</span>
@@ -296,37 +299,40 @@
 
 <span class="sec">├── Iconography <span class="note" style="font-weight:400">— 235 icons · 5 tiers</span></span>
 <span class="leaf">06 Naming <span class="status draft">DRAFT</span></span>
-<span class="leaf">07 Inventory (test) <span class="status test">TEST</span></span>
 <span class="leaf last">08 Library <span class="status draft">DRAFT</span></span>
 
-<span class="sec">├── Components <span class="note" style="font-weight:400">— DevExpress 위의 Park 레이어</span></span>
+<span class="sec">├── Components <span class="note" style="font-weight:400">— DevExpress 위의 Pancras 레이어</span></span>
 <span class="leaf">10 Button <span class="status todo">TODO</span></span>
 <span class="leaf">11 Input <span class="status todo">TODO</span></span>
-<span class="leaf">12 Table (GridControl) <span class="status todo">TODO</span></span>
-<span class="leaf last">… (IA 결정 후 상세화)</span>
+<span class="leaf last">12 Table (GridControl) <span class="status todo">TODO</span></span>
 
-<span class="sec">├── Patterns <span class="note" style="font-weight:400">— 반복되는 화면·흐름</span></span>
+<span class="sec">├── Patterns <span class="note" style="font-weight:400">— 일반 화면 레시피 (모든 Pancras SW 공통)</span></span>
 <span class="leaf">20 Measurement View <span class="status todo">TODO</span></span>
 <span class="leaf">21 Recipe Editor <span class="status todo">TODO</span></span>
 <span class="leaf last">22 Equipment Dashboard <span class="status todo">TODO</span></span>
 
-<span class="sec">├── Handoff <span class="note" style="font-weight:400">— 개발진 전달 문서 (스택별)</span></span>
+<span class="sec">├── Equipment Control <span class="note" style="font-weight:400">— 장비 제어 SW 전용 (WLI · AFM · DHM · ISE)</span></span>
+<span class="leaf">30 Equipment State &amp; Status <span class="status todo">TODO</span><span class="note">— SEMI E10 기반</span></span>
+<span class="leaf">31 Stage &amp; Motion Control <span class="status todo">TODO</span><span class="note">— Jog · 슬라이더 · Servo</span></span>
+<span class="leaf">32 Live View &amp; Positioning <span class="status todo">TODO</span><span class="note">— Camera · Wafer map · Die grid</span></span>
+<span class="leaf last">33 Recipe &amp; Process Execution <span class="status todo">TODO</span><span class="note">— v0.3+</span></span>
+
+<span class="sec">└── Handoff and References <span class="note" style="font-weight:400">— 개발진 전달 문서 + 외부 참조</span></span>
 <span class="leaf">WPF / DevExpress <span class="status draft">1 doc</span><span class="note">— Typography XAML v0.2 기존</span></span>
 <span class="leaf">Web <span class="status todo">TODO</span></span>
-<span class="leaf last">Firmware <span class="status todo">TODO</span></span>
-
-<span class="sec">└── Resources <span class="note" style="font-weight:400">— 부록</span></span>
-<span class="leaf">Changelog <span class="status todo">TODO</span></span>
-<span class="leaf">Open Questions (통합) <span class="status todo">TODO</span></span>
-<span class="leaf last">Contribution Guide <span class="status todo">TODO</span></span>
+<span class="leaf">Firmware <span class="status todo">TODO</span></span>
+<span class="leaf">References / SEMI Standards <span class="status todo">TODO</span><span class="note">— E10·E30·E95 + 제품별 준수 매트릭스</span></span>
+<span class="leaf">References / Changelog <span class="status todo">TODO</span></span>
+<span class="leaf last">References / Open Questions (통합) <span class="status todo">TODO</span></span>
         </div>
 
         <div class="note-box">
-          <b>왜 Patterns 섹션을 두는가?</b>
-          Park.ds의 실제 가치는 "Measurement View가 어떻게 생겨야 하는가" 같은 제품 수준 결정을
-          문서화할 때 나온다. Spectrum의 <i>Patterns</i> 섹션과 동일한 역할 — 여러 Component를
-          조합한 화면 레시피. Components 층이 비어 있어도, Patterns 층에는 "WLI의 표준 측정 뷰"
-          같은 실제 제품 페이지를 먼저 문서화할 수 있다.
+          <b>왜 Patterns와 Equipment Control을 분리하는가?</b>
+          Patterns는 <i>모든 Pancras SW가 공유하는</i> 일반 화면 레시피(Recipe Editor, Measurement View 등).
+          Equipment Control은 <i>실제 장비를 구동하는 SW만 해당하는</i> 특수 제어 UI (Jog, Live Viewer, Stage).
+          이 분리가 있어야 Repeatability·Smart Analysis 같은 스탠드얼론 SW 담당자가
+          "내 제품에 해당하지 않는 문서"를 건너뛸 수 있다. 각 Equipment Control 페이지 상단에는
+          <b>적용 제품 메타</b>가 명시된다.
         </div>
       </div>
     </div>
@@ -366,11 +372,6 @@
           <div class="new">Iconography / <b>06 Naming</b></div>
         </div>
         <div class="map-row">
-          <div class="old"><b>Park.ds-IconInventory(test).html</b></div>
-          <div class="arrow">→</div>
-          <div class="new">Iconography / <b>07 Inventory (test)</b></div>
-        </div>
-        <div class="map-row">
           <div class="old"><b>Park.ds-IconLibrary v0.1.html</b></div>
           <div class="arrow">→</div>
           <div class="new">Iconography / <b>08 Library</b></div>
@@ -406,11 +407,17 @@
             <tr><td class="mono">Foundations / 04 Elevation</td><td><span class="status-pill todo">TODO</span></td><td>초안 작성 (산업용 절제된 shadow)</td></tr>
             <tr><td class="mono">Foundations / 05 Motion</td><td><span class="status-pill todo">TODO</span></td><td>초안 작성 (equipment pulse 우선)</td></tr>
             <tr><td class="mono">Iconography / 06 Naming</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>규모 85 → 235로 갱신</td></tr>
-            <tr><td class="mono">Iconography / 07 Inventory</td><td><span class="status-pill test">TEST</span></td><td>9개 → 235개 확장 (파이프라인 자동화)</td></tr>
             <tr><td class="mono">Iconography / 08 Library</td><td><span class="status-pill draft">DRAFT v0.1</span></td><td>Tier×Group 이중 축 문서화 필요</td></tr>
             <tr><td class="mono">Components /*</td><td><span class="status-pill todo">TODO</span></td><td>커스텀 범위 결정 후 착수</td></tr>
-            <tr><td class="mono">Patterns /*</td><td><span class="status-pill todo">TODO</span></td><td>WLI 측정 뷰 샘플 1개부터</td></tr>
+            <tr><td class="mono">Patterns /*</td><td><span class="status-pill todo">TODO</span></td><td>일반 화면 레시피 — WLI 측정 뷰 샘플 1개부터</td></tr>
+            <tr><td class="mono">Equipment Control / 30 State &amp; Status</td><td><span class="status-pill todo">TODO</span></td><td>v0.2 — SEMI E10 기반, Color Equipment State 연결</td></tr>
+            <tr><td class="mono">Equipment Control / 31 Stage &amp; Motion</td><td><span class="status-pill todo">TODO</span></td><td>v0.2 — Jog · 슬라이더 공통 상호작용 모델</td></tr>
+            <tr><td class="mono">Equipment Control / 32 Live View</td><td><span class="status-pill todo">TODO</span></td><td>v0.2 — Camera 오버레이 · Wafer map · Die grid</td></tr>
+            <tr><td class="mono">Equipment Control / 33 Recipe Execution</td><td><span class="status-pill todo">TODO</span></td><td>v0.3 — Acquire · 진행 중 · 중단·재시도</td></tr>
             <tr><td class="mono">Handoff / WPF / 02a Typography</td><td><span class="status-pill draft">DRAFT v0.2</span></td><td>개발진 전달됨 — 적용 확인 대기</td></tr>
+            <tr><td class="mono">Handoff / Web · Firmware</td><td><span class="status-pill todo">TODO</span></td><td>해당 제품 착수 시</td></tr>
+            <tr><td class="mono">References / SEMI Standards</td><td><span class="status-pill todo">TODO</span></td><td>v0.2 — E10·E30·E95 + 제품별 준수 매트릭스</td></tr>
+            <tr><td class="mono">References / Changelog · Open Q</td><td><span class="status-pill todo">TODO</span></td><td>v0.3 — 문서 성숙 후</td></tr>
           </tbody>
         </table>
       </div>
@@ -632,7 +639,9 @@
                 (1) 기존 3 Foundation의 Open Questions 해소 및 확정 <br>
                 (2) Foundation 04 Elevation · 05 Motion 초안 <br>
                 (3) Icon Inventory 9개 → 235개 확장 · Naming 규모 갱신 <br>
-                (4) Components 범위 결정 · Button·Input·Table 3개 착수
+                (4) Components 범위 결정 · Button·Input·Table 3개 착수 <br>
+                (5) <b>Equipment Control 30·31·32 초안</b> (Pancras 장비 제어 SW) <br>
+                (6) <b>References / SEMI Standards</b> 초안 (제품별 준수 매트릭스 포함)
               </td>
             </tr>
             <tr>
@@ -641,7 +650,8 @@
               <td>
                 (1) Neutral Layer 도입 판단 · 토큰 파이프라인 구축 여부 <br>
                 (2) Patterns 첫 문서 — Measurement View (WLI 기준) <br>
-                (3) Web 플랫폼 Handoff 문서 착수 (웹 UI 제품이 있다면)
+                (3) Equipment Control 33 Recipe Execution 추가 <br>
+                (4) Web 플랫폼 Handoff 문서 착수 (웹 UI 제품이 있다면)
               </td>
             </tr>
             <tr>
@@ -710,7 +720,18 @@
               실제 제품 화면을 먼저 문서화하는 bottom-up 방식이 의미가 있을지.
               <em>제안: 의미 있음. "WLI 측정 뷰 하나"를 먼저 Patterns에 써보면, 어떤 Components가 실제로 필요한지 역으로 드러난다. v0.2에서 Pattern 1개를 시험 삼아 써보는 걸 권장.</em>
             </li>
-          </ol>
+            <li>
+              <b>Q7 · 제품별 SEMI 준수 매트릭스.</b> Pancras 기반 제품 중
+              WLI·AFM은 SEMI 준수 필요, DHM·ISE는 장비 제어지만 반도체가 아니므로 SEMI 불필요,
+              Repeatability·Smart Analysis는 스탠드얼론이라 Equipment Control 자체가 비해당.
+              각 제품이 어느 SEMI 표준을(E10 · E30 · E95 · S2 …) 어디까지 준수하는지 확정 필요.
+              <em>제안: References / SEMI Standards 문서의 첫 번째 표로 작성. 제품별 × 표준별 매트릭스. 준수 수준은 Full · Partial · N/A 3단계로 단순화. 개발 리드·품질팀과 공동 작성.</em>
+            </li>
+            <li>
+              <b>Q8 · Equipment Control 작성 순서.</b> 30 Status / 31 Stage / 32 Live View 중
+              어느 것을 먼저 써야 가장 많은 혼선을 줄일 수 있는가.
+              <em>제안: 30 Status 먼저. 이유는 (a) 기존 Color Foundation의 Equipment State 6색과 직접 연결되어 작성 비용이 낮고, (b) 상단 status bar는 모든 장비 제어 SW 화면에 공통으로 떠 있어서 일관성 확보 효과가 가장 크며, (c) SEMI E10 참조의 앵커 역할을 한다. 그다음 31 Stage, 마지막 32 Live View.</em>
+            </li></ol>
         </div>
       </div>
     </div>
