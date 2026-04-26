@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_MTD_MGR_008 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_MTD_MGR_008" data-parent="index.html" data-prev="TC_MTD_MGR_007" data-next="TC_MTD_CMP_001" data-prev-title="Method Direct Download (서버 → 로컬)" data-next-title="Compare Methods 화면 진입 및 대상 선택">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">MTD · Method</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Method Manager</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">Method 삭제</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">4 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Method
+        <span class="sep">/</span> Method Manager
+        <span class="sep">/</span> TC_MTD_MGR_008
+      </div>
+      <div class="tc-detail-id">TC_MTD_MGR_008</div>
+      <h1 class="tc-detail-title">Method 삭제 기능 (권한 · 확인 팝업)</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>삭제 대상 Method "TEST_METHOD"가 서버에 존재 (버전 2개 포함)</li>
+        <li>해당 Method가 어떤 장비에도 현재 배포되어 있지 않음</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Method Manager에서 "TEST_METHOD" 선택</li>
+        <li>우측 액션 영역의 <code>Delete</code> 버튼 클릭</li>
+        <li>확인 팝업 내용 확인 (버전 수 포함 여부 등)</li>
+        <li>"확인" 선택</li>
+        <li>Method가 목록에서 제거되고 History에 삭제 이력 기록 확인</li>
+        <li>동일 시나리오로 Operator 계정에서 시도 → Delete 버튼 비활성/숨김 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Method: TEST_METHOD (v1, v2 포함)
+Login 1: admin_test (Admin) — 삭제 성공
+Login 2: operator_test (Operator) — 삭제 차단</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>확인 팝업에 Method 이름, 버전 수, 영향 안내가 명시됨</li>
+        <li>"확인" 시 Method와 모든 버전이 서버에서 삭제</li>
+        <li>Method History에 삭제 이력이 기록 (삭제자, 시각, 버전 수)</li>
+        <li>"취소" 시 변경 없음</li>
+        <li>Operator 계정에서는 Delete 버튼 자체가 비활성 또는 숨김</li>
+        <li>현재 어떤 장비에 배포된 Method는 삭제 시도 시 경고 또는 차단 (정책 확인 필요)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>Recipe와 동일 정책:</strong> Recipe 삭제(TC_RCP_MGR_009)와 같은 정책을 적용해야 일관성 유지.</p>
+        <p><strong>정책 확정 필요:</strong> 현재 배포 중인 Method의 삭제 허용 여부.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">일관성</span> Recipe와 Method의 삭제 정책을 통일해야 합니다. 권장: <strong>현재 배포 중인 Method는 경고 후 허용 + 배포된 장비 목록 명시</strong>.</p>
+        <p><span class="proposal-tag">데이터 무결성</span> Recipe와 동일하게 <strong>소프트 삭제(Soft Delete)</strong>를 권장드립니다. 30일 복원 가능하도록.</p>
+        <p><span class="proposal-tag">UX 개선</span> 파괴적 액션이므로 확인 팝업의 "삭제" 버튼은 빨간색, 기본 포커스는 "취소"에 두는 것을 제안드립니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_MTD_MGR_007.html">← 이전: TC_MTD_MGR_007</a>
+        <a href="TC_MTD_CMP_001.html">다음: TC_MTD_CMP_001 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>
