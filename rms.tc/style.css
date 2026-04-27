@@ -945,10 +945,6 @@ code, .mono {
 ::-webkit-scrollbar-thumb { background: var(--ink-300); border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--ink-400); }
 
-/* ============================================================
-   TC → URS 역방향 링크 (Step B)
-   ============================================================ */
-
 /* 사이드바: 관련 URS 링크 */
 .meta-list__urs-link {
   font-family: ui-monospace, SFMono-Regular, monospace;
@@ -1073,4 +1069,245 @@ code, .mono {
   font-style: italic;
   margin-top: 4px;
   padding-left: 4px;
+}
+
+
+/* ============================================================
+   관련 항목 섹션 (Step B - 새 구조)
+   사이드바 간략 + 본문 상세
+   ============================================================ */
+
+/* === 사이드바: 관련 항목 === */
+.meta-list__item--related {
+  display: block !important;
+}
+
+.meta-related {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.meta-related__row {
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 8px;
+  align-items: start;
+  font-size: 11px;
+}
+
+.meta-related__label {
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-top: 2px;
+}
+
+.meta-related__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.meta-related__chip {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: #245081;
+  text-decoration: none;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 3px;
+  padding: 1px 5px;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.meta-related__chip:hover {
+  background: #dbeafe;
+  text-decoration: none;
+}
+
+.meta-related__chip--self {
+  background: #f1f5f9;
+  color: #94a3b8;
+  border-color: #cbd5e1;
+  cursor: default;
+  font-weight: 700;
+}
+
+.meta-related__empty {
+  color: #cbd5e1;
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* === 본문: 관련 항목 섹션 === */
+.tc-section--related {
+  background: #f8fafc;
+  border-left: 3px solid #245081;
+  border-radius: 0 4px 4px 0;
+  margin-top: 24px;
+}
+
+.tc-section--related .tc-section__num {
+  background: #245081;
+  color: #fff;
+}
+
+.related-intro {
+  margin: 0 0 14px 0;
+  font-size: 13px;
+  color: #475569;
+}
+
+.related-group {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.related-group:last-child {
+  margin-bottom: 0;
+}
+
+.related-group__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.related-group__label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a3a5c;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: #245081;
+  color: #fff;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.related-group__count {
+  font-size: 11px;
+  color: #64748b;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-weight: 600;
+}
+
+.related-group--empty .related-group__head {
+  opacity: 0.6;
+}
+
+.related-group__empty-msg {
+  margin: 0;
+  padding: 12px 14px;
+  font-size: 12px;
+  color: #94a3b8;
+  font-style: italic;
+}
+
+.related-group__items {
+  padding: 4px 0;
+}
+
+.related-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: #1f2937;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13px;
+  flex-wrap: wrap;
+}
+
+.related-item:last-child {
+  border-bottom: none;
+}
+
+.related-item:hover {
+  background: #f8fafc;
+  text-decoration: none;
+}
+
+.related-item:hover .related-item__title {
+  color: #245081;
+}
+
+.related-item--self {
+  background: #fef3c7;
+  cursor: default;
+}
+
+.related-item--self:hover {
+  background: #fef3c7;
+}
+
+.related-item__id {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #245081;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 3px;
+  padding: 2px 7px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.related-item--self .related-item__id {
+  background: #fde68a;
+  color: #92400e;
+  border-color: #fbbf24;
+}
+
+.related-item__title {
+  flex: 1;
+  font-size: 13px;
+  color: #1f2937;
+  font-weight: 500;
+}
+
+.related-item__role {
+  font-size: 11px;
+  color: #64748b;
+  font-style: italic;
+}
+
+.related-item__refs {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 10px;
+  color: #245081;
+  background: #f1f5f9;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.related-item__self-badge {
+  font-size: 10px;
+  color: #92400e;
+  background: #fde68a;
+  border: 1px solid #fbbf24;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
 }

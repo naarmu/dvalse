@@ -31,8 +31,9 @@
       label: "UXUI",
       icon: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
       children: [
-        { key: "ux-scenario", label: "UX 시나리오", href: "#", disabled: true },
-        { key: "ui-design", label: "UI 디자인", href: "#", disabled: true },
+        { key: "ux-scenario", label: "UX Scenario", href: "uxui-index.html", comingSoon: true },
+        { key: "ui-keyscreen", label: "UI Keyscreen", href: "uxui-index.html", comingSoon: true },
+        { key: "ui-specification", label: "UI Specification", href: "uxui-index.html", comingSoon: true },
       ],
     },
     {
@@ -61,8 +62,9 @@
     "urs":          '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/>',
     "funclist":     '<path d="M3 6h18M3 12h18M3 18h18"/>',
     "srs":          '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>',
-    "ux-scenario":  '<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
-    "ui-design":    '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+    "ux-scenario":    '<circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/>',
+    "ui-keyscreen":   '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+    "ui-specification": '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h4"/>',
     "test-cases":   '<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/>',
     "execution":    '<polygon points="5 3 19 12 5 21 5 3"/>',
     "history":      '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
@@ -185,7 +187,7 @@
       const disabledCls = child.disabled ? " subnav-item--disabled" : "";
       const iconPath = SUBNAV_ICONS[child.key] || FILE_ICON;
       const iconHtml = svgIcon(iconPath, 13);
-      const badgeHtml = child.disabled
+      const badgeHtml = (child.disabled || child.comingSoon)
         ? `<span class="subnav-item__badge">준비중</span>`
         : "";
 
@@ -203,6 +205,7 @@
           <div class="subnav-item active">
             ${iconHtml}
             <span>${child.label}</span>
+            ${badgeHtml}
           </div>`;
       }
 
@@ -211,6 +214,7 @@
           <a href="${child.href}">
             ${iconHtml}
             <span>${child.label}</span>
+            ${badgeHtml}
           </a>
         </div>`;
     }).join("");
