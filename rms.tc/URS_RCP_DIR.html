@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_RCP_DIR · Direct Upload/Download · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_RCP_DIR" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Direct Upload/Download</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">김태호 (ted.gim)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">6건 (RCP_DIR)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Direct Upload/Download
+        <span class="sep">/</span> URS_RCP_DIR
+      </div>
+      <div class="tc-detail-id">URS_RCP_DIR</div>
+      <h1 class="tc-detail-title">Recipe 직접 업·다운로드</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--critical">Core Function</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>로컬 PC에 보관된 Recipe(.psr) 파일을 RMS 서버에 직접 업로드하거나, 서버에 등록된 Recipe를 로컬 PC로 다운로드하는 기능이다. 일반적인 Recipe 운영 흐름(장비 → 서버 수집)을 거치지 않고 RMS 서버와 로컬 PC 사이에서 파일을 직접 주고받는 경로를 제공한다.</p>
+          <p>Deploy Custom XML이 외부에서 새 Recipe를 정의하여 도입하는 경로라면, Direct Upload/Download는 이미 .psr 형태로 존재하는 Recipe를 RMS 안팎으로 옮기는 경로이다. Recipe 백업·복원, 외부 시스템과의 자료 교환 등의 운영 시나리오에 사용된다.</p>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>공정 표준화 팀 — 외부에서 받은 표준 Recipe를 RMS에 도입</li>
+            <li>장비 엔지니어 — Recipe를 로컬에 백업하거나 외부 분석 도구로 전달</li>
+            <li>RMS 관리자 — 다른 RMS 인스턴스 또는 시스템과의 Recipe 자료 교환</li>
+          </ul>
+
+          <p><strong>Pain Point (이 기능 도입 전)</strong></p>
+          <ul>
+            <li>외부에서 받은 Recipe를 RMS에 등록하려면 장비를 거쳐야 함</li>
+            <li>Recipe 백업이 자동 수집 외에는 수단이 없음</li>
+            <li>Recipe 파일 자체를 외부에 전달할 표준화된 방법이 없음</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>장비를 거치지 않고 .psr 파일을 RMS에 직접 등록 가능</li>
+            <li>Recipe를 로컬 파일로 백업하거나 외부에 전달 가능</li>
+            <li>업로드·다운로드 이력이 자동 기록되어 추적 가능</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. 직접 업로드</p>
+          <ul>
+            <li><strong>FR-1.1</strong> 사용자는 로컬 PC의 .psr 파일을 파일 선택 또는 드래그 앤 드롭으로 업로드할 수 있어야 한다.</li>
+            <li><strong>FR-1.2</strong> 업로드 진행률이 표시되어야 한다.</li>
+            <li><strong>FR-1.3</strong> 업로드 완료 후 해당 Recipe는 Recipe Manager에 신규 Recipe로 표시된다.</li>
+            <li><strong>FR-1.4</strong> 업로드된 Recipe의 출처는 "Direct Upload"로 시각 아이콘 표시된다.</li>
+            <li><strong>FR-1.5</strong> 업로드된 Recipe는 일반 Recipe와 동일하게 모든 기능(Compare, Deploy, Direct Download)을 사용할 수 있다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. 파일 유효성 검증</p>
+          <ul>
+            <li><strong>FR-2.1</strong> 확장자가 .psr이 아닌 파일은 클라이언트 단계에서 즉시 차단한다.</li>
+            <li><strong>FR-2.2</strong> 서버는 파일의 매직 바이트와 내부 구조를 검증한다. 손상된 파일은 거부한다.</li>
+            <li><strong>FR-2.3</strong> 검증 실패 시 명확한 에러 메시지를 제공하며, 서버에 파일이 저장되지 않는다.</li>
+            <li><strong>FR-2.4</strong> 업로드 파일은 안티바이러스 스캔을 통과해야 등록된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. 동명 파일 처리</p>
+          <ul>
+            <li><strong>FR-3.1</strong> 서버에 동일 이름의 Recipe가 이미 존재하는 경우, 사용자에게 처리 옵션을 제공한다: 새 버전 추가 / 덮어쓰기 / 취소.</li>
+            <li><strong>FR-3.2</strong> 기본 선택값은 "새 버전 추가"이다.</li>
+            <li><strong>FR-3.3</strong> "덮어쓰기"는 명시적 사용자 선택 시에만 수행된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. 직접 다운로드</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 사용자는 Recipe Manager에서 Recipe를 선택하고 다운로드 버튼을 통해 .psr 파일을 로컬 PC로 받을 수 있어야 한다.</li>
+            <li><strong>FR-4.2</strong> 다운로드 파일명은 자동 규칙에 따라 생성된다: <code>&lt;Recipe명&gt;_v&lt;버전&gt;_&lt;날짜&gt;.psr</code>.</li>
+            <li><strong>FR-4.3</strong> 다운로드된 파일을 다시 업로드하면 원본과 동일한 결과가 보장되어야 한다(라운드트립 무결성).</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. 이력 기록</p>
+          <ul>
+            <li><strong>FR-5.1</strong> 업로드와 다운로드는 모두 Recipe History에 자동 기록된다.</li>
+            <li><strong>FR-5.2</strong> 기록 정보에는 사용자, 시각, 파일명, Recipe/버전, 액션 타입(Upload/Download), 파일 해시값(SHA-256)이 포함된다.</li>
+            <li><strong>FR-5.3</strong> 이력은 수정·삭제할 수 없다(append-only).</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 보안</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> 업로드는 클라이언트 확장자 검증, 서버 매직 바이트 검증, 안티바이러스 스캔의 3단계 방어를 거친다.</li>
+            <li><strong>NFR-1.2</strong> 업로드 파일이 장비로 재배포될 가능성이 있으므로, 출처 검증을 위해 추가 확인 절차를 둔다.</li>
+            <li><strong>NFR-1.3</strong> Direct Upload 권한은 Vendor, Admin, Engineer로 한정된다.</li>
+            <li><strong>NFR-1.4</strong> Direct Download 권한은 모든 사용자(All Roles)에게 허용한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 데이터 무결성</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> 업로드·다운로드 이력에 파일 해시값(SHA-256)을 포함하여 사후 검증이 가능해야 한다.</li>
+            <li><strong>NFR-2.2</strong> 다운로드 → 재업로드 시 파일 내용이 동일해야 한다(라운드트립 무손실).</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. 성능 · 제약</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> 업로드 가능한 .psr 파일 최대 크기는 10MB이다.</li>
+            <li><strong>NFR-3.2</strong> 일반 환경에서 5MB 파일 업로드 완료까지 10초 이내.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> Direct Upload된 Recipe는 Recipe Manager에서 <strong>Direct Upload 출처 아이콘</strong>으로 시각 구분된다. 검증 책임 주체가 사용자임을 명확히 하기 위함이다.</li>
+            <li><span class="proposal-tag">정책</span> 동명 파일 업로드 시 기본 동작은 <strong>새 버전 추가</strong>이다. 덮어쓰기는 명시적 사용자 선택 시에만 수행된다.</li>
+            <li><span class="proposal-tag">정책</span> 다운로드 파일명은 <strong>"&lt;Recipe명&gt;_v&lt;버전&gt;_&lt;날짜&gt;.psr"</strong> 규칙으로 자동 생성된다.</li>
+            <li><span class="proposal-tag">정책</span> 업로드·다운로드 이력은 파일 해시값(SHA-256)을 포함해 기록된다. 사후 무결성 검증에 사용된다.</li>
+            <li><span class="proposal-tag">제약</span> .psr 파일 최대 크기 10MB.</li>
+            <li><span class="proposal-tag">제약</span> Direct Upload 권한은 Vendor, Admin, Engineer로 한정된다. Direct Download는 모든 사용자에게 허용된다.</li>
+            <li><span class="proposal-tag">제약</span> 업로드 파일은 안티바이러스 스캔을 통과해야 서버에 등록된다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 6건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_RCP_DIR_001.html">TC_RCP_DIR_001</a> — 로컬 PC에서 Recipe(.psr) 파일 서버로 직접 업로드 <span class="urs-fr-ref">(FR-1)</span></li>
+            <li><a href="TC_RCP_DIR_002.html">TC_RCP_DIR_002</a> — 잘못된 확장자 · 손상된 파일 업로드 거부 <span class="urs-fr-ref">(FR-2, NFR-1.1)</span></li>
+            <li><a href="TC_RCP_DIR_003.html">TC_RCP_DIR_003</a> — 서버의 Recipe를 로컬 PC로 직접 다운로드 <span class="urs-fr-ref">(FR-4)</span></li>
+            <li><a href="TC_RCP_DIR_004.html">TC_RCP_DIR_004</a> — 업로드한 Recipe가 Recipe Manager에 정상 반영 <span class="urs-fr-ref">(FR-1.3, FR-1.4, FR-1.5)</span></li>
+            <li><a href="TC_RCP_DIR_005.html">TC_RCP_DIR_005</a> — 동일 이름 Recipe 업로드 시 버전 처리 <span class="urs-fr-ref">(FR-3)</span></li>
+            <li><a href="TC_RCP_DIR_006.html">TC_RCP_DIR_006</a> — 업로드 · 다운로드 이력이 Log에 기록 <span class="urs-fr-ref">(FR-5, NFR-2.1)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성. TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

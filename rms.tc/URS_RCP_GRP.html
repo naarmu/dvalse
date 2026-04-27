@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_RCP_GRP · Manage Recipe Groups · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_RCP_GRP" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Manage Recipe Groups</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">김태호 (ted.gim)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">6건 (RCP_GRP)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Manage Recipe Groups
+        <span class="sep">/</span> URS_RCP_GRP
+      </div>
+      <div class="tc-detail-id">URS_RCP_GRP</div>
+      <h1 class="tc-detail-title">Recipe 그룹 관리</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--high">Organization</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>여러 Recipe를 의미 있는 단위로 묶어 관리하는 기능이다. 사용자는 Recipe를 공정별, 용도별, 장비별 등 다양한 관점으로 분류하여 그룹을 만들고, 그룹 단위로 조회하거나 일괄 작업을 수행한다.</p>
+          <p>Recipe 수가 늘어남에 따라 단순한 평면 목록만으로는 관리가 어려워진다. Recipe 그룹은 운영 맥락에 맞는 분류 체계를 사용자가 직접 정의할 수 있도록 하는 기능이다.</p>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>공정 표준화 팀 — 공정별, 용도별 Recipe 분류</li>
+            <li>RMS 관리자 — Recipe 자산 관리 체계 구성</li>
+            <li>공정 엔지니어 — 자주 사용하는 Recipe 묶음 빠른 접근</li>
+          </ul>
+
+          <p><strong>Pain Point (RMS 도입 전)</strong></p>
+          <ul>
+            <li>Recipe가 많아질수록 원하는 항목을 찾기 어려움</li>
+            <li>같은 용도의 Recipe들을 묶어서 다루고 싶지만 평면 목록만으로는 한계</li>
+            <li>관점이 여럿(공정·장비·용도)인데 단일 분류만으로는 부족</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>Recipe 자산을 운영 맥락에 맞춰 분류 가능</li>
+            <li>그룹 단위 조회·일괄 작업으로 작업 효율 향상</li>
+            <li>다중 그룹 소속을 지원하여 복수 관점의 분류 동시 적용 가능</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. 그룹 생성</p>
+          <ul>
+            <li><strong>FR-1.1</strong> 사용자는 새 Recipe 그룹을 생성할 수 있어야 한다.</li>
+            <li><strong>FR-1.2</strong> 그룹 생성 시 Group Name과 초기 멤버 Recipe를 선택할 수 있다.</li>
+            <li><strong>FR-1.3</strong> 동일한 이름의 그룹은 생성할 수 없다. 중복 시 명확한 에러 메시지가 표시된다.</li>
+            <li><strong>FR-1.4</strong> 그룹명 중복 검사는 대소문자를 구분하지 않는다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. 멤버 편집</p>
+          <ul>
+            <li><strong>FR-2.1</strong> 사용자는 기존 그룹에 Recipe를 추가하거나 제거할 수 있어야 한다.</li>
+            <li><strong>FR-2.2</strong> 드래그 앤 드롭 방식으로 Recipe 이동을 지원한다.</li>
+            <li><strong>FR-2.3</strong> 멤버 변경 사항은 다른 화면(Recipe Manager 등)에 즉시 반영된다.</li>
+            <li><strong>FR-2.4</strong> 한 Recipe는 여러 그룹에 동시 소속될 수 있다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. 그룹 정보 변경</p>
+          <ul>
+            <li><strong>FR-3.1</strong> 사용자는 그룹 이름을 변경할 수 있어야 한다.</li>
+            <li><strong>FR-3.2</strong> 이름 변경 시 변경 이력이 기록되며, 이전 이름이 함께 보존된다.</li>
+            <li><strong>FR-3.3</strong> 이름 변경은 다른 화면에 즉시 반영된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. 그룹 삭제</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 사용자는 그룹을 삭제할 수 있어야 한다.</li>
+            <li><strong>FR-4.2</strong> 소속 Recipe가 있는 그룹을 삭제할 때, 사용자에게 경고가 표시된다.</li>
+            <li><strong>FR-4.3</strong> 그룹 삭제 시 그룹만 제거되며, 소속 Recipe 자체는 유지된다. Recipe는 "미지정" 상태로 복귀한다.</li>
+            <li><strong>FR-4.4</strong> 단, 해당 Recipe가 다른 그룹에도 소속된 경우, 그 그룹과의 관계는 유지된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. 다른 화면과의 연동</p>
+          <ul>
+            <li><strong>FR-5.1</strong> 그룹 정보는 Recipe Manager의 트리에 그룹 노드로 표시된다.</li>
+            <li><strong>FR-5.2</strong> Deploy Recipes 등의 화면에서 Recipe 그룹 단위로 대상을 선택할 수 있다(현재 범위는 Equipment 그룹만 지원).</li>
+            <li><strong>FR-5.3</strong> Recipe 그룹과 Equipment 그룹은 서로 다른 개념이며, UI에서 명확히 구분 표시되어야 한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 권한</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> 그룹 생성, 멤버 편집, 이름 변경, 삭제는 Vendor, Admin만 수행 가능하다.</li>
+            <li><strong>NFR-1.2</strong> 일반 사용자는 그룹 정보를 조회할 수 있으나 변경할 수 없다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 데이터 무결성</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> 그룹 변경 이력(생성·수정·삭제)은 자동 기록되며 수정·삭제할 수 없다.</li>
+            <li><strong>NFR-2.2</strong> 그룹 삭제 시 소속 Recipe는 절대 함께 삭제되지 않는다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. UI 일관성</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> Recipe 그룹과 Equipment 그룹의 관리 화면은 동일한 UX 패턴을 따른다(생성·편집·삭제 동작 흐름).</li>
+            <li><strong>NFR-3.2</strong> Recipe 그룹 노드와 Equipment 그룹 노드는 시각적으로 구분 가능하도록 표시된다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> Recipe는 <strong>여러 그룹에 동시 소속</strong>될 수 있다. 공정·용도·장비 등 다축 분류가 필요하기 때문이다. (Equipment 그룹의 단일 소속 정책과 의도적으로 다르다.)</li>
+            <li><span class="proposal-tag">정책</span> 그룹 삭제 시 소속 Recipe는 보존된다. Recipe는 다른 그룹 소속을 유지하거나 "미지정" 상태로 복귀한다.</li>
+            <li><span class="proposal-tag">정책</span> 그룹명 중복 검사는 <strong>대소문자를 구분하지 않는다</strong>. (Equipment 그룹과 동일 정책)</li>
+            <li><span class="proposal-tag">정책</span> Recipe 그룹 변경 이력은 자동 기록되며 수정·삭제할 수 없다.</li>
+            <li><span class="proposal-tag">제약</span> 그룹 관리 권한은 Vendor, Admin로 한정된다.</li>
+            <li><span class="proposal-tag">제약</span> Recipe 그룹과 Equipment 그룹은 별개의 데이터 모델이며 상호 변환되지 않는다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 6건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_RCP_GRP_001.html">TC_RCP_GRP_001</a> — Recipe 그룹 생성 <span class="urs-fr-ref">(FR-1)</span></li>
+            <li><a href="TC_RCP_GRP_002.html">TC_RCP_GRP_002</a> — 그룹명 중복 차단 <span class="urs-fr-ref">(FR-1.3, FR-1.4)</span></li>
+            <li><a href="TC_RCP_GRP_003.html">TC_RCP_GRP_003</a> — 그룹에 Recipe 추가 · 제거 <span class="urs-fr-ref">(FR-2)</span></li>
+            <li><a href="TC_RCP_GRP_004.html">TC_RCP_GRP_004</a> — 그룹 이름 변경 <span class="urs-fr-ref">(FR-3)</span></li>
+            <li><a href="TC_RCP_GRP_005.html">TC_RCP_GRP_005</a> — 그룹 삭제 (소속 Recipe 처리 방식 확인) <span class="urs-fr-ref">(FR-4, NFR-2.2)</span></li>
+            <li><a href="TC_RCP_GRP_006.html">TC_RCP_GRP_006</a> — Recipe가 다중 그룹에 속할 수 있는지 동작 확인 <span class="urs-fr-ref">(FR-2.4)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성. TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

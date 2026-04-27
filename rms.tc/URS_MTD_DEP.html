@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_MTD_DEP · Deploy Methods · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_MTD_DEP" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">MTD · Method</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Deploy Methods</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">김태호 (ted.gim)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">8건 (MTD_DEP)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Method
+        <span class="sep">/</span> Deploy Methods
+        <span class="sep">/</span> URS_MTD_DEP
+      </div>
+      <div class="tc-detail-id">URS_MTD_DEP</div>
+      <h1 class="tc-detail-title">Method 배포</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--critical">Core Function</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>서버에 등록된 Method의 특정 버전을 하나 또는 다수의 장비에 전송·반영하는 기능이다. Recipe 배포와 동일한 운영 모델을 따르며, 다른 점은 대상 자료가 .psr이 아닌 Method 파일이라는 점이다.</p>
+          <p>Method는 Recipe보다 운영 빈도가 낮지만, 배포 동작의 신뢰성과 이력 기록의 중요성은 Recipe와 동일하다.</p>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>장비 엔지니어 — 장비 설정 변경 시 표준 Method를 일괄 반영</li>
+            <li>공정 표준화 팀 — 새 Method를 여러 장비에 동시 배포</li>
+          </ul>
+
+          <p><strong>Pain Point (RMS 도입 전)</strong></p>
+          <ul>
+            <li>Method 파일을 각 장비에 USB·공유 폴더로 수동 복사</li>
+            <li>배포 이력이 개인 메모에만 남아 사후 추적 곤란</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>다수 장비에 일괄 배포로 작업 시간 단축</li>
+            <li>모든 배포 이력의 자동 기록</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. 배포 대상 선정</p>
+          <ul>
+            <li><strong>FR-1.1</strong> 사용자는 서버에 등록된 Method 중 하나를 선택할 수 있어야 한다.</li>
+            <li><strong>FR-1.2</strong> 선택한 Method의 Available Versions 목록이 표시되며, 사용자는 배포할 버전을 지정할 수 있어야 한다.</li>
+            <li><strong>FR-1.3</strong> 가장 최신 버전이 초기 기본 선택값이다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. 배포 대상 장비 선정</p>
+          <ul>
+            <li><strong>FR-2.1</strong> 사용자는 개별 장비를 하나 선택하여 단일 배포할 수 있어야 한다.</li>
+            <li><strong>FR-2.2</strong> 사용자는 여러 장비를 동시에 선택하여 다중 배포할 수 있어야 한다.</li>
+            <li><strong>FR-2.3</strong> 사용자는 장비 그룹을 선택하여 소속 장비 전체에 일괄 배포할 수 있어야 한다.</li>
+            <li><strong>FR-2.4</strong> Offline 상태 장비는 배포 대상에서 기본 제외되며, 사용자에게 명확히 표시되어야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. 배포 실행 · 확인</p>
+          <ul>
+            <li><strong>FR-3.1</strong> 배포 실행 전 확인 팝업에는 대상 장비 목록, Method 이름, 버전이 명시되어야 한다.</li>
+            <li><strong>FR-3.2</strong> 확인 팝업에는 각 장비의 현재 배포된 Method → 새 Method 전환 내역이 표시되어야 한다.</li>
+            <li><strong>FR-3.3</strong> 사용자는 확인 단계에서 취소할 수 있어야 하며, 취소 시 아무런 변경이 발생하지 않아야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. 배포 진행 상태 표시</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 배포 시작 즉시 진행 UI가 표시되어야 한다.</li>
+            <li><strong>FR-4.2</strong> 다중 장비 배포 시 장비별 상태(Pending / In Progress / Success / Failed)가 개별 표시되어야 한다.</li>
+            <li><strong>FR-4.3</strong> 사용자는 배포 진행 중에도 다른 화면으로 이동할 수 있어야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. 배포 결과 · 재시도</p>
+          <ul>
+            <li><strong>FR-5.1</strong> 배포 완료 후 종합 결과(성공 N / 실패 M)가 표시되어야 한다.</li>
+            <li><strong>FR-5.2</strong> 실패한 장비의 실패 원인이 기술적 상세 + 사용자 친화 설명 + 해결 힌트의 세 층위로 제공되어야 한다.</li>
+            <li><strong>FR-5.3</strong> 사용자는 실패한 장비만 선택하여 원클릭으로 재시도할 수 있어야 한다.</li>
+            <li><strong>FR-5.4</strong> 재시도 이력은 원 실패 이력과 별도 레코드로 기록되어야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-6. 이력 기록</p>
+          <ul>
+            <li><strong>FR-6.1</strong> 모든 배포는 Deployment Log에 자동 기록되어야 한다. 필수 필드는 배포자 계정, 일시, Method 이름·버전, 대상 장비, 결과, 실패 시 원인이다.</li>
+            <li><strong>FR-6.2</strong> Deployment Log의 Type 컬럼에서 Recipe 배포와 Method 배포가 구분되어야 한다.</li>
+            <li><strong>FR-6.3</strong> 다수 장비 배포 시 장비별로 각각 레코드가 생성되어야 한다.</li>
+            <li><strong>FR-6.4</strong> Deployment Log는 수정·삭제가 불가능(append-only)해야 한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 데이터 무결성</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> Agent는 Method 파일 수신 시 임시 파일로 먼저 기록 → 완전 수신 후 최종 rename하는 atomic write 방식을 적용해야 한다.</li>
+            <li><strong>NFR-1.2</strong> 다수 장비 배포 시 하나의 장비 실패가 다른 장비의 배포를 중단시키지 않아야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 성능</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> 단일 장비 배포는 평균 10초 이내에 완료되어야 한다.</li>
+            <li><strong>NFR-2.2</strong> 동시 배포 최대 장비 수는 10대로 제한한다. 초과 시 순차 배포로 자동 전환한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. 권한</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> 배포는 Vendor, Admin, Engineer만 수행 가능하다.</li>
+            <li><strong>NFR-3.2</strong> 권한 검증은 UI 제약과 서버 API 이중 방어로 수행되어야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-4. 일관성</p>
+          <ul>
+            <li><strong>NFR-4.1</strong> Deploy Recipes와 동일한 UI·UX 패턴을 적용한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> Method 배포는 Recipe 배포와 동일한 UI·UX 패턴을 따른다. 학습 비용 최소화가 목적이다.</li>
+            <li><span class="proposal-tag">정책</span> Offline 장비에 대한 배포는 배포 대기열에 등록 후 재연결 시 자동 시도한다.</li>
+            <li><span class="proposal-tag">정책</span> 동시 배포 장비 수는 최대 10대. 초과분은 순차 처리.</li>
+            <li><span class="proposal-tag">정책</span> Deployment Log의 Type 컬럼에서 Recipe·Method·Custom XML이 구분되어야 한다.</li>
+            <li><span class="proposal-tag">제약</span> 배포 권한은 Vendor, Admin, Engineer로 한정된다.</li>
+            <li><span class="proposal-tag">제약</span> Deployment Log는 어떤 사용자도 수정·삭제할 수 없다(append-only).</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 8건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_MTD_DEP_001.html">TC_MTD_DEP_001</a> — Deploy Methods 화면 진입 및 Method · 버전 선택 <span class="urs-fr-ref">(FR-1)</span></li>
+            <li><a href="TC_MTD_DEP_002.html">TC_MTD_DEP_002</a> — 단일 장비 배포 <span class="urs-fr-ref">(FR-2.1, FR-3)</span></li>
+            <li><a href="TC_MTD_DEP_003.html">TC_MTD_DEP_003</a> — 다수 장비 동시 배포 <span class="urs-fr-ref">(FR-2.2, NFR-2.2)</span></li>
+            <li><a href="TC_MTD_DEP_004.html">TC_MTD_DEP_004</a> — 장비 그룹 단위 배포 <span class="urs-fr-ref">(FR-2.3, FR-2.4)</span></li>
+            <li><a href="TC_MTD_DEP_005.html">TC_MTD_DEP_005</a> — 배포 중 연결 끊김 에러 처리 <span class="urs-fr-ref">(NFR-1.1, FR-5.2)</span></li>
+            <li><a href="TC_MTD_DEP_006.html">TC_MTD_DEP_006</a> — 배포 완료 후 Deployment Log 기록 <span class="urs-fr-ref">(FR-6)</span></li>
+            <li><a href="TC_MTD_DEP_007.html">TC_MTD_DEP_007</a> — 배포 진행률 · 상태 표시 <span class="urs-fr-ref">(FR-4)</span></li>
+            <li><a href="TC_MTD_DEP_008.html">TC_MTD_DEP_008</a> — 배포 결과 장비별 성공 · 실패 구분 <span class="urs-fr-ref">(FR-5.1, FR-5.3)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성. TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

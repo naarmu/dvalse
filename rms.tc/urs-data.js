@@ -21,21 +21,20 @@ const URS_LIST = [
 
   // RCP — Recipe (8)
   { id: "URS_RCP_MGR", area: "RCP", screen: "Recipe Manager",      title: "Recipe 조회 · 관리",            hasDetail: true },
-  { id: "URS_RCP_CMP", area: "RCP", screen: "Compare Recipes",     title: "Recipe 비교",                   hasDetail: false },
+  { id: "URS_RCP_CMP", area: "RCP", screen: "Compare Recipes",     title: "Recipe 비교",                   hasDetail: true },
   { id: "URS_RCP_DEP", area: "RCP", screen: "Deploy Recipes",      title: "Recipe 배포",                   hasDetail: true  },
   { id: "URS_RCP_XML", area: "RCP", screen: "Deploy Custom XML",   title: "Custom XML 배포",               hasDetail: true },
-  { id: "URS_RCP_VER", area: "RCP", screen: "Manage Recipe Versions", title: "Recipe 버전 관리",           hasDetail: false },
-  { id: "URS_RCP_PRM", area: "RCP", screen: "Manage Recipe Parameters", title: "파라미터 표시 설정",       hasDetail: false },
-  { id: "URS_RCP_GRP", area: "RCP", screen: "Manage Recipe Groups", title: "Recipe 그룹 관리",             hasDetail: false },
-  { id: "URS_RCP_DIR", area: "RCP", screen: "Direct Upload/Download", title: "Recipe 직접 업·다운로드",    hasDetail: false },
+  { id: "URS_RCP_VER", area: "RCP", screen: "Manage Recipe Versions", title: "Recipe 버전 관리",           hasDetail: true },
+  { id: "URS_RCP_PRM", area: "RCP", screen: "Manage Recipe Parameters", title: "파라미터 표시 설정",       hasDetail: true },
+  { id: "URS_RCP_GRP", area: "RCP", screen: "Manage Recipe Groups", title: "Recipe 그룹 관리",             hasDetail: true },
+  { id: "URS_RCP_DIR", area: "RCP", screen: "Direct Upload/Download", title: "Recipe 직접 업·다운로드",    hasDetail: true },
 
-  // MTD — Method (6)
-  { id: "URS_MTD_MGR", area: "MTD", screen: "Method Manager",      title: "Method 조회 · 관리",            hasDetail: false },
-  { id: "URS_MTD_CMP", area: "MTD", screen: "Compare Methods",     title: "Method 비교",                   hasDetail: false },
-  { id: "URS_MTD_DEP", area: "MTD", screen: "Deploy Methods",      title: "Method 배포",                   hasDetail: false },
-  { id: "URS_MTD_VER", area: "MTD", screen: "Manage Method Versions", title: "Method 버전 관리",           hasDetail: false },
-  { id: "URS_MTD_GRP", area: "MTD", screen: "Manage Method Groups", title: "Method 그룹 관리",             hasDetail: false },
-  { id: "URS_MTD_DIR", area: "MTD", screen: "Direct Upload/Download Methods", title: "Method 직접 업·다운로드", hasDetail: false },
+  // MTD — Method (5)
+  { id: "URS_MTD_MGR", area: "MTD", screen: "Method Manager",      title: "Method 조회 · 관리",            hasDetail: true },
+  { id: "URS_MTD_CMP", area: "MTD", screen: "Compare Methods",     title: "Method 비교",                   hasDetail: true },
+  { id: "URS_MTD_DEP", area: "MTD", screen: "Deploy Methods",      title: "Method 배포",                   hasDetail: true },
+  { id: "URS_MTD_PRM", area: "MTD", screen: "Manage Method Parameters", title: "Method 파라미터 표시 설정",     hasDetail: true },
+  { id: "URS_MTD_GRP", area: "MTD", screen: "Manage Method Groups", title: "Method 그룹 관리",             hasDetail: true },
 
   // CLT — Collect (2)
   { id: "URS_CLT_RCP", area: "CLT", screen: "Collect Recipes",     title: "Recipe 자동 수집",              hasDetail: false },
