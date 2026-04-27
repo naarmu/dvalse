@@ -944,3 +944,133 @@ code, .mono {
 ::-webkit-scrollbar-track { background: var(--ink-50); }
 ::-webkit-scrollbar-thumb { background: var(--ink-300); border-radius: 5px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--ink-400); }
+
+/* ============================================================
+   TC → URS 역방향 링크 (Step B)
+   ============================================================ */
+
+/* 사이드바: 관련 URS 링크 */
+.meta-list__urs-link {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #245081;
+  text-decoration: none;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 3px;
+  padding: 2px 8px;
+  display: inline-block;
+}
+
+.meta-list__urs-link:hover {
+  background: #dbeafe;
+  text-decoration: none;
+}
+
+/* 본문: 관련 URS 섹션 */
+.tc-section--related-urs {
+  background: #f8fafc;
+  border-left: 3px solid #245081;
+  border-radius: 0 4px 4px 0;
+  margin-top: 24px;
+}
+
+.tc-section--related-urs .tc-section__num {
+  background: #245081;
+  color: #fff;
+}
+
+.tc-related-urs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tc-related-urs > li {
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  border-radius: 4px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+}
+
+.tc-related-urs > li:last-child {
+  margin-bottom: 0;
+}
+
+.tc-related-urs__link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #1f2937;
+  flex-wrap: wrap;
+}
+
+.tc-related-urs__link:hover {
+  text-decoration: none;
+}
+
+.tc-related-urs__link:hover .tc-related-urs__title {
+  color: #245081;
+  text-decoration: underline;
+}
+
+.tc-related-urs__id {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #245081;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 3px;
+  padding: 3px 8px;
+  flex-shrink: 0;
+}
+
+.tc-related-urs__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a3a5c;
+  flex: 1;
+}
+
+.tc-related-urs__screen {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.tc-related-urs__refs {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed #e2e8f0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.tc-related-urs__refs-label {
+  color: #64748b;
+  font-weight: 500;
+  margin-right: 6px;
+}
+
+.tc-related-urs__refs-body {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  color: #245081;
+  background: #f1f5f9;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-weight: 600;
+}
+
+/* E2E의 다중 URS 표시 */
+.tc-related-urs__role {
+  font-size: 11px;
+  color: #64748b;
+  font-style: italic;
+  margin-top: 4px;
+  padding-left: 4px;
+}
