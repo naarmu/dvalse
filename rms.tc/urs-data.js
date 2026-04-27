@@ -10,9 +10,9 @@ const URS_LIST = [
   { id: "URS_SYS_PND", area: "SYS", screen: "Pending Recipes",     title: "Pending Recipes 알림",          hasDetail: false },
 
   // DSH — Dashboard (3)
-  { id: "URS_DSH_RMS", area: "DSH", screen: "RMS Dashboard",       title: "RMS 시스템 대시보드",           hasDetail: false },
-  { id: "URS_DSH_EQP", area: "DSH", screen: "Equipment Dashboard", title: "장비 운영 대시보드",            hasDetail: false },
-  { id: "URS_DSH_RCP", area: "DSH", screen: "Recipe Dashboard",    title: "Recipe 운영 대시보드",          hasDetail: false },
+  { id: "URS_DSH_RMS", area: "DSH", screen: "RMS Dashboard",       title: "RMS 시스템 대시보드",           hasDetail: true },
+  { id: "URS_DSH_EQP", area: "DSH", screen: "Equipment Dashboard", title: "장비 운영 대시보드",            hasDetail: true },
+  { id: "URS_DSH_RCP", area: "DSH", screen: "Recipe Dashboard",    title: "Recipe 운영 대시보드",          hasDetail: true },
 
   // EQP — Equipment (3)
   { id: "URS_EQP_MGR", area: "EQP", screen: "Equipment Manager",   title: "장비 조회 · 관리",              hasDetail: true },

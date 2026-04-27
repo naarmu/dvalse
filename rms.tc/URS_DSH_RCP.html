@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_DSH_RCP · Recipe Dashboard · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_DSH_RCP" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">DSH · Dashboard</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Recipe Dashboard</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">김태호 (ted.gim)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">5건 (DSH_RCP)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Dashboard
+        <span class="sep">/</span> Recipe Dashboard
+        <span class="sep">/</span> URS_DSH_RCP
+      </div>
+      <div class="tc-detail-id">URS_DSH_RCP</div>
+      <h1 class="tc-detail-title">Recipe 운영 대시보드</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--high">Overview</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>Recipe 자산의 운영 현황에 특화된 대시보드이다. 사용자는 이 화면에서 전체 Recipe 수, 최근 수집·배포 건수, Master 지정 현황, 최근 변경된 Recipe 목록 등을 한눈에 확인한다.</p>
+          <p>Recipe Manager가 개별 Recipe의 관리에 집중한다면, Recipe Dashboard는 Recipe 자산 전체의 흐름과 변화를 보여준다. 공정 표준화 팀이 Recipe 운영 추세를 파악하기 위한 화면이다.</p>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>공정 표준화 팀 — Recipe 운영 추세 파악</li>
+            <li>RMS 관리자 — Recipe 자산 현황 점검</li>
+            <li>공정 엔지니어 — 최근 변경된 Recipe 빠른 확인</li>
+          </ul>
+
+          <p><strong>Pain Point (RMS 도입 전)</strong></p>
+          <ul>
+            <li>Recipe가 얼마나 수집·배포되었는지 추적하려면 별도 집계 필요</li>
+            <li>Master 미지정 Recipe가 누적되어도 인지하지 못함</li>
+            <li>최근 변경 사항을 일별로 확인할 방법이 없음</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>Recipe 운영 활동을 시계열로 조감</li>
+            <li>Master 미지정 Recipe를 일별로 인지</li>
+            <li>최근 수집·배포 활동의 빠른 확인</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. 전체 Recipe 현황 위젯</p>
+          <ul>
+            <li><strong>FR-1.1</strong> 등록된 전체 Recipe 수, 최근 7일간 수집된 Recipe 수, 최근 7일간 배포 건수가 위젯에 표시된다.</li>
+            <li><strong>FR-1.2</strong> 위젯의 수치를 클릭하면 Recipe Manager 또는 Deployment Log로 이동하며 해당 컨텍스트로 필터링된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. 수집 · 배포 추이</p>
+          <ul>
+            <li><strong>FR-2.1</strong> 최근 일정 기간(7일·30일 등) 동안의 수집·배포 건수 추이가 차트 형태로 표시된다.</li>
+            <li><strong>FR-2.2</strong> 차트의 기간 선택은 사용자가 변경할 수 있어야 한다.</li>
+            <li><strong>FR-2.3</strong> 수집과 배포의 두 지표가 시각적으로 구분되어 표시된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. Master 지정 현황</p>
+          <ul>
+            <li><strong>FR-3.1</strong> Master가 지정된 Recipe 수와 미지정 Recipe 수가 위젯에 표시된다.</li>
+            <li><strong>FR-3.2</strong> Master 미지정 Recipe가 임계값 이상인 경우 시각 강조 표시한다.</li>
+            <li><strong>FR-3.3</strong> 위젯 클릭 시 Master 미지정 Recipe 목록으로 이동한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. 최근 변경 Recipe</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 최근 변경된 Recipe 목록이 시간순으로 표시된다.</li>
+            <li><strong>FR-4.2</strong> 각 항목에는 Recipe명, 변경 유형(생성·버전 추가·삭제·Master 변경), 변경자, 변경 시각이 함께 표시된다.</li>
+            <li><strong>FR-4.3</strong> 항목 클릭 시 해당 Recipe 상세로 이동한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. 실시간 갱신</p>
+          <ul>
+            <li><strong>FR-5.1</strong> Dashboard의 모든 위젯은 일정 주기로 자동 갱신된다.</li>
+            <li><strong>FR-5.2</strong> 사용자는 수동 새로고침으로 즉시 갱신할 수 있다.</li>
+            <li><strong>FR-5.3</strong> 마지막 갱신 시각이 화면에 표시된다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 성능</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> Dashboard 로딩은 5초 이내 완료되어야 한다.</li>
+            <li><strong>NFR-1.2</strong> Recipe 1,000개 이상 환경에서도 위젯 표시 성능이 유지되어야 한다.</li>
+            <li><strong>NFR-1.3</strong> 집계는 사전 계산된 형태로 제공하여 실시간 부하를 최소화한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 권한</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> Recipe Dashboard는 모든 사용자(All Roles)가 조회 가능하다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. 데이터 신선도</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> 위젯에 표시된 데이터의 마지막 갱신 시각이 사용자에게 보여야 한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> Dashboard 자동 갱신 주기는 <strong>30초</strong>이다. (RMS Dashboard·Equipment Dashboard와 동일)</li>
+            <li><span class="proposal-tag">정책</span> Master 미지정 Recipe가 임계값 이상인 경우 시각 강조한다. 운영 표준 관리 누락을 방지하기 위함이다.</li>
+            <li><span class="proposal-tag">정책</span> 위젯 클릭 시 해당 컨텍스트가 적용된 상세 화면으로 자동 이동한다.</li>
+            <li><span class="proposal-tag">정책</span> 집계 데이터는 사전 계산된 형태로 제공한다.</li>
+            <li><span class="proposal-tag">제약</span> Recipe 1,000개 이상 환경에서도 5초 이내 로딩이 가능해야 한다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 5건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_DSH_RCP_001.html">TC_DSH_RCP_001</a> — Recipe Dashboard 전체 Recipe 현황 표시 <span class="urs-fr-ref">(FR-1)</span></li>
+            <li><a href="TC_DSH_RCP_002.html">TC_DSH_RCP_002</a> — Recipe 수집 · 배포 건수 요약 정확성 <span class="urs-fr-ref">(FR-1, FR-2)</span></li>
+            <li><a href="TC_DSH_RCP_003.html">TC_DSH_RCP_003</a> — Master Recipe 지정 현황 표시 <span class="urs-fr-ref">(FR-3)</span></li>
+            <li><a href="TC_DSH_RCP_004.html">TC_DSH_RCP_004</a> — Recipe 데이터 갱신 시 Dashboard 반영 <span class="urs-fr-ref">(FR-4, FR-5)</span></li>
+            <li><a href="TC_DSH_RCP_005.html">TC_DSH_RCP_005</a> — 대량 Recipe (1000+) 상태에서 로딩 성능 <span class="urs-fr-ref">(NFR-1.2)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성. TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>
