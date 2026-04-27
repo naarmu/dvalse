@@ -15,9 +15,9 @@ const URS_LIST = [
   { id: "URS_DSH_RCP", area: "DSH", screen: "Recipe Dashboard",    title: "Recipe 운영 대시보드",          hasDetail: false },
 
   // EQP — Equipment (3)
-  { id: "URS_EQP_MGR", area: "EQP", screen: "Equipment Manager",   title: "장비 조회 · 관리",              hasDetail: false },
-  { id: "URS_EQP_REG", area: "EQP", screen: "Equipment Registration", title: "장비 등록",                 hasDetail: false },
-  { id: "URS_EQP_GRP", area: "EQP", screen: "Manage Equipment Groups", title: "장비 그룹 관리",            hasDetail: false },
+  { id: "URS_EQP_MGR", area: "EQP", screen: "Equipment Manager",   title: "장비 조회 · 관리",              hasDetail: true },
+  { id: "URS_EQP_REG", area: "EQP", screen: "Register Equipment", title: "장비 등록",                 hasDetail: true },
+  { id: "URS_EQP_GRP", area: "EQP", screen: "Edit Equipment Groups", title: "장비 그룹 관리",            hasDetail: true },
 
   // RCP — Recipe (8)
   { id: "URS_RCP_MGR", area: "RCP", screen: "Recipe Manager",      title: "Recipe 조회 · 관리",            hasDetail: true },
