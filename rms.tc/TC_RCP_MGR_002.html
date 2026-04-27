@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_MGR_002 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_MGR_002" data-parent="index.html" data-prev="TC_RCP_MGR_001" data-next="TC_RCP_MGR_003" data-prev-title="Recipe Manager 진입 및 Recipe 목록 로딩" data-next-title="장비 트리에서 장비 선택 시 해당 Recipe 필터링">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Recipe Manager</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">Recipe 상세 표시</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">3 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Recipe Manager
+        <span class="sep">/</span> TC_RCP_MGR_002
+      </div>
+      <div class="tc-detail-id">TC_RCP_MGR_002</div>
+      <h1 class="tc-detail-title">Recipe 선택 시 상세 정보(버전·파라미터) 표시</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe Manager 화면 진입</li>
+        <li>다수 버전을 가진 Recipe(예: Recipe "213" — v1, v2)가 존재</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>좌측 트리에서 Recipe "213" 선택</li>
+        <li>하위 버전 "v1 (2026-04-10 13:45)" 선택</li>
+        <li>중앙 Recipe Information 영역에 정보 표시 확인</li>
+        <li>우측 Recipe Contents 영역에 파라미터 값 표시 확인</li>
+        <li>다른 버전(v2)으로 선택 전환 → 정보가 해당 버전으로 갱신되는지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Recipe: 213
+  - v1 (2026-04-10 13:45) — Description: "Uploaded via RecipeUploadQueueService"
+  - v2 (2026-04-13 11:17)
+Contents: Type=Wafer, Size=300, Die Based=TRUE, Die X/Y=20.0, Tip ID=NCHR ...</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>중앙 Recipe Information에 Recipe Type, Version, Last Saved, Collected Equipment, Description 표시</li>
+        <li>우측 Recipe Contents에 파라미터 목록(Type, Size, Thickness, Die Based, Die X/Y, Tip ID 등) 표시</li>
+        <li>버전 전환 시 두 영역 모두 새 버전 기준으로 갱신</li>
+        <li>Description의 수정 버튼(연필 아이콘)이 권한에 맞게 표시</li>
+        <li>Deployment History 영역도 해당 Recipe/버전 기준으로 표시</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>RMS UI 참고:</strong> slide-27(Recipe Manager)에서 본 구성과 일치해야 함.</p>
+        <p><strong>파라미터 개수:</strong> 표시되는 파라미터가 Manage Recipe Parameters에서 설정한 표시/숨김 상태에 따라 달라지는지 확인.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> 버전 전환 시 <strong>변경된 파라미터에 하이라이트</strong>를 주는 것을 고려해볼 수 있습니다. Compare Recipes 화면까지 가지 않고도 간단한 차이를 인지할 수 있어 편리합니다.</p>
+        <p><span class="proposal-tag">기획 검토</span> Description 필드는 자유 텍스트인데, <strong>Recipe 변경 사유를 구조화된 형태(예: Change Reason 카테고리 선택)</strong>로 받으면 이력 추적 시 유용합니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_MGR_001.html">← 이전: TC_RCP_MGR_001</a>
+        <a href="TC_RCP_MGR_003.html">다음: TC_RCP_MGR_003 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -124,9 +124,29 @@
   function renderSubNav(activeTopKey, activeSubKey, detailId, detailParentHref) {
     const top = findTop(activeTopKey);
 
-    // Detail mode: show "← Index" + current doc pill
+    // Detail mode: show "← Index" + current doc pill + prev/next nav
     if (detailId) {
       const parentHref = detailParentHref || "index.html";
+      const prevId     = document.body.dataset.prev || "";
+      const nextId     = document.body.dataset.next || "";
+      const prevTitle  = document.body.dataset.prevTitle || prevId;
+      const nextTitle  = document.body.dataset.nextTitle || nextId;
+
+      const prevHtml = prevId
+        ? `<a href="${prevId}.html" class="subnav-nav" title="${prevTitle}" aria-label="이전: ${prevTitle}">
+             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path d="M15 18l-6-6 6-6"/></svg>
+           </a>`
+        : `<span class="subnav-nav subnav-nav--disabled" title="이전 항목 없음" aria-label="이전 항목 없음">
+             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path d="M15 18l-6-6 6-6"/></svg>
+           </span>`;
+      const nextHtml = nextId
+        ? `<a href="${nextId}.html" class="subnav-nav" title="${nextTitle}" aria-label="다음: ${nextTitle}">
+             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path d="M9 18l6-6-6-6"/></svg>
+           </a>`
+        : `<span class="subnav-nav subnav-nav--disabled" title="다음 항목 없음" aria-label="다음 항목 없음">
+             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25"><path d="M9 18l6-6-6-6"/></svg>
+           </span>`;
+
       return `
         <div class="app-subnav">
           <div class="subnav-item">
@@ -140,6 +160,10 @@
             <span>${detailId}</span>
           </div>
           <div class="subnav-spacer"></div>
+          <div class="subnav-nav-group">
+            ${prevHtml}
+            ${nextHtml}
+          </div>
         </div>`;
     }
 

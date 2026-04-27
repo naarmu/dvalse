@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_GRP_005 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_GRP_005" data-parent="index.html" data-prev="TC_RCP_GRP_004" data-next="TC_RCP_GRP_006" data-prev-title="그룹 이름 변경" data-next-title="Recipe가 다중 그룹에 속할 수 있는지 동작 확인">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Manage Recipe Groups</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">그룹 삭제</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">4 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Manage Recipe Groups
+        <span class="sep">/</span> TC_RCP_GRP_005
+      </div>
+      <div class="tc-detail-id">TC_RCP_GRP_005</div>
+      <h1 class="tc-detail-title">그룹 삭제 (소속 Recipe 처리 방식 확인)</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>"WAFER_RECIPES" 그룹에 Recipe 3개 소속</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>WAFER_RECIPES 그룹 선택</li>
+        <li>Delete 버튼 클릭</li>
+        <li>경고 팝업 내용 확인</li>
+        <li>"확인" 선택</li>
+        <li>소속 Recipe들이 어떻게 되었는지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Group with 3 recipes</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>삭제 시 소속 Recipe가 있음을 경고</li>
+        <li>확인 시 그룹만 삭제, Recipe는 "미지정" 상태로 복귀</li>
+        <li>Recipe 자체는 삭제되지 않음</li>
+        <li>이력 기록</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p>EQP 그룹 삭제(TC_EQP_GRP_006)와 동일 정책 적용.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">일관성</span> Recipe 그룹과 Equipment 그룹의 <strong>삭제 정책을 통일</strong>해야 합니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_GRP_004.html">← 이전: TC_RCP_GRP_004</a>
+        <a href="TC_RCP_GRP_006.html">다음: TC_RCP_GRP_006 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_VER_006 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_VER_006" data-parent="index.html" data-prev="TC_RCP_VER_005" data-next="TC_RCP_PRM_001" data-prev-title="버전 코멘트/설명 입력·저장" data-next-title="파라미터 전체 목록 표시">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Manage Recipe Versions</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">버전 삭제</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">4 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Manage Recipe Versions
+        <span class="sep">/</span> TC_RCP_VER_006
+      </div>
+      <div class="tc-detail-id">TC_RCP_VER_006</div>
+      <h1 class="tc-detail-title">특정 버전 삭제 및 제약조건</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe "213"이 v1, v2, v3 세 버전 보유</li>
+        <li>v2는 Master로 지정됨</li>
+        <li>v1, v3은 Master 아님</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>v1 선택 후 삭제 시도 → 삭제 성공 확인</li>
+        <li>v2(Master) 선택 후 삭제 시도 → 차단되거나 경고 확인</li>
+        <li>남은 v3만 있는 상태에서 v3 삭제 시도 → 마지막 버전 삭제 정책 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Recipe 213: v1, v2 (Master), v3</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>일반 버전(v1, v3) 삭제 가능</li>
+        <li>Master 버전(v2)은 삭제 차단 또는 "먼저 다른 버전을 Master로 지정하세요" 안내</li>
+        <li>마지막 남은 버전 삭제 시 Recipe 자체 삭제 여부를 사용자 확인</li>
+        <li>삭제 이력 기록</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>정책 결정 필요:</strong> 마지막 버전 삭제 시 Recipe 자체를 삭제할지, 차단할지.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">정책 확정</span> <strong>Master 버전 삭제 정책</strong>을 확정해주세요. 권장: "먼저 Master를 다른 버전으로 옮겨라"로 차단. 이는 실수 방지에 효과적.</p>
+        <p><span class="proposal-tag">데이터 무결성</span> 버전도 <strong>소프트 삭제(Soft Delete)</strong>를 권장드립니다. 삭제 후 30일 복원 가능하도록.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_VER_005.html">← 이전: TC_RCP_VER_005</a>
+        <a href="TC_RCP_PRM_001.html">다음: TC_RCP_PRM_001 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

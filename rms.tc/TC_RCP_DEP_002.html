@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_DEP_002 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_DEP_002" data-parent="index.html" data-prev="TC_RCP_DEP_001" data-next="TC_RCP_DEP_003" data-prev-title="Deploy Recipes 화면 진입 및 Recipe/버전 선택" data-next-title="다수 장비 동시 배포 (4대 이상)">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Deploy Recipes</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">단일 장비 배포</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">4 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Deploy Recipes
+        <span class="sep">/</span> TC_RCP_DEP_002
+      </div>
+      <div class="tc-detail-id">TC_RCP_DEP_002</div>
+      <h1 class="tc-detail-title">배포 대상 장비 단일 선택 후 배포</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Deploy Recipes에서 Recipe 213 v2가 선택된 상태</li>
+        <li>장비 EQ_001이 Online 상태로 연결됨</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>배포 대상 장비 영역에서 EQ_001 하나만 선택</li>
+        <li>배포(Deploy) 버튼 클릭</li>
+        <li>확인 팝업에서 대상 장비 및 Recipe 정보 확인 후 "확인"</li>
+        <li>배포 진행 상태 표시 확인</li>
+        <li>배포 완료 후 EQ_001의 Deployed Recipe 정보 갱신 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Target: EQ_001
+Recipe: 213 v2</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>대상 장비 단일 선택 정상 동작</li>
+        <li>Deploy 전 확인 팝업에 장비 ID, Recipe, 버전 명시</li>
+        <li>배포 중 진행률 또는 상태 인디케이터 표시</li>
+        <li>성공 시 Toast/팝업 알림, EQ_001의 Deployed Recipe ID/Version 업데이트</li>
+        <li>Deployment Log에 이력 기록 (배포자, 시각, Recipe, 버전, 장비, 결과)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>원자성:</strong> 단일 장비 배포는 atomic해야 함. 부분 성공 케이스 없음.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> 배포 확인 팝업에 <strong>"현재 배포된 Recipe → 새 Recipe"</strong> 형태로 변경 내용을 명시하면, 실수 배포를 예방할 수 있습니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_DEP_001.html">← 이전: TC_RCP_DEP_001</a>
+        <a href="TC_RCP_DEP_003.html">다음: TC_RCP_DEP_003 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

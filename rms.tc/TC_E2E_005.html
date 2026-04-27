@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_E2E_005 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_E2E_005" data-parent="index.html" data-prev="TC_E2E_004" data-next="TC_E2E_006" data-prev-title="Direct Upload로 Recipe 등록 → Master 지정 → 그룹 장비에 일괄 배포" data-next-title="Method 수집 → 버전 비교 → 다수 장비 배포 → Deployment Log 상세 조회">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">E2E · End-to-End</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Scenario</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">권한 관리 플로우</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Permission</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">10 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> End-to-End
+        <span class="sep">/</span> Scenario
+        <span class="sep">/</span> TC_E2E_005
+      </div>
+      <div class="tc-detail-id">TC_E2E_005</div>
+      <h1 class="tc-detail-title">계정 생성(Engineer Role) → Privilege에서 Deploy 권한 제거 → 해당 계정 로그인 시 접근 제한 검증</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--permission">Permission</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Vendor 계정 로그인</li>
+        <li>기본 Engineer Role에는 Deploy 권한이 활성화된 상태</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Vendor가 Account 관리에서 신규 Engineer 계정 생성 (TC_SET_ACC_001 연계)</li>
+        <li>생성한 계정의 ID/PW 확인</li>
+        <li>Privilege에서 Engineer Role의 Deploy 권한 체크 해제 (TC_SET_PRV_002 연계)</li>
+        <li>저장 후 변경 이력 기록 확인 (TC_SET_PRV_009 연계)</li>
+        <li>Vendor 로그아웃 후 생성한 Engineer 계정으로 로그인 (TC_SYS_LGN_001)</li>
+        <li>최초 로그인 시 PW 강제 변경 확인 (TC_SET_ACC_005 연계)</li>
+        <li>Deploy Recipes 메뉴 접근 시도 → 차단 확인 (TC_SET_PRV_007 연계)</li>
+        <li>Recipe Manager, Compare Recipes 등 조회 기능은 정상 동작 확인</li>
+        <li>차단 이력이 RMS Log에 기록되는지 확인 (TC_HST_RMS_002 연계)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">New Account: engineer_test_001 / Role: Engineer
+Removed Privilege: Deploy
+Expected: 로그인 가능, 조회 가능, 배포 차단</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>계정 생성이 정상 진행되고 초기 PW 강제 변경 동작</li>
+        <li>Privilege 변경이 즉시 저장, 이력 기록</li>
+        <li>새 Engineer 계정은 조회만 가능하고 Deploy 관련 메뉴·버튼이 숨김 또는 비활성</li>
+        <li>API 레벨에서도 Deploy 요청이 차단 (서버 측 검증)</li>
+        <li>권한 거부 시도가 RMS Log에 기록</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>보안 핵심:</strong> 권한 설정과 실제 적용이 일치하는지 검증하는 핵심 테스트. 서버 측 검증이 반드시 동작해야 함.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">보안</span> Privilege 설정은 <strong>UI 제약 + API 서버 측 검증</strong> 이중 방어가 필수입니다. UI만으로는 브라우저 개발자 도구 등으로 우회 가능합니다.</p>
+        <p><span class="proposal-tag">데이터 무결성</span> 권한 거부로 차단된 시도(403 에러 등)도 <strong>RMS Log에 기록</strong>해야 이상 행위 탐지가 가능합니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_E2E_004.html">← 이전: TC_E2E_004</a>
+        <a href="TC_E2E_006.html">다음: TC_E2E_006 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

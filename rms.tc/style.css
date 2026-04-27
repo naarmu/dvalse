@@ -283,6 +283,41 @@ code, .mono {
   letter-spacing: -.01em;
 }
 
+/* ============================================================
+   Sub-nav — prev/next buttons (detail pages)
+   ============================================================ */
+.subnav-nav-group {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+  padding-right: 8px;
+  gap: 2px;
+}
+.subnav-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 24px;
+  color: rgba(255,255,255,.82);
+  border-radius: 3px;
+  transition: background .12s, color .12s;
+  cursor: pointer;
+  text-decoration: none;
+}
+.subnav-nav:hover {
+  background: rgba(255,255,255,.12);
+  color: #fff;
+}
+.subnav-nav--disabled {
+  color: rgba(255,255,255,.25);
+  cursor: not-allowed;
+}
+.subnav-nav--disabled:hover {
+  background: transparent;
+  color: rgba(255,255,255,.25);
+}
+
 .btn-refresh {
   background: var(--paper);
   color: var(--ink-700);

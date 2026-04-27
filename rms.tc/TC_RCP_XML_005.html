@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_XML_005 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_XML_005" data-parent="index.html" data-prev="TC_RCP_XML_004" data-next="TC_RCP_XML_006" data-prev-title="배포된 XML이 장비에서 .psr로 자동 변환" data-next-title="XML 변환 실패 시 에러 이력 및 알림">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Deploy Custom XML</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">변환 결과 조회</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">3 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Deploy Custom XML
+        <span class="sep">/</span> TC_RCP_XML_005
+      </div>
+      <div class="tc-detail-id">TC_RCP_XML_005</div>
+      <h1 class="tc-detail-title">변환된 .psr이 RMS에서 조회 가능</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>XML 배포 및 .psr 변환이 장비에서 완료됨</li>
+        <li>Agent가 변환된 .psr을 서버로 수집한 상태</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe Manager 진입</li>
+        <li>새로 수집된 Recipe 확인</li>
+        <li>Recipe 파라미터가 원본 XML의 내용과 일치하는지 확인</li>
+        <li>Description 등 메타 정보에 "Custom XML로 생성" 이력이 표시되는지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Expected Recipe: custom_recipe (파라미터는 XML 정의와 동일)</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe Manager에 신규 Recipe로 표시</li>
+        <li>Recipe Contents가 원본 XML의 파라미터와 일치</li>
+        <li>출처가 "Custom XML 배포"임이 Description 또는 별도 필드로 표시</li>
+        <li>일반 Recipe처럼 Compare, Deploy 등 모든 기능 사용 가능</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>구분 표시:</strong> Custom XML 출신 Recipe는 일반 수집 Recipe와 <strong>시각적으로 구분</strong>되어야 운영 관리에 유리.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">정보 구조</span> Recipe Manager 트리에서 <strong>Custom XML 출신 Recipe에 아이콘(예: 🔧)</strong>을 표시하는 것을 권장드립니다. 출처를 한눈에 파악하게 함으로써 관리가 편해집니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_XML_004.html">← 이전: TC_RCP_XML_004</a>
+        <a href="TC_RCP_XML_006.html">다음: TC_RCP_XML_006 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

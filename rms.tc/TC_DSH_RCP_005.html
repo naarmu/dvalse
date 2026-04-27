@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_DSH_RCP_005 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_DSH_RCP_005" data-parent="index.html" data-prev="TC_DSH_RCP_004" data-next="TC_EQP_MGR_001" data-prev-title="Recipe 데이터 갱신 시 Dashboard 반영" data-next-title="Equipment Manager 진입 및 장비 목록 로딩">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">DSH · Dashboard</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Recipe Dashboard</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">성능</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Non-func</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--medium">Medium</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">8 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Dashboard
+        <span class="sep">/</span> Recipe Dashboard
+        <span class="sep">/</span> TC_DSH_RCP_005
+      </div>
+      <div class="tc-detail-id">TC_DSH_RCP_005</div>
+      <h1 class="tc-detail-title">대량 Recipe(1000+) 상태에서 로딩 성능</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--non-func">Non-func</span>
+        <span class="badge badge--medium">Medium</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol><li>Recipe 1000개 이상 환경</li></ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe Dashboard 진입 시간 측정</li>
+        <li>위젯별 로딩 완료 시간 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Recipe: 1000+</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Dashboard 전체 로딩 5초 이내</li>
+        <li>개별 위젯은 비동기 로딩으로 체감 지연 최소화</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>서버 집계:</strong> Dashboard는 실시간 집계보다 <strong>일정 주기 미리 계산된 집계(materialized view 등)</strong>가 성능에 유리.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">성능</span> Dashboard 위젯은 <strong>비동기 로딩 + 점진적 렌더링</strong>을 적용하면 사용자 체감 속도가 크게 좋아집니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_DSH_RCP_004.html">← 이전: TC_DSH_RCP_004</a>
+        <a href="TC_MTD_MGR_001.html">다음: TC_MTD_MGR_001 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

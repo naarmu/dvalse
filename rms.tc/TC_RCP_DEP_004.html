@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_DEP_004 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_DEP_004" data-parent="index.html" data-prev="TC_RCP_DEP_003" data-next="TC_RCP_DEP_005" data-prev-title="다수 장비 동시 배포 (4대 이상)" data-next-title="배포 중 장비 연결 끊김 시 에러 처리">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Deploy Recipes</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">그룹 배포</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">5 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Deploy Recipes
+        <span class="sep">/</span> TC_RCP_DEP_004
+      </div>
+      <div class="tc-detail-id">TC_RCP_DEP_004</div>
+      <h1 class="tc-detail-title">장비 그룹 단위 배포</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>그룹 "9F [DRD]"에 장비 6대 소속</li>
+        <li>이 중 일부는 Online, 일부는 Offline 상태</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>대상 선택에서 "그룹 단위 선택" 모드로 전환 (기능 존재 시)</li>
+        <li>"9F [DRD]" 그룹 선택 시 소속 장비 자동 선택 확인</li>
+        <li>Offline 장비의 처리 방식 확인 (자동 제외 or 경고)</li>
+        <li>Deploy 실행 후 결과 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Group: 9F [DRD]
+Members: EQ_001(Online), EQ_002(Online), ..., EQ_006(Offline)</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>그룹 선택 시 소속 장비 일괄 선택</li>
+        <li>Offline 장비는 선택에서 자동 제외 또는 경고 표시 후 사용자 결정</li>
+        <li>배포는 Online 장비만 진행</li>
+        <li>Offline 장비는 "배포 대기" 또는 "스킵" 상태로 Deployment Log 기록</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>Offline 장비 정책:</strong> "Offline 장비 재연결 시 자동 배포" 같은 재처리 로직이 있는지 정책 확인.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">정책 확정</span> <strong>Offline 장비 배포 실패 처리 정책</strong> 확정이 필요합니다. 권장: "Offline 장비는 배포 대기열에 등록되었다가, 재연결 시 자동 배포 시도". 단, 자동 배포 전 관리자 승인 필요 여부는 별도 고려.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_DEP_003.html">← 이전: TC_RCP_DEP_003</a>
+        <a href="TC_RCP_DEP_005.html">다음: TC_RCP_DEP_005 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

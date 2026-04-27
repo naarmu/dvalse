@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_SYS_LGN_005 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_SYS_LGN_005" data-parent="index.html" data-prev="TC_SYS_LGN_004" data-next="TC_SYS_LGN_006" data-prev-title="서버 미연결 상태에서 로그인 시도" data-next-title="로그아웃 동작 및 세션 종료">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">SYS · System & Auth</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Login</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">Role별 초기 화면</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">4 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> System & Auth
+        <span class="sep">/</span> Login
+        <span class="sep">/</span> TC_SYS_LGN_005
+      </div>
+      <div class="tc-detail-id">TC_SYS_LGN_005</div>
+      <h1 class="tc-detail-title">로그인 후 Role별 초기 진입 화면 확인</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>각 Role별 계정(Vendor, Admin, Engineer, Operator)이 준비됨</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Vendor 계정으로 로그인 → 진입 화면 확인</li>
+        <li>로그아웃 후 Admin으로 로그인</li>
+        <li>Engineer, Operator 각각 동일 테스트</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">4개 Role 각각 테스트</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>각 Role별로 기본 진입 화면이 Privilege 설정에 맞게 표시</li>
+        <li>상단 메뉴에서 접근 불가 영역은 숨김 또는 비활성화</li>
+        <li>상단에 현재 Role 표시 (slide-18 우측 상단 영역 참고)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>Privilege 연동:</strong> 각 Role이 접근 가능한 화면은 Vendor의 Privilege 설정에서 정의됨. 설정과 실제 화면이 일치해야 함.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">기획 검토</span> 각 Role의 <strong>기본 진입 화면</strong>을 명시적으로 정의해주세요. Operator는 Dashboard가 적합, Engineer는 Recipe Manager가 적합하다는 식의 기본값이 필요합니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_SYS_LGN_004.html">← 이전: TC_SYS_LGN_004</a>
+        <a href="TC_SYS_LGN_006.html">다음: TC_SYS_LGN_006 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

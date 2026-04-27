@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_DEP_008 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_DEP_008" data-parent="index.html" data-prev="TC_RCP_DEP_007" data-next="TC_RCP_XML_001" data-prev-title="배포 진행률/상태 표시" data-next-title="Custom XML 파일 업로드 및 서버 등록">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Deploy Recipes</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">결과 구분</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">3 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Deploy Recipes
+        <span class="sep">/</span> TC_RCP_DEP_008
+      </div>
+      <div class="tc-detail-id">TC_RCP_DEP_008</div>
+      <h1 class="tc-detail-title">배포 결과 장비별 성공 · 실패 구분 표시</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>4대 장비에 배포 — 일부는 성공, 일부는 실패 발생하도록 환경 조성 (1대 네트워크 차단)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>배포 실행</li>
+        <li>완료 후 결과 화면에서 장비별 성공/실패 구분 표시 확인</li>
+        <li>실패 장비의 상세 실패 사유 조회 가능 여부 확인</li>
+        <li>실패 장비만 대상으로 "재시도" 기능 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Targets: EQ_001, 002, 003 (Online) / EQ_004 (Offline 강제)
+Expected: 3 성공, 1 실패</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>결과 요약에 "성공 3 / 실패 1" 표시</li>
+        <li>장비별 결과가 명확히 구분됨 (성공=체크, 실패=X 또는 !)</li>
+        <li>실패 장비 클릭 시 상세 실패 사유 확인 가능</li>
+        <li>실패한 장비만 선택해서 재시도 가능</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>재시도 시나리오:</strong> 실패 원인이 해결된 후(네트워크 복구) "재시도" 버튼 한 번으로 재배포 가능해야 함.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> 결과 화면에서 <strong>"실패한 것만 재시도"</strong> 원클릭 버튼이 있으면 다수 장비 운영 시 편리합니다.</p>
+        <p><span class="proposal-tag">데이터 무결성</span> 실패 사유는 <strong>기술적 원인(네트워크 끊김, 권한 거부 등)</strong>과 <strong>장비 측 사유(디스크 공간 부족 등)</strong>을 구분해 표시 권장.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_DEP_007.html">← 이전: TC_RCP_DEP_007</a>
+        <a href="TC_RCP_XML_001.html">다음: TC_RCP_XML_001 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

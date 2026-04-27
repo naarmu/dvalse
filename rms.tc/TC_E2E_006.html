@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_E2E_006 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_E2E_006" data-parent="index.html" data-prev="TC_E2E_005" data-next="TC_E2E_007" data-prev-title="계정 생성(Engineer Role) → Privilege에서 Deploy 권한 제거 → 해당 계정 로그인 시 접근 제한 검증" data-next-title="배포 중 장비 연결 끊김 발생 → 에러 처리 → 재배포 시 정상 완료 → 이력의 실패/성공 분리 기록">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">E2E · End-to-End</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Scenario</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">Method 운영 플로우</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">12 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> End-to-End
+        <span class="sep">/</span> Scenario
+        <span class="sep">/</span> TC_E2E_006
+      </div>
+      <div class="tc-detail-id">TC_E2E_006</div>
+      <h1 class="tc-detail-title">Method 수집 → 버전 비교 → 다수 장비 배포 → Deployment Log 상세 조회</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Online 장비 3대 이상 (EQ_001, EQ_002, EQ_003)</li>
+        <li>EQ_001에 기존 Method X가 존재</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>EQ_001의 Method X를 장비에서 일부 파라미터 변경 (파일 편집)</li>
+        <li>Agent가 변경 감지하여 Pending에 등록 (TC_CLT_MTD_001 연계)</li>
+        <li>Pending에서 v2로 서버 등록</li>
+        <li>Method Manager에서 Method X의 v1, v2 확인 (TC_MTD_MGR_006 연계)</li>
+        <li>Compare Methods로 v1, v2 비교 (TC_MTD_CMP_004 연계)</li>
+        <li>Manage Method Versions에서 v2를 Master로 지정 (TC_MTD_VER_002 연계)</li>
+        <li>Deploy Methods에서 EQ_001, EQ_002, EQ_003 세 장비 선택 후 Master 배포 (TC_MTD_DEP_003 연계)</li>
+        <li>배포 완료 대기</li>
+        <li>Deployment Log로 이동, Type=Method 필터 적용 (TC_HST_DEP_001 연계)</li>
+        <li>방금 수행한 배포 3건의 상세 정보 확인 (배포자, 시각, Method명, 버전, 장비)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Method X: v1 → v2 (Master 지정) → 3대 장비 배포
+End: Deployment Log 3건 기록</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Method의 수집·비교·Master 지정·다중 배포가 Recipe와 동일한 UX로 동작</li>
+        <li>Deployment Log에서 Method 배포가 Recipe와 구분되어 필터링됨</li>
+        <li>3건 모두 성공 기록</li>
+        <li>Method History에서도 시계열 추적 가능</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>Recipe와의 일관성:</strong> Method 관련 플로우가 Recipe와 동일하게 동작해야 사용자 학습 비용이 낮음.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">일관성</span> Recipe와 Method의 운영 UX가 <strong>구조적으로 동일</strong>하도록 설계하는 것이 중요합니다. 현재 testcases.js에서 RCP 54개 + MTD 31개 구조인데, 차이가 나는 부분(RCP는 Custom XML 있음, MTD는 없음 등)을 명확히 문서화해주세요.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_E2E_005.html">← 이전: TC_E2E_005</a>
+        <a href="TC_E2E_007.html">다음: TC_E2E_007 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

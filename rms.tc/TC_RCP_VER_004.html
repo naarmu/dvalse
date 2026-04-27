@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_VER_004 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_VER_004" data-parent="index.html" data-prev="TC_RCP_VER_003" data-next="TC_RCP_VER_005" data-prev-title="Master 지정 변경 시 이전 Master 해제" data-next-title="버전 코멘트/설명 입력·저장">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Manage Recipe Versions</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">이력 기록</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">3 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Manage Recipe Versions
+        <span class="sep">/</span> TC_RCP_VER_004
+      </div>
+      <div class="tc-detail-id">TC_RCP_VER_004</div>
+      <h1 class="tc-detail-title">Master Recipe 지정 이력 기록</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe "213"에 Master를 v1 → v2 → v3으로 여러 번 변경한 이력이 있음</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe History로 이동</li>
+        <li>Recipe "213" 기준으로 Master 지정 이력 필터링</li>
+        <li>변경 순서와 내용이 시계열로 표시되는지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">변경 이력:
+  2026-04-01 v1 → Master 지정 (by: admin)
+  2026-04-10 v2 → Master 지정 (by: admin)
+  2026-04-20 v3 → Master 지정 (by: engineer_a)</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Master 변경 이력이 Recipe History에 시계열로 기록</li>
+        <li>각 변경마다 변경자, 시각, 이전 Master, 새 Master 포함</li>
+        <li>이력 삭제/수정 불가(append-only)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p>감사(Audit) 관점에서 Master 변경은 Recipe 이력 중 가장 중요한 이벤트.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">데이터 무결성</span> Master 변경 이력은 <strong>Recipe History와 별개의 전용 뷰</strong>에서도 조회 가능하면 감사 대응 시 편리합니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_VER_003.html">← 이전: TC_RCP_VER_003</a>
+        <a href="TC_RCP_VER_005.html">다음: TC_RCP_VER_005 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

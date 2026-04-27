@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_CMP_006 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_CMP_006" data-parent="index.html" data-prev="TC_RCP_CMP_005" data-next="TC_RCP_DEP_001" data-prev-title="같은 Recipe의 버전 간 비교" data-next-title="Deploy Recipes 화면 진입 및 Recipe/버전 선택">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Compare Recipes</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">파라미터 표시 설정 연동</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">4 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Compare Recipes
+        <span class="sep">/</span> TC_RCP_CMP_006
+      </div>
+      <div class="tc-detail-id">TC_RCP_CMP_006</div>
+      <h1 class="tc-detail-title">Manage Recipe Parameters 설정이 비교 화면에 반영</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Manage Recipe Parameters에서 "Tip ID" 파라미터가 숨김 처리됨</li>
+        <li>Compare Recipes 화면 진입</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe 2개 선택하여 비교 결과 확인</li>
+        <li>파라미터 목록에서 "Tip ID" 행이 표시되지 않는지 확인</li>
+        <li>Manage Recipe Parameters로 이동하여 "Tip ID" 표시 ON으로 변경</li>
+        <li>Compare Recipes로 복귀하여 "Tip ID"가 비교 테이블에 나타나는지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Hidden parameter: Tip ID (Manage Recipe Parameters에서 off)</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>숨김 설정된 파라미터는 Compare Recipes 테이블에서도 숨김</li>
+        <li>표시 ON으로 변경 후 즉시(또는 재진입 시) 반영</li>
+        <li>숨김 처리된 파라미터가 비교 결과 개수(통계)에도 제외되는지 정책에 따라 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>적용 시점:</strong> 설정 변경 후 비교 화면에 즉시 반영되는지, 아니면 재진입 필요한지 확인. 즉시 반영이 UX에 좋음.</p>
+        <p><strong>통계 영향:</strong> 숨김 파라미터가 "차이 개수" 등의 통계 표시에 포함되는지 여부를 기획에서 명시해야 함.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">정보 구조</span> Compare Recipes에 <strong>"숨겨진 파라미터 N개 있음" 배너</strong>를 추가해 사용자가 숨김 상태를 인지할 수 있게 하는 것을 제안드립니다. 공정 검토 시 "왜 이 파라미터는 안 보이지?"로 혼란이 발생할 수 있습니다.</p>
+        <p><span class="proposal-tag">기획 검토</span> 숨김 처리된 파라미터를 <strong>"일시적으로 보기" 토글</strong>로 임시 해제할 수 있으면 편리합니다. Manage Recipe Parameters로 왕복하지 않아도 됩니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_CMP_005.html">← 이전: TC_RCP_CMP_005</a>
+        <a href="TC_RCP_DEP_001.html">다음: TC_RCP_DEP_001 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

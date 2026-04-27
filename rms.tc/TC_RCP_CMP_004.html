@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_CMP_004 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_CMP_004" data-parent="index.html" data-prev="TC_RCP_CMP_003" data-next="TC_RCP_CMP_005" data-prev-title="불일치 파라미터 하이라이트(색상) 표시" data-next-title="같은 Recipe의 버전 간 비교">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Compare Recipes</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">다중 비교</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">4 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Compare Recipes
+        <span class="sep">/</span> TC_RCP_CMP_004
+      </div>
+      <div class="tc-detail-id">TC_RCP_CMP_004</div>
+      <h1 class="tc-detail-title">3개 이상 Recipe 동시 비교</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>비교할 Recipe 3개 이상 존재</li>
+        <li>각 Recipe가 서로 일부 파라미터에서 차이를 가짐</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Compare Recipes에서 Recipe A, B, C를 각각 선택</li>
+        <li>비교 결과 테이블에 3개 컬럼으로 표시 확인</li>
+        <li>파라미터별 값을 세 Recipe에 걸쳐 비교</li>
+        <li>Recipe 4개 이상 추가 시도 (허용 최대 개수 확인)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Recipe A, B, C 각각 일부 파라미터 값 차이 보유</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>3개 이상 Recipe 선택 가능</li>
+        <li>비교 테이블이 선택한 개수만큼 컬럼 확장</li>
+        <li>한 행 내 3개 값이 모두 같으면 일반, 하나라도 다르면 하이라이트</li>
+        <li>UI가 가로로 너무 길어지지 않도록 반응형 처리 (가로 스크롤 또는 축소)</li>
+        <li>최대 비교 개수가 제한되어 있다면 안내 메시지 표시</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>최대 개수 정책:</strong> 실무에서 3~5개 비교가 주로 필요할 것. 10개 이상은 가독성이 급격히 떨어지므로 상한 필요.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">기획 검토</span> <strong>최대 비교 가능 개수</strong>를 명시적으로 정의해주세요. 권장: 5개 (화면 가로폭 기준).</p>
+        <p><span class="proposal-tag">UX 개선</span> 3개 이상 비교 시 <strong>기준 Recipe 지정</strong> 기능을 넣으면 유용합니다. 기준과 다른 값만 하이라이트되어 변화 추적이 쉬워집니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_CMP_003.html">← 이전: TC_RCP_CMP_003</a>
+        <a href="TC_RCP_CMP_005.html">다음: TC_RCP_CMP_005 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

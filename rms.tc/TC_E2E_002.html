@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_E2E_002 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_E2E_002" data-parent="index.html" data-prev="TC_E2E_001" data-next="TC_E2E_003" data-prev-title="장비 등록 → Recipe 자동 수집 → Master 지정 → 다른 장비로 배포 → 이력 확인" data-next-title="Custom XML 업로드 → 장비 배포 → .psr 자동 변환 → Recipe Manager 조회 → 재배포">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">E2E · End-to-End</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Scenario</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">버전 롤백 플로우</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">12 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> End-to-End
+        <span class="sep">/</span> Scenario
+        <span class="sep">/</span> TC_E2E_002
+      </div>
+      <div class="tc-detail-id">TC_E2E_002</div>
+      <h1 class="tc-detail-title">장비측 Recipe 변경 → Pending 감지 → 서버 등록 → 버전 비교 → 이전 버전 롤백 배포</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>EQ_001에 Recipe X v1이 배포된 상태 (Master)</li>
+        <li>Agent 정상 동작</li>
+        <li>Engineer 이상 권한 계정 로그인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>장비 PC의 Recipe X 파일을 직접 편집 (파라미터 값 변경)</li>
+        <li>Agent가 변경 감지하여 Pending Recipes에 자동 보고 (TC_CLT_RCP_001 연계)</li>
+        <li>Pending Recipes에서 변경된 Recipe를 서버에 v2로 등록</li>
+        <li>Recipe Manager에서 Recipe X가 v1, v2 두 버전 보유 확인</li>
+        <li>Compare Recipes로 v1, v2 파라미터 비교 (TC_RCP_CMP_005 연계)</li>
+        <li>변경 결과 검토 후 문제 판단 → 롤백 결정</li>
+        <li>Manage Recipe Versions에서 Master를 v2 → v1로 되돌림 (TC_RCP_VER_002 연계)</li>
+        <li>Deploy Recipes에서 v1(현재 Master)을 EQ_001로 재배포</li>
+        <li>장비 PC에서 Recipe가 v1 내용으로 복구되었는지 확인</li>
+        <li>Recipe History에서 변경 → Master 변경 → 롤백 배포의 전체 흐름 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Recipe X v1 (Die X=20.0, Tip ID=NCHR) → 장비에서 직접 수정 → v2 (Die X=25.0)
+롤백 후: v1 재배포</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>장비측 변경이 실시간(또는 주기 내) 감지</li>
+        <li>버전 비교 결과가 정확 (변경 파라미터 하이라이트)</li>
+        <li>Master 재지정 정상 동작</li>
+        <li>롤백 배포 완료 후 장비 Recipe가 이전 내용으로 완전 복구</li>
+        <li>전체 이력이 시계열로 추적 가능</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>공정 안전:</strong> 반도체 공정에서 Recipe 변경 후 문제가 발견되면 빠른 롤백이 필수. 이 플로우의 속도가 곧 공정 다운타임을 결정함.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> "이전 버전으로 빠른 롤백" 원클릭 버튼을 Recipe Manager에서 제공하는 것을 강하게 권장드립니다. 롤백은 긴급 상황에서 자주 쓰이는 기능입니다.</p>
+        <p><span class="proposal-tag">데이터 무결성</span> 롤백 배포도 일반 배포와 동일하게 Deployment Log에 기록되되, <strong>"Rollback" 표시</strong>를 추가하면 운영 분석에 유용합니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_E2E_001.html">← 이전: TC_E2E_001</a>
+        <a href="TC_E2E_003.html">다음: TC_E2E_003 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

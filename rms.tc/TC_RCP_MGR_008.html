@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_MGR_008 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_MGR_008" data-parent="index.html" data-prev="TC_RCP_MGR_007" data-next="TC_RCP_MGR_009" data-prev-title="로딩 중 상태(Loading Spinner) 표시" data-next-title="Recipe 삭제 기능 (권한·확인 팝업)">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Recipe Manager</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">Empty State</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">UI</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--low">Low</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">2 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Recipe Manager
+        <span class="sep">/</span> TC_RCP_MGR_008
+      </div>
+      <div class="tc-detail-id">TC_RCP_MGR_008</div>
+      <h1 class="tc-detail-title">Empty 상태 (Recipe 없음) 표시</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--ui">UI</span>
+        <span class="badge badge--low">Low</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>서버에 Recipe가 0개인 상태 (초기 설치 또는 전체 삭제 후)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe Manager 진입</li>
+        <li>좌측 트리와 중앙/우측 상세 영역의 표시 상태 확인</li>
+        <li>안내 메시지 및 다음 액션 유도 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Recipe count: 0</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>좌측 트리에 "등록된 Recipe가 없습니다" 등의 안내 텍스트</li>
+        <li>중앙/우측 영역도 Empty 상태로 깔끔히 표시 (빈 테이블 아님)</li>
+        <li>"Recipe 수집 방법 안내" 또는 "Direct Upload 바로가기" 같은 다음 액션 유도</li>
+        <li>화면이 깨지거나 에러로 인식되지 않도록 시각적으로 명확히 Empty 상태임을 표현</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p>초기 배포 직후 또는 데모 환경에서 주로 노출될 상태.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> Empty State에서 <strong>"장비에서 Recipe 수집 대기 중입니다" 혹은 "Direct Upload로 Recipe를 추가해보세요"</strong>와 같은 온보딩 안내 + 관련 액션 버튼을 노출하면 첫 사용자 경험이 크게 좋아집니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_MGR_007.html">← 이전: TC_RCP_MGR_007</a>
+        <a href="TC_RCP_MGR_009.html">다음: TC_RCP_MGR_009 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

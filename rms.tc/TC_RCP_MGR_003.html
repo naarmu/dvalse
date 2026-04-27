@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_MGR_003 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_MGR_003" data-parent="index.html" data-prev="TC_RCP_MGR_002" data-next="TC_RCP_MGR_004" data-prev-title="Recipe 선택 시 상세 정보(버전/파라미터) 표시" data-next-title="Recipe 목록 정렬(이름/수집일/버전)">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Recipe Manager</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">장비별 Recipe 필터링</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">3 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Recipe Manager
+        <span class="sep">/</span> TC_RCP_MGR_003
+      </div>
+      <div class="tc-detail-id">TC_RCP_MGR_003</div>
+      <h1 class="tc-detail-title">장비 트리에서 장비 선택 시 해당 Recipe 필터링</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>장비 EQ_001에서 수집된 Recipe 3개, 장비 EQ_002에서 수집된 Recipe 2개가 각각 등록됨</li>
+        <li>Recipe Manager 진입</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>(화면에 장비 선택 또는 필터 기능이 있을 경우) 장비 필터에서 EQ_001 선택</li>
+        <li>좌측 Recipe 트리에 EQ_001의 Recipe만 표시되는지 확인</li>
+        <li>필터를 EQ_002로 변경 → 해당 장비의 Recipe만 표시 확인</li>
+        <li>필터 해제 → 전체 Recipe 표시 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">EQ_001: Recipe 213, Simulation, Walkthrough WLI
+EQ_002: Recipe SDC_A1WPP_GZ3_LENS_ADI, spinach_gnocci</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>장비 필터 적용 시 해당 장비에서 수집된 Recipe만 트리에 표시</li>
+        <li>다른 장비의 Recipe는 숨김 처리</li>
+        <li>필터 적용 중 선택된 Recipe가 필터 대상에서 제외되면 선택 해제 및 안내</li>
+        <li>필터 해제 시 전체 Recipe 복귀</li>
+        <li>필터 상태가 UI상 명확히 표시 (예: "Filter: EQ_001" 배지)</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>기능 존재 여부 확인:</strong> Recipe Manager에 "장비별 필터" 기능이 구현되어 있는지 기획 확정 필요. 현재 slide-27 화면에는 상단 검색창만 보이고 장비 필터는 명시되지 않음.</p>
+        <p><strong>다중 장비 수집 Recipe:</strong> 같은 Recipe가 여러 장비에서 수집된 경우의 표시 방식 확인.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">기획 검토</span> Recipe Manager에서 장비별 필터가 필요한 시나리오가 실제로 있는지 확인이 필요합니다. 필요하다면 현재 검색창 옆에 <strong>장비 드롭다운 필터</strong>를 추가하는 것을 제안드립니다.</p>
+        <p><span class="proposal-tag">정보 구조</span> Recipe가 어느 장비에서 수집되었는지는 Recipe Information의 "Collected Equipment"에서 확인 가능하지만, 트리에서도 <strong>장비 태그나 아이콘</strong>으로 표시하면 시각적으로 파악이 쉽습니다.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_MGR_002.html">← 이전: TC_RCP_MGR_002</a>
+        <a href="TC_RCP_MGR_004.html">다음: TC_RCP_MGR_004 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

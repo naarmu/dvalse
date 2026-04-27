@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_SYS_LGN_006 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_SYS_LGN_006" data-parent="index.html" data-prev="TC_SYS_LGN_005" data-next="TC_SYS_LGN_007" data-prev-title="로그인 후 Role별 초기 진입 화면 확인" data-next-title="비활성(Disabled) 계정 로그인 차단">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">SYS · System & Auth</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Login</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">로그아웃</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--high">High</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">All Roles</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">2 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> System & Auth
+        <span class="sep">/</span> Login
+        <span class="sep">/</span> TC_SYS_LGN_006
+      </div>
+      <div class="tc-detail-id">TC_SYS_LGN_006</div>
+      <h1 class="tc-detail-title">로그아웃 동작 및 세션 종료</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--high">High</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol><li>로그인된 상태</li></ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>우측 상단 Logout 버튼 클릭 (RMS UI의 빨간색 Logout 버튼)</li>
+        <li>확인 팝업 유무 확인</li>
+        <li>Login 화면으로 복귀 확인</li>
+        <li>재로그인 필요 여부 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Logout from any screen</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Logout 시 세션 즉시 종료</li>
+        <li>Login 팝업으로 복귀</li>
+        <li>작업 중이던 데이터는 저장 후 로그아웃하라는 경고 (선택)</li>
+        <li>서버 측 세션도 정리</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>Unsaved 데이터:</strong> 편집 중인 화면에서 로그아웃 시 저장/취소 확인 팝업 권장.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">UX 개선</span> 로그아웃 전 <strong>"저장하지 않은 변경 사항이 있습니다"</strong> 경고 팝업을 제공해 실수로 작업 내용이 사라지지 않도록 해주세요.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_SYS_LGN_005.html">← 이전: TC_SYS_LGN_005</a>
+        <a href="TC_SYS_LGN_007.html">다음: TC_SYS_LGN_007 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TC_RCP_DIR_004 · RMS Test Cases</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="qa" data-sub="test-cases" data-docid="TC_RCP_DIR_004" data-parent="index.html" data-prev="TC_RCP_DIR_003" data-next="TC_RCP_DIR_005" data-prev-title="서버의 Recipe를 로컬 PC로 직접 다운로드" data-next-title="동일 이름 Recipe 업로드 시 버전 처리">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Direct Upload/Download</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Sub-category</div><div class="meta-list__value">업로드 후 반영</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Test Type</div><div class="meta-list__value">Functional</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Priority</div><div class="meta-list__value priority-indicator--critical">Critical</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Applicable Roles</div><div class="meta-list__value">Vendor, Admin, Engineer</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Est. Time</div><div class="meta-list__value">3 min</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.24</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="index.html">Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Direct Upload/Download
+        <span class="sep">/</span> TC_RCP_DIR_004
+      </div>
+      <div class="tc-detail-id">TC_RCP_DIR_004</div>
+      <h1 class="tc-detail-title">업로드한 Recipe가 Recipe Manager에 정상 반영</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">Functional</span>
+        <span class="badge badge--critical">Critical</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">Precondition</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>test_recipe.psr을 방금 업로드 완료</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">Test Steps</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>Recipe Manager 진입</li>
+        <li>업로드한 Recipe가 트리에 표시되는지 확인</li>
+        <li>Recipe 선택 시 Contents 영역에 파라미터 표시 확인</li>
+        <li>일반 Recipe와 동일하게 Compare, Deploy 가능한지 확인</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">Test Data</h3></div>
+        <div class="tc-section__body"><div class="test-data-block">Uploaded: test_recipe.psr</div></div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">Expected Result</h3></div>
+        <div class="tc-section__body"><ol>
+        <li>업로드 즉시 (또는 새로고침 후) Recipe Manager에 표시</li>
+        <li>파라미터, 메타 정보 정상 표시</li>
+        <li>일반 Recipe와 동일하게 모든 기능 사용 가능</li>
+        <li>Collected Equipment 필드는 "N/A" 또는 "Direct Upload"로 표시</li>
+    </ol></div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">비고 (QA · 개발 메모)</h3></div>
+        <div class="tc-section__body"><p><strong>Collected Equipment:</strong> Direct Upload Recipe는 장비에서 수집되지 않았으므로 해당 필드가 빈 값 또는 "Direct Upload"로 표시되어야 함.</p></div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">제안 사항</h3></div>
+        <div class="tc-section__body"><p><span class="proposal-tag">정보 구조</span> Recipe Manager 트리에 <strong>Direct Upload 아이콘(예: ⬆️)</strong>을 Custom XML 아이콘과 함께 제공하여 출처를 한눈에 파악 가능하게 해주세요.</p></div>
+      </section>
+
+      <nav class="tc-nav-between">
+        <a href="TC_RCP_DIR_003.html">← 이전: TC_RCP_DIR_003</a>
+        <a href="TC_RCP_DIR_005.html">다음: TC_RCP_DIR_005 →</a>
+      </nav>
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>
