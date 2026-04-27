@@ -45,6 +45,15 @@
         { key: "history", label: "History", href: "#", disabled: true },
       ],
     },
+    {
+      key: "documentation",
+      label: "Documentation",
+      icon: '<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>',
+      children: [
+        { key: "policy", label: "Policy", href: "policy-index.html" },
+        { key: "userguide", label: "User Guide", href: "#", disabled: true },
+      ],
+    },
   ];
 
   // Icons for sub-nav items (key → inline SVG path)
@@ -57,6 +66,8 @@
     "test-cases":   '<rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 9h6v6H9z"/>',
     "execution":    '<polygon points="5 3 19 12 5 21 5 3"/>',
     "history":      '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    "policy":       '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    "userguide":    '<path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>',
   };
 
   // Icon for "back to index" shown as the first sub-nav entry on detail pages

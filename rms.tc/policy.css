@@ -1,0 +1,387 @@
+/* ============================================================
+   policy.css — Documentation > Policy 페이지 전용
+   ============================================================ */
+
+.policy-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 40px 80px;
+}
+
+/* 헤더 */
+.policy-page__header {
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 28px;
+  margin-bottom: 32px;
+}
+
+.policy-page__title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a3a5c;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.02em;
+}
+
+.policy-page__subtitle {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* 통계 카드 */
+.policy-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 24px;
+  max-width: 600px;
+}
+
+.policy-stat {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px 18px;
+}
+
+.policy-stat__num {
+  font-size: 24px;
+  font-weight: 700;
+  color: #245081;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.policy-stat__label {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* 목차 */
+.policy-toc {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 20px 24px;
+  margin-bottom: 40px;
+}
+
+.policy-toc__title {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #475569;
+  margin: 0 0 14px 0;
+}
+
+.policy-toc__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 24px;
+}
+
+.policy-toc__list li a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  border-radius: 4px;
+  color: #1a3a5c;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1.4;
+  transition: background 0.12s;
+}
+
+.policy-toc__list li a:hover {
+  background: #e2e8f0;
+}
+
+.toc-num {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  font-weight: 600;
+  width: 20px;
+  flex-shrink: 0;
+}
+
+.toc-count {
+  margin-left: auto;
+  font-size: 11px;
+  color: #64748b;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-weight: 500;
+}
+
+/* 카테고리 섹션 */
+.policy-category {
+  margin-bottom: 48px;
+  scroll-margin-top: 80px;
+}
+
+.policy-category__head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 2px solid #245081;
+  padding-bottom: 10px;
+  margin-bottom: 24px;
+}
+
+.policy-category__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #245081;
+  color: #fff;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-weight: 700;
+  font-size: 13px;
+  border-radius: 4px;
+}
+
+.policy-category__title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a3a5c;
+  margin: 0;
+  flex: 1;
+}
+
+.policy-category__count {
+  font-size: 12px;
+  color: #64748b;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-weight: 600;
+}
+
+/* 서브섹션 */
+.policy-subsection {
+  margin-bottom: 24px;
+}
+
+.policy-subsection__title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px 0;
+  padding-left: 4px;
+}
+
+/* 중복 그룹 */
+.policy-group {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+  border-radius: 6px;
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.policy-group__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.policy-group__badge {
+  background: #d97706;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.policy-group__title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #92400e;
+  margin: 0;
+}
+
+.policy-dup-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 14px 0;
+  background: #fff;
+  border: 1px solid #fde68a;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.policy-dup-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #fef3c7;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.policy-dup-row:last-child {
+  border-bottom: none;
+}
+
+.policy-dup-row .proposal-tag {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.policy-source--inline {
+  flex-shrink: 0;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #245081;
+  text-decoration: none;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 3px;
+  padding: 1px 6px;
+  margin-top: 1px;
+  white-space: nowrap;
+}
+
+.policy-source--inline:hover {
+  background: #dbeafe;
+  text-decoration: none;
+}
+
+.policy-dup-body {
+  flex: 1;
+  color: #1f2937;
+}
+
+.policy-proposal {
+  background: #fef3c7;
+  border-left: 3px solid #d97706;
+  padding: 12px 14px;
+  border-radius: 0 4px 4px 0;
+}
+
+.policy-proposal__label {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #92400e;
+  margin-bottom: 4px;
+  font-weight: 700;
+}
+
+.policy-proposal__body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #78350f;
+}
+
+/* 개별 항목 */
+.policy-individual-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.policy-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.policy-item:last-child {
+  border-bottom: none;
+}
+
+.policy-item .proposal-tag {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.policy-body {
+  flex: 1;
+  color: #1f2937;
+}
+
+.policy-sources {
+  margin-top: 6px;
+}
+
+.policy-source {
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  color: #245081;
+  text-decoration: none;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 3px;
+  padding: 2px 8px;
+  display: inline-block;
+}
+
+.policy-source:hover {
+  background: #dbeafe;
+  text-decoration: none;
+}
+
+/* 푸터 */
+.policy-page__footer {
+  margin-top: 60px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+.policy-page__footer p {
+  margin: 0 0 4px 0;
+}
+
+.policy-page__last-updated {
+  margin-top: 8px !important;
+}
+
+/* 반응형 */
+@media (max-width: 900px) {
+  .policy-page {
+    padding: 24px 20px 60px;
+  }
+  .policy-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .policy-toc__list {
+    grid-template-columns: 1fr;
+  }
+}
