@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_RCP_MGR · Recipe Manager · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_RCP_MGR" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Recipe Manager</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">박기웅 (DRD)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">10건 (RCP_MGR)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Recipe Manager
+        <span class="sep">/</span> URS_RCP_MGR
+      </div>
+      <div class="tc-detail-id">URS_RCP_MGR</div>
+      <h1 class="tc-detail-title">Recipe 조회 · 관리</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--critical">Core Function</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <!-- 01. 기능 개요 -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>서버에 등록된 모든 Recipe를 한 화면에서 조회·검색·관리하는 RMS의 진입 화면이다. 사용자는 이 화면을 통해 어떤 Recipe가 어떤 버전으로 존재하는지 파악하고, 상세 파라미터를 확인하며, 다음 행위(비교·배포·삭제)를 시작한다.</p>
+          <p>Recipe Manager는 RMS 사용자가 가장 자주 머무는 화면이며, 다른 모든 Recipe 관련 화면(Compare, Deploy, Versions, Direct)으로의 출발점 역할을 한다.</p>
+        </div>
+      </section>
+
+      <!-- 02. 사용자 니즈 -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>공정 엔지니어 — 특정 Recipe의 현재 파라미터를 빠르게 확인</li>
+            <li>장비 엔지니어 — 어떤 장비에 어떤 Recipe가 있는지 추적</li>
+            <li>공정 표준화 팀 — 전체 Recipe 자산을 한눈에 조감</li>
+          </ul>
+
+          <p><strong>Pain Point (RMS 도입 전)</strong></p>
+          <ul>
+            <li>장비별로 흩어진 Recipe를 일일이 들여다봐야 함</li>
+            <li>같은 이름의 Recipe라도 장비마다 내용이 다른 경우가 흔함 (버전 혼선)</li>
+            <li>"이 Recipe가 마지막으로 변경된 게 언제더라?"가 안 보임</li>
+            <li>Recipe 수가 늘어날수록 어디 있는지 찾기조차 어려움</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>모든 Recipe가 단일 화면에서 트리·목록 형태로 즉시 조회</li>
+            <li>버전별 변경 시각·변경자를 통한 이력 가시화</li>
+            <li>검색·정렬·필터로 대량 Recipe 환경에서도 신속한 탐색</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 03. 기능 요구사항 -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. Recipe 목록 조회</p>
+          <ul>
+            <li><strong>FR-1.1</strong> 화면 진입 시 서버에 등록된 모든 Recipe가 좌측 트리 형태로 표시되어야 한다.</li>
+            <li><strong>FR-1.2</strong> 각 Recipe 노드 하위에는 보유한 모든 버전이 펼침/접힘 가능한 형태로 표시되어야 한다.</li>
+            <li><strong>FR-1.3</strong> 각 버전에는 버전 번호와 수집/등록 일시가 함께 표시되어야 한다.</li>
+            <li><strong>FR-1.4</strong> Master로 지정된 버전은 별도 아이콘 또는 배지로 시각적으로 구분되어야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. 상세 정보 표시</p>
+          <ul>
+            <li><strong>FR-2.1</strong> Recipe 또는 버전 선택 시 중앙 영역에 Recipe Information(타입, 버전, 최종 수정일, 수집 장비, 설명)이 표시되어야 한다.</li>
+            <li><strong>FR-2.2</strong> 우측 영역에 Recipe Contents(파라미터 목록)가 표시되어야 한다.</li>
+            <li><strong>FR-2.3</strong> 다른 버전으로 전환 시 두 영역이 즉시 갱신되어야 한다.</li>
+            <li><strong>FR-2.4</strong> 표시되는 파라미터는 Manage Recipe Parameters의 표시/숨김 설정에 따른다.</li>
+            <li><strong>FR-2.5</strong> Recipe 출처(Collected / Custom XML / Direct Upload)를 시각적으로 구분 표시한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. 검색 · 정렬 · 필터</p>
+          <ul>
+            <li><strong>FR-3.1</strong> 사용자는 Recipe 이름으로 실시간 검색할 수 있어야 한다. 대소문자를 구분하지 않으며, 부분 일치를 지원한다.</li>
+            <li><strong>FR-3.2</strong> 검색어 입력 시 매칭된 문자열은 시각적으로 강조 표시된다.</li>
+            <li><strong>FR-3.3</strong> 사용자는 Recipe 목록을 이름 또는 수집일 기준으로 정렬할 수 있어야 한다.</li>
+            <li><strong>FR-3.4</strong> 같은 Recipe 내 버전은 기본적으로 최신순(내림차순)으로 정렬된다.</li>
+            <li><strong>FR-3.5</strong> 정렬 기본값은 수집일 내림차순이며, 가장 최근 변경된 Recipe가 상단에 위치한다.</li>
+            <li><strong>FR-3.6</strong> 사용자는 특정 장비를 선택하여 해당 장비에서 수집된 Recipe만 필터링할 수 있어야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. Recipe 삭제</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 사용자는 Recipe를 선택하여 삭제할 수 있어야 한다.</li>
+            <li><strong>FR-4.2</strong> 삭제 전 확인 팝업에는 Recipe 이름, 보유 버전 수, 영향 안내가 명시되어야 한다.</li>
+            <li><strong>FR-4.3</strong> 현재 어떤 장비에 배포 중인 Recipe를 삭제할 경우, 배포된 장비 목록을 명시한 경고를 표시한 후 사용자 확인을 받는다.</li>
+            <li><strong>FR-4.4</strong> 삭제는 Soft Delete로 처리되며, 30일간 복원 가능해야 한다.</li>
+            <li><strong>FR-4.5</strong> 삭제 이력은 Recipe History에 자동 기록된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. 다른 화면으로의 액션 진입</p>
+          <ul>
+            <li><strong>FR-5.1</strong> 우측 액션 영역에서 Compare, Deploy, Download, Upload, Delete 버튼을 제공한다.</li>
+            <li><strong>FR-5.2</strong> 액션 버튼은 사용자 권한과 Recipe 선택 상태에 따라 활성/비활성된다.</li>
+            <li><strong>FR-5.3</strong> Compare 진입 시 현재 선택된 Recipe가 비교 슬롯에 자동 입력되어야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-6. UI 상태 표시</p>
+          <ul>
+            <li><strong>FR-6.1</strong> 데이터 로딩 중에는 로딩 인디케이터를 300ms 이후 표시한다. (짧은 로딩에는 표시하지 않아 깜빡임 방지)</li>
+            <li><strong>FR-6.2</strong> 등록된 Recipe가 없는 경우 Empty State 안내 메시지와 다음 액션 유도(Direct Upload 바로가기 등)를 제공한다.</li>
+            <li><strong>FR-6.3</strong> 화면 진입 시 마지막으로 열었던 Recipe를 자동 선택한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 04. 비기능 요구사항 -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 성능</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> 일반 환경(Recipe 100개 이하)에서 화면 진입 후 5초 이내에 모든 Recipe 목록이 표시되어야 한다.</li>
+            <li><strong>NFR-1.2</strong> 대용량 환경(Recipe 500개 이상)에서도 5초 이내 초기 로딩이 가능해야 한다. 클라이언트 가상 스크롤 + 서버 페이지네이션 적용.</li>
+            <li><strong>NFR-1.3</strong> Recipe 선택 후 상세 정보 표시까지 1.5초 이내.</li>
+            <li><strong>NFR-1.4</strong> 검색 입력 시 응답 지연은 300ms 이내. (디바운스 150~300ms 권장)</li>
+            <li><strong>NFR-1.5</strong> 운영 SLA 기준 1 서버당 Recipe 최대 2,000개를 지원한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 권한</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> 모든 사용자(All Roles)는 Recipe 조회·검색·정렬·필터링이 가능해야 한다.</li>
+            <li><strong>NFR-2.2</strong> Recipe 삭제는 Vendor, Admin만 수행 가능하다. Engineer 이하는 Delete 버튼이 비활성 또는 숨김 처리된다.</li>
+            <li><strong>NFR-2.3</strong> 권한 검증은 UI 제약과 서버 API 이중 방어로 수행되어야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. 사용성</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> 좌측 트리 스크롤은 60fps 기준으로 끊김이 없어야 한다.</li>
+            <li><strong>NFR-3.2</strong> 검색은 Recipe 이름 외 Description, Collected Equipment 필드도 부분 매칭으로 검색 가능해야 한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 05. 제약사항 · 정책 -->
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> 화면 진입 시 마지막으로 선택했던 Recipe가 자동으로 다시 선택된다. (사용자별 마지막 선택 상태 보존)</li>
+            <li><span class="proposal-tag">정책</span> 정렬 기본값은 <strong>수집일 내림차순</strong>이다. 최근 변경된 Recipe가 상단에 표시되어 운영 가시성을 확보한다.</li>
+            <li><span class="proposal-tag">정책</span> 버전 내 정렬은 <strong>최신 버전이 상단</strong>(내림차순)이다.</li>
+            <li><span class="proposal-tag">정책</span> Recipe 삭제는 Soft Delete 방식으로 처리하며 <strong>30일간 복원 가능</strong>하다. 30일 경과 후 자동 영구 삭제된다.</li>
+            <li><span class="proposal-tag">정책</span> 현재 배포 중인 Recipe도 삭제 가능하나, 배포된 장비 목록을 명시한 경고 후 사용자 확인을 받는다.</li>
+            <li><span class="proposal-tag">제약</span> Recipe 삭제 권한은 Vendor, Admin에 한정된다.</li>
+            <li><span class="proposal-tag">제약</span> 1 서버당 Recipe 최대 2,000개 지원. 초과 시 추가 서버 분리 또는 보존 정책 검토가 필요하다.</li>
+            <li><span class="proposal-tag">제약</span> Recipe 출처는 Collected, Custom XML, Direct Upload 세 가지로만 분류한다. 각 출처는 시각 아이콘으로 구분 표시한다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 06. 관련 TC -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 10건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_RCP_MGR_001.html">TC_RCP_MGR_001</a> — Recipe Manager 진입 및 Recipe 목록 로딩 <span class="urs-fr-ref">(FR-1)</span></li>
+            <li><a href="TC_RCP_MGR_002.html">TC_RCP_MGR_002</a> — Recipe 선택 시 상세 정보(버전·파라미터) 표시 <span class="urs-fr-ref">(FR-2.1, FR-2.2, FR-2.3)</span></li>
+            <li><a href="TC_RCP_MGR_003.html">TC_RCP_MGR_003</a> — 장비 트리에서 장비 선택 시 해당 Recipe 필터링 <span class="urs-fr-ref">(FR-3.6)</span></li>
+            <li><a href="TC_RCP_MGR_004.html">TC_RCP_MGR_004</a> — Recipe 목록 정렬 (이름 · 수집일 · 버전) <span class="urs-fr-ref">(FR-3.3, FR-3.4, FR-3.5)</span></li>
+            <li><a href="TC_RCP_MGR_005.html">TC_RCP_MGR_005</a> — Recipe 검색 기능 <span class="urs-fr-ref">(FR-3.1, FR-3.2, NFR-3.2)</span></li>
+            <li><a href="TC_RCP_MGR_006.html">TC_RCP_MGR_006</a> — Recipe 버전 목록 표시 <span class="urs-fr-ref">(FR-1.2, FR-1.3, FR-1.4)</span></li>
+            <li><a href="TC_RCP_MGR_007.html">TC_RCP_MGR_007</a> — 로딩 중 상태 (Loading Spinner) 표시 <span class="urs-fr-ref">(FR-6.1)</span></li>
+            <li><a href="TC_RCP_MGR_008.html">TC_RCP_MGR_008</a> — Empty 상태 (Recipe 없음) 표시 <span class="urs-fr-ref">(FR-6.2)</span></li>
+            <li><a href="TC_RCP_MGR_009.html">TC_RCP_MGR_009</a> — Recipe 삭제 기능 (권한 · 확인 팝업) <span class="urs-fr-ref">(FR-4, NFR-2.2)</span></li>
+            <li><a href="TC_RCP_MGR_010.html">TC_RCP_MGR_010</a> — 대용량 Recipe (500+) 목록 로딩 성능 <span class="urs-fr-ref">(NFR-1.1, NFR-1.2, NFR-1.5)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 07. 변경 이력 -->
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성 (박기웅). TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

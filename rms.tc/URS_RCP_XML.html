@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_RCP_XML · Deploy Custom XML · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_RCP_XML" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Deploy Custom XML</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">박기웅 (DRD)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">7건 (RCP_XML)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Recipe
+        <span class="sep">/</span> Deploy Custom XML
+        <span class="sep">/</span> URS_RCP_XML
+      </div>
+      <div class="tc-detail-id">URS_RCP_XML</div>
+      <h1 class="tc-detail-title">Custom XML 배포</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--critical">Core Function</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <!-- 01. 기능 개요 -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>장비 측에서 직접 작성하지 않은 Custom XML 파일을 서버에 업로드하고, 이를 장비로 배포하면 장비에서 자동으로 .psr Recipe 파일로 변환되는 기능이다. 일반적인 Recipe 운영 흐름(장비에서 수집 → 서버 등록 → 다시 배포)과 달리 <strong>장비를 거치지 않고도 새 Recipe를 생성</strong>할 수 있는 별도 경로를 제공한다.</p>
+          <p>RMS의 다른 기능들이 "기존 자산을 관리"하는 데 집중한다면, Deploy Custom XML은 "새로운 자산을 주입"하는 유일한 진입점이다. 이로 인해 보안·검증·이력 추적의 중요성이 상대적으로 더 높다.</p>
+          <p>흔히 <strong>Waferless Recipe Creation</strong>으로 불리는 운영 시나리오를 가능하게 하는 기능이다.</p>
+        </div>
+      </section>
+
+      <!-- 02. 사용자 니즈 -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>공정 표준화 팀 — 사내 표준 Recipe를 XML로 작성하여 여러 FAB의 장비에 일괄 배포</li>
+            <li>R&amp;D 엔지니어 — 새로운 측정 시나리오를 장비에서 실험 없이 미리 정의</li>
+            <li>장비 엔지니어 — 장비가 가동되기 전에 미리 Recipe를 준비</li>
+          </ul>
+
+          <p><strong>Pain Point (이 기능 도입 전)</strong></p>
+          <ul>
+            <li>새 Recipe를 만들려면 반드시 장비 앞에서 직접 만들고 저장해야 함</li>
+            <li>장비 가동 전이거나 정비 중일 때는 Recipe 작성이 불가능</li>
+            <li>여러 장비에 동일 Recipe를 만들려면 각 장비를 일일이 방문해야 함</li>
+            <li>Recipe 생성 작업이 장비 가동 시간을 잠식</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>장비 가용성과 무관하게 사무실에서 Recipe 정의 및 배포 가능</li>
+            <li>표준 Recipe의 중앙 작성 → 다수 장비 일괄 배포로 표준화 시간 단축</li>
+            <li>장비 가동 시간 절약 (Recipe 작성에 소요되던 비가동 시간 제거)</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 03. 기능 요구사항 -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. XML 업로드</p>
+          <ul>
+            <li><strong>FR-1.1</strong> 사용자는 로컬 PC의 XML 파일을 파일 선택 또는 드래그 앤 드롭으로 업로드할 수 있어야 한다.</li>
+            <li><strong>FR-1.2</strong> 업로드 진행률이 표시되어야 한다.</li>
+            <li><strong>FR-1.3</strong> 업로드 완료 후 서버에 등록된 XML 목록에 추가되며, 메타 정보(파일명, 크기, 업로더, 일시)가 함께 표시된다.</li>
+            <li><strong>FR-1.4</strong> 동일 파일명의 XML이 이미 존재하는 경우, 사용자에게 새 버전 추가 / 덮어쓰기 / 취소 옵션을 제공한다. 기본 선택값은 새 버전 추가이다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. XML 유효성 검증</p>
+          <ul>
+            <li><strong>FR-2.1</strong> 업로드된 파일의 확장자가 .xml이 아닌 경우 클라이언트 단계에서 즉시 차단한다.</li>
+            <li><strong>FR-2.2</strong> 서버는 업로드된 XML의 문법 유효성을 검증한다. 파싱 실패 시 명확한 에러 메시지(라인 번호 포함)를 제공한다.</li>
+            <li><strong>FR-2.3</strong> 서버는 Recipe 스키마 적합성을 검증한다. 스키마 불일치 시 어떤 요소가 누락/오류인지 구체적으로 알려야 한다.</li>
+            <li><strong>FR-2.4</strong> 검증 실패 시 파일은 서버에 저장되지 않으며, 사용자가 수정 후 재업로드할 수 있다.</li>
+            <li><strong>FR-2.5</strong> 검증 실패 화면에서 사용자가 참고할 수 있는 예시 XML 다운로드 링크를 제공한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. 장비 배포</p>
+          <ul>
+            <li><strong>FR-3.1</strong> 사용자는 등록된 XML을 단일 장비 또는 다수 장비에 배포할 수 있어야 한다.</li>
+            <li><strong>FR-3.2</strong> 사용자는 장비 그룹 단위로 일괄 배포할 수 있어야 한다.</li>
+            <li><strong>FR-3.3</strong> 배포 진행 상태가 장비별로 개별 표시되어야 한다.</li>
+            <li><strong>FR-3.4</strong> 배포 시작 전 사용자에게 추가 확인 단계를 제공한다. ("이 Recipe는 외부 출처입니다. 검증되었나요?")</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. 장비 측 변환</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 장비 Agent는 수신한 XML을 .psr 파일로 자동 변환한다.</li>
+            <li><strong>FR-4.2</strong> 변환은 임시 파일에 먼저 기록 후 최종 rename하는 atomic 방식으로 수행되어야 한다. 변환 실패 시 장비의 기존 Recipe가 손상되지 않아야 한다.</li>
+            <li><strong>FR-4.3</strong> 변환된 .psr은 장비의 정상 Recipe 경로에 저장되며, 일반 Recipe와 동일하게 장비에서 사용 가능하다.</li>
+            <li><strong>FR-4.4</strong> 변환 성공 시 Agent가 변환된 .psr을 서버로 자동 수집한다.</li>
+            <li><strong>FR-4.5</strong> 변환 실패 시 서버로 실패 보고가 전송되며, RMS UI에 알림이 표시된다. 실패 사유는 라인 번호 등 구체적 정보를 포함해야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. RMS 내 조회 · 후속 활용</p>
+          <ul>
+            <li><strong>FR-5.1</strong> 변환·수집된 Recipe는 Recipe Manager의 트리에 신규 Recipe로 표시된다.</li>
+            <li><strong>FR-5.2</strong> 출처가 "Custom XML"임을 시각 아이콘으로 구분 표시한다.</li>
+            <li><strong>FR-5.3</strong> Custom XML 출신 Recipe도 일반 Recipe와 동일하게 Compare, Deploy, Direct Download 등 모든 기능을 사용할 수 있어야 한다.</li>
+            <li><strong>FR-5.4</strong> 다수 장비에 동일 XML을 배포한 경우, 각 장비에서 변환된 .psr은 하나의 Recipe로 통합 관리하되 배포 이력은 장비별로 개별 기록된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-6. 이력 기록</p>
+          <ul>
+            <li><strong>FR-6.1</strong> XML 업로드, 배포, 변환 성공/실패는 모두 별도 이력으로 기록된다.</li>
+            <li><strong>FR-6.2</strong> Deployment Log는 Recipe 배포와 Custom XML 배포를 Type 컬럼으로 구분 표시한다.</li>
+            <li><strong>FR-6.3</strong> 모든 이력은 append-only로 관리된다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 04. 비기능 요구사항 -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 보안</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> XML 파서는 외부 엔티티 참조(XXE)를 비활성화한다. 서버 측 파일 읽기 또는 SSRF 공격 방지가 필수이다.</li>
+            <li><strong>NFR-1.2</strong> 클라이언트 확장자 검증, 서버 문법 검증, 서버 스키마 검증의 3단계 방어를 수행한다.</li>
+            <li><strong>NFR-1.3</strong> 업로드 파일은 안티바이러스 스캔을 통과해야 서버에 등록된다.</li>
+            <li><strong>NFR-1.4</strong> 업로드 권한은 Vendor, Admin, Engineer로 한정된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 데이터 무결성</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> XML → PSR 변환은 원자적(atomic)이어야 한다. 임시 파일 → rename 패턴 적용.</li>
+            <li><strong>NFR-2.2</strong> 변환 실패 시 장비의 기존 Recipe는 절대 영향받지 않는다.</li>
+            <li><strong>NFR-2.3</strong> 변환 실패한 XML은 원본 보존되어 추후 재시도 또는 분석이 가능해야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. 성능 · 제약</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> XML 파일 최대 크기는 5MB로 제한한다.</li>
+            <li><strong>NFR-3.2</strong> 다수 장비 동시 배포 시 변환 작업은 장비별로 병렬 수행된다.</li>
+            <li><strong>NFR-3.3</strong> 변환 평균 소요 시간은 30초 이내를 목표로 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-4. 알림 · 가시성</p>
+          <ul>
+            <li><strong>NFR-4.1</strong> 변환 실패는 비동기 이벤트이므로, RMS UI에 실시간 알림(Toast 또는 알림 배지)으로 사용자에게 전달되어야 한다.</li>
+            <li><strong>NFR-4.2</strong> Custom XML 변환 실패 통계 위젯을 Dashboard에 제공하여 관리자가 실패 경향을 파악할 수 있다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <!-- 05. 제약사항 · 정책 -->
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> Custom XML로 생성된 Recipe는 Recipe Manager에서 <strong>Custom XML 출처 아이콘</strong>으로 시각 구분된다. 이는 검증 책임 주체가 사용자임을 명확히 하기 위함이다.</li>
+            <li><span class="proposal-tag">정책</span> 다수 장비에 동일 XML 배포 시, 변환된 Recipe는 <strong>RMS에서 단일 Recipe로 통합 관리</strong>한다. 배포 이력만 장비별로 분리 기록한다.</li>
+            <li><span class="proposal-tag">정책</span> 변환 실패 시 <strong>기존 동일명 Recipe는 보존</strong>되며, 관리자에게 알림이 발송된다.</li>
+            <li><span class="proposal-tag">정책</span> 동명 XML 업로드 시 기본 동작은 <strong>새 버전 추가</strong>이다. 덮어쓰기는 명시적 사용자 선택 시에만 수행된다.</li>
+            <li><span class="proposal-tag">제약</span> XML 파일 최대 크기 5MB, 확장자 .xml만 허용.</li>
+            <li><span class="proposal-tag">제약</span> 업로드는 Vendor, Admin, Engineer만 수행 가능. Operator는 차단된다.</li>
+            <li><span class="proposal-tag">제약</span> XML 파서는 XXE 외부 엔티티 참조를 비활성화한 보안 설정으로만 동작한다.</li>
+            <li><span class="proposal-tag">제약</span> 변환 실패한 XML은 자동 삭제되지 않고 별도 폴더에 보관되어 분석 가능하도록 한다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 06. 관련 TC -->
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 7건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_RCP_XML_001.html">TC_RCP_XML_001</a> — Custom XML 파일 업로드 및 서버 등록 <span class="urs-fr-ref">(FR-1)</span></li>
+            <li><a href="TC_RCP_XML_002.html">TC_RCP_XML_002</a> — 잘못된 형식 XML 파일 거부 <span class="urs-fr-ref">(FR-2, NFR-1.1, NFR-1.2)</span></li>
+            <li><a href="TC_RCP_XML_003.html">TC_RCP_XML_003</a> — 등록된 XML을 장비로 배포 <span class="urs-fr-ref">(FR-3)</span></li>
+            <li><a href="TC_RCP_XML_004.html">TC_RCP_XML_004</a> — 배포된 XML이 장비에서 .psr로 자동 변환 <span class="urs-fr-ref">(FR-4, NFR-2)</span></li>
+            <li><a href="TC_RCP_XML_005.html">TC_RCP_XML_005</a> — 변환된 .psr이 RMS에서 조회 가능 <span class="urs-fr-ref">(FR-5)</span></li>
+            <li><a href="TC_RCP_XML_006.html">TC_RCP_XML_006</a> — XML 변환 실패 시 에러 이력 및 알림 <span class="urs-fr-ref">(FR-4.5, NFR-2.3, NFR-4.1)</span></li>
+            <li><a href="TC_RCP_XML_007.html">TC_RCP_XML_007</a> — 다수 장비에 동일 XML 동시 배포 <span class="urs-fr-ref">(FR-3.1, FR-5.4, NFR-3.2)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 07. 변경 이력 -->
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성 (박기웅). TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

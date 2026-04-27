@@ -20,10 +20,10 @@ const URS_LIST = [
   { id: "URS_EQP_GRP", area: "EQP", screen: "Manage Equipment Groups", title: "장비 그룹 관리",            hasDetail: false },
 
   // RCP — Recipe (8)
-  { id: "URS_RCP_MGR", area: "RCP", screen: "Recipe Manager",      title: "Recipe 조회 · 관리",            hasDetail: false },
+  { id: "URS_RCP_MGR", area: "RCP", screen: "Recipe Manager",      title: "Recipe 조회 · 관리",            hasDetail: true },
   { id: "URS_RCP_CMP", area: "RCP", screen: "Compare Recipes",     title: "Recipe 비교",                   hasDetail: false },
   { id: "URS_RCP_DEP", area: "RCP", screen: "Deploy Recipes",      title: "Recipe 배포",                   hasDetail: true  },
-  { id: "URS_RCP_XML", area: "RCP", screen: "Deploy Custom XML",   title: "Custom XML 배포",               hasDetail: false },
+  { id: "URS_RCP_XML", area: "RCP", screen: "Deploy Custom XML",   title: "Custom XML 배포",               hasDetail: true },
   { id: "URS_RCP_VER", area: "RCP", screen: "Manage Recipe Versions", title: "Recipe 버전 관리",           hasDetail: false },
   { id: "URS_RCP_PRM", area: "RCP", screen: "Manage Recipe Parameters", title: "파라미터 표시 설정",       hasDetail: false },
   { id: "URS_RCP_GRP", area: "RCP", screen: "Manage Recipe Groups", title: "Recipe 그룹 관리",             hasDetail: false },
