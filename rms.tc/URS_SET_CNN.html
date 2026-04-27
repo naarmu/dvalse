@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_SET_CNN · Connection · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_SET_CNN" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">SET · Settings</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Connection</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">김태호 (ted.gim)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">5건 (SET_CNN)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Settings
+        <span class="sep">/</span> Connection
+        <span class="sep">/</span> URS_SET_CNN
+      </div>
+      <div class="tc-detail-id">URS_SET_CNN</div>
+      <h1 class="tc-detail-title">연결 관리</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--high">Configuration</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>RMS Client가 사용하는 서버 연결 정보와 장비 Agent 연결 상태를 조회·관리하는 화면이다. 사용자는 현재 연결된 서버와 통신 상태를 확인하고, 필요 시 서버 정보를 변경하거나 연결 테스트를 수행할 수 있다.</p>
+          <p>Server Setup이 Client 최초 설정 또는 서버 이전 시 사용된다면, Connection은 운영 중에 연결 상태를 점검하고 진단하는 화면이다.</p>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>RMS 관리자 — 서버 연결 상태 점검</li>
+            <li>장비 엔지니어 — Agent 연결 문제 진단</li>
+          </ul>
+
+          <p><strong>Pain Point (RMS 도입 전)</strong></p>
+          <ul>
+            <li>연결이 끊어졌을 때 원인을 진단할 도구가 없음</li>
+            <li>Agent가 정상 동작하는지 별도 도구로 확인해야 함</li>
+            <li>서버 정보를 바꾸려면 설정 파일을 직접 수정</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>현재 연결 상태를 단일 화면에서 확인</li>
+            <li>UI에서 직접 연결 테스트 수행</li>
+            <li>Agent별 연결 상태의 실시간 가시화</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. 연결 정보 조회</p>
+          <ul>
+            <li><strong>FR-1.1</strong> 화면 진입 시 현재 사용 중인 서버 IP, 포트, TLS 사용 여부, 인증서 정보가 표시된다.</li>
+            <li><strong>FR-1.2</strong> 마지막 통신 시각, 통신 지연 시간(ping)이 표시된다.</li>
+            <li><strong>FR-1.3</strong> 등록된 모든 장비의 Agent 연결 상태(Online/Offline)가 목록 형태로 표시된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. 연결 정보 변경</p>
+          <ul>
+            <li><strong>FR-2.1</strong> 사용자는 서버 IP, 포트 등 연결 정보를 변경할 수 있어야 한다.</li>
+            <li><strong>FR-2.2</strong> 변경 후 저장 시 Client는 즉시 새 정보로 재연결을 시도한다.</li>
+            <li><strong>FR-2.3</strong> 재연결이 실패한 경우 이전 정보로 자동 롤백되거나, 사용자에게 처리 방식 선택을 받는다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. 연결 정보 검증</p>
+          <ul>
+            <li><strong>FR-3.1</strong> IP 형식, 포트 범위 검증을 입력 단계에서 수행한다.</li>
+            <li><strong>FR-3.2</strong> 검증 실패 시 명확한 에러 메시지를 표시한다.</li>
+            <li><strong>FR-3.3</strong> 연결 실패 시 사유(타임아웃 / 거부 / 인증서 오류 등)별로 구분된 메시지를 표시한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. 연결 테스트</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 사용자는 "연결 테스트" 버튼으로 즉시 서버 도달성을 확인할 수 있어야 한다.</li>
+            <li><strong>FR-4.2</strong> 테스트 결과(성공 / 실패, 응답 시간)가 화면에 표시된다.</li>
+            <li><strong>FR-4.3</strong> 사용자는 특정 장비를 선택하여 해당 Agent와의 연결 테스트도 수행할 수 있다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. Agent 실시간 표시</p>
+          <ul>
+            <li><strong>FR-5.1</strong> 각 Agent의 연결 상태가 실시간으로 갱신된다.</li>
+            <li><strong>FR-5.2</strong> 연결 상태 변경 시 화면에 즉시 반영된다.</li>
+            <li><strong>FR-5.3</strong> 장기 Offline Agent는 별도 강조 표시한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 권한</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> 연결 정보 조회는 모든 사용자(All Roles)가 가능하다.</li>
+            <li><strong>NFR-1.2</strong> 연결 정보 변경은 Vendor, Admin만 수행 가능하다.</li>
+            <li><strong>NFR-1.3</strong> 연결 테스트는 Vendor, Admin, Engineer가 수행 가능하다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 보안</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> Client–서버 통신은 TLS로 암호화된 채널 위에서 수행되어야 한다.</li>
+            <li><strong>NFR-2.2</strong> 인증서 정보 표시 시 민감한 비밀키는 노출되지 않는다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. 사용성</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> 연결 실패 메시지는 사용자가 다음 행동을 결정할 수 있도록 명확해야 한다.</li>
+            <li><strong>NFR-3.2</strong> 연결 테스트는 5초 이내에 결과를 표시해야 한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> 연결 정보 변경 후 재연결 실패 시 <strong>이전 정보로 자동 롤백</strong>하거나 사용자에게 처리 방식을 선택받는다. 잘못된 변경으로 시스템이 마비되는 것을 방지한다.</li>
+            <li><span class="proposal-tag">정책</span> 연결 실패 메시지는 사유별로 구분한다(타임아웃 / 거부 / 인증서 오류 등).</li>
+            <li><span class="proposal-tag">정책</span> Agent 장기 Offline은 별도 강조 표시한다. 비정상 장비를 빠르게 발견하기 위함이다.</li>
+            <li><span class="proposal-tag">제약</span> 연결 정보 변경 권한은 Vendor, Admin로 한정된다.</li>
+            <li><span class="proposal-tag">제약</span> Client–서버 통신은 TLS 암호화 채널 위에서만 허용된다.</li>
+            <li><span class="proposal-tag">제약</span> 연결 테스트 응답은 5초 이내에 표시되어야 한다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 5건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_SET_CNN_001.html">TC_SET_CNN_001</a> — 서버 · 네트워크 연결 정보 조회 <span class="urs-fr-ref">(FR-1)</span></li>
+            <li><a href="TC_SET_CNN_002.html">TC_SET_CNN_002</a> — 연결 정보 변경 및 재연결 <span class="urs-fr-ref">(FR-2)</span></li>
+            <li><a href="TC_SET_CNN_003.html">TC_SET_CNN_003</a> — 잘못된 연결 정보 입력 시 에러 처리 <span class="urs-fr-ref">(FR-3)</span></li>
+            <li><a href="TC_SET_CNN_004.html">TC_SET_CNN_004</a> — 연결 테스트 (Ping · Connect Test) 기능 <span class="urs-fr-ref">(FR-4)</span></li>
+            <li><a href="TC_SET_CNN_005.html">TC_SET_CNN_005</a> — Agent 연결 상태 실시간 표시 <span class="urs-fr-ref">(FR-5)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성. TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_SET_ACC · Account · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_SET_ACC" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">SET · Settings</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Account</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">김태호 (ted.gim)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">8건 (SET_ACC)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Settings
+        <span class="sep">/</span> Account
+        <span class="sep">/</span> URS_SET_ACC
+      </div>
+      <div class="tc-detail-id">URS_SET_ACC</div>
+      <h1 class="tc-detail-title">계정 관리</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--critical">Security</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>RMS 사용자 계정을 생성·수정·비활성화하는 화면이다. 각 계정에는 고유 ID, 비밀번호, Role, 활성 상태가 부여되며, 사용자는 자신의 ID로 로그인하여 부여된 Role에 따른 권한으로 RMS를 사용한다.</p>
+          <p>Privilege가 Role 단위의 권한 정책을 정의한다면, Account는 그 Role을 실제 사람에게 매핑하는 화면이다. 두 화면이 함께 RMS의 사용자 보안 모델을 구성한다.</p>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>RMS 관리자 — 신규 사용자 계정 발급 및 관리</li>
+            <li>Vendor — 시스템 전체 계정 관리·감사</li>
+          </ul>
+
+          <p><strong>Pain Point (RMS 도입 전)</strong></p>
+          <ul>
+            <li>계정 발급·회수가 일관된 절차 없이 진행됨</li>
+            <li>퇴사자·이동자 계정이 정리되지 않고 남는 경우가 빈번</li>
+            <li>비밀번호 재설정 등 일상 운영 절차가 표준화되어 있지 않음</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>계정 발급·회수의 표준화된 절차</li>
+            <li>비활성화로 이력은 보존하면서 접근만 차단</li>
+            <li>모든 계정 변경의 자동 이력 기록</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. 계정 생성</p>
+          <ul>
+            <li><strong>FR-1.1</strong> 사용자는 신규 계정을 생성할 수 있어야 한다. 입력 필드는 ID(필수), 초기 비밀번호(필수), 표시 이름(선택), Role(필수), 부서(선택)이다.</li>
+            <li><strong>FR-1.2</strong> ID는 RMS 내에서 유일해야 한다. 중복 ID 입력 시 생성을 차단한다.</li>
+            <li><strong>FR-1.3</strong> ID 중복 검사는 대소문자를 구분하지 않는다.</li>
+            <li><strong>FR-1.4</strong> 초기 비밀번호는 최소 길이·문자 종류 등의 정책을 충족해야 한다.</li>
+            <li><strong>FR-1.5</strong> 사용자가 처음 로그인하면 비밀번호 변경을 요구하는 옵션을 제공할 수 있다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. 계정 정보 변경</p>
+          <ul>
+            <li><strong>FR-2.1</strong> 사용자는 기존 계정의 Role, 표시 이름, 부서 등을 변경할 수 있어야 한다.</li>
+            <li><strong>FR-2.2</strong> 변경 사항은 다음 로그인부터 적용된다.</li>
+            <li><strong>FR-2.3</strong> Role 변경은 즉시 권한에 반영되며 이력에 기록된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. 활성화 · 비활성화</p>
+          <ul>
+            <li><strong>FR-3.1</strong> 사용자는 계정을 비활성화(Disable)하여 로그인을 차단할 수 있어야 한다.</li>
+            <li><strong>FR-3.2</strong> 비활성화된 계정은 로그인 시 별도 안내 메시지가 표시된다.</li>
+            <li><strong>FR-3.3</strong> 비활성화된 계정은 다시 활성화(Enable)할 수 있다.</li>
+            <li><strong>FR-3.4</strong> 비활성화 상태에서도 계정의 모든 이력은 보존된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. 비밀번호 재설정</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 관리자는 사용자의 비밀번호를 재설정할 수 있어야 한다.</li>
+            <li><strong>FR-4.2</strong> 재설정된 비밀번호는 평문으로 표시되지 않으며, 임시 비밀번호 발급 또는 사용자에게 직접 새 비밀번호를 설정하도록 하는 방식 중 하나를 사용한다.</li>
+            <li><strong>FR-4.3</strong> 비밀번호 재설정 후 사용자는 다음 로그인 시 비밀번호를 변경하도록 강제할 수 있다.</li>
+            <li><strong>FR-4.4</strong> 비밀번호 재설정 이력은 자동 기록된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. 계정 삭제</p>
+          <ul>
+            <li><strong>FR-5.1</strong> 계정의 영구 삭제(Hard Delete)는 지원하지 않는다. 비활성화로 대체한다.</li>
+            <li><strong>FR-5.2</strong> 계정이 남긴 이력(작업 이력, 배포 이력 등)은 절대 삭제되지 않는다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-6. Vendor 계정 보호</p>
+          <ul>
+            <li><strong>FR-6.1</strong> 마지막 남은 활성 Vendor 계정은 비활성화할 수 없다.</li>
+            <li><strong>FR-6.2</strong> 마지막 남은 활성 Vendor 계정의 Role은 변경할 수 없다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-7. 변경 이력</p>
+          <ul>
+            <li><strong>FR-7.1</strong> 모든 계정 변경(생성·Role 변경·비활성화·비밀번호 재설정)은 자동 기록된다.</li>
+            <li><strong>FR-7.2</strong> 기록 항목에는 변경자, 변경 시각, 대상 계정, 변경 내용이 포함된다.</li>
+            <li><strong>FR-7.3</strong> 변경 이력은 수정·삭제할 수 없다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 권한</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> Account 화면 접근은 Vendor, Admin만 가능하다.</li>
+            <li><strong>NFR-1.2</strong> Vendor 계정 생성·삭제는 Vendor만 수행할 수 있다.</li>
+            <li><strong>NFR-1.3</strong> Admin은 Engineer, Operator 계정만 관리할 수 있다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 보안</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> 비밀번호는 단방향 해시(예: bcrypt) + Salt로 저장된다.</li>
+            <li><strong>NFR-2.2</strong> 비밀번호는 어떤 화면에서도 평문으로 표시되지 않는다.</li>
+            <li><strong>NFR-2.3</strong> 모든 계정 관리 통신은 TLS 암호화 채널 위에서 수행된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. 가용성</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> 마지막 활성 Vendor 계정의 보호 메커니즘이 모든 경로(UI, API)에서 동작해야 한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> 계정의 영구 삭제(Hard Delete)는 지원하지 않는다. <strong>비활성화(Disable)로 대체</strong>한다. 이력 무결성을 위함이다.</li>
+            <li><span class="proposal-tag">정책</span> 비활성화된 계정의 모든 이력(작업·배포·로그인 등)은 보존된다.</li>
+            <li><span class="proposal-tag">정책</span> 마지막 남은 활성 Vendor 계정은 비활성화하거나 Role을 변경할 수 없다. 시스템 잠금 방지가 목적이다.</li>
+            <li><span class="proposal-tag">정책</span> ID 중복 검사는 대소문자를 구분하지 않는다.</li>
+            <li><span class="proposal-tag">정책</span> 비밀번호 재설정 후 사용자에게 첫 로그인 시 비밀번호 변경을 강제할 수 있다.</li>
+            <li><span class="proposal-tag">정책</span> Admin은 Engineer, Operator 계정만 관리할 수 있다. Vendor 계정 관리는 Vendor만 가능하다.</li>
+            <li><span class="proposal-tag">제약</span> 비밀번호는 단방향 해시 + Salt로 저장되며 어떤 화면에서도 평문 노출되지 않는다.</li>
+            <li><span class="proposal-tag">제약</span> 모든 계정 변경 이력은 자동 기록되며 수정·삭제할 수 없다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 8건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_SET_ACC_001.html">TC_SET_ACC_001</a> — Account 화면 접근 권한 확인 <span class="urs-fr-ref">(NFR-1)</span></li>
+            <li><a href="TC_SET_ACC_002.html">TC_SET_ACC_002</a> — 신규 사용자 계정 생성 (ID · PW · Role) <span class="urs-fr-ref">(FR-1)</span></li>
+            <li><a href="TC_SET_ACC_003.html">TC_SET_ACC_003</a> — 중복 ID 생성 차단 <span class="urs-fr-ref">(FR-1.2, FR-1.3)</span></li>
+            <li><a href="TC_SET_ACC_004.html">TC_SET_ACC_004</a> — 계정 Role 변경 <span class="urs-fr-ref">(FR-2)</span></li>
+            <li><a href="TC_SET_ACC_005.html">TC_SET_ACC_005</a> — 계정 비활성화 · 활성화 <span class="urs-fr-ref">(FR-3)</span></li>
+            <li><a href="TC_SET_ACC_006.html">TC_SET_ACC_006</a> — 비밀번호 재설정 <span class="urs-fr-ref">(FR-4)</span></li>
+            <li><a href="TC_SET_ACC_007.html">TC_SET_ACC_007</a> — 계정 삭제 및 제약 조건 <span class="urs-fr-ref">(FR-5, FR-6, NFR-3.1)</span></li>
+            <li><a href="TC_SET_ACC_008.html">TC_SET_ACC_008</a> — 계정 변경 이력 기록 <span class="urs-fr-ref">(FR-7)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성. TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>

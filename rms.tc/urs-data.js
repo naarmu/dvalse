@@ -37,22 +37,22 @@ const URS_LIST = [
   { id: "URS_MTD_GRP", area: "MTD", screen: "Manage Method Groups", title: "Method 그룹 관리",             hasDetail: true },
 
   // CLT — Collect (2)
-  { id: "URS_CLT_RCP", area: "CLT", screen: "Collect Recipes",     title: "Recipe 자동 수집",              hasDetail: false },
-  { id: "URS_CLT_MTD", area: "CLT", screen: "Collect Methods",     title: "Method 자동 수집",              hasDetail: false },
+  { id: "URS_CLT_RCP", area: "CLT", screen: "Collect Recipes",     title: "Recipe 자동 수집",              hasDetail: true },
+  { id: "URS_CLT_MTD", area: "CLT", screen: "Collect Methods",     title: "Method 자동 수집",              hasDetail: true },
 
   // HST — History & Log (6)
-  { id: "URS_HST_EQP", area: "HST", screen: "Equipment History",   title: "장비 이력",                     hasDetail: false },
-  { id: "URS_HST_RCP", area: "HST", screen: "Recipe History",      title: "Recipe 이력",                   hasDetail: false },
-  { id: "URS_HST_MTD", area: "HST", screen: "Method History",      title: "Method 이력",                   hasDetail: false },
-  { id: "URS_HST_RMS", area: "HST", screen: "RMS Log",             title: "사용자 · 감사 로그",            hasDetail: false },
-  { id: "URS_HST_SVR", area: "HST", screen: "Server Log",          title: "서버 시스템 로그",              hasDetail: false },
-  { id: "URS_HST_DEP", area: "HST", screen: "Deployment Log",      title: "배포 이력",                     hasDetail: false },
+  { id: "URS_HST_EQP", area: "HST", screen: "Equipment History",   title: "장비 이력",                     hasDetail: true },
+  { id: "URS_HST_RCP", area: "HST", screen: "Recipe History",      title: "Recipe 이력",                   hasDetail: true },
+  { id: "URS_HST_MTD", area: "HST", screen: "Method History",      title: "Method 이력",                   hasDetail: true },
+  { id: "URS_HST_RMS", area: "HST", screen: "RMS Log",             title: "사용자 · 감사 로그",            hasDetail: true },
+  { id: "URS_HST_SVR", area: "HST", screen: "Server Log",          title: "서버 시스템 로그",              hasDetail: true },
+  { id: "URS_HST_DEP", area: "HST", screen: "Deployment Log",      title: "배포 이력",                     hasDetail: true },
 
   // SET — Settings (4)
-  { id: "URS_SET_PRF", area: "SET", screen: "Preference",          title: "개인 설정",                     hasDetail: false },
-  { id: "URS_SET_CNN", area: "SET", screen: "Connection",          title: "연결 관리",                     hasDetail: false },
-  { id: "URS_SET_PRV", area: "SET", screen: "Privilege",           title: "권한 관리",                     hasDetail: false },
-  { id: "URS_SET_ACC", area: "SET", screen: "Account",             title: "계정 관리",                     hasDetail: false },
+  { id: "URS_SET_PRF", area: "SET", screen: "Preference",          title: "개인 설정",                     hasDetail: true },
+  { id: "URS_SET_CNN", area: "SET", screen: "Connection",          title: "연결 관리",                     hasDetail: true },
+  { id: "URS_SET_PRV", area: "SET", screen: "Privilege",           title: "권한 관리",                     hasDetail: true },
+  { id: "URS_SET_ACC", area: "SET", screen: "Account",             title: "계정 관리",                     hasDetail: true },
 ];
 
 const URS_AREA_NAMES = {

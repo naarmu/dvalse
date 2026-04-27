@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URS_CLT_MTD · Collect Methods · RMS Docs</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-top="requirement" data-sub="urs" data-docid="URS_CLT_MTD" data-parent="urs-index.html" data-prev="" data-next="" data-prev-title="" data-next-title="" data-meta="RMS Docs · v0.3">
+
+<main class="tc-page">
+
+  <aside class="tc-sidebar">
+    <a href="urs-index.html" class="tc-sidebar__back">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      URS Index로 돌아가기
+    </a>
+    <ul class="meta-list">
+      <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">CLT · Collect</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Collect Methods</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">김태호 (ted.gim)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">6건 (CLT_MTD)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
+    </ul>
+  </aside>
+
+  <section class="tc-content-panel">
+
+    <header class="tc-detail-header">
+      <div class="tc-detail-breadcrumb">
+        <a href="urs-index.html">URS Index</a>
+        <span class="sep">/</span> Collect
+        <span class="sep">/</span> Collect Methods
+        <span class="sep">/</span> URS_CLT_MTD
+      </div>
+      <div class="tc-detail-id">URS_CLT_MTD</div>
+      <h1 class="tc-detail-title">Method 자동 수집</h1>
+      <div class="tc-detail-badges">
+        <span class="badge badge--functional">User Requirement</span>
+        <span class="badge badge--critical">Core Function</span>
+      </div>
+    </header>
+
+    <div class="tc-sections">
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
+        <div class="tc-section__body">
+          <p>장비 PC에 설치된 Agent가 장비의 Method 파일 변경을 감지하여 RMS 서버로 자동 전송하는 백그라운드 기능이다. Collect Recipes와 동일한 운영 모델을 따르되 대상이 Method라는 점만 다르다.</p>
+          <p>Method는 Recipe보다 변경 빈도가 낮지만, 자동 수집 메커니즘은 동일하게 적용된다. 한 가지 차이는 Method의 경우 별도의 Pending 검토 단계가 없고 수집 즉시 Method Manager 목록에 반영된다는 점이다.</p>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">02</span><h3 class="tc-section__title">사용자 니즈</h3></div>
+        <div class="tc-section__body">
+          <p><strong>주요 사용자</strong></p>
+          <ul>
+            <li>장비 엔지니어 — 장비에서 만든 Method가 자동으로 서버에 모이는 것을 기대</li>
+            <li>RMS 관리자 — 수집 상태 점검</li>
+          </ul>
+
+          <p><strong>Pain Point (RMS 도입 전)</strong></p>
+          <ul>
+            <li>장비에서 만든 Method를 별도 절차로 서버에 올려야 함</li>
+            <li>수집 누락이 발생해도 사후에 인지하기 어려움</li>
+          </ul>
+
+          <p><strong>기대 효과</strong></p>
+          <ul>
+            <li>사용자 개입 없이 모든 Method 변경이 서버에 자동 동기화</li>
+            <li>오프라인 장비도 재연결 시 누락 없이 수집</li>
+            <li>수집 실패에 대한 자동 재시도와 가시화</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">03</span><h3 class="tc-section__title">기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ FR-1. 변경 감지</p>
+          <ul>
+            <li><strong>FR-1.1</strong> Agent는 장비의 Method 디렉토리를 모니터링하여 파일 변경(생성 / 수정 / 삭제)을 감지해야 한다.</li>
+            <li><strong>FR-1.2</strong> 감지 방식은 파일 시스템 이벤트 기반 또는 주기적 폴링 중 하나를 사용한다.</li>
+            <li><strong>FR-1.3</strong> 감지 즉시 또는 일정 디바운스 후 서버 전송 작업이 수행된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-2. 서버 수신 · 목록 반영</p>
+          <ul>
+            <li><strong>FR-2.1</strong> 서버는 Agent가 전송한 Method를 수신하여 Method Manager 목록에 반영한다.</li>
+            <li><strong>FR-2.2</strong> 신규 수집 또는 변경 시 Method Manager의 트리에 즉시 반영된다.</li>
+            <li><strong>FR-2.3</strong> 변경 이력은 Method History에 자동 기록된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-3. 수집 주기 · 트리거 설정</p>
+          <ul>
+            <li><strong>FR-3.1</strong> Vendor·Admin은 Agent의 Method 수집 주기 또는 트리거 방식을 설정할 수 있어야 한다.</li>
+            <li><strong>FR-3.2</strong> 설정 변경은 해당 Agent에 반영되며, 다음 수집부터 적용된다.</li>
+            <li><strong>FR-3.3</strong> 설정 변경 이력은 자동 기록된다.</li>
+            <li><strong>FR-3.4</strong> Recipe 수집 설정과 Method 수집 설정은 독립적으로 관리된다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-4. 오프라인 처리</p>
+          <ul>
+            <li><strong>FR-4.1</strong> 장비가 서버와 연결되지 않은 상태에서 발생한 Method 변경은 Agent가 로컬 큐에 보존한다.</li>
+            <li><strong>FR-4.2</strong> 서버 재연결 시 큐에 보존된 항목들이 순차적으로 전송된다.</li>
+            <li><strong>FR-4.3</strong> 큐에 보관된 항목 수에 임계가 있어, 임계 초과 시 사용자 알림이 발생한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-5. 반복 변경 처리</p>
+          <ul>
+            <li><strong>FR-5.1</strong> 동일 Method가 반복 변경되어 수집된 경우, 각 변경이 별도 버전으로 관리된다.</li>
+            <li><strong>FR-5.2</strong> 짧은 시간 내 동일 파일의 다중 변경은 Agent가 디바운스 처리하여 마지막 상태만 전송할 수 있다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ FR-6. 수집 실패 처리</p>
+          <ul>
+            <li><strong>FR-6.1</strong> 수집 실패 시 Agent는 일정 횟수 자동 재시도한다.</li>
+            <li><strong>FR-6.2</strong> 재시도가 모두 실패한 경우 에러 로그를 서버에 보고한다.</li>
+            <li><strong>FR-6.3</strong> 수집 실패는 RMS Log 또는 Server Log에 기록되며, 관리자가 실패 패턴을 추적할 수 있어야 한다.</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">04</span><h3 class="tc-section__title">비기능 요구사항</h3></div>
+        <div class="tc-section__body">
+
+          <p class="urs-fr-group-label">■ NFR-1. 데이터 무결성</p>
+          <ul>
+            <li><strong>NFR-1.1</strong> Agent는 파일을 완전히 읽기 전까지 전송을 시작하지 않는다.</li>
+            <li><strong>NFR-1.2</strong> 전송 중 끊김이 발생해도 부분 파일이 서버에 등록되지 않는다.</li>
+            <li><strong>NFR-1.3</strong> 전송 시 SHA-256 해시를 함께 보내 서버에서 무결성 검증이 가능하다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-2. 성능 · 부하</p>
+          <ul>
+            <li><strong>NFR-2.1</strong> Agent의 모니터링 동작은 장비 본래 작업에 영향을 주지 않을 만큼 가벼워야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-3. 보안</p>
+          <ul>
+            <li><strong>NFR-3.1</strong> Agent–서버 통신은 TLS 암호화 채널 위에서 수행된다.</li>
+            <li><strong>NFR-3.2</strong> 수집된 파일은 서버 등록 전 안티바이러스 스캔을 통과해야 한다.</li>
+          </ul>
+
+          <p class="urs-fr-group-label">■ NFR-4. 가시성 · 일관성</p>
+          <ul>
+            <li><strong>NFR-4.1</strong> 수집 상태(성공·실패·대기)는 Equipment Dashboard 또는 Connection 화면에서 확인할 수 있어야 한다.</li>
+            <li><strong>NFR-4.2</strong> Method 수집의 운영 모델은 Recipe 수집과 동일한 패턴을 따른다(Pending 단계가 없다는 점만 차이).</li>
+          </ul>
+
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--proposal">
+        <div class="tc-section__head"><span class="tc-section__num">05</span><h3 class="tc-section__title">제약사항 · 정책</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><span class="proposal-tag">정책</span> Method 수집은 <strong>Pending 단계 없이</strong> Method Manager 목록에 즉시 반영된다. Recipe와 달리 Method는 검토 단계 없이 자동 등록된다.</li>
+            <li><span class="proposal-tag">정책</span> 오프라인 장비의 변경 사항은 Agent의 로컬 큐에 보존되며, 재연결 시 자동 전송된다.</li>
+            <li><span class="proposal-tag">정책</span> Recipe 수집 설정과 Method 수집 설정은 독립적으로 관리된다. 두 자료의 변경 빈도가 다르기 때문이다.</li>
+            <li><span class="proposal-tag">정책</span> 동일 파일의 짧은 시간 내 다중 변경은 디바운스되어 마지막 상태만 전송될 수 있다.</li>
+            <li><span class="proposal-tag">제약</span> Agent–서버 통신은 TLS 암호화 채널 위에서만 허용된다.</li>
+            <li><span class="proposal-tag">제약</span> 모든 전송에 SHA-256 해시가 동반되어야 한다.</li>
+            <li><span class="proposal-tag">제약</span> 수집 설정 변경 권한은 Vendor, Admin로 한정된다.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section">
+        <div class="tc-section__head"><span class="tc-section__num">06</span><h3 class="tc-section__title">관련 Test Cases</h3></div>
+        <div class="tc-section__body">
+          <p>이 URS의 요구사항을 검증하는 QA 테스트 케이스 6건:</p>
+          <ul class="urs-related-tc">
+            <li><a href="TC_CLT_MTD_001.html">TC_CLT_MTD_001</a> — 장비측 Method 변경 감지 및 서버 수신 <span class="urs-fr-ref">(FR-1, FR-2)</span></li>
+            <li><a href="TC_CLT_MTD_002.html">TC_CLT_MTD_002</a> — 수집된 Method의 목록 반영 <span class="urs-fr-ref">(FR-2)</span></li>
+            <li><a href="TC_CLT_MTD_003.html">TC_CLT_MTD_003</a> — 수집 주기 · 트리거 설정 동작 <span class="urs-fr-ref">(FR-3)</span></li>
+            <li><a href="TC_CLT_MTD_004.html">TC_CLT_MTD_004</a> — 장비 오프라인 상태에서 수집 재개 <span class="urs-fr-ref">(FR-4)</span></li>
+            <li><a href="TC_CLT_MTD_005.html">TC_CLT_MTD_005</a> — 동일 Method 반복 변경 시 버전 관리 <span class="urs-fr-ref">(FR-5)</span></li>
+            <li><a href="TC_CLT_MTD_006.html">TC_CLT_MTD_006</a> — 수집 실패 시 재시도 및 에러 로그 <span class="urs-fr-ref">(FR-6)</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="tc-section tc-section--remark">
+        <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
+        <div class="tc-section__body">
+          <ul>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성. TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </section>
+</main>
+
+<script src="nav.js"></script>
+</body>
+</html>
