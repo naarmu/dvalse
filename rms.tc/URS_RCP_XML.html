@@ -19,7 +19,7 @@
       <li class="meta-list__item"><div class="meta-list__label">Area</div><div class="meta-list__value">RCP · Recipe</div></li>
       <li class="meta-list__item"><div class="meta-list__label">Screen</div><div class="meta-list__value">Deploy Custom XML</div></li>
       <li class="meta-list__item"><div class="meta-list__label">문서 상태</div><div class="meta-list__value">Draft v0.1</div></li>
-      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">박기웅 (DRD)</div></li>
+      <li class="meta-list__item"><div class="meta-list__label">작성자</div><div class="meta-list__value">김태호 (ted.gim)</div></li>
       <li class="meta-list__item"><div class="meta-list__label">검토자</div><div class="meta-list__value">—</div></li>
       <li class="meta-list__item"><div class="meta-list__label">관련 TC</div><div class="meta-list__value">7건 (RCP_XML)</div></li>
       <li class="meta-list__item"><div class="meta-list__label">Last Updated</div><div class="meta-list__value mono">2026.04.27</div></li>
@@ -49,9 +49,8 @@
       <section class="tc-section">
         <div class="tc-section__head"><span class="tc-section__num">01</span><h3 class="tc-section__title">기능 개요</h3></div>
         <div class="tc-section__body">
-          <p>장비 측에서 직접 작성하지 않은 Custom XML 파일을 서버에 업로드하고, 이를 장비로 배포하면 장비에서 자동으로 .psr Recipe 파일로 변환되는 기능이다. 일반적인 Recipe 운영 흐름(장비에서 수집 → 서버 등록 → 다시 배포)과 달리 <strong>장비를 거치지 않고도 새 Recipe를 생성</strong>할 수 있는 별도 경로를 제공한다.</p>
-          <p>RMS의 다른 기능들이 "기존 자산을 관리"하는 데 집중한다면, Deploy Custom XML은 "새로운 자산을 주입"하는 유일한 진입점이다. 이로 인해 보안·검증·이력 추적의 중요성이 상대적으로 더 높다.</p>
-          <p>흔히 <strong>Waferless Recipe Creation</strong>으로 불리는 운영 시나리오를 가능하게 하는 기능이다.</p>
+          <p>로컬에서 작성한 Custom XML 파일을 서버에 업로드하고, 이를 장비로 배포하면 장비에서 자동으로 .psr Recipe 파일로 변환되는 기능이다. 일반적인 Recipe 운영 흐름(장비에서 수집 → 서버 등록 → 다시 배포)과 달리, 장비를 거치지 않고 새 Recipe를 RMS에 도입할 수 있는 별도 경로를 제공한다.</p>
+          <p>RMS의 다른 기능들이 기존 Recipe 자산을 관리하는 데 초점이 있다면, Deploy Custom XML은 새 Recipe 자산을 시스템에 주입하는 진입점이다. 외부에서 작성된 파일을 장비로 보내는 흐름이므로, 업로드 시점과 변환 시점 양쪽에서 검증·이력 관리가 필요하다.</p>
         </div>
       </section>
 
@@ -68,17 +67,17 @@
 
           <p><strong>Pain Point (이 기능 도입 전)</strong></p>
           <ul>
-            <li>새 Recipe를 만들려면 반드시 장비 앞에서 직접 만들고 저장해야 함</li>
+            <li>새 Recipe를 만들려면 반드시 장비 앞에서 직접 작성해야 함</li>
             <li>장비 가동 전이거나 정비 중일 때는 Recipe 작성이 불가능</li>
             <li>여러 장비에 동일 Recipe를 만들려면 각 장비를 일일이 방문해야 함</li>
-            <li>Recipe 생성 작업이 장비 가동 시간을 잠식</li>
+            <li>Recipe 작성에 장비 가동 시간이 소요됨</li>
           </ul>
 
           <p><strong>기대 효과</strong></p>
           <ul>
-            <li>장비 가용성과 무관하게 사무실에서 Recipe 정의 및 배포 가능</li>
-            <li>표준 Recipe의 중앙 작성 → 다수 장비 일괄 배포로 표준화 시간 단축</li>
-            <li>장비 가동 시간 절약 (Recipe 작성에 소요되던 비가동 시간 제거)</li>
+            <li>장비를 직접 사용하지 않고 사무실에서 Recipe 정의 및 배포 가능</li>
+            <li>표준 Recipe의 중앙 작성 → 다수 장비 일괄 배포로 표준화 작업 간소화</li>
+            <li>Recipe 작성에 사용되던 장비 시간 절약</li>
           </ul>
         </div>
       </section>
@@ -215,7 +214,7 @@
         <div class="tc-section__head"><span class="tc-section__num">07</span><h3 class="tc-section__title">변경 이력</h3></div>
         <div class="tc-section__body">
           <ul>
-            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성 (박기웅). TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
+            <li><strong>v0.1 · 2026-04-27</strong> — 최초 작성. TC 작성 과정에서 축적된 정책·제안을 정리하여 문서화.</li>
           </ul>
         </div>
       </section>
