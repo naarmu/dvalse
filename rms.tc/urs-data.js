@@ -5,9 +5,9 @@
 
 const URS_LIST = [
   // SYS — System & Auth (3)
-  { id: "URS_SYS_LGN", area: "SYS", screen: "Login",               title: "로그인 · 인증",                 hasDetail: false },
-  { id: "URS_SYS_SVR", area: "SYS", screen: "Server Setup",        title: "서버 연결 설정",                hasDetail: false },
-  { id: "URS_SYS_PND", area: "SYS", screen: "Pending Recipes",     title: "Pending Recipes 알림",          hasDetail: false },
+  { id: "URS_SYS_LGN", area: "SYS", screen: "Login",               title: "로그인 · 인증",                 hasDetail: true },
+  { id: "URS_SYS_SVR", area: "SYS", screen: "Server Setup",        title: "서버 연결 설정",                hasDetail: true },
+  { id: "URS_SYS_PND", area: "SYS", screen: "Pending Recipes",     title: "Pending Recipes 알림",          hasDetail: true },
 
   // DSH — Dashboard (3)
   { id: "URS_DSH_RMS", area: "DSH", screen: "RMS Dashboard",       title: "RMS 시스템 대시보드",           hasDetail: true },
